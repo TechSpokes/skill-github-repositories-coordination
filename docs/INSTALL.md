@@ -1,118 +1,147 @@
 # Install
 
-Release packages preserve the skill directory so `SKILL.md` can load its
-references by relative path. Install a release asset rather than copying raw
-repository bootstrap or development files.
+The recommended setup is personal or global: install the skill once and let the
+same agent use it across your projects. You do not need to clone this repository
+or understand Git to install it.
 
-## Choose a Package
+## Easiest Option: Ask Your Agent
 
-Each `vX.Y.Z` release provides:
-
-- `coordinate-github-repositories-vX.Y.Z.zip` for standalone Agent Skills hosts.
-- `coordinate-github-repositories-codex-plugin-vX.Y.Z.zip` for Codex plugin
-  distribution.
-- `coordinate-github-repositories-claude-plugin-vX.Y.Z.zip` for Claude plugin
-  distribution.
-
-The standalone package is the most portable and is recommended for a global
-personal installation.
-
-## Codex and Shared Agent Skills
-
-Extract the standalone folder to:
+Copy this message into Codex, Claude Code, GitHub Copilot, or another agent that
+can install skills:
 
 ```text
-$HOME/.agents/skills/coordinate-github-repositories/
+Install the public Coordinate GitHub Repositories skill globally for me from
+https://github.com/TechSpokes/skill-github-repositories-coordination at
+version v1.0.1. Prefer your native skill installer. Otherwise use the standalone
+release ZIP, not GitHub's Source code ZIP. Keep the coordinate-github-repositories
+folder intact with SKILL.md and references inside it. Do not overwrite an
+existing installation without asking. Verify the final location and tell me
+whether I need to start a new session.
 ```
 
-Codex uses this user scope across repositories. GitHub Copilot also documents
-the shared user-level `.agents/skills` location.
+The agent should choose its supported personal or user scope, preserve the
+folder, and report what it actually installed. If the agent cannot install
+files, use the browser-only steps below.
 
-For one repository only, install under its root:
+## Install With a Browser Only
+
+1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.0.1.zip).
+2. Open the downloaded ZIP.
+3. Find the folder named `coordinate-github-repositories` inside it.
+4. Copy that whole folder into the personal skills folder for your agent.
+5. Start a new agent session if the current session does not detect new skills.
+
+Use this destination table:
+
+| Agent | Windows folder | macOS or Linux folder |
+|---|---|---|
+| Codex | `%USERPROFILE%\.agents\skills` | `~/.agents/skills` |
+| GitHub Copilot | `%USERPROFILE%\.agents\skills` | `~/.agents/skills` |
+| Claude Code | `%USERPROFILE%\.claude\skills` | `~/.claude/skills` |
+| Another Agent Skills host | Use the personal skills location shown by that app, or ask the agent to identify it. | Use the personal skills location shown by that app, or ask the agent to identify it. |
+
+On Windows, paste the folder path into the File Explorer address bar. Create
+the missing `.agents`, `.claude`, or `skills` folders when needed. On macOS,
+choose **Go > Go to Folder** in Finder and paste the path. On Linux, press
+**Ctrl+L** in the file manager, enter the path, and use **Ctrl+H** if hidden
+folders are not visible.
+
+The final structure must look like this. An extra folder level can prevent the
+agent from finding the skill.
 
 ```text
-.agents/skills/coordinate-github-repositories/
+skills/
+`-- coordinate-github-repositories/
+    |-- SKILL.md
+    `-- references/
 ```
 
-Official references:
+## Choose the Right Download
 
-- <https://learn.chatgpt.com/docs/build-skills>
-- <https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills>
+For most people, the first row is the right choice.
 
-## Claude Code
+| What you want | Download |
+|---|---|
+| Use the skill personally across projects | `coordinate-github-repositories-v1.0.1.zip` (recommended) |
+| Import a complete plugin into a Codex host that accepts plugin ZIPs | `coordinate-github-repositories-codex-plugin-v1.0.1.zip` |
+| Import a complete plugin into a Claude host that accepts plugin ZIPs | `coordinate-github-repositories-claude-plugin-v1.0.1.zip` |
 
-For a personal installation across projects, extract the standalone folder to:
+Open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest)
+if a direct download does not start. Expand **Assets** and choose one of the
+three files above.
 
-```text
-~/.claude/skills/coordinate-github-repositories/
-```
+Do not choose **Source code (zip)** or **Source code (tar.gz)**. GitHub creates
+those automatically from the maintenance repository, and they are not the
+install-ready packages.
 
-For one repository only, use:
+## Install With GitHub CLI
 
-```text
-.claude/skills/coordinate-github-repositories/
-```
+This option is useful when GitHub CLI is already installed. It chooses the
+correct personal folder and records where the skill came from.
 
-The Claude plugin release contains `.claude-plugin/plugin.json` and the skill
-under `skills/`. Use it through a Claude plugin workflow when centralized plugin
-distribution is preferable.
-
-Official reference: <https://code.claude.com/docs/en/skills>
-
-## GitHub Copilot
-
-GitHub Copilot accepts personal skills under `~/.copilot/skills` or
-`~/.agents/skills`. It accepts project skills under `.github/skills`,
-`.claude/skills`, or `.agents/skills`.
-
-GitHub CLI also provides preview commands for discovering and installing skills.
-Preview the source before installation and follow the current CLI prompts for
-agent and scope selection:
+For Codex:
 
 ```powershell
-gh skill preview TechSpokes/skill-github-repositories-coordination coordinate-github-repositories
-gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.0
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent codex --scope user
 ```
 
-The release ZIP remains the authoritative installation path if the preview CLI
-does not recognize this repository layout.
+For GitHub Copilot:
 
-## Codex Plugin Package
+```powershell
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent github-copilot --scope user
+```
 
-The Codex plugin release contains `.codex-plugin/plugin.json` and the portable
-skill under `skills/`. Codex installs plugins from configured marketplace
-sources. Use the standalone package unless you already operate a Codex plugin
-marketplace or need plugin-level distribution.
+For Claude Code:
 
-Official references:
+```powershell
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent claude-code --scope user
+```
 
-- <https://learn.chatgpt.com/docs/plugins>
-- <https://learn.chatgpt.com/docs/build-plugins>
+GitHub CLI supports additional agents. Run `gh skill install --help` or ask the
+agent for its supported `--agent` name instead of guessing a folder.
+
+If the skill already exists, review it before allowing an overwrite.
+
+## Install for One Project Only
+
+Choose project scope when the skill belongs to one repository rather than your
+general agent setup.
+
+- Codex and GitHub Copilot: `.agents/skills/coordinate-github-repositories/`
+- Claude Code: `.claude/skills/coordinate-github-repositories/`
+- GitHub Copilot also accepts `.github/skills/coordinate-github-repositories/`
+
+Place those folders at the project root. Project instructions still control
+work inside that repository.
 
 ## Verify Installation
 
-Confirm the installed folder contains:
+Start a new session and ask:
 
 ```text
-coordinate-github-repositories/
-|-- SKILL.md
-`-- references/
+Use the Coordinate GitHub Repositories skill. Tell me where it is installed,
+then help me understand which repositories you can actually access without
+changing anything.
 ```
 
-Start a new agent session if the host does not detect additions live. Ask a
-clear activation prompt:
-
-```text
-Help me diagnose repository access across my personal account and organizations,
-then compare proportionate inventory options.
-```
-
-The agent should identify the skill, state its observed capabilities, and avoid
-claiming access it has not verified.
+A correct response should identify the skill, distinguish observed access from
+assumed access, and avoid making changes without permission.
 
 ## Update or Remove
 
-Replace the entire installed skill folder with a newer release so references do
-not mix versions. To remove it, delete only the exact
-`coordinate-github-repositories` installation folder or uninstall the wrapper
-plugin through the host's plugin manager.
+For a browser installation, replace the entire
+`coordinate-github-repositories` folder with the folder from a newer standalone
+release. Do not mix reference files from different versions.
+
+For GitHub CLI installations, ask the agent to check for an update or use the
+CLI update flow supported by the installed version. To remove the skill, delete
+only the exact `coordinate-github-repositories` installation folder or use the
+host's plugin manager.
+
+## Official Host References
+
+- Codex skills: <https://learn.chatgpt.com/docs/build-skills>
+- GitHub Copilot skills: <https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills>
+- Claude Code skills: <https://code.claude.com/docs/en/skills>
+- Codex plugins: <https://learn.chatgpt.com/docs/plugins>
+- Claude Code plugins: <https://code.claude.com/docs/en/plugins>

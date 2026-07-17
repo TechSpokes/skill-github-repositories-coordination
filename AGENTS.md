@@ -55,10 +55,10 @@ Run after every product change:
 
 ```powershell
 npm run validate
-npm run package -- v1.0.0
+npm run package -- v1.0.1
 ```
 
-For a new version, use the intended tag instead of `v1.0.0`. Inspect all three
+For a new version, use the intended tag instead of `v1.0.1`. Inspect all three
 ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake,
 local path, placeholder, or secret material.
 
@@ -73,5 +73,5 @@ affected references, fixtures, docs, manifests, changelog, and release notes as
 one coherent change.
 
 New source material may be staged privately for an update, but transform only
-the durable, publishable knowledge into the canonical skill and public docs. Remove private
-working material before publication.
+the durable, publishable knowledge into the canonical skill and public docs.
+Remove private working material before publication.

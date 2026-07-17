@@ -36,6 +36,23 @@ Product and standard behavior was checked on 2026-07-17 against:
 - MCP security guidance: <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>
 - Backstage Software Catalog: <https://backstage.io/docs/features/software-catalog/>
 
+## Installation Usability Comparison
+
+On 2026-07-17, the most recently published prior TechSpokes skill release was
+`skill-ide-phpstorm-mcp` v1.4.0. Its public README and install guide established
+three useful organization patterns:
+
+- Put installation near the top of the README.
+- Explain the purpose of each release asset.
+- Warn users that GitHub's automatic Source code archives are not runtime
+  packages.
+
+Version v1.0.1 adopts those patterns and lowers the remaining barrier by adding
+an agent-assisted global install prompt, browser-only instructions, native
+Windows and macOS folder navigation, one recommended default package, and an
+explicit final-path check. The comparison used public repository and release
+content only: <https://github.com/TechSpokes/skill-ide-phpstorm-mcp/releases/tag/v1.4.0>.
+
 ## Source Policy
 
 User requirements are authoritative for intent. Local repositories are evidence

@@ -297,11 +297,40 @@ function validateReleaseNotes() {
 }
 
 function validatePackagingBoundaries() {
-  const sourceFiles = walk("src");
+  const sourceFiles = walk("skills/coordinate-github-repositories");
   for (const file of sourceFiles) {
     const text = fs.readFileSync(path.join(root, file));
     if (!bootstrapMode && text.includes(Buffer.from(".template/"))) {
       fail(`${file} references bootstrap control files.`);
+    }
+  }
+}
+
+function validateInstallationContract() {
+  const version = readJson("package.json").version;
+  const tag = `v${version}`;
+  const skillName = "coordinate-github-repositories";
+  const assetName = `${skillName}-${tag}.zip`;
+  const latestDownload = `releases/latest/download/${assetName}`;
+  const readme = readText("README.md");
+  const install = readText("docs/INSTALL.md");
+
+  if (!readme.includes(latestDownload)) {
+    fail(`README.md must link directly to the recommended ${assetName} asset.`);
+  }
+  if (!readme.includes(`Current version: \`${version}\`.`)) {
+    fail("README.md current version must match package.json.");
+  }
+  if (!install.includes(latestDownload)) {
+    fail(`docs/INSTALL.md must link directly to the recommended ${assetName} asset.`);
+  }
+  if (!/Source code \(zip\)|Source code ZIP/.test(install)) {
+    fail("docs/INSTALL.md must warn against GitHub's automatic Source code archive.");
+  }
+  for (const agent of ["codex", "github-copilot", "claude-code"]) {
+    const expected = `${skillName}@${tag} --agent ${agent} --scope user`;
+    if (!install.includes(expected)) {
+      fail(`docs/INSTALL.md is missing the user-scope GitHub CLI example for ${agent}.`);
     }
   }
 }
@@ -422,6 +451,7 @@ validateReferences();
 validateManifests();
 validateReleaseNotes();
 validatePackagingBoundaries();
+validateInstallationContract();
 validateWorkflowMode();
 validateRepositoryContract();
 validateMarkdownStructure();
