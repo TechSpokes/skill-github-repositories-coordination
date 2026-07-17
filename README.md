@@ -75,7 +75,7 @@ Each release contains:
 - A Codex plugin ZIP.
 - A Claude plugin ZIP.
 
-`src/SKILL.md` is the canonical runtime skill. All packages contain the same
+`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill. All packages contain the same
 portable core and focused references.
 
 ## Documentation
