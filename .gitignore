@@ -1,0 +1,9 @@
+node_modules/
+dist/
+tmp/
+.template/state/
+.idea/
+*.log
+.skill-template-feedback/*
+!.skill-template-feedback/.gitkeep
+!.skill-template-feedback/README.md
