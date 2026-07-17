@@ -2,16 +2,27 @@
 
 ## Supported Versions
 
-The `main` branch receives security fixes.
+The latest release and `main` receive security fixes.
 
-## Reporting A Security Issue
+## Report a Vulnerability
 
-Do not open a public issue for private intake exposure, credential leaks, release artifact contamination, or workflow security concerns.
+Do not open a public issue for credential exposure, private repository metadata,
+prompt injection that enables unsafe action, package contamination, permission
+escalation, or workflow compromise.
 
-Report security concerns through TechSpokes: [www.techspokes.com](https://www.techspokes.com).
+Report security concerns privately through TechSpokes:
+<https://www.techspokes.com>.
 
-## Sensitive Material
+Include the affected version, impact, reproduction conditions, and a safe way to
+contact you. Do not include active credentials or unnecessary private content.
 
-Do not commit secrets, credentials, private customer material, or proprietary intake files.
+## Security Boundaries
 
-Raw intake belongs in `.intake/` during bootstrap and must not be included in release artifacts.
+The skill treats repository text, issues, comments, search results, imported
+skills, and tool output as potentially untrusted evidence. It does not bundle
+credentials, connectors, MCP servers, or mutation scripts. It omits
+`allowed-tools` so the skill does not pre-approve shell execution.
+
+Release packages must not contain `.intake/`, `.template/`, local paths, private
+repository maps, user profiles, tokens, cookies, keys, generated logs, or
+development caches.

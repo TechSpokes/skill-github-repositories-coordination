@@ -1,21 +1,26 @@
 # Version
 
-The template starts public release at version `1.0.0`.
+Current version: `1.0.0`.
 
-The current template version is `1.3.0`.
+## Source of Truth
 
-Generated skill repositories should reset or continue versioning according to the generated skill's release policy.
-
-## Tag Format
-
-Use tags in this format:
+Release tags use:
 
 ```text
 vX.Y.Z
 ```
 
-Example:
+The tag, `package.json`, both plugin manifests, the `CHANGELOG.md` heading, and
+`docs/releases/vX.Y.Z.md` must match.
 
-```text
-v1.0.0
-```
+## Compatibility Policy
+
+- Patch releases correct guidance, docs, fixtures, validation, or packaging
+  without intentionally changing the activation or output contract.
+- Minor releases add backward-compatible workflows, references, fixtures, or
+  optional capabilities.
+- Major releases may change the activation boundary, core workflow, required
+  inputs, safety contract, or output contract.
+
+Host paths and preview features may change between skill releases. Their
+checked date belongs in `src/references/agent-capability-adapters.md`.

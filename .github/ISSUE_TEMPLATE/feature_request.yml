@@ -1,43 +1,44 @@
-name: Feature request
-description: Suggest an improvement to the template or generated repository workflow
+name: Improvement proposal
+description: Propose an evidence-backed skill or maintenance improvement
 labels: [enhancement]
 body:
   - type: textarea
     id: problem
     attributes:
-      label: Problem statement
-      description: What problem would this improvement solve?
+      label: Observed problem
+      description: What repository coordination case is not handled well?
+    validations:
+      required: true
+  - type: textarea
+    id: users
+    attributes:
+      label: Work and user context
+      description: Which work types, scale, collaboration, and agent capabilities are affected?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Provide sanitized examples or primary sources.
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
-      label: Proposed solution
-      description: Describe the change and where it would belong.
+      label: Proposed change
+      description: Explain the smallest change and its activation or workflow boundary.
     validations:
       required: true
-  - type: dropdown
-    id: area
-    attributes:
-      label: Area
-      options:
-        - Bootstrap workflow
-        - Agent instructions
-        - SKILL.md scaffold
-        - Validation
-        - Packaging
-        - Release workflow
-        - Documentation
-        - Community maintenance
-        - Other
-    validations:
-      required: true
-  - type: textarea
-    id: generated-impact
-    attributes:
-      label: Impact on generated repositories
-      description: How would this change affect repositories created from the template?
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives considered
+      label: Current system, no change, and alternatives
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundary review
+      options:
+        - label: The proposal does not require a code-only taxonomy.
+        - label: The proposal preserves conversation-only usefulness.
+        - label: The proposal states permission, privacy, maintenance, and reversibility impacts.

@@ -1,29 +1,31 @@
-title: "Show And Tell"
+title: "Coordination pattern showcase"
 labels: ["showcase", "community"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Share a skill repository or workflow created from Skill Base Template.
-  - type: input
-    id: repository
-    attributes:
-      label: Repository Or Project
-      description: Link to the generated repository or describe the project.
   - type: textarea
-    id: skill
+    id: outcome
     attributes:
-      label: Skill Description
-      description: What does the generated skill help agents do?
+      label: Repository-centered outcome
     validations:
       required: true
   - type: textarea
-    id: workflow
+    id: work
     attributes:
-      label: Workflow Notes
-      description: What worked well or what needed adaptation?
+      label: Work types and scale
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Pattern or tool choice
+      description: Explain the current system, chosen change, and why it fit.
+    validations:
+      required: true
   - type: textarea
     id: lessons
     attributes:
-      label: Lessons Learned
-      description: What would help others using this template?
+      label: Results, tradeoffs, and lessons
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed private repository, account, organization, client, and credential details.
+          required: true

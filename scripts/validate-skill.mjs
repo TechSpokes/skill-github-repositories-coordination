@@ -1,4 +1,8 @@
 /* global process, Buffer */
+/**
+ * Validates the portable skill, maintenance repository, and release contracts.
+ * @since 1.0.0
+ */
 import fs from "node:fs";
 import path from "node:path";
 
@@ -17,6 +21,10 @@ function warn(message) {
 
 function readText(relativePath) {
   return fs.readFileSync(path.join(root, relativePath), "utf8");
+}
+
+function readJson(relativePath) {
+  return JSON.parse(readText(relativePath));
 }
 
 function exists(relativePath) {
@@ -183,7 +191,17 @@ function validateSkill() {
 }
 
 function validateReferences() {
-  const markdownFiles = walk("src").filter((file) => file.endsWith(".md"));
+  const markdownFiles = [
+    ...walk("src"),
+    ...walk("docs"),
+    ...walk(".github"),
+    "README.md",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "SUPPORT.md"
+  ].filter((file) => file.endsWith(".md") && exists(file));
   const linkPattern = /\[[^\]]+]\(([^)]+)\)/g;
 
   for (const file of markdownFiles) {
@@ -209,6 +227,8 @@ function validateReferences() {
 }
 
 function validateManifests() {
+  const packageManifest = readJson("package.json");
+  const skill = parseFrontmatter(readText("src/SKILL.md"))?.data;
   const manifestPaths = [
     "packaging/codex-plugin/.codex-plugin/plugin.json",
     "packaging/claude-plugin/.claude-plugin/plugin.json"
@@ -221,7 +241,7 @@ function validateManifests() {
     }
 
     try {
-      const manifest = JSON.parse(readText(manifestPath));
+      const manifest = readJson(manifestPath);
       for (const key of ["name", "version", "description", "license"]) {
         if (!manifest[key]) {
           fail(`${manifestPath} is missing ${key}.`);
@@ -229,6 +249,22 @@ function validateManifests() {
       }
       if (manifestPath.includes(".claude-plugin") && !manifest.displayName) {
         fail(`${manifestPath} is missing top-level displayName.`);
+      }
+      if (manifest.name !== skill?.name) {
+        fail(`${manifestPath} name must match the skill name.`);
+      }
+      if (manifest.version !== packageManifest.version) {
+        fail(`${manifestPath} version must match package.json.`);
+      }
+      if (manifest.repository !== "https://github.com/TechSpokes/skill-github-repositories-coordination") {
+        fail(`${manifestPath} has an unexpected repository URL.`);
+      }
+      if (manifestPath.includes(".codex-plugin")) {
+        for (const key of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
+          if (!manifest.interface?.[key]) {
+            fail(`${manifestPath} is missing interface.${key}.`);
+          }
+        }
       }
     } catch (error) {
       fail(`${manifestPath} is not valid JSON: ${error.message}`);
@@ -243,6 +279,18 @@ function validateReleaseNotes() {
 
   if (!exists("docs/releases/README.md")) {
     fail("Missing docs/releases/README.md.");
+  }
+
+  const version = readJson("package.json").version;
+  const tag = `v${version}`;
+  if (!exists(`docs/releases/${tag}.md`)) {
+    fail(`Missing docs/releases/${tag}.md.`);
+  }
+  if (!readText("CHANGELOG.md").includes(`## [${tag}]`)) {
+    fail(`CHANGELOG.md is missing ## [${tag}].`);
+  }
+  if (!readText("docs/VERSION.md").includes(`Current version: \`${version}\`.`)) {
+    fail("docs/VERSION.md does not match package.json.");
   }
 }
 
@@ -272,6 +320,99 @@ function validateWorkflowMode() {
   if (exists(".github/workflows/template-ci.yml")) {
     fail("Maintenance mode must remove .github/workflows/template-ci.yml.");
   }
+  for (const workflow of [".github/workflows/ci.yml", ".github/workflows/release-draft.yml"]) {
+    if (!exists(workflow)) {
+      fail(`Maintenance mode requires ${workflow}.`);
+    }
+  }
+}
+
+function validateRepositoryContract() {
+  const requiredFiles = [
+    "README.md",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "docs/ARCHITECTURE.md",
+    "docs/INSTALL.md",
+    "docs/QUICKSTART.md",
+    "docs/RELEASING.md",
+    "docs/TESTING.md",
+    "docs/VERSION.md",
+    "src/test-fixtures/activation.md",
+    "src/test-fixtures/behavior-scenarios.md"
+  ];
+
+  for (const file of requiredFiles) {
+    if (!exists(file)) {
+      fail(`Missing required maintenance file ${file}.`);
+    }
+  }
+
+  const runtimeFiles = walk("src");
+  const forbiddenRuntimePatterns = [
+    { pattern: /placeholder-skill|OWNER\/REPOSITORY|Template Author/i, label: "placeholder text" },
+    { pattern: /[A-Za-z]:\\Users\\/i, label: "absolute Windows user path" },
+    { pattern: /\.template\//i, label: "bootstrap reference" },
+    { pattern: /allowed-tools\s*:/i, label: "pre-approved tool frontmatter" }
+  ];
+
+  for (const file of runtimeFiles) {
+    const text = readText(file);
+    for (const { pattern, label } of forbiddenRuntimePatterns) {
+      if (pattern.test(text)) {
+        fail(`${file} contains forbidden ${label}.`);
+      }
+    }
+  }
+
+  const skillLineCount = readText("src/SKILL.md").replace(/\r\n/g, "\n").split("\n").length;
+  if (skillLineCount > 500) {
+    fail("src/SKILL.md must remain below 500 lines.");
+  }
+}
+
+function validateMarkdownStructure() {
+  const markdownFiles = [
+    ...walk("src"),
+    ...walk("docs"),
+    "README.md",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "SUPPORT.md"
+  ].filter((file) => file.endsWith(".md") && exists(file));
+
+  for (const file of markdownFiles) {
+    const text = readText(file).replace(/\r\n/g, "\n");
+    const headings = [...text.matchAll(/^(#{1,6})\s+\S.+$/gm)].map((match) => match[1].length);
+    if (headings.filter((level) => level === 1).length !== 1) {
+      fail(`${file} must contain exactly one H1.`);
+    }
+    for (let index = 1; index < headings.length; index += 1) {
+      if (headings[index] > headings[index - 1] + 1) {
+        fail(`${file} skips a heading level.`);
+        break;
+      }
+    }
+    if (/[\u2013\u2014\u2018\u2019\u201c\u201d]/u.test(text)) {
+      fail(`${file} contains non-ASCII technical punctuation.`);
+    }
+    let inFence = false;
+    for (const line of text.split("\n")) {
+      if (!line.startsWith("```")) {
+        continue;
+      }
+      if (!inFence && line.trim() === "```") {
+        fail(`${file} contains an untagged fenced code block.`);
+        break;
+      }
+      inFence = !inFence;
+    }
+  }
 }
 
 validateSkill();
@@ -280,6 +421,8 @@ validateManifests();
 validateReleaseNotes();
 validatePackagingBoundaries();
 validateWorkflowMode();
+validateRepositoryContract();
+validateMarkdownStructure();
 
 if (failures.length > 0) {
   console.error("Validation failed:");

@@ -1,63 +1,93 @@
-# Releasing and repository workflow
+# Releasing
 
-This document is the single source for how changes land in a generated skill repository and how a release is cut. It is written for a human or an agent maintaining the repository, and it explains both the steps and the GitHub features that enforce them.
+## Change Workflow
 
-Template repository releases use a separate process. See `docs/TEMPLATE-RELEASING.md`.
+Changes reach `main` through a pull request:
 
-Generated skill release workflows live under `.template/generated/.github/workflows/` until the bootstrap agent installs them during cleanup. After cleanup they live at `.github/workflows/`.
+1. Create a branch from current `main`.
+2. Update the skill, references, fixtures, docs, and manifests coherently.
+3. Run `npm run validate`.
+4. Run `npm run package -- vX.Y.Z` when packaging or release content changes.
+5. Inspect all generated archives for content and privacy boundaries.
+6. Push the branch and open a pull request.
+7. Wait for `Validate skill package`, resolve conversations, and squash-merge.
 
-## How changes land
+Do not push directly to `main`.
 
-The `main` branch is protected, so no change reaches it by a direct push, including from an administrator. Every change goes through a pull request that passes checks and is then squash-merged.
+## Release Preparation
 
-The flow for any change:
+For version `X.Y.Z`:
 
-1. Create a branch from `main`.
-2. Make the change and run `npm run validate` locally.
-3. Push the branch and open a pull request into `main`.
-4. Wait for the required `Validate skill package` check to pass.
-5. Resolve any review conversations.
-6. Squash-merge the pull request.
+1. Set `X.Y.Z` in `package.json` and both plugin manifests.
+2. Add `## [vX.Y.Z]` to `CHANGELOG.md`.
+3. Add `docs/releases/vX.Y.Z.md`.
+4. Update `docs/VERSION.md` and user-facing install examples.
+5. Run:
 
-Dependabot changes follow the same path. It opens pull requests for GitHub Actions and dependency updates, which must pass the check and be squash-merged.
+```powershell
+npm run validate
+npm run package -- vX.Y.Z
+```
 
-## What protects `main`
+6. Inspect the standalone, Codex plugin, and Claude plugin ZIP files.
+7. Confirm no intake, bootstrap, local path, secret, placeholder, development
+   cache, or unrelated repository file is present.
+8. Land the release change through the pull request workflow.
 
-A repository ruleset on the default branch enforces these rules. The hardening commands that create it are in `.template/bootstrap/cleanup-and-boundaries.md`.
+## Tag and Publish
 
-- A pull request is required before merging, with conversation resolution required and stale approvals dismissed on push.
-- The `Validate skill package` status check must pass, and the branch must be up to date with `main` first.
-- Force pushes and branch deletion are blocked.
-- Linear history is required, and the only allowed merge method is squash.
-- The rules are enforced for administrators too.
+After the release commit is on `main`, create and push the matching annotated
+tag:
 
-Required approvals are set to zero so a solo maintainer is not blocked. Raise this to one and require `CODEOWNERS` review if a second maintainer becomes active.
+```powershell
+git tag -a vX.Y.Z -m "Release vX.Y.Z"
+git push origin vX.Y.Z
+```
 
-## Other repository safeguards
+The release workflow validates the tag, builds the three ZIP assets, and creates
+or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`. Review the
+title, notes, tag target, and assets, then publish the release.
 
-Secret scanning and push protection are enabled, so a credential pushed by mistake is caught before it reaches the public repository. Dependabot alerts and security updates are enabled, alongside the version updates configured in `.github/dependabot.yml`.
+Do not mutate an existing published release. Correct it with a new version.
 
-## Continuous integration
+## Repository Protections
 
-`.github/workflows/ci.yml` runs on pull requests and on pushes to `main`. Its job, `Validate skill package`, runs `npm run validate` and a packaging smoke test. This job is the required status check, so a pull request cannot merge unless validation and packaging succeed.
+Protect `main` with a repository ruleset that requires a pull request and the
+`Validate skill package` check, blocks force pushes and deletion, requires
+linear history, and permits squash merges only. Zero required approvals supports
+a solo maintainer; require approval and CODEOWNERS review when another active
+maintainer is available.
 
-## Cutting a release
+The expected `main protection` ruleset follows the current TechSpokes public
+skill baseline:
 
-A release is a version bump landed through a pull request, followed by a tag.
+- Require a pull request, dismiss stale approvals, and resolve review threads.
+- Require the branch to be current and `Validate skill package` to pass.
+- Block force pushes and branch deletion.
+- Require linear history and squash merge.
+- Allow repository administrators an emergency bypass so a solo maintainer can
+  repair a broken required check or ruleset.
 
-1. On a branch, update `src/SKILL.md` and the relevant files in `src/references/`, then `README.md` and the files in `docs/`.
-2. Set the new version in `package.json` and in both `packaging/*/plugin.json`.
-3. Add a `## [vX.Y.Z]` section to `CHANGELOG.md`, move any entries from `## [Unreleased]` into it, and reset `## [Unreleased]` to note no unreleased changes. The release workflow requires this exact heading for the tag.
-4. Add `docs/releases/vX.Y.Z.md` with the release notes. The release workflow requires this file for the tag.
-5. Run `npm run validate`, then `npm run package -- vX.Y.Z` to confirm the assets build. Assets are written to `dist/assets/`, which is git-ignored.
-6. Open the pull request, let the check pass, and squash-merge it into `main`.
+An active `release tag protection` ruleset targets `refs/tags/v*` and restricts
+tag updates and deletions. Repository administrators retain an emergency bypass.
+Create corrected releases with a new semantic version instead of moving a
+published tag.
 
-## Tagging and the draft release
+Protect release tags with a separate active `release tag protection` ruleset.
+Target `refs/tags/v*`, block tag updates and deletion, allow initial creation,
+and grant the same repository-administrator emergency bypass. This keeps a
+published version identifier immutable in normal operation without blocking the
+release workflow.
 
-After the version bump is on `main`, push a `vX.Y.Z` tag. Pushing a tag is not a push to the `main` branch, so the branch ruleset does not block it. The tag triggers `.github/workflows/release-draft.yml`, which validates the skill, packages the assets, creates or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`, and uploads the ZIP assets. It refuses to run if the matching `## [vX.Y.Z]` section in `CHANGELOG.md` or the release-notes file is missing.
+Repository settings should enable Discussions, Issues, squash merge, and
+automatic branch deletion. Disable repository Projects, Wiki, merge commits, and
+rebase merges unless the skill develops a demonstrated need for them.
 
-The workflow leaves the release as a draft. Review it on GitHub and publish it manually.
+Enable secret scanning, push protection, Dependabot alerts, and security
+updates where the repository plan and organization policy support them.
 
-## Versioning
+Run `gh skill publish --dry-run` before a release. Resolve skill validation
+errors and review its repository-hardening warnings before tagging.
 
-Use tags in `vX.Y.Z` format as the release source of truth. The version in `package.json`, both plugin manifests, the `CHANGELOG.md` heading, and the `docs/releases/vX.Y.Z.md` file must all match the tag.
+Verify live settings before changing them. Do not create a second ruleset when
+an existing `main protection` ruleset can be repaired in place.

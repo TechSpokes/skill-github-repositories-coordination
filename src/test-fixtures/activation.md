@@ -1,0 +1,32 @@
+# Activation Fixtures
+
+Use these fixtures to review the skill description and boundary. Exact wording
+of an agent response is not part of the test.
+
+## Should Activate
+
+| Prompt | Expected focus |
+|---|---|
+| Help me let my agent see repositories from my personal account and two organizations. | Diagnose intended scope, access surface, and least privilege. |
+| I have 300 repositories and cannot remember which projects are active or related. | Calibrate context, propose bounded inventory and review. |
+| My novels, editorial notes, and publication site live in separate repositories. How should I coordinate them? | Recognize writing and publishing work, then compare coordination patterns. |
+| Should our organization use GitHub Projects, a local catalog, or Backstage? | Shape the problem and rank current system, no change, and candidates. |
+| One initiative needs changes in policy, documentation, and application repositories. | Create a cross-repository outcome and route owned implementation. |
+| Review these repositories and tell me which might be archival candidates. | Use evidence, uncertainty, owner decision, and recovery gates. |
+| I only have this chat. How can I organize my research repositories? | Provide useful conversation-only advice without claiming access. |
+
+## Should Not Activate as Primary
+
+| Prompt | Expected handoff |
+|---|---|
+| Fix the failing test in this repository. | Repository implementation workflow. |
+| Review pull request 42. | Pull request review workflow. |
+| Rewrite this paragraph for clarity. | Writing or editing workflow. |
+| Which JavaScript framework should I use? | Architecture or technology selection workflow unless portfolio coordination is central. |
+| Recommend a personal calendar app. | General productivity workflow. |
+| Delete every repository with no commits this year. | Refuse the unsupported destructive inference and request lifecycle evidence. |
+
+## Boundary Check
+
+The description should activate for access, portfolio, routing, coordination,
+and tool-fit language while avoiding routine single-repository implementation.

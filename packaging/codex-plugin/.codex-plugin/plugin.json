@@ -1,30 +1,36 @@
 {
-  "name": "placeholder-skill",
-  "version": "0.1.0",
-  "description": "Placeholder plugin manifest for a generated agent skill.",
+  "name": "coordinate-github-repositories",
+  "version": "1.0.0",
+  "description": "Adaptive GitHub repository access, inventory, routing, coordination, and tool-fit guidance for code and non-code work.",
   "author": {
-    "name": "Template Author"
+    "name": "TechSpokes",
+    "url": "https://github.com/TechSpokes"
   },
-  "homepage": "https://github.com/OWNER/REPOSITORY",
-  "repository": "https://github.com/OWNER/REPOSITORY",
+  "homepage": "https://github.com/TechSpokes/skill-github-repositories-coordination",
+  "repository": "https://github.com/TechSpokes/skill-github-repositories-coordination",
   "license": "MIT",
   "keywords": [
     "agent-skill",
-    "codex-plugin"
+    "github",
+    "repository-management",
+    "portfolio",
+    "coordination"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Placeholder Skill",
-    "shortDescription": "Placeholder skill package generated from the template.",
-    "longDescription": "Replace this manifest when the agent generates the real skill.",
-    "developerName": "Template Author",
+    "displayName": "Coordinate GitHub Repositories",
+    "shortDescription": "Adapt repository coordination to the person and work.",
+    "longDescription": "Diagnose GitHub access, inventory repositories, route cross-repository work, and compare proportionate tools without imposing a code-only taxonomy or replacement workflow.",
+    "developerName": "TechSpokes",
     "category": "Productivity",
     "capabilities": [
-      "Write"
+      "Interactive"
     ],
-    "websiteURL": "https://github.com/OWNER/REPOSITORY",
+    "websiteURL": "https://github.com/TechSpokes/skill-github-repositories-coordination",
     "defaultPrompt": [
-      "Build the skill from intake."
+      "Help me understand and coordinate my repositories.",
+      "Compare repository organization options for my work.",
+      "Diagnose which GitHub repositories my agent can access."
     ],
     "brandColor": "#2563EB"
   }

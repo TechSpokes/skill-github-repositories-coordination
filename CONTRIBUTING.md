@@ -1,46 +1,59 @@
 # Contributing
 
-Thank you for improving Skill Base Template.
+Thank you for improving Coordinate GitHub Repositories.
 
-## Purpose
+## Contribution Goal
 
-This project helps teams create structured, validated, releasable agent skill repositories from raw intake material. Contributions should preserve that purpose.
+Contributions should make repository coordination more adaptive, portable,
+evidence-based, or safe without turning the skill into a mandatory taxonomy,
+tool, connector, or manager application.
 
-## Good Contributions
+Useful contributions include:
 
-- Improve bootstrap instructions for agents.
-- Improve generated repository maintenance guidance.
-- Improve validation or release packaging.
-- Improve documentation clarity for new GitHub users.
-- Add checks that prevent raw intake or bootstrap files from leaking into release assets.
-- Clarify rationale behind instructions when it improves downstream agent judgment.
+- Clearer activation or non-activation boundaries.
+- Better handling for documentation, writing, research, data, operations, or
+  mixed portfolios.
+- Evidence-backed coordination and inventory patterns.
+- Updated official host or GitHub behavior.
+- Safety, privacy, permission, lifecycle, or recovery improvements.
+- Behavioral fixtures that expose a real failure mode.
+- Validation, packaging, installation, or release improvements.
 
-## How Changes Land
+## Before a Pull Request
 
-Changes reach `main` only through a squash-merged pull request that passes the required check. Direct pushes to `main` are blocked. The full workflow and the repository protections are described in `docs/TEMPLATE-RELEASING.md`.
+Read `AGENTS.md` and `docs/ARCHITECTURE.md`. For runtime changes, read the
+affected references and all test fixtures.
 
-## Before Opening A Pull Request
+Run:
 
-- Read `README.md`.
-- Read `docs/ARCHITECTURE.md`.
-- Run `npm run validate`.
-- Run `npm run package -- vX.Y.Z` with the intended tag when changing packaging or release behavior.
+```powershell
+npm run validate
+npm run package -- v1.0.0
+```
 
-## Documentation Standards
+Use the intended version when preparing a release. Inspect all generated ZIP
+files.
 
-Use plain Markdown with real headings, short paragraphs, flat lists, and fenced code blocks with language identifiers.
+## Pull Request Content
 
-Prefer explaining why a rule exists when future agents may need to adapt it. Avoid adding long theory directly to the README. Put operational depth in `docs/` or `.template/bootstrap/`.
+Explain:
 
-## Pull Request Expectations
+- The observed problem.
+- The affected activation, workflow, safety, output, or packaging contract.
+- Why the change preserves adaptation and portability.
+- Which fixtures changed or still pass.
+- Commands and manual checks used for validation.
+- Product facts that need a source date or future refresh.
 
-Each pull request should explain:
+## Source and Privacy Rules
 
-- What changed.
-- Why it matters.
-- How it was validated.
-- Whether generated repositories are affected.
+Use primary sources for current product behavior. Distinguish working evidence
+from proposals. Do not include private repository lists, local paths, account
+configuration, user profiles, client information, credentials, or raw intake.
 
-## Security And Privacy
+## Documentation Style
 
-Do not commit private intake material, credentials, tokens, or proprietary examples. Use minimal public examples when demonstrating a workflow.
+Use one H1, real heading levels, short paragraphs, flat atomic lists, ASCII
+technical punctuation, and language-tagged code fences. Explain rationale where
+future maintainers need judgment rather than copying long research into runtime
+files.

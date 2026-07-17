@@ -1,42 +1,65 @@
 # Quickstart
 
-This repository starts as a template for building a skill repository.
+## Install Globally
 
-## Create A Skill Repository
+Download the standalone release ZIP and extract its
+`coordinate-github-repositories` folder into a user-level skill directory.
 
-1. Open the template repository on GitHub.
-2. Click `Use this template`.
-3. Select `Create a new repository`.
-4. Choose the owner, repository name, description, and visibility.
-5. Click `Create repository from template`.
-6. Clone the generated repository.
-7. Add source material or a short skill idea to `.intake/`.
-8. Ask an AI coding agent to build the skill from intake.
-9. Let the agent assess and resolve intake gaps before skill construction.
-10. Let the agent rewrite the repository into maintenance mode.
-11. Review the generated skill, docs, manifests, and validation results.
+The shared Agent Skills location used by Codex and GitHub Copilot is:
 
-## What To Expect From The Agent
+```text
+$HOME/.agents/skills/coordinate-github-repositories/
+```
 
-The agent should not merely fill placeholders. It should infer the reusable capability hidden in the intake, decide what belongs in the skill, record important assumptions, and explain the reasoning that future maintainers need.
+On Windows, `$HOME` normally corresponds to `%USERPROFILE%`.
 
-If the agent finds contradictions in the intake, it should resolve low-risk issues locally and document high-impact assumptions. The goal is a maintainable skill, not a perfect transcript of every source file.
+Claude Code also supports:
 
-If `.intake/` is empty, weak, conflicting, or exploratory, the agent should not start `src/SKILL.md` immediately. It should first determine what is missing, why the missing evidence matters, and how to resolve the gap with minimal human help.
+```text
+~/.claude/skills/coordinate-github-repositories/
+```
 
-Expected resolution paths include extracting evidence, making low-risk assumptions, inspecting local tools or docs, creating disposable experiments, narrowing scope, asking concise questions, or stopping before construction when the skill would otherwise be fabricated.
+Keep `SKILL.md` and `references/` together. See
+[INSTALL.md](INSTALL.md) for project-level and plugin options.
 
-## What The Agent Builds
+## Start With an Outcome
 
-The agent builds `src/SKILL.md`, supporting references, documentation, packaging manifests, release notes, and a maintenance-mode `AGENTS.md`.
+Ask the agent for a repository-centered decision, not an abstract demand to
+organize everything:
 
-## After Cleanup
+```text
+I have repositories in my personal account and two organizations. Help me check
+what you can access, understand the kinds of work they contain, and recommend a
+proportionate way to coordinate them without replacing useful workflows.
+```
 
-After cleanup, `.template/` should be gone. The repository should read like a normal skill repository, not a generated project.
+Other useful starts:
 
-The generated `AGENTS.md` should explain how to maintain the skill and why important boundaries exist. Future agents should not need to know this template existed.
+```text
+Help me coordinate a research paper, its dataset, experiments, and publication
+site across repositories.
+```
 
-## Related
+```text
+Compare our current GitHub Projects setup with a local inventory and an external
+catalog. Include the no-change option and the smallest reversible pilot.
+```
 
-- `BOOTSTRAP-WORKFLOW.md` - Full lifecycle and cleanup rationale.
-- `ARCHITECTURE.md` - Repository modes and authority model.
+## What to Expect
+
+The agent should:
+
+- Clarify only facts that can change the decision.
+- State which repositories and capabilities it can and cannot observe.
+- Recognize code and non-code work.
+- Preserve existing vocabulary and governance.
+- Compare the current system and no change with alternatives.
+- Ask before writes, installations, access changes, administrative actions, or
+  public output.
+- Route concrete implementation back to the owning repository workflow.
+
+## If the Agent Has No GitHub Access
+
+The skill still supports conversation-only analysis. The agent should state that
+it has not inspected repositories, build a small context model from your input,
+compare options, and provide a manual verification plan.
