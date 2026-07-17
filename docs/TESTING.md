@@ -18,12 +18,13 @@ Run:
 
 ```powershell
 npm run validate
-npm run package -- v1.0.0
+npm run package -- v1.0.1
 ```
 
 The validator checks metadata, direct links, required maintenance files,
 versions, manifests, release notes, workflow mode, Markdown structure, runtime
-path leakage, placeholders, and the 500-line core limit.
+path leakage, placeholders, installation-version synchronization, and the
+500-line core limit.
 
 The package audit must confirm:
 
@@ -53,6 +54,22 @@ enable before publication.
 Record unavailable validators honestly. Do not replace a failed check with an
 unsupported claim.
 
+## Installation Usability Review
+
+Version v1.0.1 was reviewed against the latest prior TechSpokes skill release
+and these beginner-facing invariants:
+
+| Invariant | Evidence | Result |
+|---|---|---|
+| One default package is recommended | README and install guide lead with the standalone ZIP | Pass |
+| No terminal is required | Agent-assisted and browser-only paths appear before CLI details | Pass |
+| Package choice is understandable | Plain-language three-package table | Pass |
+| Wrong GitHub download is prevented | Source code archive warning | Pass |
+| Hidden folders are navigable | File Explorer and Finder instructions | Pass |
+| Global scope is explicit | Personal-folder table and `--scope user` examples | Pass |
+| Installation is verifiable | Final tree and copyable verification prompt | Pass |
+| Download stays version-aligned | Validator checks the README and install guide asset URL | Pass |
+
 ## Activation Review
 
 `tests/fixtures/activation.md` contains positive and negative prompts. Review
@@ -81,9 +98,10 @@ instructions. It did not claim independent model execution.
 | Write-capable coding agent | Exact targets, local instructions, routing, and verification | Pass |
 | Administrative or destructive request | Strong checkpoints, positive evidence, recovery, and publication separation | Pass |
 
-The evidence lives in the canonical `SKILL.md` and the directly linked files under
-`skills/coordinate-github-repositories/references/`. Any behavior change must update the affected fixture and this
-review record or explain why the invariant no longer belongs.
+The evidence lives in the canonical `SKILL.md` and the directly linked files
+under `skills/coordinate-github-repositories/references/`. Any behavior change
+must update the affected fixture and this review record or explain why the
+invariant no longer belongs.
 
 ## Cross-Host Boundary
 

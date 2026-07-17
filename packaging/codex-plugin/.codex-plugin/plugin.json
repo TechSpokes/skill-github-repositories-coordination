@@ -1,6 +1,6 @@
 {
   "name": "coordinate-github-repositories",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adaptive GitHub repository access, inventory, routing, coordination, and tool-fit guidance for code and non-code work.",
   "author": {
     "name": "TechSpokes",

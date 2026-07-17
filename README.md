@@ -22,13 +22,30 @@ are actually available.
   catalogs, automation, and the no-change option.
 - Choose the smallest reversible improvement that fits the user's work.
 
-## Quick Start
+## Install in One Minute
 
-1. Download the standalone ZIP from the latest GitHub release.
-2. Extract `coordinate-github-repositories` into a user-level skills directory
-   supported by your agent.
-3. Start a new agent session if the host does not detect skill changes live.
-4. Ask a repository-centered question such as:
+You do not need to clone this repository or use a terminal.
+
+### Easiest: Ask Your Agent
+
+Copy this message into the agent where you want to use the skill:
+
+```text
+Install the public Coordinate GitHub Repositories skill globally for me from
+https://github.com/TechSpokes/skill-github-repositories-coordination at
+version v1.0.1. Prefer your native skill installer. Otherwise use the standalone
+release ZIP, not GitHub's Source code ZIP. Keep SKILL.md and references together.
+Do not overwrite an existing installation without asking. Verify the final
+location and tell me whether I need to start a new session.
+```
+
+### Or Use Your Browser
+
+1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.0.1.zip).
+2. Open the ZIP and copy the whole `coordinate-github-repositories` folder into
+   your agent's personal skills folder.
+3. Keep `SKILL.md` and `references/` inside that folder.
+4. Start a new agent session, then ask:
 
 ```text
 Help me understand which repositories my agent can access across my personal
@@ -36,8 +53,12 @@ account and organizations, then suggest the smallest useful way to coordinate
 them.
 ```
 
-See [installation options](docs/INSTALL.md) for Codex, Claude Code, GitHub
-Copilot, project-scoped use, and plugin packages.
+The [plain-language installation guide](docs/INSTALL.md) shows exactly where to
+put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code,
+GitHub Copilot, project-only installs, and plugin packages.
+
+Do not download GitHub's automatically generated **Source code** archives.
+Those contain repository maintenance files instead of the install-ready skill.
 
 ## How It Works
 
@@ -95,13 +116,13 @@ portable core and focused references.
 
 ```powershell
 npm run validate
-npm run package -- v1.0.0
+npm run package -- v1.0.1
 ```
 
 Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.0.0`.
+Current version: `1.0.1`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).
