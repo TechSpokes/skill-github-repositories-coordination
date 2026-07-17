@@ -107,15 +107,15 @@ function walk(relativeDir) {
 }
 
 function validateSkill() {
-  if (!exists("src/SKILL.md")) {
-    fail("Missing src/SKILL.md.");
+  if (!exists("skills/coordinate-github-repositories/SKILL.md")) {
+    fail("Missing skills/coordinate-github-repositories/SKILL.md.");
     return;
   }
 
-  const skillText = readText("src/SKILL.md");
+  const skillText = readText("skills/coordinate-github-repositories/SKILL.md");
   const parsed = parseFrontmatter(skillText);
   if (!parsed) {
-    fail("src/SKILL.md must start with YAML frontmatter.");
+    fail("skills/coordinate-github-repositories/SKILL.md must start with YAML frontmatter.");
     return;
   }
 
@@ -127,19 +127,21 @@ function validateSkill() {
     if (standardFields.has(key) || vscodeFields.has(key)) {
       continue;
     }
-    warn(`src/SKILL.md has non-standard frontmatter field '${key}'. Prefer metadata for portable custom data.`);
+    warn(`skills/coordinate-github-repositories/SKILL.md has non-standard frontmatter field '${key}'. Prefer metadata for portable custom data.`);
   }
 
   if (!frontmatter.name) {
-    fail("src/SKILL.md frontmatter is missing name.");
+    fail("skills/coordinate-github-repositories/SKILL.md frontmatter is missing name.");
   } else if (frontmatter.name.length > 64) {
     fail("Skill name must be 64 characters or fewer.");
+  } else if (frontmatter.name !== "coordinate-github-repositories") {
+    fail("Skill name must match its containing directory.");
   } else if (!/^(?!.*--)[a-z0-9]+(-[a-z0-9]+)*$/.test(frontmatter.name)) {
     fail("Skill name must use lowercase letters, numbers, and hyphens, with no leading, trailing, or consecutive hyphens.");
   }
 
   if (!frontmatter.description) {
-    fail("src/SKILL.md frontmatter is missing description.");
+    fail("skills/coordinate-github-repositories/SKILL.md frontmatter is missing description.");
   } else if (frontmatter.description.length > 1024) {
     fail("Skill description must be 1024 characters or fewer.");
   } else {
@@ -186,13 +188,13 @@ function validateSkill() {
   }
 
   if (!bootstrapMode && skillText.includes(".template/")) {
-    fail("src/SKILL.md must not reference .template/ after generation.");
+    fail("skills/coordinate-github-repositories/SKILL.md must not reference .template/ after generation.");
   }
 }
 
 function validateReferences() {
   const markdownFiles = [
-    ...walk("src"),
+    ...walk("skills/coordinate-github-repositories"),
     ...walk("docs"),
     ...walk(".github"),
     "README.md",
@@ -228,7 +230,7 @@ function validateReferences() {
 
 function validateManifests() {
   const packageManifest = readJson("package.json");
-  const skill = parseFrontmatter(readText("src/SKILL.md"))?.data;
+  const skill = parseFrontmatter(readText("skills/coordinate-github-repositories/SKILL.md"))?.data;
   const manifestPaths = [
     "packaging/codex-plugin/.codex-plugin/plugin.json",
     "packaging/claude-plugin/.claude-plugin/plugin.json"
@@ -341,8 +343,8 @@ function validateRepositoryContract() {
     "docs/RELEASING.md",
     "docs/TESTING.md",
     "docs/VERSION.md",
-    "src/test-fixtures/activation.md",
-    "src/test-fixtures/behavior-scenarios.md"
+    "tests/fixtures/activation.md",
+    "tests/fixtures/behavior-scenarios.md"
   ];
 
   for (const file of requiredFiles) {
@@ -351,7 +353,7 @@ function validateRepositoryContract() {
     }
   }
 
-  const runtimeFiles = walk("src");
+  const runtimeFiles = walk("skills/coordinate-github-repositories");
   const forbiddenRuntimePatterns = [
     { pattern: /placeholder-skill|OWNER\/REPOSITORY|Template Author/i, label: "placeholder text" },
     { pattern: /[A-Za-z]:\\Users\\/i, label: "absolute Windows user path" },
@@ -368,15 +370,15 @@ function validateRepositoryContract() {
     }
   }
 
-  const skillLineCount = readText("src/SKILL.md").replace(/\r\n/g, "\n").split("\n").length;
+  const skillLineCount = readText("skills/coordinate-github-repositories/SKILL.md").replace(/\r\n/g, "\n").split("\n").length;
   if (skillLineCount > 500) {
-    fail("src/SKILL.md must remain below 500 lines.");
+    fail("skills/coordinate-github-repositories/SKILL.md must remain below 500 lines.");
   }
 }
 
 function validateMarkdownStructure() {
   const markdownFiles = [
-    ...walk("src"),
+    ...walk("skills/coordinate-github-repositories"),
     ...walk("docs"),
     "README.md",
     "AGENTS.md",

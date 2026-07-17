@@ -23,4 +23,4 @@ The tag, `package.json`, both plugin manifests, the `CHANGELOG.md` heading, and
   inputs, safety contract, or output contract.
 
 Host paths and preview features may change between skill releases. Their
-checked date belongs in `src/references/agent-capability-adapters.md`.
+checked date belongs in `skills/coordinate-github-repositories/references/agent-capability-adapters.md`.
