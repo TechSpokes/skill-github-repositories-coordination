@@ -16,11 +16,11 @@ application.
 
 ### One Portable Core
 
-`src/SKILL.md` follows the Agent Skills specification and avoids host-specific
+The canonical `SKILL.md` follows the Agent Skills specification and avoids host-specific
 frontmatter. It requires only conversation. Host capabilities improve evidence
 or execution but do not change the reasoning contract.
 
-Codex and Claude packages wrap the same `src/` tree. The standalone package
+Codex and Claude packages wrap the same canonical skill tree. The standalone package
 supports GitHub Copilot and other Agent Skills hosts. Host-specific installation
 and access facts live in a dated adapter reference.
 
@@ -59,16 +59,19 @@ public output require stronger checkpoints.
 ## Runtime Structure
 
 ```text
-src/
-|-- SKILL.md
-|-- references/
-|   |-- agent-capability-adapters.md
-|   |-- context-calibration.md
-|   |-- inventory-and-coordination.md
-|   |-- repository-archetypes.md
-|   |-- safety-and-approval.md
-|   `-- tool-fit.md
-`-- test-fixtures/
+skills/
+`-- coordinate-github-repositories/
+    |-- SKILL.md
+    `-- references/
+        |-- agent-capability-adapters.md
+        |-- context-calibration.md
+        |-- inventory-and-coordination.md
+        |-- repository-archetypes.md
+        |-- safety-and-approval.md
+        `-- tool-fit.md
+
+tests/
+`-- fixtures/
     |-- activation.md
     `-- behavior-scenarios.md
 ```

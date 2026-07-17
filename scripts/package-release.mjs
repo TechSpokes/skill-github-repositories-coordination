@@ -3,6 +3,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 
 const root = process.cwd();
+const sourceSkillDir = path.join(root, "skills", "coordinate-github-repositories");
 const tag = process.argv[2];
 
 if (!tag || !/^v[0-9]+\.[0-9]+\.[0-9]+([.-][A-Za-z0-9.-]+)?$/.test(tag)) {
@@ -37,13 +38,13 @@ zipDirectory(
 console.log(`Packaged release assets for ${skill.name} ${tag}.`);
 
 function parseSkill() {
-  const skillPath = path.join(root, "src", "SKILL.md");
+  const skillPath = path.join(sourceSkillDir, "SKILL.md");
   const text = fs.readFileSync(skillPath, "utf8");
   const name = text.match(/\n?name:\s*([a-z0-9-]+)/)?.[1];
   const description = text.match(/\n?description:\s*(.+)/)?.[1]?.trim();
 
   if (!name) {
-    throw new Error("src/SKILL.md is missing a valid name.");
+    throw new Error("The canonical SKILL.md is missing a valid name.");
   }
 
   return { name, description };
@@ -77,7 +78,7 @@ function copyDir(source, destination, excludedNames = new Set()) {
 function stageStandalone(skillName) {
   const target = path.join(stage, skillName);
   // @constraints Test fixtures validate maintenance behavior but are not runtime skill resources.
-  copyDir(path.join(root, "src"), target, new Set(["test-fixtures"]));
+  copyDir(sourceSkillDir, target);
 }
 
 function stagePlugin(type, skillName, version) {
@@ -88,9 +89,8 @@ function stagePlugin(type, skillName, version) {
 
   copyDir(manifestSource, target);
   copyDir(
-    path.join(root, "src"),
-    path.join(target, "skills", skillName),
-    new Set(["test-fixtures"])
+    sourceSkillDir,
+    path.join(target, "skills", skillName)
   );
 
   const manifestPath = path.join(target, manifestDir, "plugin.json");

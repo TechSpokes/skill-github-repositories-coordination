@@ -22,9 +22,9 @@ and the established repository workflow before convenience.
 
 ## Canonical Files
 
-- `src/SKILL.md` is the runtime entry point and activation contract.
-- `src/references/` contains focused progressive-disclosure guidance.
-- `src/test-fixtures/` defines activation and behavioral invariants.
+- `skills/coordinate-github-repositories/SKILL.md` is the runtime entry point.
+- `skills/coordinate-github-repositories/references/` contains focused guidance.
+- `tests/fixtures/` defines activation and behavioral invariants.
 - `docs/ARCHITECTURE.md` records durable design decisions and source boundaries.
 - `docs/TESTING.md` records validation layers and forward-review evidence.
 - `docs/RELEASING.md` defines the change and release process.
@@ -62,8 +62,8 @@ For a new version, use the intended tag instead of `v1.0.0`. Inspect all three
 ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake,
 local path, placeholder, or secret material.
 
-Review `src/test-fixtures/activation.md` and
-`src/test-fixtures/behavior-scenarios.md` manually when behavior changes. Record
+Review `tests/fixtures/activation.md` and
+`tests/fixtures/behavior-scenarios.md` manually when behavior changes. Record
 why any invariant changes.
 
 ## Change Boundaries
@@ -73,5 +73,5 @@ affected references, fixtures, docs, manifests, changelog, and release notes as
 one coherent change.
 
 New source material may be staged privately for an update, but transform only
-the durable, publishable knowledge into `src/` and public docs. Remove private
+the durable, publishable knowledge into the canonical skill and public docs. Remove private
 working material before publication.

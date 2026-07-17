@@ -39,7 +39,7 @@ The package audit must confirm:
 
 Before release, validate:
 
-- `src/` with the Agent Skills quick validator.
+- `skills/coordinate-github-repositories/` with the Agent Skills quick validator.
 - The staged Codex plugin with the Codex plugin validator.
 - The staged Claude plugin with `claude plugin validate` when Claude Code is
   available.
@@ -55,7 +55,7 @@ unsupported claim.
 
 ## Activation Review
 
-`src/test-fixtures/activation.md` contains positive and negative prompts. Review
+`tests/fixtures/activation.md` contains positive and negative prompts. Review
 the frontmatter description for these boundaries:
 
 - Activate for access, portfolio inventory, findability, routing,
@@ -81,8 +81,8 @@ instructions. It did not claim independent model execution.
 | Write-capable coding agent | Exact targets, local instructions, routing, and verification | Pass |
 | Administrative or destructive request | Strong checkpoints, positive evidence, recovery, and publication separation | Pass |
 
-The evidence lives in `src/SKILL.md` and the directly linked files under
-`src/references/`. Any behavior change must update the affected fixture and this
+The evidence lives in the canonical `SKILL.md` and the directly linked files under
+`skills/coordinate-github-repositories/references/`. Any behavior change must update the affected fixture and this
 review record or explain why the invariant no longer belongs.
 
 ## Cross-Host Boundary
