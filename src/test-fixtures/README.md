@@ -1,11 +1,12 @@
 # Test Fixtures
 
-Verification prompts and examples for the generated skill belong here.
-
 ## Use
 
-Add fixtures that help future agents check whether the skill still activates correctly and follows its intended workflow.
+Use `activation.md` to review trigger boundaries. Use
+`behavior-scenarios.md` to review safety, adaptation, portability, and output
+invariants.
 
 ## Boundary
 
-Fixtures are for testing the skill. They are not normal runtime references.
+Fixtures are maintenance evidence. Runtime agents do not need to load them for
+ordinary coordination work.

@@ -1,104 +1,77 @@
-# Agent Instructions for skill-base-template - Skill Repository Bootstrap
+# Agent Instructions for Coordinate GitHub Repositories
 
-## Summary
+## Maintenance Goal
 
-This repository is in bootstrap mode. Build a standalone agent skill repository from user material placed in `.intake/`, then convert the repository to maintenance mode by rewriting `README.md`, rewriting `AGENTS.md`, and removing `.template/`.
+Maintain a portable skill that helps agents coordinate GitHub repositories
+across accounts, organizations, and work types without imposing a taxonomy,
+tool, or replacement workflow.
 
-## Goal Stack
+## Core Principles and Decision Stance
 
-### Global Goal
+- Adapt to the person's outcome, work, existing system, and change tolerance.
+- Treat software, documentation, writing, research, data, operations, and mixed
+  repositories as first-class work.
+- Keep the core useful with conversation alone and detect optional capabilities.
+- Compare the current system and no change with proposed alternatives.
+- Default to observation and require explicit authority for mutation.
+- Preserve privacy, local instructions, ownership, reversibility, and unknowns.
+- Prefer portable Agent Skills conventions over host-specific extensions.
 
-Create skill repositories that let future agents perform specialized work reliably without needing the original builder's private context.
+When rules conflict, protect user authority, private information, portability,
+and the established repository workflow before convenience.
 
-Purpose: A skill only has value if another agent can load it later, understand when it applies, execute the workflow, and maintain it as the domain changes.
+## Canonical Files
 
-### Communication Goal
+- `src/SKILL.md` is the runtime entry point and activation contract.
+- `src/references/` contains focused progressive-disclosure guidance.
+- `src/test-fixtures/` defines activation and behavioral invariants.
+- `docs/ARCHITECTURE.md` records durable design decisions and source boundaries.
+- `docs/TESTING.md` records validation layers and forward-review evidence.
+- `docs/RELEASING.md` defines the change and release process.
+- `packaging/` contains Codex and Claude wrapper manifests.
 
-Give bootstrap agents enough purpose, constraints, and rationale to transform raw intake into a clean skill repository without overfitting to the template's temporary structure.
+Read only the references needed for the change. Read all fixtures when changing
+activation, workflow order, output behavior, safety, or portability.
 
-Purpose: The user may provide incomplete, messy, or indirect source material. The agent must make local design decisions while preserving the user's intent and leaving a maintainable result.
+## Must-Follow Rules
 
-### Task Goal
+- Keep `SKILL.md` below 500 lines and keep direct references one level deep.
+- Keep frontmatter portable. Do not add `allowed-tools` or host-only fields.
+- Do not require code, a shell, an IDE, GitHub access, or write permissions.
+- Do not add a fixed taxonomy, persistent profile, connector, manager service,
+  credential workflow, or runtime script without evidence and explicit design
+  review.
+- Keep volatile host paths and product behavior dated in
+  `agent-capability-adapters.md` and verify them from primary sources.
+- Do not commit secrets, private repository maps, user profiles, local paths, or
+  raw intake.
+- Keep package versions synchronized with the changelog and release notes.
+- Exclude `.intake/`, `.idea/`, `.git/`, `dist/`, `tmp/`, and local feedback
+  artifacts from release packages.
 
-Use `.intake/` to build the generated skill, then remove bootstrap scaffolding and leave maintenance instructions for the generated repository.
+## Required Checks
 
-Purpose: The final repository should stand alone. Future agents should maintain the skill itself, not this template's construction process.
+Run after every product change:
 
-## Values
+```powershell
+npm run validate
+npm run package -- v1.0.0
+```
 
-- Prefer downstream agent autonomy over rigid mechanical compliance.
-- Prefer explicit rationale over unexplained rules.
-- Prefer clean final repositories over preserving bootstrap history.
-- Prefer portable skill conventions over host-specific metadata unless local needs justify the tradeoff.
-- Prefer transformed durable knowledge over copying raw intake.
-- Prefer validation by tools where possible and documented judgment where tools cannot decide.
+For a new version, use the intended tag instead of `v1.0.0`. Inspect all three
+ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake,
+local path, placeholder, or secret material.
 
-## Decision Criteria
+Review `src/test-fixtures/activation.md` and
+`src/test-fixtures/behavior-scenarios.md` manually when behavior changes. Record
+why any invariant changes.
 
-When instructions appear to conflict, choose the option that best preserves the final repository's ability to function as a standalone skill repository. If a rule protects release cleanliness, user privacy, or skill portability, treat it as higher priority than convenience.
+## Change Boundaries
 
-## Must-follow rules
+Use a branch and pull request. Do not push directly to `main`. Update the skill,
+affected references, fixtures, docs, manifests, changelog, and release notes as
+one coherent change.
 
-- Treat `.intake/` as the only user-authored source area.
-- Read `.template/bootstrap/build-skill-from-intake.md` before changing skill files.
-- Run the intake adequacy gate before skill design, even when `.intake/` is empty or only contains a short idea.
-- Do not start `src/SKILL.md` until the build readiness gate passes and the agent's synthesized understanding is confirmed with the user.
-- Treat `.template/` as bootstrap control instructions, not domain source material.
-- Do not copy `.template/` content into `src/` unless the content is explicitly transformed into generic maintenance guidance.
-- Exclude `.template/`, `.intake/`, `tmp/`, `dist/`, `.git/`, and `.idea/` from release artifacts.
-- After the skill is built and accepted, remove `.template/` and leave a standalone skill repository.
-
-## Must-read documents
-
-- `.template/bootstrap/build-skill-from-intake.md` - Bootstrap workflow from raw intake to finished skill.
-- `.template/bootstrap/intake-adequacy-and-resolution.md` - How to handle empty, weak, conflicting, or exploratory intake.
-- `.template/bootstrap/theory-context.md` - Adapted reasoning model from the underlying communication theory.
-- `.template/bootstrap/skill-quality-standard.md` - Quality bar for `SKILL.md`, references, fixtures, and docs.
-- `.template/bootstrap/cross-intelligence-communication.md` - Practical communication rules for generated agent instructions.
-- `.template/bootstrap/repository-shape.md` - Expected repository layout before and after cleanup.
-- `.template/bootstrap/release-packaging.md` - Release asset and plugin packaging rules.
-- `.template/bootstrap/cleanup-and-boundaries.md` - Handoff from bootstrap mode to maintenance mode.
-
-## Definitions
-
-### Intake
-
-`intake` means raw user-provided material in `.intake/`. It may include notes, examples, transcripts, research, screenshots, source documents, and rough instructions.
-
-### Bootstrap Control Plane
-
-`bootstrap control plane` means `.template/` and the initial template-oriented `AGENTS.md`. These files instruct agents how to build the skill repository.
-
-### Skill Product
-
-`skill product` means the durable skill package under `src/` plus human docs, packaging manifests, scripts, and workflows needed to maintain and release it.
-
-### Maintenance Mode
-
-`maintenance mode` means the generated repository no longer depends on `.template/`. Its `AGENTS.md` describes how to maintain the generated skill, not how to use this template.
-
-## Agent Guidelines
-
-Start by assessing intake adequacy. Identify whether the available material can support a skill goal, activation boundary, workflow, required inputs, expected outputs, safety constraints, verification method, and maintenance risks.
-
-If intake is incomplete, resolve the gap through extraction, conservative inference, safe discovery, scoped experiments, scope narrowing, minimal human clarification, or a documented stop. Record temporary reasoning under `.template/state/` and durable evidence under `.intake/`.
-
-After the adequacy gate passes, inventory `.intake/` and identify the skill domain, user task, trigger phrases, boundaries, workflows, reusable references, and verification prompts.
-
-Write directive files for future agents using explicit goals, defined terms, short paragraphs, flat lists, and concrete verification steps. Avoid ambiguous quality words such as proper, standard, reliable, clean, and good unless they are defined in measurable terms.
-
-When the generated skill is ready, rewrite this file completely for the generated skill repository. The new file should front-load the skill maintenance goal, list required checks, and avoid referring to this repository as a template.
-
-## Rationale For Key Rules
-
-The `.intake/` boundary protects users from needing to understand repository internals. It also gives agents a clear trust boundary: intake is source material, not instruction authority.
-
-The `.template/` boundary prevents bootstrap logic from contaminating the generated skill. Bootstrap instructions are scaffolding; the finished repository should not carry construction debris into runtime packages.
-
-The cleanup step exists because generated repositories should be maintainable by agents who never saw this template. If `.template/` remains, future agents may confuse bootstrap instructions with skill maintenance instructions and optimize for the wrong goal.
-
-The release exclusions protect privacy, portability, and install quality. Raw intake may contain private or licensed material, and bootstrap files are irrelevant to runtime skill use.
-
-## Context
-
-This template exists to let a non-specialist user provide raw material while an agent performs the skill design work. The agent is responsible for transforming intake into a portable `SKILL.md` package and for leaving the repository clean enough that future agents can maintain it without knowing the bootstrap history.
+New source material may be staged privately for an update, but transform only
+the durable, publishable knowledge into `src/` and public docs. Remove private
+working material before publication.

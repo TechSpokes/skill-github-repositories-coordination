@@ -1,25 +1,26 @@
 ## Summary
 
-Describe the change and why it matters.
+Describe the observed problem, the change, and why it improves the skill.
 
-## Scope
+## Contract Impact
 
-Which area changed?
-
-- [ ] Public README or docs
-- [ ] Bootstrap instructions
-- [ ] Skill scaffold
-- [ ] Validation scripts
-- [ ] Packaging or release workflow
-- [ ] GitHub community or maintenance files
+- [ ] Activation or non-activation boundary
+- [ ] Runtime workflow or output
+- [ ] Safety, privacy, or permissions
+- [ ] Host capability or installation guidance
+- [ ] Reference knowledge or fixtures
+- [ ] Validation, packaging, CI, or release
+- [ ] Documentation or community files only
 
 ## Validation
 
 - [ ] Ran `npm run validate`
-- [ ] Ran `npm run package -- vX.Y.Z` with the intended tag if packaging or release behavior changed
-- [ ] Checked that generated repositories still transition cleanly from bootstrap mode to maintenance mode
-- [ ] Checked that no private intake or local machine paths were added
+- [ ] Ran `npm run package -- vX.Y.Z` when release content changed
+- [ ] Inspected standalone, Codex, and Claude ZIP contents
+- [ ] Reviewed affected activation and behavior fixtures
+- [ ] Verified current product claims from primary sources
+- [ ] Checked for secrets, private repository data, local paths, and placeholders
 
-## Notes
+## Decisions and Follow-Up
 
-Add assumptions, tradeoffs, or follow-up work.
+State assumptions, tradeoffs, source dates, and any maintenance follow-up.

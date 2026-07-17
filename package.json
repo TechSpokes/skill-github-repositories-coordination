@@ -1,6 +1,6 @@
 {
-  "name": "skill-base-template",
-  "version": "1.3.0",
+  "name": "coordinate-github-repositories-skill",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {

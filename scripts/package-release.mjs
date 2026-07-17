@@ -54,20 +54,17 @@ function resetDir(directory) {
   fs.mkdirSync(directory, { recursive: true });
 }
 
-// Copy a directory into the release stage, excluding scaffolding that should not ship.
-// `.gitkeep` placeholders are dropped, and any directory left empty after copying (for
-// example an assets folder that only held a `.gitkeep`) is pruned, so deliverables contain
-// only real skill content. Pruning runs after recursion, so nested empty directories go too.
-function copyDir(source, destination) {
+// @constraints Release copies drop placeholders, explicit maintenance entries, and directories emptied by those exclusions.
+function copyDir(source, destination, excludedNames = new Set()) {
   fs.mkdirSync(destination, { recursive: true });
   for (const entry of fs.readdirSync(source, { withFileTypes: true })) {
-    if (entry.name === ".gitkeep") {
+    if (entry.name === ".gitkeep" || excludedNames.has(entry.name)) {
       continue;
     }
     const sourcePath = path.join(source, entry.name);
     const destinationPath = path.join(destination, entry.name);
     if (entry.isDirectory()) {
-      copyDir(sourcePath, destinationPath);
+      copyDir(sourcePath, destinationPath, excludedNames);
     } else {
       fs.copyFileSync(sourcePath, destinationPath);
     }
@@ -79,7 +76,8 @@ function copyDir(source, destination) {
 
 function stageStandalone(skillName) {
   const target = path.join(stage, skillName);
-  copyDir(path.join(root, "src"), target);
+  // @constraints Test fixtures validate maintenance behavior but are not runtime skill resources.
+  copyDir(path.join(root, "src"), target, new Set(["test-fixtures"]));
 }
 
 function stagePlugin(type, skillName, version) {
@@ -89,7 +87,11 @@ function stagePlugin(type, skillName, version) {
   const manifestSource = path.join(root, "packaging", `${type}-plugin`);
 
   copyDir(manifestSource, target);
-  copyDir(path.join(root, "src"), path.join(target, "skills", skillName));
+  copyDir(
+    path.join(root, "src"),
+    path.join(target, "skills", skillName),
+    new Set(["test-fixtures"])
+  );
 
   const manifestPath = path.join(target, manifestDir, "plugin.json");
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));

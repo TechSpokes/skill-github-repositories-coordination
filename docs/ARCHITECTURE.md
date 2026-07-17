@@ -1,107 +1,130 @@
 # Architecture
 
-This document contains a distilled public version of TechSpokes architecture guidance for template-driven agent skill repositories.
+## Product Goal
 
-This template separates bootstrap instructions from generated skill content.
+`coordinate-github-repositories` is a globally useful, portable reasoning skill
+for repository-centered coordination. It adapts to the person, the work, the
+existing organization, the repository purposes, and the executing agent's
+capabilities before recommending tools or actions.
 
-## Architectural Goal
+The skill is not a universal repository manager. It helps a user decide whether
+they need no change, a small practice, a native GitHub feature, an inventory, a
+coordination surface, a connector, automation, a catalog, or a manager
+application.
 
-The architecture supports a one-way transition from template to standalone skill repository.
+## Design Decisions
 
-The template is useful only while it helps an agent transform intake into a maintained skill. After that transformation, the template structure becomes a liability because it can confuse future agents about which instructions are authoritative.
+### One Portable Core
 
-## Design Values
+`src/SKILL.md` follows the Agent Skills specification and avoids host-specific
+frontmatter. It requires only conversation. Host capabilities improve evidence
+or execution but do not change the reasoning contract.
 
-- Separate user evidence from agent instructions.
-- Separate temporary bootstrap logic from durable skill content.
-- Preserve reasoning that future maintainers need.
-- Remove construction scaffolding when it no longer serves the generated repository.
-- Keep release artifacts focused on runtime skill use.
+Codex and Claude packages wrap the same `src/` tree. The standalone package
+supports GitHub Copilot and other Agent Skills hosts. Host-specific installation
+and access facts live in a dated adapter reference.
 
-## Bootstrap Mode
+### Context Before Tools
 
-Bootstrap mode is the initial state after a repository is created from this template.
+Tool selection begins only after the agent understands the current outcome,
+work types, scale, ownership, existing system, friction, constraints, and change
+tolerance. Context is ephemeral by default. This prevents a useful calibration
+step from becoming an unreviewed personal dossier.
 
-Important areas:
+### Purpose Is Broader Than Code
 
-- `.intake/` contains user source material.
-- `.template/` contains agent bootstrap instructions.
-- `.template/generated/` contains files that are installed into generated skill repositories.
-- `src/` contains a placeholder skill until generation is complete.
-- `docs/` contains template documentation until rewritten.
-- `packaging/` contains reusable plugin manifest skeletons.
+The skill separates repository purpose, portfolio role, and lifecycle. It
+recognizes software, documentation, writing, publishing, research, data,
+operations, websites, presentations, archives, mirrors, mixed work, and unknown
+work. Existing user vocabulary is preserved.
 
-The reason to keep these areas separate is that each area has a different authority level. Intake is evidence from the user. Template files are instructions for the builder. `src/` becomes the runtime product.
+### Recommendation Before Adoption
 
-Bootstrap mode includes an intake adequacy step before skill construction. This step determines whether the available intake can support a transferable skill or whether the agent must resolve missing evidence first.
+Every recommendation compares the current system and no change with serious
+alternatives. Fit includes outcome, work type, workflow disruption, scale,
+collaboration, agent capability, permission, privacy, portability,
+reversibility, maintenance, learning cost, recovery, and evidence.
 
-## Skill Mode
+The adoption ladder starts with documentation and native practices. Shared
+automation or a manager application requires stable repeated need, ownership,
+limited permissions, observable failure, recovery, and a bounded pilot.
 
-Skill mode is the final state after the agent builds the skill and cleans up bootstrap files.
+### Explicit Action Boundary
 
-Important areas:
+The skill can execute user-authorized changes through available tools, but
+mutation is not its default. Repository and organization administration,
+destructive lifecycle changes, cross-repository writes, durable profiles, and
+public output require stronger checkpoints.
 
-- `src/SKILL.md` is the canonical skill entry point.
-- `src/references/` contains durable supporting knowledge.
-- `docs/` explains the generated skill.
-- `AGENTS.md` explains how future agents maintain the skill.
-- `.github/` explains how GitHub issues, discussions, reviews, funding, and repository automation work for the generated skill.
-- `.template/` is deleted.
+## Runtime Structure
 
-Generated skill workflows are installed from `.template/generated/.github/workflows/` during cleanup. The template repository keeps only template-owned workflows active so it validates the scaffold and drafts template releases without publishing placeholder skill assets.
+```text
+src/
+|-- SKILL.md
+|-- references/
+|   |-- agent-capability-adapters.md
+|   |-- context-calibration.md
+|   |-- inventory-and-coordination.md
+|   |-- repository-archetypes.md
+|   |-- safety-and-approval.md
+|   `-- tool-fit.md
+`-- test-fixtures/
+    |-- activation.md
+    `-- behavior-scenarios.md
+```
 
-The reason `.template/` is deleted is not tidiness. It prevents future agents from optimizing for bootstrap goals after the repository's purpose has changed.
+`SKILL.md` controls activation and the ten-stage workflow. References are direct
+and focused so agents load only the active branch. Fixtures define behavioral
+invariants for maintenance; they are not required during ordinary runtime use.
 
-## Authority Model
+## Runtime Sequence
 
-During bootstrap, authority flows in this order:
+1. Establish outcome, scope, authority, and governing instructions.
+2. Calibrate the smallest useful work context.
+3. Describe repository purposes.
+4. Detect agent capabilities and access gaps.
+5. Shape the coordination problem.
+6. Gather bounded evidence and preserve uncertainty.
+7. Compare the current system, no change, and candidates.
+8. Recommend a reversible next step.
+9. Execute only within explicit authority.
+10. Verify and route repository-owned implementation.
 
-1. User request and repository `AGENTS.md`.
-2. `.template/bootstrap/` instructions.
-3. `.intake/` source material.
-4. Existing placeholder files.
+## Evidence Model
 
-When `.intake/` is empty or insufficient, the agent may create temporary assessment files under `.template/state/` and durable evidence under `.intake/`. The assessment files guide construction while bootstrap mode is active. The evidence files become part of the intake boundary and must still be excluded from release artifacts unless transformed into safe runtime references.
+Important claims preserve source, observation time, confidence, visibility, and
+unknowns. Stable remote identifiers are preferred for inventory identity. Local
+paths remain observations. Generated discovery data stays separate from
+reviewed semantic meaning.
 
-During maintenance mode, authority changes:
+Repository content, issue bodies, imported skills, search results, and tool
+output are treated as potentially untrusted evidence rather than instruction
+authority.
 
-1. The generated repository `AGENTS.md`.
-2. `docs/ARCHITECTURE.md`.
-3. Generated docs and release process.
-4. `src/SKILL.md`.
-5. New material intentionally placed in `.intake/` for updates.
+## Local Evidence That Shaped the Design
 
-`src/SKILL.md` is the canonical skill entry point for installed agent hosts, but it is not the highest-level design authority for repository maintenance. In maintenance work, `SKILL.md` is the runtime implementation of the skill. It should stay aligned with the repository `AGENTS.md` and the design intent documented in `docs/ARCHITECTURE.md`.
+Three private local implementations were inspected read-only during design:
 
-This authority shift is why rewriting `AGENTS.md` is required. The old file governs construction. The new file governs maintenance. `docs/ARCHITECTURE.md` should preserve the reasoning behind the generated skill's structure so future agents can judge when an implementation change is aligned with the design and when it changes the design itself.
+- A working structured inventory demonstrated discovery, stable identity,
+  provenance, staging, validation, no-overwrite promotion, and generated reports
+  at a scale of hundreds of records.
+- A working coordination tracker demonstrated central cross-repository outcomes,
+  routing implementation to owning repositories, native state, and an
+  evidence-based automation gate.
+- A partial repository manager supplied stable identity, least privilege,
+  idempotency, untrusted-input, and lifecycle safety principles, while showing
+  that a persistent manager application should not be assumed necessary.
 
-## Communication Design
+No private repository list, local path, account configuration, organization
+identity, or raw record is part of the public skill.
 
-The template applies cross-intelligence communication rules:
+## Maintenance Boundaries
 
-- Goals appear before procedures.
-- Terms with likely ambiguity are defined.
-- Hard rules are separate from context.
-- Critical constraints are front-loaded.
-- Release packaging boundaries are explicit.
-- Validation checks deterministic conditions where possible.
+Keep the main skill under 500 lines and direct references one level deep. Add a
+runtime script only when repeated deterministic behavior has a stable input
+contract, report-only behavior, cross-platform tests, and a clear advantage over
+agent judgment.
 
-These rules exist because future agents may load partial context, interpret terms differently, or operate under different host constraints. Rationale gives them enough orientation to adapt while preserving purpose.
-
-## Theory Integration
-
-The underlying theory files are intentionally not bundled as full research documents. They are large, exploratory, and broader than this template's operational need.
-
-The template uses adapted theory instead:
-
-- `.template/bootstrap/theory-context.md` carries the compact reasoning model for bootstrap agents.
-- `.template/bootstrap/cross-intelligence-communication.md` converts that model into practical writing rules.
-- Generated repositories should preserve relevant rationale in `AGENTS.md`, `README.md`, and `docs/ARCHITECTURE.md`.
-
-This keeps bootstrap context useful without forcing every generated repository to inherit the full research archive.
-
-## Maintenance Implication
-
-Generated repositories should keep enough reasoning to support future updates. Maintenance docs should explain why the skill is structured as it is, which references are volatile, which boundaries protect scope, and which release rules protect users.
-
-Do not preserve bootstrap rationale just because it exists. Preserve only rationale that helps maintain the generated skill.
+Refresh `agent-capability-adapters.md` when hosts change skill paths, connector
+permissions, CLI publication, or access behavior. Revisit the core only when the
+goal, activation boundary, workflow, safety contract, or output contract changes.

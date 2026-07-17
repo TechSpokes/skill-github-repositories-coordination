@@ -1,13 +1,10 @@
 # Release Notes
 
-Add one Markdown file per release tag.
-
-## File Naming
-
-Use this format:
+Create one Markdown file per release tag using:
 
 ```text
 vX.Y.Z.md
 ```
 
-The draft release workflow requires the release notes file for the tag being packaged.
+The release workflow requires the matching file and `## [vX.Y.Z]` changelog
+heading before it builds or uploads assets.

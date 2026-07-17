@@ -1,4 +1,4 @@
-name: Template Draft Release
+name: Draft Release
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Tag to release, for example v1.1.0"
+        description: "Tag to package, for example v1.0.0"
         required: true
         type: string
 
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   draft-release:
-    name: Draft template release
+    name: Build release assets and draft release
     runs-on: ubuntu-latest
 
     steps:
@@ -46,11 +46,6 @@ jobs:
             exit 1
           fi
 
-          if [[ ! -f CHANGELOG.md ]]; then
-            echo "Missing CHANGELOG.md." >&2
-            exit 1
-          fi
-
           if ! grep -Fq "## [${tag}]" CHANGELOG.md; then
             echo "CHANGELOG.md is missing required section: ## [${tag}]" >&2
             exit 1
@@ -59,18 +54,18 @@ jobs:
           {
             echo "tag=${tag}"
             echo "notes_file=${notes_file}"
-            echo "release_title=Skill Base Template ${tag}"
+            echo "release_title=Coordinate GitHub Repositories ${tag}"
           } >> "${GITHUB_OUTPUT}"
 
       - name: Set up Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
 
-      - name: Validate template scaffold
+      - name: Validate skill
         run: npm run validate
 
-      - name: Package smoke test
+      - name: Package release assets
         run: npm run package -- ${{ steps.meta.outputs.tag }}
 
       - name: Create or update draft release
@@ -86,7 +81,7 @@ jobs:
           if gh release view "${TAG_NAME}" >/dev/null 2>&1; then
             is_draft="$(gh release view "${TAG_NAME}" --json isDraft --jq '.isDraft')"
             if [[ "${is_draft}" != "true" ]]; then
-              echo "Release ${TAG_NAME} already exists and is not a draft. Refusing to mutate a published release." >&2
+              echo "Release ${TAG_NAME} is already published." >&2
               exit 1
             fi
 
@@ -99,3 +94,12 @@ jobs:
               --title "${RELEASE_TITLE}" \
               --notes-file "${NOTES_FILE}"
           fi
+
+      - name: Upload release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.meta.outputs.tag }}
+        run: |
+          set -euo pipefail
+          gh release upload "${TAG_NAME}" dist/assets/*.zip --clobber

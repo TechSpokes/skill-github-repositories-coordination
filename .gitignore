@@ -1,9 +1,10 @@
 node_modules/
 dist/
 tmp/
-.template/state/
 .idea/
 *.log
+.intake/*
+!.intake/README.md
 .skill-template-feedback/*
 !.skill-template-feedback/.gitkeep
 !.skill-template-feedback/README.md

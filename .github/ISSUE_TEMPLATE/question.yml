@@ -1,28 +1,31 @@
 name: Question
-description: Ask a question about using or adapting the template
+description: Ask about installation, activation, adaptation, or repository coordination
 labels: [question]
 body:
-  - type: textarea
-    id: question
-    attributes:
-      label: Your question
-      description: Describe what you are trying to do and where you are stuck.
-    validations:
-      required: true
   - type: dropdown
     id: topic
     attributes:
       label: Topic
       options:
-        - Creating a repository from the template
-        - Preparing intake material
-        - Running the bootstrap agent workflow
-        - Generated AGENTS.md or README.md
-        - Validation or packaging
-        - Publishing release assets
-        - Other
+        - Installation or update
+        - Agent access to repositories
+        - Inventory or portfolio review
+        - Cross-repository coordination
+        - Tool comparison
+        - Non-code or mixed work
+        - Safety or permissions
+        - Contributing or releasing
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Requested outcome
+      description: What repository-centered decision are you trying to make?
+    validations:
+      required: true
   - type: textarea
     id: context
     attributes:
-      label: Context
-      description: Include links, commands, or non-private examples that help explain the question.
+      label: Sanitized context
+      description: Include relevant work types, scale, current system, and agent capabilities without private details.

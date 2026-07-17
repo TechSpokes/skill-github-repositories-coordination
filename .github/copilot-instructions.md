@@ -1,9 +1,12 @@
 # GitHub Copilot Instructions
 
-Follow the repository `AGENTS.md` first.
+Follow `AGENTS.md` first and apply
+`.github/instructions/markdown.instructions.md` to Markdown changes.
 
-This repository is a template for generating standalone agent skill repositories. Keep bootstrap instructions, user intake, generated skill content, and release artifacts separate.
+Maintain one portable skill for adaptive GitHub repository coordination. Do not
+assume repositories contain code or that the agent has GitHub access, write
+permission, or administrative authority.
 
-For Markdown files, also follow `.github/instructions/markdown.instructions.md`.
-
-Run `npm run validate` after changing scaffold, docs, validation, or packaging files.
+Run `npm run validate` after changing runtime content, docs, manifests,
+validation, packaging, or workflows. Run `npm run package -- vX.Y.Z` and inspect
+all ZIP files when release content changes.

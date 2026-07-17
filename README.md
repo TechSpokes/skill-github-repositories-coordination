@@ -1,92 +1,107 @@
-# Skill Base Template
+# Coordinate GitHub Repositories
 
-Skill Base Template is a public GitHub repository template by TechSpokes for creating structured, validated, releasable agent skill repositories from raw intake material.
+Coordinate GitHub repositories across personal accounts, organizations, and
+different kinds of work without forcing every user into the same inventory,
+taxonomy, project system, or manager application.
 
-Use this template when you want a repeatable path from a skill idea to a maintained repository with `SKILL.md`, references, validation scripts, release workflows, and plugin packaging. The template is designed for agent-assisted creation: the user places source material or a short skill idea in `.intake/`, and an AI coding agent turns that material into a standalone skill repository.
+This Agent Skill helps an agent diagnose access, understand a repository
+portfolio, route cross-repository work, and compare organization tools by fit.
+It supports software, documentation, writing, research, data, operations,
+publishing, and mixed repositories. It remains useful in a conversation-only
+agent and uses local, GitHub, IDE, CLI, connector, or MCP capabilities when they
+are actually available.
 
-## Why It Exists
+## What It Helps With
 
-Agent skills are becoming reusable operational units for AI coding environments. Teams need a consistent way to create them without hand-building repository structure, release assets, validation checks, and maintenance instructions each time.
-
-This template promotes a structured workflow for automated creation, validation, release, and maintenance of agent skills. It helps skill authors move faster while preserving the reasoning and boundaries future agents need to maintain the skill safely.
-
-## What It Provides
-
-- Intake-driven skill generation from `.intake/`.
-- Intake adequacy checks for empty, weak, conflicting, or exploratory starts.
-- Bootstrap instructions for AI coding agents.
-- A portable `src/SKILL.md` package layout.
-- Reference, asset, and fixture folders for progressive disclosure.
-- Validation for skill frontmatter, manifests, links, and release boundaries.
-- Template-safe CI, template draft releases, and generated skill release workflows installed during bootstrap cleanup.
-- A cleanup path that converts the generated repository into a standalone maintained skill repo.
-
-## Intended Users
-
-This template is for teams and maintainers who want to publish dedicated agent skills without requiring every contributor to understand the full skill packaging process.
-
-It is also useful for organizations adopting structured agent workflows across multiple skill repositories.
+- Diagnose which personal and organization repositories an agent can see.
+- Build a lightweight index or a structured inventory at the scale needed.
+- Understand repository purpose without assuming every repository is code.
+- Coordinate one outcome across several repository owners and workflows.
+- Review findability, routing, lifecycle, and governance problems.
+- Compare GitHub-native features, local records, knowledge systems, connectors,
+  catalogs, automation, and the no-change option.
+- Choose the smallest reversible improvement that fits the user's work.
 
 ## Quick Start
 
-1. Open this template repository on GitHub.
-2. Click `Use this template` above the file list.
-3. Select `Create a new repository`.
-4. Choose the owner account or organization for the new repository.
-5. Enter a repository name and optional description.
-6. Choose public or private visibility.
-7. Leave `Include all branches` unchecked unless you intentionally need every branch from the template.
-8. Click `Create repository from template`.
-9. Clone the new repository GitHub created, not the template repository.
-10. Add source material, examples, rough notes, or a short skill idea to `.intake/`.
-11. Ask an AI coding agent to build the skill from intake.
-12. Let the agent assess and resolve intake gaps before it builds the skill.
-13. Review the generated skill, docs, packaging, and validation results.
-14. Publish release assets when the generated repository is ready.
+1. Download the standalone ZIP from the latest GitHub release.
+2. Extract `coordinate-github-repositories` into a user-level skills directory
+   supported by your agent.
+3. Start a new agent session if the host does not detect skill changes live.
+4. Ask a repository-centered question such as:
 
-Detailed workflow: [docs/BOOTSTRAP-WORKFLOW.md](docs/BOOTSTRAP-WORKFLOW.md).
+```text
+Help me understand which repositories my agent can access across my personal
+account and organizations, then suggest the smallest useful way to coordinate
+them.
+```
+
+See [installation options](docs/INSTALL.md) for Codex, Claude Code, GitHub
+Copilot, project-scoped use, and plugin packages.
+
+## How It Works
+
+The skill follows a context-first sequence:
+
+1. Establish the outcome, scope, authority, and local instructions.
+2. Understand only the work context that changes the decision.
+3. Describe repository purposes without a code-only assumption.
+4. Detect agent capabilities and access gaps.
+5. Shape the coordination problem.
+6. Gather bounded evidence and preserve uncertainty.
+7. Compare the current system, no change, and proportionate alternatives.
+8. Recommend a reversible next step.
+9. Execute only exact actions the user authorizes.
+10. Verify the result and route implementation to owning repositories.
+
+Detailed design: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Safety and Adaptation
+
+The skill does not silently persist a user profile, request broader access,
+install tools, change organization policy, expose private information, or make
+repository lifecycle decisions from inactivity alone. Administrative,
+destructive, cross-repository, and public actions require stronger checkpoints.
+
+Local repository and organization instructions remain authoritative for their
+scope. The skill supplies portable reasoning, not a replacement governance
+system.
+
+## Release Packages
+
+Each release contains:
+
+- A standalone Agent Skill ZIP.
+- A Codex plugin ZIP.
+- A Claude plugin ZIP.
+
+`src/SKILL.md` is the canonical runtime skill. All packages contain the same
+portable core and focused references.
 
 ## Documentation
 
-- [docs/BOOTSTRAP-WORKFLOW.md](docs/BOOTSTRAP-WORKFLOW.md) - Full lifecycle from intake to standalone skill repository.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - Repository modes, authority model, and design intent.
-- [docs/QUICKSTART.md](docs/QUICKSTART.md) - Short usage path for creating a skill repository.
-- [docs/INSTALL.md](docs/INSTALL.md) - How generated skill packages are installed.
-- [docs/RELEASING.md](docs/RELEASING.md) - Generated skill release checklist and packaging workflow.
-- [docs/TEMPLATE-RELEASING.md](docs/TEMPLATE-RELEASING.md) - Template repository release workflow.
-- [docs/PROVENANCE.md](docs/PROVENANCE.md) - Attribution and distilled-source notes.
-- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines.
-- [SUPPORT.md](SUPPORT.md) - Support paths and contact options.
-- [SECURITY.md](SECURITY.md) - Security reporting and sensitive material guidance.
+- [Quickstart](docs/QUICKSTART.md)
+- [Installation](docs/INSTALL.md)
+- [Architecture and research basis](docs/ARCHITECTURE.md)
+- [Testing and scenario review](docs/TESTING.md)
+- [Version policy](docs/VERSION.md)
+- [Release process](docs/RELEASING.md)
+- [Source provenance](docs/PROVENANCE.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security](SECURITY.md)
+- [Support](SUPPORT.md)
 
-## Template Status
+## Development
 
-This repository starts in bootstrap mode. Generated repositories should eventually remove `.template/`, rewrite `README.md`, rewrite `AGENTS.md`, and become standalone skill repositories.
-
-## Validation
-
-Run:
-
-```bash
+```powershell
 npm run validate
+npm run package -- v1.0.0
 ```
 
-## Packaging
+Generated ZIP files are written to `dist/assets/`.
 
-Run:
+## Status and License
 
-```bash
-npm run package -- vX.Y.Z
-```
+Current version: `1.0.0`.
 
-Use the intended release tag. Packaging writes release assets to `dist/assets/`.
-
-## Author
-
-Authored and maintained by TechSpokes.
-
-Several bootstrap and documentation files contain distilled versions of TechSpokes ideas on agent instructions, README structure, Markdown form engineering, and cross-intelligence communication. See [docs/PROVENANCE.md](docs/PROVENANCE.md).
-
-## License
-
-This repository is licensed under the terms in [LICENSE](LICENSE).
+The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).
