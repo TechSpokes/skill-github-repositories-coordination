@@ -37,7 +37,7 @@ The preflight validates synchronized release identity, confirms that the tag and
 8. Push the branch, let the protected pull request gate verify the same source, and squash-merge.
 9. If any tracked content changes after preflight, rerun the preflight before requesting tag authorization.
 
-The ZIP builder is a dependency-free Node.js implementation with sorted names, fixed metadata, normalized paths, stored entries, and fixed file permissions. It produces the same bytes on Windows, macOS, and Linux for the same staged content and does not depend on `zip`, `tar`, PowerShell, or host filesystem timestamps.
+The ZIP builder is a dependency-free Node.js implementation with sorted names, fixed metadata, normalized paths, normalized LF text content, stored entries, and fixed file permissions. It produces the same bytes on Windows, macOS, and Linux for the same tagged content and does not depend on `zip`, `tar`, PowerShell, host line endings, or filesystem timestamps.
 
 ## Tag and Publish
 
@@ -62,13 +62,27 @@ Do not use `gh skill publish --tag` in this repository. The preview publisher ca
 
 Technical releasability does not authorize publication. The release owner must confirm security, evaluation, privacy, support, rollback or correction, and roadmap quality status before publishing the draft.
 
-Do not mutate an existing published release. A rejected or failed final-form tag is consumed permanently; preserve its workflow evidence and correct the candidate with a new patch version. This repository does not add a separate deployment workflow, merge queue, or abandonment marker workflow because its current release volume and asset-only delivery do not justify those controls.
+Do not mutate an existing published release. A rejected or failed final-form tag is consumed permanently; preserve its workflow evidence and correct the candidate with a new patch version.
+
+## Candidate Abandonment
+
+Use `Release Abandonment` only after explicit authorization for the exact unpublished tag, reason, and draft deletion. The workflow verifies the annotated release tag, main ancestry, version files, unpublished draft, and any existing marker. It creates `abandoned/vX.Y.Z` on the release tag's peeled commit, verifies the remote annotated marker, rechecks that the release is still a draft, and deletes only that draft without deleting either tag.
+
+An authorized maintainer may instead create and push the annotated marker on the exact peeled release commit. The marker-triggered workflow applies the same remote verification and draft-only deletion. A matching marker with no draft is an idempotent success; a published release, lightweight marker, marker on another commit, or missing candidate stops without further mutation.
+
+Never move, reuse, or delete a final-form release tag or abandonment marker. The marker is permanent evidence that the candidate must not be published.
+
+## Post-Release Branch Cleanup
+
+After the draft is published and every delivery workflow passes, fetch and prune remote refs, then list local branches already merged into `main` and remote branches that are gone or proven merged. Delete only those obsolete branches. Use normal `git branch -d` protection locally and verify the exact remote branch before `git push origin --delete <branch>` when automatic branch deletion did not remove it.
+
+Do not delete an unmerged branch, a branch with unresolved work, `main`, or any branch whose ownership or merge state is uncertain.
 
 ## Why This Release Shape Fits
 
 The repository retains squash-only pull requests and a linear protected `main` because they produce one reviewable commit per change with low maintenance cost. A merge queue would add coordination machinery without reducing current contention.
 
-The process combines controls learned from authorized portfolio examples but does not copy any one procedure. Exact-tree preflight and consumed tags fit immutable package delivery; machine-readable state and narrow publication checks remove repeated work; contained migration verification fits the GitHub CLI channel; production environment, hotfix ancestry, provider credentials, and application health gates remain outside this repository because it does not deploy a running service.
+The process combines controls learned from authorized portfolio examples but does not copy any one procedure. Exact-tree preflight and consumed tags fit immutable package delivery; machine-readable state and narrow publication checks remove repeated work; contained migration verification fits the GitHub CLI channel; the cross-host `v1.3.1` failure supplied concrete evidence for guarded candidate abandonment. Production environments, hotfix ancestry, provider credentials, merge queues, and application health gates remain outside this repository because it does not deploy a running service.
 
 ## Repository Protections
 

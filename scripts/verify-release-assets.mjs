@@ -105,6 +105,9 @@ function inspectPublicContent(archive, name, bytes) {
   } catch {
     return;
   }
+  if (text.includes("\r\n")) {
+    throw new Error(`${archive} entry ${name} contains host-specific CRLF bytes.`);
+  }
   const forbiddenPatterns = [
     /C:\\Users\\/i,
     /github_pat_[A-Za-z0-9_]+/,

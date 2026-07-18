@@ -87,12 +87,30 @@ function copyDir(source, destination, excludedNames = new Set()) {
     if (entry.isDirectory()) {
       copyDir(sourcePath, destinationPath, excludedNames);
     } else {
-      fs.copyFileSync(sourcePath, destinationPath);
+      copyReleaseFile(sourcePath, destinationPath);
     }
   }
   if (fs.readdirSync(destination).length === 0) {
     fs.rmdirSync(destination);
   }
+}
+
+/** Copy one staged file while normalizing portable text bytes.
+ * @param {string} source Source file in the canonical skill or wrapper manifest.
+ * @param {string} destination Staged release destination.
+ * @returns {void}
+ * @sideEffects Creates or replaces the staged file.
+ * @constraints Known text formats use LF so existing Windows checkouts and clean Linux checkouts produce identical archives; all other files retain exact bytes.
+ */
+function copyReleaseFile(source, destination) {
+  const extension = path.extname(source).toLowerCase();
+  const bytes = fs.readFileSync(source);
+  if ([".json", ".md", ".txt", ".yaml", ".yml"].includes(extension)) {
+    const text = new TextDecoder("utf-8", { fatal: true }).decode(bytes).replace(/\r\n/g, "\n");
+    fs.writeFileSync(destination, text, "utf8");
+    return;
+  }
+  fs.writeFileSync(destination, bytes);
 }
 
 function stageStandalone(skillName) {

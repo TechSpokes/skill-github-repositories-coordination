@@ -2,8 +2,18 @@
 
 ## [Unreleased]
 
+## [v1.3.2]
+
+- Normalize packaged Markdown, JSON, YAML, and text bytes to LF so the same tagged source produces identical release archives from existing Windows checkouts and clean Linux runners.
+- Make the asset verifier reject host-specific CRLF package content and compare downloaded draft hashes with the local deterministic preflight before publication.
+- Snapshot Git-filtered candidate blobs, including nonignored untracked files, so the preflight identity represents the content Git will commit rather than host working-tree line endings.
+- Add a guarded release abandonment workflow that creates and verifies an immutable same-commit marker before deleting only the matching unpublished draft.
+- Record `v1.3.1` as a consumed unpublished candidate after cross-host asset comparison exposed the line-ending defect.
+- Add post-release cleanup guidance that deletes only proven merged or gone branches after publication and delivery verification.
+
 ## [v1.3.1]
 
+- This candidate was not published because its Windows preflight and Linux draft archive hashes differed; `v1.3.2` preserves the intended improvements and corrects package content normalization.
 - Add portfolio practice reuse to the runtime workflow so an authorized inventory can locate familiar precedents while the agent evaluates fit, impact, portability, recovery, and maintenance instead of copying a source procedure.
 - Replace host-specific archive commands with deterministic dependency-free Node.js ZIP creation and non-extracting archive verification.
 - Add one final-tree release preflight that validates synchronized identity, unused remote state, GitHub CLI source compatibility, deterministic packages, checksums, public-content boundaries, and tracked-tree stability.

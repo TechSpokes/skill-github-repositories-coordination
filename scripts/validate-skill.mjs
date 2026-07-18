@@ -435,6 +435,7 @@ function validateRepositoryContract() {
     "docs/decisions/README.md",
     ".github/ISSUE_TEMPLATE/skill_run_feedback.yml",
     ".github/workflows/gh-skill-install.yml",
+    ".github/workflows/release-abandon.yml",
     "scripts/verify-gh-skill-install.mjs",
     "skills/coordinate-github-repositories/references/install-and-update-this-skill.md",
     "tests/fixtures/activation.md",
@@ -497,7 +498,7 @@ function validateRepositoryContract() {
       fail(`scripts/package-release.mjs is missing the release cleanup safety contract: ${expected}.`);
     }
   }
-  for (const expected of ["createStoredZip", "./lib/stored-zip.mjs"]) {
+  for (const expected of ["createStoredZip", "./lib/stored-zip.mjs", "copyReleaseFile", "replace(/\\r\\n/g, \"\\n\")"]) {
     if (!packageScript.includes(expected)) {
       fail(`scripts/package-release.mjs is missing deterministic cross-platform archive contract: ${expected}.`);
     }
@@ -527,6 +528,18 @@ function validateRepositoryContract() {
     if (!installWorkflow.includes(expected)) {
       fail(`.github/workflows/gh-skill-install.yml is missing delivery contract: ${expected}.`);
     }
+  }
+
+  const abandonmentWorkflow = readText(".github/workflows/release-abandon.yml");
+  for (const expected of ["abandoned/v*.*.*", "npm run release:state -- inspect", "marker_state", "gh release delete", "permanently prohibited from publication"]) {
+    if (!abandonmentWorkflow.includes(expected)) {
+      fail(`.github/workflows/release-abandon.yml is missing abandonment contract: ${expected}.`);
+    }
+  }
+
+  const assetVerifier = readText("scripts/verify-release-assets.mjs");
+  if (!assetVerifier.includes("host-specific CRLF bytes")) {
+    fail("scripts/verify-release-assets.mjs must reject host-specific CRLF package content.");
   }
 
   const packageManifest = readJson("package.json");

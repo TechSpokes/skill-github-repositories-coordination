@@ -120,10 +120,11 @@ function snapshotCandidateTree() {
     if (!status.isFile()) {
       throw new Error(`Candidate tree contains unsupported non-file entry ${relativePath}.`);
     }
-    const bytes = fs.readFileSync(absolutePath);
-    snapshot.update(String(bytes.length));
-    snapshot.update("\0");
-    snapshot.update(bytes);
+    const blob = run("git", ["hash-object", `--path=${relativePath}`, absolutePath], { echo: false });
+    if (!/^[0-9a-f]{40}$/.test(blob)) {
+      throw new Error(`Git did not return a filtered blob identity for ${relativePath}.`);
+    }
+    snapshot.update(blob);
     snapshot.update("\0");
   }
   return snapshot.digest("hex");

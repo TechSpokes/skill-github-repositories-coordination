@@ -41,6 +41,8 @@ The package audit must confirm:
 
 The package builder writes stored ZIP entries with sorted names and fixed metadata through Node.js standard library APIs. `scripts/verify-release-assets.mjs` parses the ZIP records without extraction, validates CRC values, compares every entry with its staged file, and checks the checksum manifest and public-content boundaries. Repeated builds from the same tree must produce the same archive digests on every supported platform.
 
+Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree line endings. Compare local preflight checksums with draft release asset digests before publication; any mismatch consumes the candidate tag and requires correction before publication.
+
 ## Evaluation Contract
 
 `tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 34 cases across 12 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, platform, research, solo, and write capable.
@@ -75,6 +77,8 @@ Record unavailable validators honestly. Do not replace a failed check with an un
 Run `gh skill publish --dry-run` through the final-tree release preflight before packaging creates `dist/` and before ignored research or installed skill copies exist. The preview publisher scans the working directory instead of limiting validation to tracked files.
 
 The tag workflow performs an exact-tag install before draft creation. The release event workflow performs both the public versionless install and a previous-release update on ephemeral runners hosted by GitHub with read-only repository permission. Each operation uses a runner temporary directory and disposable user home, and it never executes installed instructions or scripts.
+
+The abandonment workflow requires an annotated same-commit marker before deleting only an unpublished draft. Test its state classifier with absent, matching, lightweight, wrong-commit, missing-draft, and published-release cases when the workflow or tag rules change.
 
 `scripts/verify-gh-skill-install.mjs` verifies an already installed copy. It accepts the explicit-tag and resolved-release metadata forms for the same expected tag, then checks the source repository, canonical skill path, tree SHA, unpinned state, file inventory, portable frontmatter fields, `SKILL.md` body, and byte identity of every other runtime file.
 
