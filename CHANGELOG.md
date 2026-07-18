@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- No unreleased changes.
+- Correct the v1.0.1 copyable installer so it resolves the latest release without a maintained version pin.
 
 ## [v1.1.0]
 
