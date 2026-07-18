@@ -6,17 +6,20 @@ import { spawnSync } from "node:child_process";
 const [command, ...argumentsList] = process.argv.slice(2);
 const options = parseOptions(argumentsList);
 
-if (command !== "guard" || !options.tag || !/^v[0-9]+\.[0-9]+\.[0-9]+$/.test(options.tag)) {
-  throw new Error("Usage: node scripts/release-state.mjs guard --tag vX.Y.Z [--github-output path]");
+if (!["guard", "inspect"].includes(command) || !options.tag || !/^v[0-9]+\.[0-9]+\.[0-9]+$/.test(options.tag)) {
+  throw new Error("Usage: node scripts/release-state.mjs <guard|inspect> --tag vX.Y.Z [--github-output path]");
 }
 
-const state = guardTag(options.tag);
+const state = inspectTag(options.tag, { requireHead: command === "guard" });
+if (command === "guard" && state.marker_state === "matching") {
+  throw new Error(`${state.tag} is permanently abandoned by ${state.marker}.`);
+}
 if (options.githubOutput) {
   appendFileSync(options.githubOutput, Object.entries(state).map(([key, value]) => `${key}=${value}`).join("\n") + "\n", "utf8");
 }
 console.log(JSON.stringify(state));
 
-function guardTag(tag) {
+function inspectTag(tag, { requireHead }) {
   git(["fetch", "--quiet", "origin", "refs/heads/main:refs/remotes/origin/main", "refs/tags/*:refs/tags/*"]);
   const localType = git(["cat-file", "-t", `refs/tags/${tag}`]);
   if (localType !== "tag") {
@@ -24,9 +27,11 @@ function guardTag(tag) {
   }
 
   const releaseCommit = git(["rev-parse", "--verify", `${tag}^{commit}`]);
-  const headCommit = git(["rev-parse", "--verify", "HEAD^{commit}"]);
-  if (releaseCommit !== headCommit) {
-    throw new Error(`Checked out commit ${headCommit} does not match ${tag} at ${releaseCommit}.`);
+  if (requireHead) {
+    const headCommit = git(["rev-parse", "--verify", "HEAD^{commit}"]);
+    if (releaseCommit !== headCommit) {
+      throw new Error(`Checked out commit ${headCommit} does not match ${tag} at ${releaseCommit}.`);
+    }
   }
 
   const ancestry = spawnSync("git", ["merge-base", "--is-ancestor", releaseCommit, "origin/main"], { encoding: "utf8" });
@@ -58,7 +63,24 @@ function guardTag(tag) {
     throw new Error(`CHANGELOG.md at ${releaseCommit} is missing ## [${tag}].`);
   }
 
-  return { tag, version, release_commit: releaseCommit };
+  const marker = `abandoned/${tag}`;
+  const markerLines = git(["ls-remote", "--tags", "origin", `refs/tags/${marker}`, `refs/tags/${marker}^{}`]).split(/\r?\n/).filter(Boolean);
+  if (markerLines.length === 0) {
+    return { tag, version, release_commit: releaseCommit, marker, marker_commit: "", marker_state: "absent" };
+  }
+  const remoteMarker = new Map(markerLines.map((line) => {
+    const [object, ref] = line.split(/\s+/, 2);
+    return [ref, object];
+  }));
+  const markerObject = remoteMarker.get(`refs/tags/${marker}`);
+  const markerCommit = remoteMarker.get(`refs/tags/${marker}^{}`);
+  if (!markerObject || !markerCommit || markerObject === markerCommit) {
+    throw new Error(`${marker} must be an annotated tag.`);
+  }
+  if (markerCommit !== releaseCommit) {
+    throw new Error(`${marker} resolves to ${markerCommit}, but ${tag} resolves to ${releaseCommit}; investigate without mutation.`);
+  }
+  return { tag, version, release_commit: releaseCommit, marker, marker_commit: markerCommit, marker_state: "matching" };
 }
 
 function parseOptions(args) {
