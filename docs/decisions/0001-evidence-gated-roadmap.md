@@ -47,4 +47,4 @@ Review this decision when evidence shows the two-gate model blocks useful work w
 
 ## Supersession
 
-Preserve this record and link any replacement decision here.
+Preserve this record and link any replacement decision here. [ADR 0002](0002-accept-founding-use-case-for-phase-0.md) refines the Phase 0 product gate while preserving this decision's two-gate model.

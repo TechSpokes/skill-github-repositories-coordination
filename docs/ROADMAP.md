@@ -34,7 +34,7 @@ Stop phase advancement when either gate is red or unknown. A growth signal never
 
 ### Phase 0: Foundation
 
-[Issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7) establishes trust, evaluation, and undeniable outcomes. Start after reviewing the current architecture and fixtures. Require evidence that an outside user discovered a true, previously unnoticed insight.
+[Issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7) establishes trust, evaluation, and undeniable outcomes. Start after reviewing the current architecture and fixtures. Require a real target user to use the skill, directly or through their agent, on a portfolio they control and independently confirm a true, previously unnoticed insight. The target user may be the founding builder or maintainer when the record discloses that relationship and its limitations.
 
 ### Phase 1: Proof
 
@@ -83,10 +83,12 @@ Version `1.1.0` establishes the cross-phase foundations: executable evaluation c
 
 ## Current State
 
-Phase 0 is active. The repository foundations can be implemented and reviewed now, but the Phase 0 product gate remains open until consented outside use produces the required insight. Phases 1 through 6 remain dependent on their documented gates.
+Phase 0 passed on 2026-07-18. The founding builder and maintainer used version `1.1.0` through an agent on the real multi-organization portfolio that motivated the repository, confirmed a previously unnoticed insight, approved the sanitized evidence, and retained the stated limitations. All five Phase 0 tracks were green.
+
+Phase 1 is active with a baseline of zero qualifying unsolicited signals. Its product gate still requires three unsolicited signals from outside the recruited trial group, including one from a non-code user. Phases 2 through 6 remain dependent on their documented gates.
 
 ## Review Triggers
 
 Review this roadmap after a gate decision, serious security report, evaluation regression, material host change, maintainer change, recommendation-conflict incident, or evidence that a phase objective no longer fits users.
 
-Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected architecture decision in the same change.
+Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected architecture decision in the same change. [ADR 0002](decisions/0002-accept-founding-use-case-for-phase-0.md) records why the Phase 0 gate accepts the founding target use case without weakening Phase 1's requirement for outside signals.

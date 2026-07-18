@@ -16,6 +16,7 @@ trial:
   phase_issue: ""
   portfolio_shape: solo | multi-org | non-code | mixed
   recruitment: recruited | unsolicited
+  participant_relationship: ""
   consent_scope: ""
   skill_version: ""
   host_and_model: ""
@@ -32,6 +33,8 @@ trial:
 ```
 
 Use `previously_unknown_insight` only when the participant independently confirms it. Leave the field empty when the run was useful in another way.
+
+Always disclose the participant's relationship to the skill. Builder or maintainer evidence may satisfy a phase only when that phase contract explicitly permits it. Never classify recruited, builder, maintainer, or contributor evidence as an unsolicited outside signal.
 
 ## Case Study Record
 
@@ -90,8 +93,7 @@ Do not automate posting, evade community rules, duplicate the same message acros
 
 ## Release Health Record
 
-Use this record for release review and maintainer handoff. It records current
-evidence; it does not authorize publication.
+Use this record for release review and maintainer handoff. It records current evidence; it does not authorize publication.
 
 ```yaml
 release_health:
@@ -115,9 +117,7 @@ release_health:
   next_review_trigger: ""
 ```
 
-Do not mark maintainer coverage green when only one authorized person can
-complete the release. Keep technical releasability separate from the human
-decision to publish.
+Do not mark maintainer coverage green when only one authorized person can complete the release. Keep technical releasability separate from the human decision to publish.
 
 ## Phase Gate Record
 
