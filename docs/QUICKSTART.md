@@ -6,13 +6,13 @@ The easiest path is to ask the agent to install the public skill at user or
 personal scope:
 
 ```text
-Install Coordinate GitHub Repositories v1.0.1 globally from
+Install Coordinate GitHub Repositories v1.1.0 globally from
 https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer
 your native skill installer, do not use GitHub's Source code ZIP, ask before
 overwriting anything, and verify the final installation path.
 ```
 
-For a browser-only install, [download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.0.1.zip),
+For a browser-only install, [download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.1.0.zip),
 open it, and copy the inner `coordinate-github-repositories` folder into a
 personal skills directory.
 
@@ -66,6 +66,7 @@ The agent should:
 - Recognize code and non-code work.
 - Preserve existing vocabulary and governance.
 - Compare the current system and no change with alternatives.
+- Explain why a consequential least-privilege or reversible step is safer.
 - Ask before writes, installations, access changes, administrative actions, or
   public output.
 - Route concrete implementation back to the owning repository workflow.
@@ -75,3 +76,7 @@ The agent should:
 The skill still supports conversation-only analysis. The agent should state that
 it has not inspected repositories, build a small context model from your input,
 compare options, and provide a manual verification plan.
+
+Use the [learning path](LEARNING.md) to understand least privilege, untrusted
+repository content, private and public boundaries, evidence, reversibility, and
+the no-change option without needing a terminal.

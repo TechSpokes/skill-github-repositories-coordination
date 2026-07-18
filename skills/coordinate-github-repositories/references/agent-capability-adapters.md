@@ -27,6 +27,10 @@ Identify which capabilities are present:
 Record unavailable and uncertain capabilities. A named connector does not prove
 its account scope, repository selection, write access, or administrative rights.
 
+When similar tools come from several connectors or MCP servers, use fully
+qualified tool names in the plan and action record. Verify authorization
+audience and target instead of selecting by a short name.
+
 ## Capability Modes
 
 ### Conversation Only

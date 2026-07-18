@@ -258,12 +258,12 @@ function validateManifests() {
       if (manifest.version !== packageManifest.version) {
         fail(`${manifestPath} version must match package.json.`);
       }
-      if (manifest.repository !== "https://github.com/TechSpokes/skill-github-repositories-coordination") {
+      if (manifest["repository"] !== "https://github.com/TechSpokes/skill-github-repositories-coordination") {
         fail(`${manifestPath} has an unexpected repository URL.`);
       }
       if (manifestPath.includes(".codex-plugin")) {
         for (const key of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
-          if (!manifest.interface?.[key]) {
+          if (!manifest["interface"]?.[key]) {
             fail(`${manifestPath} is missing interface.${key}.`);
           }
         }
@@ -367,13 +367,24 @@ function validateRepositoryContract() {
     "SECURITY.md",
     "SUPPORT.md",
     "docs/ARCHITECTURE.md",
+    "docs/GOVERNANCE.md",
     "docs/INSTALL.md",
+    "docs/LEARNING.md",
+    "docs/NON-CODE-GUIDE.md",
+    "docs/PORTAL-INTEROPERABILITY.md",
+    "docs/PROGRAM-EVIDENCE.md",
     "docs/QUICKSTART.md",
+    "docs/ROADMAP.md",
     "docs/RELEASING.md",
     "docs/TESTING.md",
+    "docs/THREAT-MODEL.md",
     "docs/VERSION.md",
+    "docs/decisions/0001-evidence-gated-roadmap.md",
+    "docs/evaluations/v1.1.0.md",
     "tests/fixtures/activation.md",
-    "tests/fixtures/behavior-scenarios.md"
+    "tests/fixtures/adversarial-scenarios.md",
+    "tests/fixtures/behavior-scenarios.md",
+    "tests/evals/cases.json"
   ];
 
   for (const file of requiredFiles) {
@@ -402,6 +413,36 @@ function validateRepositoryContract() {
   const skillLineCount = readText("skills/coordinate-github-repositories/SKILL.md").replace(/\r\n/g, "\n").split("\n").length;
   if (skillLineCount > 500) {
     fail("skills/coordinate-github-repositories/SKILL.md must remain below 500 lines.");
+  }
+
+  // @constraints Every runtime reference must remain one level deep and directly discoverable from SKILL.md.
+  const skillText = readText("skills/coordinate-github-repositories/SKILL.md");
+  const directReferenceLinks = new Set(
+    [...skillText.matchAll(/]\(references\/([a-z0-9-]+\.md)\)/g)].map((match) => match[1])
+  );
+  const referenceFiles = walk("skills/coordinate-github-repositories/references").map((file) => path.basename(file));
+  for (const referenceFile of referenceFiles) {
+    if (!directReferenceLinks.has(referenceFile)) {
+      fail(`Runtime reference ${referenceFile} must be linked directly from SKILL.md.`);
+    }
+  }
+
+  // @constraints Checksum and provenance controls are release contracts, not optional documentation claims.
+  const packageScript = readText("scripts/package-release.mjs");
+  if (!packageScript.includes("SHA256SUMS")) {
+    fail("scripts/package-release.mjs must generate SHA256SUMS.");
+  }
+  for (const expected of ["fileURLToPath(import.meta.url)", "relative !== \"dist\"", "Refusing to reset unsafe release directory"]) {
+    if (!packageScript.includes(expected)) {
+      fail(`scripts/package-release.mjs is missing the release cleanup safety contract: ${expected}.`);
+    }
+  }
+
+  const releaseWorkflow = readText(".github/workflows/release-draft.yml");
+  for (const expected of ["attestations: write", "id-token: write", "actions/attest@v4", "subject-path: dist/assets/*.zip", "dist/assets/SHA256SUMS --clobber"]) {
+    if (!releaseWorkflow.includes(expected)) {
+      fail(`.github/workflows/release-draft.yml is missing release provenance contract: ${expected}.`);
+    }
   }
 }
 

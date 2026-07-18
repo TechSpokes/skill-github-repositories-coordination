@@ -21,18 +21,29 @@ Useful contributions include:
 
 ## Before a Pull Request
 
-Read `AGENTS.md` and `docs/ARCHITECTURE.md`. For runtime changes, read the
-affected references and all test fixtures.
+Read `AGENTS.md`, `docs/ARCHITECTURE.md`, and `docs/GOVERNANCE.md`. For runtime
+changes, read the affected references and all test fixtures.
 
 Run:
 
-```powershell
+```shell
 npm run validate
-npm run package -- v1.0.0
+npm run package -- v1.1.0
 ```
 
 Use the intended version when preparing a release. Inspect all generated ZIP
-files.
+files and compare their digests with `dist/assets/SHA256SUMS`.
+
+## Definition of Done
+
+Use the complete definition of done and five-track review rubric in
+[Governance](docs/GOVERNANCE.md). Every change must preserve applicable
+architecture, security, evaluation, teaching, governance, privacy, portability,
+and release contracts.
+
+Register new activation, behavior, or adversarial cases in
+`tests/evals/cases.json`. Run `npm run test:eval` when fixture or runtime
+behavior changes.
 
 ## Pull Request Content
 
@@ -44,6 +55,7 @@ Explain:
 - Which fixtures changed or still pass.
 - Commands and manual checks used for validation.
 - Product facts that need a source date or future refresh.
+- Affected roadmap phase, threat, evaluation case, decision, and release links.
 
 ## Source and Privacy Rules
 

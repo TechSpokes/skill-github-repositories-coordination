@@ -18,6 +18,8 @@ body:
         - Inventory or coordination
         - Tool recommendation
         - Safety or permissions
+        - Portal interoperability
+        - Evaluation or adversarial behavior
         - Installation
         - Validation or packaging
         - Documentation

@@ -12,7 +12,7 @@ can install skills:
 ```text
 Install the public Coordinate GitHub Repositories skill globally for me from
 https://github.com/TechSpokes/skill-github-repositories-coordination at
-version v1.0.1. Prefer your native skill installer. Otherwise use the standalone
+version v1.1.0. Prefer your native skill installer. Otherwise use the standalone
 release ZIP, not GitHub's Source code ZIP. Keep the coordinate-github-repositories
 folder intact with SKILL.md and references inside it. Do not overwrite an
 existing installation without asking. Verify the final location and tell me
@@ -25,7 +25,7 @@ files, use the browser-only steps below.
 
 ## Install With a Browser Only
 
-1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.0.1.zip).
+1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.1.0.zip).
 2. Open the downloaded ZIP.
 3. Find the folder named `coordinate-github-repositories` inside it.
 4. Copy that whole folder into the personal skills folder for your agent.
@@ -62,9 +62,9 @@ For most people, the first row is the right choice.
 
 | What you want | Download |
 |---|---|
-| Use the skill personally across projects | `coordinate-github-repositories-v1.0.1.zip` (recommended) |
-| Import a complete plugin into a Codex host that accepts plugin ZIPs | `coordinate-github-repositories-codex-plugin-v1.0.1.zip` |
-| Import a complete plugin into a Claude host that accepts plugin ZIPs | `coordinate-github-repositories-claude-plugin-v1.0.1.zip` |
+| Use the skill personally across projects | `coordinate-github-repositories-v1.1.0.zip` (recommended) |
+| Import a complete plugin into a Codex host that accepts plugin ZIPs | `coordinate-github-repositories-codex-plugin-v1.1.0.zip` |
+| Import a complete plugin into a Claude host that accepts plugin ZIPs | `coordinate-github-repositories-claude-plugin-v1.1.0.zip` |
 
 Open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest)
 if a direct download does not start. Expand **Assets** and choose one of the
@@ -81,20 +81,20 @@ correct personal folder and records where the skill came from.
 
 For Codex:
 
-```powershell
-gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent codex --scope user
+```shell
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.1.0 --agent codex --scope user
 ```
 
 For GitHub Copilot:
 
-```powershell
-gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent github-copilot --scope user
+```shell
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.1.0 --agent github-copilot --scope user
 ```
 
 For Claude Code:
 
-```powershell
-gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.0.1 --agent claude-code --scope user
+```shell
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories@v1.1.0 --agent claude-code --scope user
 ```
 
 GitHub CLI supports additional agents. Run `gh skill install --help` or ask the
@@ -126,6 +126,16 @@ changing anything.
 
 A correct response should identify the skill, distinguish observed access from
 assumed access, and avoid making changes without permission.
+
+Each release includes a `SHA256SUMS` asset for local checksum comparison. When
+GitHub CLI is available, verify the downloaded ZIP provenance with:
+
+```shell
+gh attestation verify ./coordinate-github-repositories-v1.1.0.zip -R TechSpokes/skill-github-repositories-coordination
+```
+
+An attestation verifies source and workflow identity. It does not prove that an
+artifact is secure, so maintainers must still inspect release contents.
 
 ## Update or Remove
 

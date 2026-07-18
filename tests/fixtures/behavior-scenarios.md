@@ -50,6 +50,8 @@ Expected invariants:
 - Does not require a database, taxonomy, or automation.
 - Distinguishes repository coordination from priority coaching.
 - Offers a small reversible index or native view if evidence supports it.
+- Names in plain language the access, disclosure, disruption, or recovery harm
+  that the reversible step prevents.
 
 ## Mature Organization
 
@@ -63,6 +65,7 @@ Expected invariants:
 - Includes current system and no change as serious options.
 - Requires an owner, maintenance model, permission review, and pilot for any
   shared application.
+- Keeps the skill separate from a portal or catalog system of record.
 
 ## Conversation-Only General Agent
 

@@ -33,7 +33,7 @@ Copy this message into the agent where you want to use the skill:
 ```text
 Install the public Coordinate GitHub Repositories skill globally for me from
 https://github.com/TechSpokes/skill-github-repositories-coordination at
-version v1.0.1. Prefer your native skill installer. Otherwise use the standalone
+version v1.1.0. Prefer your native skill installer. Otherwise use the standalone
 release ZIP, not GitHub's Source code ZIP. Keep SKILL.md and references together.
 Do not overwrite an existing installation without asking. Verify the final
 location and tell me whether I need to start a new session.
@@ -41,7 +41,7 @@ location and tell me whether I need to start a new session.
 
 ### Or Use Your Browser
 
-1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.0.1.zip).
+1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.1.0.zip).
 2. Open the ZIP and copy the whole `coordinate-github-repositories` folder into
    your agent's personal skills folder.
 3. Keep `SKILL.md` and `references/` inside that folder.
@@ -84,6 +84,11 @@ install tools, change organization policy, expose private information, or make
 repository lifecycle decisions from inactivity alone. Administrative,
 destructive, cross-repository, and public actions require stronger checkpoints.
 
+Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository
+content, privileged tool, public output, privacy, and release boundaries. Read
+the [learning path](docs/LEARNING.md) for a no-terminal explanation of the safe
+practices the skill teaches while it works.
+
 Local repository and organization instructions remain authoritative for their
 scope. The skill supplies portable reasoning, not a replacement governance
 system.
@@ -95,15 +100,23 @@ Each release contains:
 - A standalone Agent Skill ZIP.
 - A Codex plugin ZIP.
 - A Claude plugin ZIP.
+- A `SHA256SUMS` manifest for the three ZIPs.
 
 `skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill. All packages contain the same
-portable core and focused references.
+portable core and focused references. GitHub Actions also attests each release
+ZIP so consumers can verify its source and workflow provenance.
 
 ## Documentation
 
 - [Quickstart](docs/QUICKSTART.md)
 - [Installation](docs/INSTALL.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Learning path](docs/LEARNING.md)
+- [Non-code portfolio guide](docs/NON-CODE-GUIDE.md)
 - [Architecture and research basis](docs/ARCHITECTURE.md)
+- [Threat model](docs/THREAT-MODEL.md)
+- [Portal interoperability](docs/PORTAL-INTEROPERABILITY.md)
+- [Governance](docs/GOVERNANCE.md)
 - [Testing and scenario review](docs/TESTING.md)
 - [Version policy](docs/VERSION.md)
 - [Release process](docs/RELEASING.md)
@@ -114,15 +127,15 @@ portable core and focused references.
 
 ## Development
 
-```powershell
+```shell
 npm run validate
-npm run package -- v1.0.1
+npm run package -- v1.1.0
 ```
 
 Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.0.1`.
+Current version: `1.1.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

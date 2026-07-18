@@ -53,18 +53,29 @@ activation, workflow order, output behavior, safety, or portability.
 
 Run after every product change:
 
-```powershell
+```bash
 npm run validate
-npm run package -- v1.0.1
+npm run package -- vX.Y.Z
 ```
 
-For a new version, use the intended tag instead of `v1.0.1`. Inspect all three
+Use the intended tag instead of `vX.Y.Z`. Inspect all three
 ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake,
 local path, placeholder, or secret material.
 
 Review `tests/fixtures/activation.md` and
 `tests/fixtures/behavior-scenarios.md` manually when behavior changes. Record
 why any invariant changes.
+
+## Windows Sandbox and GitHub CLI
+
+On Windows, a sandboxed agent process may not receive the user's global environment or Windows keyring session. A sandboxed GitHub CLI authentication failure is not proof that the host session is unauthenticated. This fallback was verified in this repository's Windows sandbox on 2026-07-18: the sandboxed check reported an invalid token, while the elevated check loaded the keyring session.
+
+1. Run `gh auth status -h github.com` in the current sandbox.
+2. If it reports no login or an invalid token, retry the same read-only command once with elevated host permissions.
+3. If the elevated check succeeds, run authenticated `gh` commands with elevated permissions and scope each command to the intended repository and action.
+4. If the elevated check also fails, ask the user to run `gh auth login -h github.com` and verify the result before continuing.
+
+Elevation changes credential visibility, not user authorization. Keep write approval, target confirmation, least privilege, and recovery requirements unchanged. Never print, copy, or persist the token, and diagnose `git` authentication separately instead of assuming it shares the GitHub CLI result.
 
 ## Change Boundaries
 

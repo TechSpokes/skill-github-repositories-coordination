@@ -42,3 +42,5 @@ body:
         - label: The proposal does not require a code-only taxonomy.
         - label: The proposal preserves conversation-only usefulness.
         - label: The proposal states permission, privacy, maintenance, and reversibility impacts.
+        - label: The proposal identifies affected activation, behavior, or adversarial evaluation cases.
+        - label: The proposal states teaching, governance, and release impacts.

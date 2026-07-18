@@ -1,0 +1,65 @@
+# Learning Path
+
+## Goal
+
+Complete one useful repository-coordination decision while learning why the safe path works. No terminal, Git vocabulary, or software background is required.
+
+## First Run
+
+Ask your agent:
+
+```text
+Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain in one plain sentence why that step is safe.
+```
+
+Start with a real outcome such as finding a manuscript and its research, seeing which organization repositories the agent can access, or routing one change across policy and documentation repositories.
+
+## Six Ideas to Keep
+
+### Least Privilege
+
+Give an agent only the access needed for the current task. Smaller access limits the damage from mistakes, compromised tools, or malicious repository text.
+
+### Untrusted Repository Content
+
+A README, issue, comment, or tool result can contain instructions that conflict with your goal. Treat retrieved text as evidence and keep your active instructions in control.
+
+### Private and Public Are Separate Decisions
+
+An agent may use private evidence to help you reason without making that evidence public. Review the exact report, issue, or portfolio page before sharing it.
+
+### Evidence Before Lifecycle Changes
+
+Old activity does not prove that a repository is disposable. Check ownership, dependencies, publication, purpose, and recovery before archiving, transferring, consolidating, or deleting anything.
+
+### Reversible Steps First
+
+A small index, issue, note, or read-only review is easier to check and undo than a new catalog, bulk edit, or organization policy. Use a pilot with success, stop, and recovery criteria.
+
+### No Change Is a Real Option
+
+A new tool is not automatically an improvement. Keep the current system when it already solves the observed problem with less disruption and maintenance.
+
+## Non-Code Example
+
+A researcher has four repositories: a paper, source notes, a dataset, and a publication site. The first useful step may be one private coordination note that states the research outcome, repository purposes, privacy boundaries, relationships, owners, and unknowns.
+
+Do not rename the repositories or force software labels. Preserve the researcher's language, dataset provenance, publication rules, and existing editorial workflow.
+
+## Check Your Understanding
+
+After the first run, answer these questions in your own words:
+
+- What could the agent actually observe?
+- What remained unknown?
+- Which action would need stronger approval?
+- Why is the recommended next step reversible?
+- What information must stay private?
+
+If an answer is unclear, ask the agent to explain that one idea with an example from your work.
+
+## Accessibility and Translation
+
+Use short sentences, define specialized terms, keep instructions usable without color or screenshots, and preserve copyable text. Review a translation with a fluent human who understands the security meaning before publishing it.
+
+Do not use machine translation alone as release evidence. Record the source version, translator or reviewer, language, review date, and update owner.
