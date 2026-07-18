@@ -13,7 +13,10 @@ Keep Markdown files readable by humans, AI agents, GitHub, IDEs, and simple tool
 - Use one H1 title per file.
 - Maintain heading hierarchy without skipped levels.
 - Use real headings instead of bold text as headings.
-- Use short paragraphs.
+- Keep each paragraph focused on one related idea. Related sentences may share a paragraph; unrelated ideas belong in separate paragraphs.
+- Write each prose paragraph and list item on one physical source line. Rely on the editor or renderer to soft-wrap text for display.
+- Do not hard-wrap, hard-crop, or insert line breaks at a fixed source column.
+- Separate adjacent Markdown blocks, including headings, paragraphs, lists, and fenced code, with one blank line.
 - Use flat lists.
 - Avoid nested lists.
 - Use dashes for unordered lists.
