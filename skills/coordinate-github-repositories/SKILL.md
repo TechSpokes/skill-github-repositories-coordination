@@ -89,6 +89,8 @@ If the request is routine work inside one known repository, follow that reposito
 
 Inspect only evidence needed for the decision. Preserve provenance, observation time, confidence, visibility, and unknowns. Distinguish generated snapshots from reviewed meaning and architectural proposals from working implementations.
 
+When an authorized portfolio inventory exists, use it to locate relevant user preferences, analogous repositories, and proven practices before proposing a new approach. Treat those practices as candidates to evaluate and combine, not templates to copy.
+
 For inventories, routing, cross-repository work contracts, or lifecycle review, load [inventory and coordination](references/inventory-and-coordination.md).
 
 ### 7. Compare Options

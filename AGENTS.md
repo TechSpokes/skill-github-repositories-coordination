@@ -50,9 +50,12 @@ Run after every product change:
 ```bash
 npm run validate
 npm run package -- vX.Y.Z
+npm run release:verify-assets -- vX.Y.Z
 ```
 
-Use the intended tag instead of `vX.Y.Z`. Inspect all three ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake, local path, placeholder, or secret material.
+Use the intended tag instead of `vX.Y.Z`. The asset verifier checks deterministic checksums, archive inventory, staged byte identity, unsafe paths, local material, and credential patterns; manually inspect all three ZIP files when runtime content, packaging behavior, or privacy boundaries change.
+
+For a release cut, run `npm run release:preflight -- vX.Y.Z` once on the final uncommitted release tree. Commit that exact tree and rerun the preflight after any tracked edit. The tag and publication workflows validate immutable identity and delivery state without repeating the complete source gate.
 
 Run `gh skill publish --dry-run` from a clean checkout before packaging when the installed GitHub CLI exposes the preview command. Do not use `gh skill publish --tag`; the repository release workflow owns tagging, curated notes, ZIP creation, checksums, attestations, draft review, and publication.
 

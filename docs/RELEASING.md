@@ -8,13 +8,13 @@ Changes reach `main` through a pull request:
 2. Update the skill, references, fixtures, docs, and manifests coherently.
 3. Run `npm run validate`.
 4. Run `npm run package -- vX.Y.Z` when packaging or release content changes.
-5. Inspect all generated archives for content and privacy boundaries.
-6. Recompute ZIP checksums and compare them with `dist/assets/SHA256SUMS`.
+5. Run `npm run release:verify-assets -- vX.Y.Z` and inspect the generated archives when packaging behavior, runtime content, or privacy boundaries change.
+6. Review the deterministic archive checksums in `dist/assets/SHA256SUMS`.
 7. Review threat, evaluation, governance, and roadmap quality impact.
 8. Push the branch and open a pull request.
 9. Wait for `Validate skill package`, resolve actionable failures or conversations, and squash-merge.
 
-Do not push directly to `main`.
+Do not push directly to `main`. Pull request CI runs once for the pull request and remains manually dispatchable; it does not repeat on the resulting `main` commit.
 
 ## Release Preparation
 
@@ -24,24 +24,20 @@ For version `X.Y.Z`:
 2. Add `## [vX.Y.Z]` to `CHANGELOG.md`.
 3. Add `docs/releases/vX.Y.Z.md`.
 4. Update `docs/VERSION.md` and user-facing install examples.
-5. From a clean checkout without `dist/`, ignored skill copies, or research clones, run the GitHub CLI source validator when the installed CLI exposes it.
+5. Review affected activation, behavior, adversarial, documentation, and release invariants.
+6. On the final uncommitted release tree, run the single release preflight.
 
 ```shell
-gh skill publish --dry-run
+npm run release:preflight -- vX.Y.Z
 ```
 
-6. Run the required repository commands below.
+The preflight validates synchronized release identity, confirms that the tag and release are unused, runs the repository validator, removes only generated `dist/` before `gh skill publish --dry-run`, builds and inspects all three archives twice, requires identical checksums, and fails if any tracked or nonignored untracked file changes while it runs. It emits digests for the complete candidate tree and checksum manifest.
 
-```shell
-npm run validate
-npm run package -- vX.Y.Z
-```
+7. Review the three ZIP inventories and `SHA256SUMS`, then commit the exact validated tree without editing it.
+8. Push the branch, let the protected pull request gate verify the same source, and squash-merge.
+9. If any tracked content changes after preflight, rerun the preflight before requesting tag authorization.
 
-7. Inspect the standalone, Codex plugin, and Claude plugin ZIP files.
-8. Compare each ZIP digest with `SHA256SUMS`.
-9. Confirm no intake, bootstrap, local path, secret, placeholder, development cache, or unrelated repository file is present.
-10. Record technical checks, forward-review evidence, open findings, correction path, and the accountable publication decision.
-11. Land the release change through the pull request workflow.
+The ZIP builder is a dependency-free Node.js implementation with sorted names, fixed metadata, normalized paths, stored entries, and fixed file permissions. It produces the same bytes on Windows, macOS, and Linux for the same staged content and does not depend on `zip`, `tar`, PowerShell, or host filesystem timestamps.
 
 ## Tag and Publish
 
@@ -52,15 +48,27 @@ git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
 
-The release workflow validates the tagged source with `gh skill publish --dry-run`, builds the three ZIP assets, and creates or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`. Review the title, notes, tag target, ZIP contents, checksums, and GitHub artifact attestations, then publish the release.
+The tag is staging authorization for one immutable candidate. `.github/workflows/release-draft.yml` verifies that the remote annotated tag resolves to the checked-out commit, is reachable from `origin/main`, and matches every version and release file. It then builds and verifies deterministic assets, installs the exact unpublished tag through GitHub CLI in the runner temporary directory, attests the ZIP files, and creates the draft.
 
-Publishing the reviewed draft triggers `.github/workflows/gh-skill-install.yml`. The workflow installs the versionless public source into an ephemeral runner directory and verifies the resolved release tag, repository, source path, tree metadata, file inventory, and runtime content without executing the installed skill.
+If an equivalent draft already exists, a rerun reuses it and replaces only the deterministic assets. If the existing draft title, notes, or state differs from the tagged source, the workflow stops instead of overwriting reviewed or manually edited release content.
+
+Review the title, notes, tag target, ZIP contents, checksums, exact-tag install result, and GitHub artifact attestations, then publish the existing draft. The tag workflow does not repeat the full source validation already performed on the final tree and protected pull request.
+
+Publishing the reviewed draft is production authorization for the public delivery channels. `.github/workflows/gh-skill-install.yml` installs the versionless public source into one ephemeral runner directory and verifies the resolved release tag, repository, source path, tree metadata, file inventory, and runtime content without executing the installed skill. A separate contained job installs the previous published release into another runner directory, previews the update, updates only that directory, and verifies the current release.
+
+The draft and publication workflows share a per-tag, non-cancelling concurrency group. Different versions remain independent, while preparation and publication state for one tag cannot race.
 
 Do not use `gh skill publish --tag` in this repository. The preview publisher can push the current branch and create an immediately published release, but it cannot preserve this repository's curated draft, three packages, checksums, attestations, and publication review.
 
 Technical releasability does not authorize publication. The release owner must confirm security, evaluation, privacy, support, rollback or correction, and roadmap quality status before publishing the draft.
 
-Do not mutate an existing published release. Correct it with a new version.
+Do not mutate an existing published release. A rejected or failed final-form tag is consumed permanently; preserve its workflow evidence and correct the candidate with a new patch version. This repository does not add a separate deployment workflow, merge queue, or abandonment marker workflow because its current release volume and asset-only delivery do not justify those controls.
+
+## Why This Release Shape Fits
+
+The repository retains squash-only pull requests and a linear protected `main` because they produce one reviewable commit per change with low maintenance cost. A merge queue would add coordination machinery without reducing current contention.
+
+The process combines controls learned from authorized portfolio examples but does not copy any one procedure. Exact-tree preflight and consumed tags fit immutable package delivery; machine-readable state and narrow publication checks remove repeated work; contained migration verification fits the GitHub CLI channel; production environment, hotfix ancestry, provider credentials, and application health gates remain outside this repository because it does not deploy a running service.
 
 ## Repository Protections
 

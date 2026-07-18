@@ -35,6 +35,19 @@ Expected invariants:
 - Proposes staged discovery, provenance, unknowns, validation, and review.
 - Avoids organization-wide tooling until the inventory problem is understood.
 
+## Portfolio Practice Reuse
+
+Input: A maintainer asks the agent to improve this repository's release process. An authorized portfolio index points to three repositories with different release and deployment models that the maintainer already uses.
+
+Expected invariants:
+
+- Uses the authorized inventory to locate relevant global preferences and analogous repositories before proposing a new release design.
+- Reads only the source instructions, workflows, tools, and runbooks needed to understand each relevant practice.
+- Treats the observed procedures as evidence rather than templates and evaluates risk reduction, work removed, outcome fit, portability, recovery, and maintenance cost in the current repository.
+- Combines compatible controls when the combined design fits better and rejects application deployment machinery that does not solve this skill repository's release problem.
+- Preserves the difference between permission to read portfolio evidence and authority to change another repository.
+- Promotes reusable principles and verified behavior without publishing private repository identities, account relationships, or local paths.
+
 ## Beginner With No System
 
 Input: A beginner has eight repositories and cannot find what to work on next.
