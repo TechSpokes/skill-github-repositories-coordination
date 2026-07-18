@@ -29,3 +29,11 @@ This prevents a new system from duplicating working sources, changing repository
 The run confirmed a previously unnoticed distinction between the existing graph and the graph semantics needed for benefit mapping. It did not confirm the candidate technical reuse relationship, prove the result for outside users, or establish fit for every solo, organization, or non-code portfolio.
 
 The consented trial record and exact approval remain in [Phase 0 issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7). [Evidence Decision 0002](decisions/0002-accept-founding-use-case-for-phase-0.md) records why the relationship is disclosed rather than discarded.
+
+## Operational Follow-Up
+
+During later release maintenance, the same maintainer asked an agent to use the authorized portfolio inventory to find established release practices. The inventory located three relevant repositories with package, application cutover, and deployed service models, allowing the agent to inspect only their release instructions, workflows, and validation tools.
+
+The useful result was not a copied workflow. Comparing the three models exposed compatible controls that fit this skill repository: one exact-tree preflight, deterministic assets, immutable tag state, narrow publication checks, contained update verification, and explicit separation between evidence access and authority to change another repository.
+
+This operational observation demonstrates a second form of portfolio knowledge reuse: discovering practices the user already understands, evaluating their impact in the current repository, and combining only the controls that improve the present outcome. It remains founding maintainer evidence and does not establish independent adoption.

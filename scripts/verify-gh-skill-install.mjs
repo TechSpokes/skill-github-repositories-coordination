@@ -130,7 +130,6 @@ function verifyInstalledSkill(source, verification) {
   const installed = parseFrontmatter(fs.readFileSync(installedSkillFile, "utf8"));
   const expectedMetadata = {
     "github-path": `skills/${source.name}`,
-    "github-ref": `refs/tags/${verification.tag}`,
     "github-repo": `https://github.com/${verification.repository}`
   };
 
@@ -138,6 +137,10 @@ function verifyInstalledSkill(source, verification) {
     if (installed.metadata[key] !== expected) {
       throw new Error(`Installed metadata ${key} is ${installed.metadata[key] || "<missing>"}; expected ${expected}.`);
     }
+  }
+  const acceptedRefs = new Set([verification.tag, `refs/tags/${verification.tag}`]);
+  if (!acceptedRefs.has(installed.metadata["github-ref"])) {
+    throw new Error(`Installed metadata github-ref is ${installed.metadata["github-ref"] || "<missing>"}; expected ${[...acceptedRefs].join(" or ")}.`);
   }
   if (!/^[0-9a-f]{40}$/.test(installed.metadata["github-tree-sha"] || "")) {
     throw new Error("Installed metadata github-tree-sha is missing or invalid.");

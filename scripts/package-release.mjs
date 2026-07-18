@@ -8,8 +8,8 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { createStoredZip } from "./lib/stored-zip.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceSkillDir = path.join(root, "skills", "coordinate-github-repositories");
@@ -121,50 +121,41 @@ function stagePlugin(type, skillName, version) {
 }
 
 /**
- * Creates one ZIP with portable archivers and a final PowerShell fallback.
+ * Creates one deterministic ZIP from a staged release directory.
  * @param {string} source Absolute directory path to archive.
  * @param {string} destination Absolute ZIP path to create or replace.
  * @returns {void}
- * @throws {Error} When zip, archive-capable tar, and available PowerShell hosts all fail.
- * @sideEffects Creates or replaces the destination archive and streams archiver output.
+ * @throws {Error} When staging contains a symbolic link or unsupported entry.
+ * @sideEffects Creates or replaces the destination archive.
+ * @constraints The dependency-free stored ZIP uses fixed metadata and sorted names so Windows, macOS, and Linux produce identical bytes.
  * @since 1.0.0
  */
 function zipDirectory(source, destination) {
-  const parent = path.dirname(source);
-  const base = path.basename(source);
-  const zip = spawnSync("zip", ["-r", destination, base], {
-    cwd: parent,
-    stdio: "inherit"
-  });
+  const archiveRoot = path.basename(source);
+  const entries = listFiles(source).map((relativePath) => ({
+    name: `${archiveRoot}/${relativePath}`,
+    data: fs.readFileSync(path.join(source, relativePath))
+  }));
+  createStoredZip(entries, destination);
+}
 
-  if (zip.status === 0) {
-    return;
-  }
-
-  const tar = spawnSync("tar", ["-a", "-c", "-f", destination, base], {
-    cwd: parent,
-    stdio: "inherit"
-  });
-
-  if (tar.status === 0) {
-    return;
-  }
-
-  const escapedSource = source.replaceAll("'", "''");
-  const escapedDestination = destination.replaceAll("'", "''");
-  const command = `Compress-Archive -LiteralPath '${escapedSource}' -DestinationPath '${escapedDestination}' -Force`;
-  const fallbackHosts = process.platform === "win32" ? ["pwsh", "powershell"] : ["pwsh"];
-
-  for (const host of fallbackHosts) {
-    const powershell = spawnSync(host, ["-NoProfile", "-NonInteractive", "-Command", command], {
-      stdio: "inherit"
-    });
-    if (powershell.status === 0) {
-      return;
+function listFiles(directory, prefix = "") {
+  const files = [];
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
+    const absolutePath = path.join(directory, entry.name);
+    if (entry.isSymbolicLink()) {
+      throw new Error(`Release staging contains unsupported symbolic link ${relativePath}.`);
+    }
+    if (entry.isDirectory()) {
+      files.push(...listFiles(absolutePath, relativePath));
+    } else if (entry.isFile()) {
+      files.push(relativePath);
+    } else {
+      throw new Error(`Release staging contains unsupported entry ${relativePath}.`);
     }
   }
-
-  throw new Error(`Unable to create ZIP ${destination}. Install zip, archive-capable tar, or PowerShell 7 and retry.`);
+  return files.sort();
 }
 
 /**

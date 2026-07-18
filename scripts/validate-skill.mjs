@@ -20,7 +20,7 @@ function warn(message) {
 }
 
 function readText(relativePath) {
-  return fs.readFileSync(path.join(root, relativePath), "utf8");
+  return fs.readFileSync(path.join(root, relativePath), "utf8").replace(/\r\n/g, "\n");
 }
 
 function readJson(relativePath) {
@@ -364,6 +364,13 @@ function validateInstallationContract() {
     fail("INSTALL.md evergreen GitHub CLI examples must not pin a release version.");
   }
 
+  for (const file of ["INSTALL.md", "docs/GITHUB-CLI.md", "docs/GITHUB-CLI-DELIVERY.md"]) {
+    const text = readText(file);
+    if (/gh skill (?:install|update|preview)[^\n]*@v\d+\.\d+\.\d+/.test(text) || /latest (?:usable )?published v\d+\.\d+\.\d+ release/i.test(text)) {
+      fail(`${file} evergreen GitHub CLI guidance must not bake in a project release version.`);
+    }
+  }
+
   for (const file of ["AGENTS.md", "README.md", "CONTRIBUTING.md", "docs/TESTING.md", "docs/RELEASING.md"]) {
     if (/npm run package -- v\d+\.\d+\.\d+/.test(readText(file))) {
       fail(`${file} must use vX.Y.Z instead of a maintained package-command version.`);
@@ -396,6 +403,7 @@ function validateWorkflowMode() {
 
 function validateRepositoryContract() {
   const requiredFiles = [
+    ".gitattributes",
     "README.md",
     "INSTALL.md",
     "AGENTS.md",
@@ -439,6 +447,10 @@ function validateRepositoryContract() {
     if (!exists(file)) {
       fail(`Missing required maintenance file ${file}.`);
     }
+  }
+
+  if (!readText(".gitattributes").split("\n").includes("* text=auto eol=lf")) {
+    fail(".gitattributes must keep repository text deterministic across Windows, macOS, and Linux.");
   }
 
   const runtimeFiles = walk("skills/coordinate-github-repositories");
@@ -485,6 +497,11 @@ function validateRepositoryContract() {
       fail(`scripts/package-release.mjs is missing the release cleanup safety contract: ${expected}.`);
     }
   }
+  for (const expected of ["createStoredZip", "./lib/stored-zip.mjs"]) {
+    if (!packageScript.includes(expected)) {
+      fail(`scripts/package-release.mjs is missing deterministic cross-platform archive contract: ${expected}.`);
+    }
+  }
 
   const releaseWorkflow = readText(".github/workflows/release-draft.yml");
   for (const expected of ["attestations: write", "id-token: write", "actions/attest@v4", "subject-path: dist/assets/*.zip", "dist/assets/SHA256SUMS --clobber"]) {
@@ -494,14 +511,19 @@ function validateRepositoryContract() {
   }
 
   const ciWorkflow = readText(".github/workflows/ci.yml");
-  for (const [workflow, text] of [["CI", ciWorkflow], ["release", releaseWorkflow]]) {
-    if (!text.includes("gh skill publish --dry-run")) {
-      fail(`${workflow} workflow must validate the clean GitHub CLI skill source before packaging.`);
+  for (const expected of ["gh skill publish --dry-run", "npm run release:verify-assets -- v0.0.0", "pull-request-checks-${{ github.ref }}"]) {
+    if (!ciWorkflow.includes(expected)) {
+      fail(`CI workflow is missing the pull-request release gate: ${expected}.`);
+    }
+  }
+  for (const expected of ["npm run release:state -- guard", "npm run release:verify-assets", "gh skill install", "release-state-${{ github.event.inputs.tag || github.ref_name }}"]) {
+    if (!releaseWorkflow.includes(expected)) {
+      fail(`release workflow is missing the immutable tag delivery contract: ${expected}.`);
     }
   }
 
   const installWorkflow = readText(".github/workflows/gh-skill-install.yml");
-  for (const expected of ["types:\n      - published", "permissions:\n  contents: read", "gh skill install", "scripts/verify-gh-skill-install.mjs", "npm run verify:gh-skill"]) {
+  for (const expected of ["types:\n      - published", "permissions:\n  contents: read", "gh skill install", "gh skill update", "scripts/verify-gh-skill-install.mjs", "npm run verify:gh-skill", "release-state-${{ github.event.release.tag_name }}"]) {
     if (!installWorkflow.includes(expected)) {
       fail(`.github/workflows/gh-skill-install.yml is missing delivery contract: ${expected}.`);
     }
@@ -510,6 +532,15 @@ function validateRepositoryContract() {
   const packageManifest = readJson("package.json");
   if (packageManifest.scripts?.["verify:gh-skill"] !== "node scripts/verify-gh-skill-install.mjs") {
     fail("package.json must expose the platform-neutral GitHub CLI install verifier.");
+  }
+  for (const [name, command] of [
+    ["release:preflight", "node scripts/release-preflight.mjs"],
+    ["release:state", "node scripts/release-state.mjs"],
+    ["release:verify-assets", "node scripts/verify-release-assets.mjs"]
+  ]) {
+    if (packageManifest.scripts?.[name] !== command) {
+      fail(`package.json must expose ${name} as ${command}.`);
+    }
   }
 }
 

@@ -104,25 +104,25 @@ Publisher validation scans the working directory rather than only tracked files 
 
 GitHub CLI source delivery and release ZIP delivery share the same tagged canonical skill tree but serve different clients. GitHub CLI fetches the Git tree. Browser users and plugin hosts use the three release ZIPs, checksums, and attestations.
 
-The existing tag triggered draft release workflow remains authoritative. It validates the version contract, packages three artifacts, generates checksums, attests each ZIP, applies curated release notes, and stops for publication review.
+The tag-triggered draft release workflow remains authoritative. It guards the remote annotated tag and main ancestry, packages three deterministic artifacts, verifies their inventory and checksums, installs the exact unpublished tag, attests each ZIP, applies curated release notes, and stops for publication review.
 
 Do not run `gh skill publish --tag` for this repository. The preview command can automatically push the current branch and create an immediately published release with generated notes, but it does not build or attach this repository's packages, checksum manifest, or attestations and would race the draft release workflow.
 
-Use `gh skill publish --dry-run` as a clean checkout validator. Keep the `agent-skills` topic through normal repository settings. Publish the reviewed draft release, then let the release event workflow verify the versionless public install.
+Use `gh skill publish --dry-run` through the final-tree release preflight. Keep the `agent-skills` topic through normal repository settings. Publish the reviewed draft release, then let the release event workflow verify the versionless public install and the contained update from the previous release.
 
 ## Product Delivery Contract
 
 - GitHub CLI is the preferred agent and terminal installation path when `gh skill` is available, while native installers and standalone ZIPs remain supported fallbacks.
 - Root `INSTALL.md` is the complete beginner entry point, and `docs/GITHUB-CLI.md` explains authentication, accounts, repository targets, connector differences, security, and choice criteria without becoming runtime content.
 - The installed skill carries one focused direct reference for requests to install, locate, update, repair, reinstall, or verify this skill.
-- Clean checkout `gh skill publish --dry-run` runs before packaging in CI and release automation.
-- The platform neutral Node verifier checks an installed runtime tree without installing or executing content.
-- The release event workflow performs a versionless public install in an ephemeral environment and verifies its tag, repository, source path, tree metadata, file inventory, and runtime content.
-- The tag workflow remains responsible for three ZIP packages, checksums, attestations, curated release notes, and draft publication review.
+- Clean checkout `gh skill publish --dry-run` runs in pull request CI and the final-tree release preflight before packaging.
+- Platform neutral Node tools create deterministic ZIP files, inspect their records without extraction, and verify installed runtime trees without executing content.
+- The tag workflow guards immutable identity, verifies the exact-tag install, and remains responsible for three ZIP packages, checksums, attestations, curated release notes, and draft publication review.
+- The release event workflow performs a versionless public install and a contained previous-release update in ephemeral environments, then verifies the current tag, repository, source path, tree metadata, file inventory, and runtime content.
 
 ## Verification Contract
 
-- `gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent <supported-host> --scope user` resolves the latest published v1.3.0 release without a maintained version in the command.
+- `gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent <supported-host> --scope user` resolves the latest usable published release without a maintained version in the command.
 - The installed tree contains the canonical runtime files, adds source tracking only to installed frontmatter, and passes the repository verifier.
 - A second install refuses to overwrite unless the user explicitly authorizes replacement.
 - `gh skill update coordinate-github-repositories --dry-run` reports the unpinned release as current after publication.

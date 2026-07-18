@@ -22,23 +22,28 @@ Run:
 ```shell
 npm run validate
 npm run package -- vX.Y.Z
+npm run release:verify-assets -- vX.Y.Z
 ```
 
 The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, feedback and decision contracts, and the 500-line core limit. It also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
+
+For a release cut, `npm run release:preflight -- vX.Y.Z` snapshots every tracked and nonignored untracked candidate file, runs the complete final-tree gate, builds the assets twice, requires stable checksums, and verifies that the gate does not change the candidate tree.
 
 The package audit must confirm:
 
 - Three expected ZIP names.
 - One `SHA256SUMS` manifest covering exactly those ZIP files.
 - One correctly named skill folder per package.
-- `SKILL.md` and eight runtime references are byte-identical across packages.
+- `SKILL.md` and nine runtime references are byte-identical across packages.
 - Plugin manifests use the release name and version.
 - Maintenance fixtures are not installed as runtime content.
 - No intake, bootstrap, docs, local paths, private source names, placeholders, credentials, or development caches appear.
 
+The package builder writes stored ZIP entries with sorted names and fixed metadata through Node.js standard library APIs. `scripts/verify-release-assets.mjs` parses the ZIP records without extraction, validates CRC values, compares every entry with its staged file, and checks the checksum manifest and public-content boundaries. Repeated builds from the same tree must produce the same archive digests on every supported platform.
+
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 31 cases across 12 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, platform, research, solo, and write capable.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 34 cases across 12 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, platform, research, solo, and write capable.
 
 The deterministic check proves fixture registration and structural coverage. It does not prove that a model follows the skill.
 
@@ -67,11 +72,11 @@ Record unavailable validators honestly. Do not replace a failed check with an un
 
 ## GitHub CLI Delivery Review
 
-Run `gh skill publish --dry-run` from a clean checkout before packaging creates `dist/` and before ignored research or installed skill copies exist. The preview publisher scans the working directory instead of limiting validation to tracked files.
+Run `gh skill publish --dry-run` through the final-tree release preflight before packaging creates `dist/` and before ignored research or installed skill copies exist. The preview publisher scans the working directory instead of limiting validation to tracked files.
 
-The release event workflow performs the public versionless install on an ephemeral runner hosted by GitHub with read-only repository permission. It installs into the runner temporary directory, uses the runner's disposable user home for GitHub CLI tracking state, and never executes installed instructions or scripts.
+The tag workflow performs an exact-tag install before draft creation. The release event workflow performs both the public versionless install and a previous-release update on ephemeral runners hosted by GitHub with read-only repository permission. Each operation uses a runner temporary directory and disposable user home, and it never executes installed instructions or scripts.
 
-`scripts/verify-gh-skill-install.mjs` verifies an already installed copy. It checks the expected release ref, source repository, canonical skill path, tree SHA, unpinned state, file inventory, portable frontmatter fields, `SKILL.md` body, and byte identity of every other runtime file.
+`scripts/verify-gh-skill-install.mjs` verifies an already installed copy. It accepts the explicit-tag and resolved-release metadata forms for the same expected tag, then checks the source repository, canonical skill path, tree SHA, unpinned state, file inventory, portable frontmatter fields, `SKILL.md` body, and byte identity of every other runtime file.
 
 The skill update fixture requires a source check and dry run before replacement, treats a pin as a separate decision, rejects automatic force on missing metadata, limits the target to this skill, and verifies the source and path without executing installed content.
 

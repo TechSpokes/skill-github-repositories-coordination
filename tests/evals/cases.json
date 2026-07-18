@@ -169,6 +169,17 @@
       ]
     },
     {
+      "id": "behavior.portfolio-practice-reuse",
+      "kind": "scenario",
+      "fixture": "behavior-scenarios.md",
+      "heading": "Portfolio Practice Reuse",
+      "segment": "multi-org",
+      "baseline_risks": [
+        "blind precedent copying",
+        "cross-repository authority expansion"
+      ]
+    },
+    {
       "id": "behavior.beginner",
       "kind": "scenario",
       "fixture": "behavior-scenarios.md",

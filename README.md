@@ -134,6 +134,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.3.0`.
+Current version: `1.3.1`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

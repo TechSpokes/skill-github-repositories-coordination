@@ -1,12 +1,10 @@
 # Inventory and Coordination
 
-Load this reference for access inventories, portfolio records, repository
-routing, cross-repository outcomes, or lifecycle reviews.
+Load this reference for access inventories, portfolio records, repository routing, cross-repository outcomes, knowledge reuse, or lifecycle reviews.
 
 ## Choose the Smallest Artifact
 
-Do not create a full portfolio database when the user only needs an access
-check, routing decision, or one coordination record.
+Do not create a full portfolio database when the user only needs an access check, routing decision, or one coordination record.
 
 Useful artifact levels include:
 
@@ -34,15 +32,11 @@ access:
   evidence_time: ""
 ```
 
-Do not interpret missing visibility as proof that a repository does not exist.
-Possible causes include selection scope, organization approval, token audience,
-permissions, synchronization delay, archived visibility, or tool limitations.
+Do not interpret missing visibility as proof that a repository does not exist. Possible causes include selection scope, organization approval, token audience, permissions, synchronization delay, archived visibility, or tool limitations.
 
 ## Inventory Identity
 
-Prefer stable remote identifiers and canonical URLs where available. Keep local
-paths as observations, not global identity. Represent mirrors, forks, local-only
-work, renamed repositories, and several local copies explicitly.
+Prefer stable remote identifiers and canonical URLs where available. Keep local paths as observations, not global identity. Represent mirrors, forks, local-only work, renamed repositories, and several local copies explicitly.
 
 ## Minimal Portfolio Record
 
@@ -66,8 +60,7 @@ repository:
   unknowns: []
 ```
 
-Extend it only for a concrete decision. Preserve the user's existing schema and
-vocabulary when present.
+Extend it only for a concrete decision. Preserve the user's existing schema and vocabulary when present.
 
 ## Safe Inventory Workflow
 
@@ -82,6 +75,16 @@ vocabulary when present.
 
 Keep generated snapshots separate from hand-reviewed meaning.
 
+## Reuse Established Practices
+
+When the user authorizes an existing inventory or repository index, use it to find relevant global preferences, analogous repositories, and practices the user already understands. Begin with inventory metadata and inspect only the bounded source files needed for the current decision.
+
+Treat every discovered practice as evidence rather than authority. Compare its risk reduction, work removed, outcome fit, portability, recovery behavior, and maintenance cost in the current repository. Combine compatible controls when the combination is better than any single precedent, and reject controls that solve a different deployment or governance problem.
+
+Preserve the boundary between reading a repository as evidence and changing it. Do not mutate a source repository unless the user separately authorizes that target and action.
+
+Keep private repository identities, account relationships, and local paths out of portable guidance and public evidence. Promote the reusable principle, evaluation criteria, and verified result rather than the private portfolio map.
+
 ## Portfolio Review
 
 Use candidate states rather than conclusions:
@@ -95,13 +98,11 @@ Use candidate states rather than conclusions:
 - External or mirror.
 - Unknown.
 
-Require positive evidence and an owner decision before transfer, consolidation,
-archiving, visibility change, or deletion. Define recovery before action.
+Require positive evidence and an owner decision before transfer, consolidation, archiving, visibility change, or deletion. Define recovery before action.
 
 ## Cross-Repository Work Contract
 
-Keep one coordination record for the shared outcome and repository-owned records
-for implementation. A useful coordination record states:
+Keep one coordination record for the shared outcome and repository-owned records for implementation. A useful coordination record states:
 
 - Outcome and why several repositories are involved.
 - Scope and explicit exclusions.
@@ -114,14 +115,10 @@ for implementation. A useful coordination record states:
 - Privacy and publication boundaries.
 - Recovery or rollback where relevant.
 
-Avoid copying volatile implementation state into the coordination record when
-links or native state already provide it.
+Avoid copying volatile implementation state into the coordination record when links or native state already provide it.
 
 ## Automation Gate
 
-Automate only when the need is repeated and stable, inputs are well-defined, an
-owner accepts maintenance, permissions are limited, failures are observable,
-recovery is defined, and a bounded pilot can prove value.
+Automate only when the need is repeated and stable, inputs are well-defined, an owner accepts maintenance, permissions are limited, failures are observable, recovery is defined, and a bounded pilot can prove value.
 
-Prefer idempotent behavior and report-only or dry-run modes. Do not automate
-destructive lifecycle decisions from inactivity or missing evidence.
+Prefer idempotent behavior and report-only or dry-run modes. Do not automate destructive lifecycle decisions from inactivity or missing evidence.

@@ -122,6 +122,8 @@ The founding portfolio index was inspected read-only and contained 340 canonical
 
 A working structured inventory demonstrated discovery, stable identity, provenance, staging, validation, no-overwrite promotion, and generated reports at a scale of hundreds of records. A working coordination tracker demonstrated central cross-repository outcomes, low-friction observations, agent enrichment, routing implementation to owning repositories, native state, and an evidence-based automation gate.
 
+A later operational run demonstrated practice reuse across the authorized portfolio. Inventory records located analogous release models and user preferences; bounded source inspection supplied candidate controls; evaluation against the current repository combined the useful controls without copying deployment-specific machinery or expanding write authority to the source repositories.
+
 A dedicated repository feedback implementation demonstrated the boundary between observations and tasks: sanitize feedback, separate evidence from hypothesis, keep issue state canonical, and promote durable learning into normal repository artifacts. A partial repository manager supplied stable identity, least privilege, idempotency, untrusted-input, and lifecycle safety principles while showing that a persistent manager application should not be assumed necessary.
 
 The supplied human-agent-tool research explains why the pattern works. Cross-intelligence communication loses goals, context, and meaning through bounded attention and transport, so feedback should preserve the goal, factual observation, uncertainty, actor boundary, and verification while using progressive disclosure.

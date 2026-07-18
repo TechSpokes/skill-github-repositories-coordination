@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [v1.3.1]
+
+- Add portfolio practice reuse to the runtime workflow so an authorized inventory can locate familiar precedents while the agent evaluates fit, impact, portability, recovery, and maintenance instead of copying a source procedure.
+- Replace host-specific archive commands with deterministic dependency-free Node.js ZIP creation and non-extracting archive verification.
+- Add one final-tree release preflight that validates synchronized identity, unused remote state, GitHub CLI source compatibility, deterministic packages, checksums, public-content boundaries, and tracked-tree stability.
+- Narrow the tag workflow to immutable identity and delivery checks, verify the exact unpublished tag before draft creation, preserve differing draft content, and serialize release state by tag.
+- Verify both the versionless public install and a contained update from the previous published release after publication.
+- Stop duplicating pull request CI on the resulting `main` commit while keeping manual dispatch for fresh evidence.
+- Record the sanitized founding-maintainer observation that a portfolio inventory can surface established user practices and guide a better combined design without expanding write authority to the source repositories.
+
 ## [v1.3.0]
 
 - Adopt versionless `gh skill install` as the preferred source based CLI delivery path while retaining standalone and plugin ZIP fallbacks.
