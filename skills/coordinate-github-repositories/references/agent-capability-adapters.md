@@ -82,10 +82,11 @@ Official source: <https://code.claude.com/docs/en/skills>
 
 ### GitHub Copilot
 
-GitHub documents project skills under `.github/skills`, `.claude/skills`, or
-`.agents/skills`, and personal skills under `~/.copilot/skills` or
-`~/.agents/skills`. GitHub CLI skill discovery and publication are preview
-features and require a current supported CLI.
+GitHub documents project skills under `.github/skills`, `.claude/skills`, or `.agents/skills`, and personal skills under `~/.copilot/skills` or `~/.agents/skills`.
+
+As checked against GitHub CLI v2.92.0 and v2.96.0 source on 2026-07-18, `gh skill` is a preview command family for search, preview, install, update, and publish, with installed skill listing available only in newer preview versions. Detect the current subcommands with `gh skill --help`, use versionless install for the latest published release, and keep a manual package fallback because preview commands can change.
+
+Do not make `--force` the normal update path. It replaces local edits, and current update implementations can remove files that are absent from the remote skill.
 
 Do not add `allowed-tools` to this portable skill. GitHub warns that
 pre-approving shell access removes confirmation and increases risk from

@@ -14,6 +14,14 @@ The canonical `SKILL.md` follows the Agent Skills specification and avoids host-
 
 Codex and Claude packages wrap the same canonical skill tree. The standalone package supports GitHub Copilot and other Agent Skills hosts. Host-specific installation and access facts live in a dated adapter reference.
 
+### Source Delivery and Package Fallbacks
+
+The standard `skills/coordinate-github-repositories/` tree is both the canonical source and the versioned source used by `gh skill install`. Versionless installation resolves the latest published release, while the uploaded standalone and plugin ZIPs support browser and package based hosts.
+
+The tag triggered draft release workflow remains the release authority because it creates curated packages, checksums, attestations, and a review checkpoint. GitHub CLI publisher dry runs validate the source layout, but the preview publisher does not replace the release workflow.
+
+This dual path reduces installation friction without making GitHub CLI, a shell, authentication, or network access a runtime requirement. The detailed mechanics, plan, verification, and rollback contract live in [GitHub CLI Skill Delivery](GITHUB-CLI-DELIVERY.md).
+
 ### Context Before Tools
 
 Tool selection begins only after the agent understands the current outcome, work types, scale, ownership, existing system, friction, constraints, and change tolerance. Context is ephemeral by default. This prevents a useful calibration step from becoming an unreviewed personal dossier.
@@ -85,7 +93,7 @@ tests/
     `-- behavior-scenarios.md
 ```
 
-`SKILL.md` controls activation and the ten-stage workflow. All eight references are direct and focused so agents load only the active branch. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
+`SKILL.md` controls activation and the ten-stage workflow. All nine references are direct and focused so agents load only the active branch, including a self-update reference that activates only for installation and update requests. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
 
 ## Runtime Sequence
 

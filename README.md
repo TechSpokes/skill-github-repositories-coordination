@@ -24,8 +24,18 @@ You do not need to clone this repository or use a terminal.
 Copy this message into the agent where you want to use the skill:
 
 ```text
-Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.
 ```
+
+### Or Use GitHub CLI
+
+When `gh skill --help` shows the Agent Skills preview, GitHub CLI can install the latest published release directly from this repository. For Codex:
+
+```bash
+gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent codex --scope user
+```
+
+The root [installation guide](INSTALL.md) has equivalent commands for GitHub Copilot and Claude Code plus safe update and overwrite guidance. [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains what the tool adds before you choose it.
 
 ### Or Use Your Browser
 
@@ -38,7 +48,7 @@ Install the latest public release of Coordinate GitHub Repositories globally fro
 Help me understand which repositories my agent can access across my personal account and organizations, then suggest the smallest useful way to coordinate them.
 ```
 
-The [plain-language installation guide](docs/INSTALL.md) shows exactly where to put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code, GitHub Copilot, project-only installs, and plugin packages.
+The [plain-language installation guide](INSTALL.md) shows exactly where to put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code, GitHub Copilot, project-only installs, and plugin packages.
 
 Do not download GitHub's automatically generated `Source code` archives. Those contain repository maintenance files instead of the install-ready skill.
 
@@ -84,12 +94,14 @@ Each release contains:
 - A Claude plugin ZIP.
 - A `SHA256SUMS` manifest for the three ZIPs.
 
-`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill. All packages contain the same portable core and eight focused references. GitHub Actions also attests each release ZIP so consumers can verify its source and workflow provenance.
+`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill and the source used by `gh skill install`. All packages contain the same portable core and nine focused references, including the progressively disclosed update procedure. GitHub Actions also attests each release ZIP so consumers can verify its source and workflow provenance.
 
 ## Documentation
 
 - [Quickstart](docs/QUICKSTART.md)
-- [Installation](docs/INSTALL.md)
+- [Installation](INSTALL.md)
+- [GitHub CLI for beginners](docs/GITHUB-CLI.md)
+- [GitHub CLI skill delivery](docs/GITHUB-CLI-DELIVERY.md)
 - [Founding portfolio case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Roadmap delivery record](docs/ROADMAP-DELIVERY.md)
@@ -122,6 +134,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.2.0`.
+Current version: `1.3.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

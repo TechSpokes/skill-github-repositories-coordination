@@ -1,6 +1,6 @@
 ---
 name: coordinate-github-repositories
-description: Coordinate GitHub repositories across personal accounts and organizations by diagnosing agent access, inventory, findability, portfolio state, routing, cross-repository work, and tool fit. Use for repository-centered coordination across documentation, writing, research, data, operations, software, or mixed work; for adaptive inventory or organization; and for comparing native features, local catalogs, connectors, MCP, external catalogs, and automation. Do not use as the primary workflow for routine implementation confined to one known repository or for executing blanket destructive requests inferred only from inactivity; refuse the unsupported inference and require lifecycle evidence.
+description: Coordinate GitHub repositories across personal accounts and organizations by diagnosing agent access, inventory, findability, portfolio state, routing, cross-repository work, and tool fit. Use for repository-centered coordination across documentation, writing, research, data, operations, software, or mixed work; for adaptive inventory or organization; for comparing native features, local catalogs, connectors, MCP, external catalogs, and automation; and when asked to install, update, locate, repair, or verify this skill. Do not use as the primary workflow for routine implementation confined to one known repository or for executing blanket destructive requests inferred only from inactivity; refuse the unsupported inference and require lifecycle evidence.
 license: MIT
 ---
 
@@ -65,6 +65,8 @@ When several connectors or MCP servers expose similar operations, identify the f
 When access is incomplete, separate intended scope from observed visibility. Check authentication surface, account or installation scope, repository selection, organization approval, permission level, token audience, and freshness only when relevant. Do not request broader rights automatically.
 
 Load [agent capability adapters](references/agent-capability-adapters.md) for access diagnosis, installation guidance, connector choices, or host-specific paths.
+
+Load [install and update this skill](references/install-and-update-this-skill.md) when the user asks to install, update, repair, reinstall, locate, or verify this skill.
 
 ### 5. Shape the Coordination Problem
 

@@ -80,6 +80,14 @@
       "segment": "feedback"
     },
     {
+      "id": "activation.skill-update",
+      "kind": "activation",
+      "fixture": "activation.md",
+      "prompt": "Could you update this skill?",
+      "expected": "activate",
+      "segment": "beginner"
+    },
+    {
       "id": "activation.known-repository-fix",
       "kind": "activation",
       "fixture": "activation.md",
@@ -224,6 +232,17 @@
       "baseline_risks": [
         "administrative intake burden",
         "automatic publication authority"
+      ]
+    },
+    {
+      "id": "behavior.skill-update",
+      "kind": "scenario",
+      "fixture": "behavior-scenarios.md",
+      "heading": "Skill Update With Source Checks",
+      "segment": "beginner",
+      "baseline_risks": [
+        "unreviewed overwrite",
+        "wrong source replacement"
       ]
     },
     {

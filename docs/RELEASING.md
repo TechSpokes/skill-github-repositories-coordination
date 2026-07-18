@@ -24,18 +24,24 @@ For version `X.Y.Z`:
 2. Add `## [vX.Y.Z]` to `CHANGELOG.md`.
 3. Add `docs/releases/vX.Y.Z.md`.
 4. Update `docs/VERSION.md` and user-facing install examples.
-5. Run the required commands below.
+5. From a clean checkout without `dist/`, ignored skill copies, or research clones, run the GitHub CLI source validator when the installed CLI exposes it.
+
+```shell
+gh skill publish --dry-run
+```
+
+6. Run the required repository commands below.
 
 ```shell
 npm run validate
 npm run package -- vX.Y.Z
 ```
 
-6. Inspect the standalone, Codex plugin, and Claude plugin ZIP files.
-7. Compare each ZIP digest with `SHA256SUMS`.
-8. Confirm no intake, bootstrap, local path, secret, placeholder, development cache, or unrelated repository file is present.
-9. Record technical checks, forward-review evidence, open findings, correction path, and the accountable publication decision.
-10. Land the release change through the pull request workflow.
+7. Inspect the standalone, Codex plugin, and Claude plugin ZIP files.
+8. Compare each ZIP digest with `SHA256SUMS`.
+9. Confirm no intake, bootstrap, local path, secret, placeholder, development cache, or unrelated repository file is present.
+10. Record technical checks, forward-review evidence, open findings, correction path, and the accountable publication decision.
+11. Land the release change through the pull request workflow.
 
 ## Tag and Publish
 
@@ -46,7 +52,11 @@ git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
 
-The release workflow validates the tag, builds the three ZIP assets, and creates or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`. Review the title, notes, tag target, ZIP contents, checksums, and GitHub artifact attestations, then publish the release.
+The release workflow validates the tagged source with `gh skill publish --dry-run`, builds the three ZIP assets, and creates or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`. Review the title, notes, tag target, ZIP contents, checksums, and GitHub artifact attestations, then publish the release.
+
+Publishing the reviewed draft triggers `.github/workflows/gh-skill-install.yml`. The workflow installs the versionless public source into an ephemeral runner directory and verifies the resolved release tag, repository, source path, tree metadata, file inventory, and runtime content without executing the installed skill.
+
+Do not use `gh skill publish --tag` in this repository. The preview publisher can push the current branch and create an immediately published release, but it cannot preserve this repository's curated draft, three packages, checksums, attestations, and publication review.
 
 Technical releasability does not authorize publication. The release owner must confirm security, evaluation, privacy, support, rollback or correction, and roadmap quality status before publishing the draft.
 
@@ -70,7 +80,7 @@ Repository settings should enable Discussions, Issues, squash merge, and automat
 
 Enable secret scanning, push protection, Dependabot alerts, and security updates where the repository plan and organization policy support them.
 
-Run `gh skill publish --dry-run` before a release. Resolve skill validation errors and review its repository-hardening warnings before tagging.
+Run `gh skill publish --dry-run` from a clean checkout before a release. Resolve skill validation errors and review its repository hardening warnings before tagging.
 
 Verify a built ZIP after publication with `gh attestation verify <zip> -R TechSpokes/skill-github-repositories-coordination`. GitHub attestations establish source and workflow provenance; they do not replace package inspection.
 
