@@ -21,7 +21,7 @@ Describe the observed problem, the change, and why it improves the skill.
 - [ ] Verified current product claims from primary sources
 - [ ] Checked for secrets, private repository data, local paths, and placeholders
 
-## Tracks Gate
+## Quality Review
 
 - [ ] Architecture and maintainability remain healthy
 - [ ] Security and privacy remain healthy
@@ -31,8 +31,7 @@ Describe the observed problem, the change, and why it improves the skill.
 
 ## Traceability
 
-Link the parent issue, affected roadmap phase, evaluation cases, threat-model
-entries, architecture decision, and release note when applicable.
+Link the parent issue, affected roadmap phase, evaluation cases, threat-model entries, architecture decision, and release note when applicable.
 
 ## Decisions and Follow-Up
 

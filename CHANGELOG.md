@@ -2,8 +2,15 @@
 
 ## [Unreleased]
 
+## [v1.2.0]
+
+- Complete the repository-controlled roadmap scope while keeping unobserved outside adoption, launch, retention, recommendation, contribution, and succession outcomes explicit.
+- Separate delivery completion from outcome evidence so missing unsolicited signals limit claims without freezing safe product work.
+- Publish the consented founding portfolio case, secure launch guide, minimal skill handoff contract, maintenance health record, and roadmap delivery audit.
+- Add low-friction skill-run feedback with one required observation, optional agent enrichment, exact human publication approval, private security routing, and durable-learning promotion.
+- Add feedback behavior and adversarial evaluation coverage plus deterministic receiving-surface and no-auto-submit validation.
 - Correct the v1.0.1 copyable installer so it resolves the latest release without a maintained version pin.
-- Accept the founding target portfolio as Phase 0 product evidence with an explicit participant relationship, recorded limitations, and an unchanged Phase 1 requirement for three unsolicited outside signals.
+- Preserve the founding target portfolio as Phase 0 evidence with an explicit participant relationship and recorded limitations.
 
 ## [v1.1.0]
 

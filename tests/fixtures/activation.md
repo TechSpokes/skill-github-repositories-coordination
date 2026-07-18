@@ -1,7 +1,6 @@
 # Activation Fixtures
 
-Use these fixtures to review the skill description and boundary. Exact wording
-of an agent response is not part of the test.
+Use these fixtures to review the skill description and boundary. Exact wording of an agent response is not part of the test.
 
 ## Should Activate
 
@@ -14,6 +13,7 @@ of an agent response is not part of the test.
 | One initiative needs changes in policy, documentation, and application repositories. | Create a cross-repository outcome and route owned implementation. |
 | Review these repositories and tell me which might be archival candidates. | Use evidence, uncertainty, owner decision, and recovery gates. |
 | I only have this chat. How can I organize my research repositories? | Provide useful conversation-only advice without claiming access. |
+| This skill found something useful, but the access fallback was confusing. Help me tell the maintainers. | Prepare low-friction, sanitized feedback with exact publication approval. |
 
 ## Should Not Activate as Primary
 
@@ -28,5 +28,4 @@ of an agent response is not part of the test.
 
 ## Boundary Check
 
-The description should activate for access, portfolio, routing, coordination,
-and tool-fit language while avoiding routine single-repository implementation.
+The description should activate for access, portfolio, routing, coordination, tool-fit, and feedback about a skill run while avoiding routine single-repository implementation.

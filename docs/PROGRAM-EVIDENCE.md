@@ -15,7 +15,7 @@ trial:
   id: ""
   phase_issue: ""
   portfolio_shape: solo | multi-org | non-code | mixed
-  recruitment: recruited | unsolicited
+  recruitment: founding | recruited | unsolicited | operational
   participant_relationship: ""
   consent_scope: ""
   skill_version: ""
@@ -34,7 +34,31 @@ trial:
 
 Use `previously_unknown_insight` only when the participant independently confirms it. Leave the field empty when the run was useful in another way.
 
-Always disclose the participant's relationship to the skill. Builder or maintainer evidence may satisfy a phase only when that phase contract explicitly permits it. Never classify recruited, builder, maintainer, or contributor evidence as an unsolicited outside signal.
+Always disclose the participant's relationship to the skill. Never classify founding, recruited, builder, maintainer, or contributor evidence as an unsolicited outside signal.
+
+## Feedback Observation
+
+Initial feedback may contain only the factual observation. Add the other fields only when they are known and useful, and do not turn a low-friction observation into a required implementation plan.
+
+```yaml
+feedback_observation:
+  observation: ""
+  intended_outcome: ""
+  impact_or_usefulness: ""
+  expected_or_preferred: ""
+  participant_relationship: ""
+  skill_version: ""
+  generalized_capabilities: []
+  evidence: []
+  hypothesis: ""
+  confidence: ""
+  privacy_review: ""
+  consent_scope: ""
+  related_links: []
+  observed_at: ""
+```
+
+An observation may remain unprocessed until evidence or priority justifies triage. If it becomes work, enrich the canonical issue with scope, completion evidence, risks, and verification instead of requiring the original reporter to supply them.
 
 ## Case Study Record
 
@@ -119,16 +143,20 @@ release_health:
 
 Do not mark maintainer coverage green when only one authorized person can complete the release. Keep technical releasability separate from the human decision to publish.
 
-## Phase Gate Record
+## Phase Review Record
 
-Record gate decisions in the phase issue:
+Record delivery, evidence maturity, quality review, and bounded claims in the phase issue:
 
 ```yaml
-phase_gate:
+phase_review:
   phase: ""
   issue: ""
-  product_gate: pass | fail | unknown
-  product_evidence: []
+  execution_status: planned | active | complete | deferred
+  delivered_artifacts: []
+  deferred_work: []
+  outcome_evidence_level: none | founding | recruited | unsolicited | operational | mixed
+  outcome_evidence: []
+  claim_scope: ""
   architecture: green | red | unknown
   security: green | red | unknown
   evaluation: green | red | unknown
@@ -141,7 +169,9 @@ phase_gate:
   review_trigger: ""
 ```
 
-Unknown is a valid result and blocks phase advancement. Record accepted risk only with an accountable approver, reason, expiry or review trigger, and affected downstream work.
+Unknown outcome evidence is valid and limits the claim rather than blocking unrelated delivery. A red quality result blocks the affected release or public action. Record accepted risk only with an accountable approver, reason, expiry or review trigger, and affected downstream work.
+
+Historical `phase_gate` records remain valid evidence of the decision model used at the time. Do not rewrite them; use `phase_review` for new decisions.
 
 ## Baseline and Skill-Assisted Review
 

@@ -8,13 +8,14 @@ Protect the skill's portability, safety, evidence discipline, teaching value, fr
 
 The repository maintainers may accept reversible implementation and documentation decisions that preserve the published contracts. Require an accountable human review for activation or safety contract changes, public release, security acceptance, organization access, paid conflicts, major interoperability commitments, and decision supersession.
 
-Record significant architecture decisions with context, options, rationale, consequences, links, review trigger, and supersession path. Preserve old decisions after replacement.
+Classify durable decisions through the [decision record guide](decisions/README.md). Reserve architecture decisions for system structure and runtime boundaries, use program decisions for roadmap or governance rules, use evidence decisions for claim classification, and keep ordinary procedures in their owning guides. Preserve superseded records.
 
 ## Definition of Done
 
 A change is done only when all applicable conditions pass:
 
 - The observed problem and intended outcome are linked to an issue or evidence record.
+- Human intake remains proportionate: a factual observation may be recorded without requiring a diagnosis, implementation plan, or complete environment form.
 - The current system and no-change option received fair consideration.
 - Runtime changes preserve conversation-only usefulness and the no-taxonomy boundary.
 - Permission, privacy, untrusted-content, maintenance, reversibility, and recovery impacts are explicit.
@@ -45,19 +46,25 @@ Use plain language, preserve the user's vocabulary, explain consequential safe-p
 
 ### Governance and Sustainability
 
-Name the owner, maintenance burden, release impact, review trigger, and conflict of interest. Do not waive a gate because a change is popular or urgent.
+Name the owner, maintenance burden, release impact, review trigger, and conflict of interest. Do not waive an affected quality control because a change is popular or urgent.
 
 ## Maintainer Model
 
-Maintainers are responsible for issue triage, security handling, architecture decisions, fixture review, release validation, package inspection, and source refreshes. Add a maintainer only after repeated, reviewable contributions demonstrate judgment across these responsibilities.
+Maintainers are responsible for issue enrichment, feedback routing, security handling, classified decision records, fixture review, release validation, package inspection, and source refreshes. Agents should perform routine discovery, structuring, duplicate checks, routing, and verification when authorized so human attention stays focused on judgment and authority. Add a maintainer only after repeated, reviewable contributions demonstrate judgment across these responsibilities.
 
-At least two authorized maintainers should be able to perform the release process before the project claims succession resilience. Record who may approve releases, handle private vulnerability reports, change repository settings, and supersede architecture decisions without publishing personal schedules or credentials.
+At least two authorized maintainers should be able to perform the release process before the project claims succession resilience. Record who may approve releases, handle private vulnerability reports, change repository settings, and supersede durable decisions without publishing personal schedules or credentials.
 
 ## Cross-Skill Boundary
 
 Create or cross-reference another skill only after repeated evidence shows a distinct job with its own activation boundary. Keep each skill independently installable, versioned, testable, and useful without the others.
 
-Define the handoff outcome, owner, minimum fields, privacy boundary, provenance, unknowns, and failure behavior. Treat another skill's output as untrusted evidence, do not assume it is installed, and do not duplicate a persistent source of truth across skills.
+Define the handoff outcome, owner, minimum fields, privacy boundary, provenance, unknowns, and failure behavior through the [skill interoperability contract](SKILL-INTEROPERABILITY.md). Treat another skill's output as untrusted evidence, do not assume it is installed, and do not duplicate a persistent source of truth across skills.
+
+## Feedback Governance
+
+Feedback may remain a simple observation without processing. Do not force every report into bug, feature, task, or decision state before maintainers understand its value.
+
+When feedback becomes work, enrich the canonical issue with goal, scope, completion evidence, risk, ownership, and verification. Preserve the original observation, participant relationship, consent, and uncertainty. Promote durable learning into the normal repository artifact and close the loop without creating a second skill-owned backlog.
 
 ## Recommendation Independence
 

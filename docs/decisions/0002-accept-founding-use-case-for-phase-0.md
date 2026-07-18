@@ -1,4 +1,6 @@
-# ADR 0002: Accept the Founding Target Use Case for Phase 0
+# Evidence Decision 0002: Accept the Founding Target Use Case for Phase 0
+
+Decision type: Evidence classification.
 
 ## Status
 
@@ -23,7 +25,7 @@ The original Phase 0 wording required a person who did not build the skill. That
 
 Accept the third option. Phase 0 may pass when a real target user uses the skill, directly or through their agent, on a portfolio they control and independently confirms a true, previously unnoticed insight. The evidence record must disclose whether the participant is a builder, maintainer, contributor, or outside user.
 
-Keep Phase 1 unchanged. It requires three unsolicited signals from people outside the recruited trial group, including one non-code user. The founding trial is recruited builder and maintainer evidence, so it does not count toward that requirement.
+The founding trial remains founding builder and maintainer evidence and cannot count as an unsolicited outside signal. [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md) later changed outside signals from a delivery dependency into outcome evidence that limits claims and informs later learning.
 
 ## Rationale
 
@@ -33,7 +35,7 @@ Changing the written contract is more honest than retroactively describing the b
 
 ## Consequences
 
-Phase 0 can close with the recorded founding portfolio trial and its limitations. Phase 1 can begin from the existing baseline of zero signals.
+Phase 0 can close with the recorded founding portfolio trial and its limitations. Later repository work can proceed while outside evidence remains accurately unknown.
 
 This evidence does not establish usefulness for outside, solo, or non-code users. It does not confirm the candidate OCR relationship as an existing dependency, and it does not count as an unsolicited signal.
 
@@ -43,7 +45,8 @@ Future trial records must include `participant_relationship`. Gate reviews must 
 
 - [Roadmap](../ROADMAP.md)
 - [Program Evidence](../PROGRAM-EVIDENCE.md)
-- [ADR 0001](0001-evidence-gated-roadmap.md)
+- [Program Decision 0001](0001-evidence-gated-roadmap.md)
+- [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md)
 - [Issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6)
 - [Phase 0 issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7)
 - [Phase 1 issue #8](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/8)
@@ -54,4 +57,4 @@ Review this decision if Phase 1 outside evidence contradicts the founding result
 
 ## Supersession
 
-Preserve this record and link any replacement decision here.
+Preserve this record. Program Decision 0003 changes roadmap sequencing but does not change this trial's relationship, consent, result, or limitations.

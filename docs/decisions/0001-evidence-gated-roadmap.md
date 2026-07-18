@@ -1,8 +1,10 @@
-# ADR 0001: Use Evidence-Gated Roadmap Phases
+# Program Decision 0001: Use Evidence-Gated Roadmap Phases
+
+Decision type: Program governance.
 
 ## Status
 
-Accepted for implementation in version `1.1.0`.
+Superseded on 2026-07-18 by [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md). The evidence classification and cross-cutting quality review remain useful; the hard sequencing rule does not.
 
 ## Context
 
@@ -43,8 +45,8 @@ Phase status requires more review discipline. Some repository foundations may sh
 
 ## Review Trigger
 
-Review this decision when evidence shows the two-gate model blocks useful work without reducing risk, when phase ownership changes, or when the roadmap no longer matches the product goal.
+The blocking condition occurred when missing unsolicited adoption prevented safe repository work that did not depend on outside participants. Program Decision 0003 records the replacement model.
 
 ## Supersession
 
-Preserve this record and link any replacement decision here. [ADR 0002](0002-accept-founding-use-case-for-phase-0.md) refines the Phase 0 product gate while preserving this decision's two-gate model.
+Preserve this record as the original decision history. [Evidence Decision 0002](0002-accept-founding-use-case-for-phase-0.md) preserves the founding evidence decision, and [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md) separates delivery completion from outcome evidence.

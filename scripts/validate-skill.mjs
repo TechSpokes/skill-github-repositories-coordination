@@ -397,20 +397,26 @@ function validateRepositoryContract() {
     "SECURITY.md",
     "SUPPORT.md",
     "docs/ARCHITECTURE.md",
+    "docs/CASE-STUDY-FOUNDING-PORTFOLIO.md",
+    "docs/FEEDBACK.md",
     "docs/GOVERNANCE.md",
     "docs/INSTALL.md",
+    "docs/LAUNCH.md",
     "docs/LEARNING.md",
+    "docs/MAINTENANCE.md",
     "docs/NON-CODE-GUIDE.md",
     "docs/PORTAL-INTEROPERABILITY.md",
     "docs/PROGRAM-EVIDENCE.md",
     "docs/QUICKSTART.md",
     "docs/ROADMAP.md",
+    "docs/ROADMAP-DELIVERY.md",
     "docs/RELEASING.md",
+    "docs/SKILL-INTEROPERABILITY.md",
     "docs/TESTING.md",
     "docs/THREAT-MODEL.md",
     "docs/VERSION.md",
-    "docs/decisions/0001-evidence-gated-roadmap.md",
-    "docs/evaluations/v1.1.0.md",
+    "docs/decisions/README.md",
+    ".github/ISSUE_TEMPLATE/skill_run_feedback.yml",
     "tests/fixtures/activation.md",
     "tests/fixtures/adversarial-scenarios.md",
     "tests/fixtures/behavior-scenarios.md",
@@ -472,6 +478,66 @@ function validateRepositoryContract() {
   for (const expected of ["attestations: write", "id-token: write", "actions/attest@v4", "subject-path: dist/assets/*.zip", "dist/assets/SHA256SUMS --clobber"]) {
     if (!releaseWorkflow.includes(expected)) {
       fail(`.github/workflows/release-draft.yml is missing release provenance contract: ${expected}.`);
+    }
+  }
+}
+
+function validateFeedbackContract() {
+  // @constraints Program Decision 0003 keeps missing adoption evidence from freezing safe repository delivery.
+  const roadmap = readText("docs/ROADMAP.md");
+  const delivery = readText("docs/ROADMAP-DELIVERY.md");
+  const feedback = readText("docs/FEEDBACK.md");
+  const skill = readText("skills/coordinate-github-repositories/SKILL.md");
+  const reference = readText("skills/coordinate-github-repositories/references/feedback-and-improvement.md");
+  const form = readText(".github/ISSUE_TEMPLATE/skill_run_feedback.yml");
+
+  for (const expected of ["Missing external evidence limits adoption claims", "They are not hard dependencies", "Program Decision 0003"]) {
+    if (!roadmap.includes(expected)) {
+      fail(`docs/ROADMAP.md is missing the evidence-aware delivery contract: ${expected}.`);
+    }
+  }
+  if (!delivery.includes("repository-controlled work") || !delivery.includes("are not claimed")) {
+    fail("docs/ROADMAP-DELIVERY.md must separate delivered repository work from unproven external outcomes.");
+  }
+
+  // @constraints Feedback intake stays useful when a person knows only the observation; enrichment is agent or maintainer work.
+  const requiredFields = form.match(/required:\s*true/g) ?? [];
+  if (requiredFields.length !== 2 || !form.includes("id: observation") || !form.includes("id: privacy_review")) {
+    fail("The skill-run feedback form must require one written observation and one privacy confirmation.");
+  }
+  for (const expected of ["Only Observation asks for a written response", "simple record", "Privacy review", "private security route"]) {
+    if (!form.includes(expected)) {
+      fail(`The skill-run feedback form is missing the low-friction safety contract: ${expected}.`);
+    }
+  }
+
+  for (const [file, text] of [
+    ["docs/FEEDBACK.md", feedback],
+    ["skills/coordinate-github-repositories/SKILL.md", skill],
+    ["skills/coordinate-github-repositories/references/feedback-and-improvement.md", reference]
+  ]) {
+    for (const expected of ["observation", "hypothesis", "exact public", "never submit feedback automatically"]) {
+      if (!text.toLowerCase().includes(expected.toLowerCase())) {
+        fail(`${file} is missing the human-agent feedback contract: ${expected}.`);
+      }
+    }
+  }
+}
+
+function validateDecisionRecords() {
+  // @constraints Historical records are indexed by decision type instead of being hard-coded as current repository dependencies.
+  const index = readText("docs/decisions/README.md");
+  const allowedTypes = new Set(["Architecture", "Program governance", "Evidence classification", "Governance"]);
+  const records = walk("docs/decisions").filter((file) => file.endsWith(".md") && path.basename(file) !== "README.md");
+
+  for (const file of records) {
+    const text = readText(file);
+    const type = text.match(/^Decision type:\s*([^\n.]+)\.?$/m)?.[1];
+    if (!type || !allowedTypes.has(type)) {
+      fail(`${file} must declare a recognized Decision type.`);
+    }
+    if (!index.includes(`(${path.basename(file)})`)) {
+      fail(`${file} must be linked from docs/decisions/README.md.`);
     }
   }
 }
@@ -557,6 +623,8 @@ validatePackagingBoundaries();
 validateInstallationContract();
 validateWorkflowMode();
 validateRepositoryContract();
+validateFeedbackContract();
+validateDecisionRecords();
 validateMarkdownStructure();
 validateReleaseMarkdownWrapping();
 

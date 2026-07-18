@@ -1,0 +1,71 @@
+name: Skill run feedback
+description: Share a useful result, unexpected behavior, confusing step, or missing case from a real run
+title: "[Feedback]: "
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share what the skill helped you notice, what did not work as expected, or what was difficult to understand. The observation may remain a simple record until later evidence or priority justifies processing. Only Observation asks for a written response; every other written field is optional.
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observation
+      description: What happened during the skill run? A short factual paragraph is enough.
+      placeholder: During the run, I observed...
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Feedback type
+      description: Optional. Choose the closest description.
+      options:
+        - Useful outcome
+        - Unexpected behavior
+        - Confusing guidance
+        - Missing case or capability
+        - Access or tool fallback
+        - Safety or permission concern
+        - Other observation
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Intended outcome
+      description: Optional. What were you trying to accomplish?
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact or usefulness
+      description: Optional. Why did this matter, and did it happen once or repeatedly?
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected or preferred behavior
+      description: Optional. What would have helped?
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized context
+      description: Optional. Add the skill version, generalized agent capabilities, work shape, or safe reproduction details.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence, uncertainty, or possible explanation
+      description: Optional. Separate observed evidence from any hypothesis and say when an explanation is uncertain.
+  - type: textarea
+    id: related
+    attributes:
+      label: Related links
+      description: Optional. Link a matching issue or public evidence so maintainers can enrich one canonical record.
+  - type: markdown
+    attributes:
+      value: |
+        Privacy review: read the exact issue before submitting it. Remove private repository details, account or organization relationships, local paths, credentials, private issue content, raw logs, and restricted screenshots. Use the private security route for sensitive security findings.
+  - type: checkboxes
+    id: privacy_review
+    attributes:
+      label: Privacy review
+      options:
+        - label: I reviewed this issue and removed private information, or I will use the private security route instead.
+          required: true
