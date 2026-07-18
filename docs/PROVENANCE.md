@@ -41,6 +41,7 @@ Product and standard behavior was checked on 2026-07-17 against:
 - MCP security guidance: <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>
 - Backstage Software Catalog: <https://backstage.io/docs/features/software-catalog/>
 - GitHub artifact attestations: <https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations>
+- GitHub CLI skill installation: <https://cli.github.com/manual/gh_skill_install>
 - TechSpokes contact and security-disclosure routes:
   <https://www.techspokes.com/contact/> and
   <https://www.techspokes.com/terms-of-use/>
@@ -48,6 +49,8 @@ Product and standard behavior was checked on 2026-07-17 against:
 Artifact-attestation workflow syntax was checked on 2026-07-18. The release
 workflow uses GitHub's documented `actions/attest@v4` action with `id-token:
 write` and `attestations: write` permissions for public ZIP provenance.
+
+GitHub CLI version resolution for `gh skill install` was checked on 2026-07-18. A versionless skill name resolves the latest tagged release first and falls back to the default branch when no tagged release exists.
 
 ## Roadmap Source Treatment
 

@@ -28,7 +28,7 @@ Run:
 
 ```shell
 npm run validate
-npm run package -- v1.1.0
+npm run package -- vX.Y.Z
 ```
 
 Use the intended version when preparing a release. Inspect all generated ZIP

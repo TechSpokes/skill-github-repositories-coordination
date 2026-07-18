@@ -20,7 +20,7 @@ Run:
 
 ```shell
 npm run validate
-npm run package -- v1.1.0
+npm run package -- vX.Y.Z
 ```
 
 The validator checks metadata, direct links, required maintenance files,

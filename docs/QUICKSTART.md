@@ -2,19 +2,13 @@
 
 ## Install Globally
 
-The easiest path is to ask the agent to install the public skill at user or
-personal scope:
+The easiest path is to ask the agent to install the latest public release at user or personal scope:
 
 ```text
-Install Coordinate GitHub Repositories v1.1.0 globally from
-https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer
-your native skill installer, do not use GitHub's Source code ZIP, ask before
-overwriting anything, and verify the final installation path.
+Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.
 ```
 
-For a browser-only install, [download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.1.0.zip),
-open it, and copy the inner `coordinate-github-repositories` folder into a
-personal skills directory.
+For a browser-only install, open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest), download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`, and copy the inner `coordinate-github-repositories` folder into a personal skills directory.
 
 The shared Agent Skills location used by Codex and GitHub Copilot is:
 
@@ -30,9 +24,7 @@ Claude Code also supports:
 ~/.claude/skills/coordinate-github-repositories/
 ```
 
-Keep `SKILL.md` and `references/` together. See the
-[plain-language installation guide](INSTALL.md) for File Explorer and Finder
-steps, Claude Code, project-level installs, GitHub CLI, and plugin packages.
+Keep `SKILL.md` and `references/` together. See the [plain-language installation guide](INSTALL.md) for File Explorer and Finder steps, Claude Code, project-level installs, GitHub CLI, and plugin packages.
 
 ## Start With an Outcome
 

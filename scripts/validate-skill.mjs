@@ -308,29 +308,59 @@ function validatePackagingBoundaries() {
 
 function validateInstallationContract() {
   const version = readJson("package.json").version;
-  const tag = `v${version}`;
   const skillName = "coordinate-github-repositories";
-  const assetName = `${skillName}-${tag}.zip`;
-  const latestDownload = `releases/latest/download/${assetName}`;
+  const latestRelease = "releases/latest";
+  const assetPattern = `${skillName}-vX.Y.Z.zip`;
+  const installPrompt = "Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.";
   const readme = readText("README.md");
   const install = readText("docs/INSTALL.md");
+  const quickstart = readText("docs/QUICKSTART.md");
+  const evergreenDocs = [
+    ["README.md", readme],
+    ["docs/INSTALL.md", install],
+    ["docs/QUICKSTART.md", quickstart],
+  ];
 
-  if (!readme.includes(latestDownload)) {
-    fail(`README.md must link directly to the recommended ${assetName} asset.`);
-  }
   if (!readme.includes(`Current version: \`${version}\`.`)) {
     fail("README.md current version must match package.json.");
-  }
-  if (!install.includes(latestDownload)) {
-    fail(`docs/INSTALL.md must link directly to the recommended ${assetName} asset.`);
   }
   if (!/Source code \(zip\)|Source code ZIP/.test(install)) {
     fail("docs/INSTALL.md must warn against GitHub's automatic Source code archive.");
   }
+
+  for (const [file, text] of evergreenDocs) {
+    if (!text.includes(latestRelease)) {
+      fail(`${file} must link to the latest release without baking in a version.`);
+    }
+    if (!text.includes(assetPattern)) {
+      fail(`${file} must identify the maintenance-free standalone asset pattern ${assetPattern}.`);
+    }
+    if (!text.includes(installPrompt)) {
+      fail(`${file} must include the canonical maintenance-free installation prompt.`);
+    }
+    if (/releases\/latest\/download\/coordinate-github-repositories-v\d+\.\d+\.\d+\.zip/.test(text)) {
+      fail(`${file} must not bake a version into the latest-release download path.`);
+    }
+  }
+
+  if (!install.includes("latest tagged release") || !install.includes("https://cli.github.com/manual/gh_skill_install")) {
+    fail("docs/INSTALL.md must explain and source GitHub CLI's versionless latest-release resolution.");
+  }
+
   for (const agent of ["codex", "github-copilot", "claude-code"]) {
-    const expected = `${skillName}@${tag} --agent ${agent} --scope user`;
+    const expected = `${skillName} --agent ${agent} --scope user`;
     if (!install.includes(expected)) {
       fail(`docs/INSTALL.md is missing the user-scope GitHub CLI example for ${agent}.`);
+    }
+  }
+
+  if (/gh skill install[^\n]*coordinate-github-repositories@v\d+\.\d+\.\d+/.test(install)) {
+    fail("docs/INSTALL.md evergreen GitHub CLI examples must not pin a release version.");
+  }
+
+  for (const file of ["AGENTS.md", "README.md", "CONTRIBUTING.md", "docs/TESTING.md", "docs/RELEASING.md"]) {
+    if (/npm run package -- v\d+\.\d+\.\d+/.test(readText(file))) {
+      fail(`${file} must use vX.Y.Z instead of a maintained package-command version.`);
     }
   }
 }
@@ -487,6 +517,38 @@ function validateMarkdownStructure() {
   }
 }
 
+function validateReleaseMarkdownWrapping() {
+  const releaseFiles = walk("docs/releases").filter((file) => file.endsWith(".md") && exists(file));
+
+  for (const file of releaseFiles) {
+    const lines = readText(file).replace(/\r\n/g, "\n").split("\n");
+    let inFence = false;
+    let previousKind = null;
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed.startsWith("```")) {
+        inFence = !inFence;
+        previousKind = null;
+        continue;
+      }
+      if (inFence || trimmed.length === 0) {
+        previousKind = null;
+        continue;
+      }
+      if (/^#{1,6}\s|^\||^(?:[-*+] |\d+\. )|^>|^---+$/.test(trimmed)) {
+        previousKind = /^(?:[-*+] |\d+\. )/.test(trimmed) ? "list" : null;
+        continue;
+      }
+      if (previousKind === "prose" || (previousKind === "list" && /^\s/.test(line))) {
+        fail(`${file} hard-wraps a paragraph or list item; keep each Markdown block on one physical source line.`);
+        break;
+      }
+      previousKind = "prose";
+    }
+  }
+}
+
 validateSkill();
 validateReferences();
 validateManifests();
@@ -496,6 +558,7 @@ validateInstallationContract();
 validateWorkflowMode();
 validateRepositoryContract();
 validateMarkdownStructure();
+validateReleaseMarkdownWrapping();
 
 if (failures.length > 0) {
   console.error("Validation failed:");

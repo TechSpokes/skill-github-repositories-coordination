@@ -6,5 +6,4 @@ Create one Markdown file per release tag using:
 vX.Y.Z.md
 ```
 
-The release workflow requires the matching file and `## [vX.Y.Z]` changelog
-heading before it builds or uploads assets.
+The release workflow requires the matching file and `## [vX.Y.Z]` changelog heading before it builds or uploads assets.

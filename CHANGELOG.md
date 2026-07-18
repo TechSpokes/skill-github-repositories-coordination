@@ -21,6 +21,7 @@
   through GitHub Actions.
 - Document the Windows sandbox retry path that lets authenticated GitHub CLI
   commands load the host keyring without weakening action-level approval.
+- Make evergreen installation prompts, release links, and GitHub CLI examples resolve the latest tagged release without a maintained version pin.
 
 ## [v1.0.1]
 

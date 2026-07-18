@@ -1,15 +1,8 @@
 # Coordinate GitHub Repositories
 
-Coordinate GitHub repositories across personal accounts, organizations, and
-different kinds of work without forcing every user into the same inventory,
-taxonomy, project system, or manager application.
+Coordinate GitHub repositories across personal accounts, organizations, and different kinds of work without forcing every user into the same inventory, taxonomy, project system, or manager application.
 
-This Agent Skill helps an agent diagnose access, understand a repository
-portfolio, route cross-repository work, and compare organization tools by fit.
-It supports software, documentation, writing, research, data, operations,
-publishing, and mixed repositories. It remains useful in a conversation-only
-agent and uses local, GitHub, IDE, CLI, connector, or MCP capabilities when they
-are actually available.
+This Agent Skill helps an agent diagnose access, understand a repository portfolio, route cross-repository work, and compare organization tools by fit. It supports software, documentation, writing, research, data, operations, publishing, and mixed repositories. It remains useful in a conversation-only agent and uses local, GitHub, IDE, CLI, connector, or MCP capabilities when they are actually available.
 
 ## What It Helps With
 
@@ -31,34 +24,23 @@ You do not need to clone this repository or use a terminal.
 Copy this message into the agent where you want to use the skill:
 
 ```text
-Install the public Coordinate GitHub Repositories skill globally for me from
-https://github.com/TechSpokes/skill-github-repositories-coordination at
-version v1.1.0. Prefer your native skill installer. Otherwise use the standalone
-release ZIP, not GitHub's Source code ZIP. Keep SKILL.md and references together.
-Do not overwrite an existing installation without asking. Verify the final
-location and tell me whether I need to start a new session.
+Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.
 ```
 
 ### Or Use Your Browser
 
-1. [Download the recommended standalone ZIP](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest/download/coordinate-github-repositories-v1.1.0.zip).
-2. Open the ZIP and copy the whole `coordinate-github-repositories` folder into
-   your agent's personal skills folder.
+1. Open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest) and download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`.
+2. Open the ZIP and copy the whole `coordinate-github-repositories` folder into your agent's personal skills folder.
 3. Keep `SKILL.md` and `references/` inside that folder.
 4. Start a new agent session, then ask:
 
 ```text
-Help me understand which repositories my agent can access across my personal
-account and organizations, then suggest the smallest useful way to coordinate
-them.
+Help me understand which repositories my agent can access across my personal account and organizations, then suggest the smallest useful way to coordinate them.
 ```
 
-The [plain-language installation guide](docs/INSTALL.md) shows exactly where to
-put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code,
-GitHub Copilot, project-only installs, and plugin packages.
+The [plain-language installation guide](docs/INSTALL.md) shows exactly where to put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code, GitHub Copilot, project-only installs, and plugin packages.
 
-Do not download GitHub's automatically generated **Source code** archives.
-Those contain repository maintenance files instead of the install-ready skill.
+Do not download GitHub's automatically generated `Source code` archives. Those contain repository maintenance files instead of the install-ready skill.
 
 ## How It Works
 
@@ -129,7 +111,7 @@ ZIP so consumers can verify its source and workflow provenance.
 
 ```shell
 npm run validate
-npm run package -- v1.1.0
+npm run package -- vX.Y.Z
 ```
 
 Generated ZIP files are written to `dist/assets/`.
