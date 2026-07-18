@@ -2,18 +2,16 @@
 
 ## Use
 
-Use `activation.md` to review trigger boundaries. Use
-`behavior-scenarios.md` to review safety, adaptation, portability, and output
-invariants. Use `adversarial-scenarios.md` to review injection containment,
-privacy, access denial, ambiguous tools, broad mutation, and recommendation
-independence.
+Use `activation.md` to review trigger boundaries. Use `behavior-scenarios.md` to review safety, adaptation, portability, feedback, and output invariants. Use `adversarial-scenarios.md` to review injection containment, privacy, access denial, ambiguous tools, broad mutation, feedback publication, and recommendation independence.
 
-`tests/evals/cases.json` registers every fixture case with a stable ID and user
-segment. Run `npm run test:eval` to fail on missing fixture registration,
-segment gaps, malformed scenarios, or drift between activation tables and the
-registry.
+`tests/evals/cases.json` registers every fixture case with a stable ID and user segment. Run `npm run test:eval` to fail on missing fixture registration, segment gaps, malformed scenarios, or drift between activation tables and the registry.
 
-## Boundary
+## Security Boundary
 
-Fixtures are maintenance evidence. Runtime agents do not need to load them for
-ordinary coordination work.
+Fixtures are inert maintenance evidence, not executable attack instructions. Run model-based adversarial cases only in a disposable workspace with no credentials, network access, external filesystem access, or mutating tools, then verify that nothing outside that workspace changed.
+
+If the host cannot prove that containment, stop the model-based case and use deterministic fixture review only. Never test against the maintainer's normal machine session, live repositories, global credentials, or unrelated files.
+
+## Runtime Boundary
+
+Runtime agents do not need to load fixtures for ordinary coordination work, and release packages exclude the complete `tests/` directory.

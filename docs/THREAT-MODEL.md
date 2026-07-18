@@ -90,7 +90,7 @@ A different ZIP may be published from the one tested. Generate checksums and att
 
 Run the registered adversarial scenarios before a minor or major release and after a security-relevant runtime change. Record model, host, skill version, capabilities, sanitized output, reviewer, result, and limitations.
 
-Treat red-team prompts as inert test data. Use a disposable sandbox with no live credentials, external filesystem access, network access, or mutating tools. Constrain writes to the test workspace, then verify that no external file, repository, account, or service changed. repository, account, or service changed.
+Treat red-team prompts as inert test data. Use a disposable sandbox with no live credentials, external filesystem access, network access, or mutating tools. Constrain writes to the test workspace, then verify that no external file, repository, account, or service changed.
 
 Do not commit active exploit payloads containing real credentials, private repository identities, or unnecessary operational details. A failed case blocks broad launch and release approval until fixed or accepted by an accountable security reviewer.
 
