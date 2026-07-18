@@ -30,6 +30,7 @@ Read only the references needed for the change. Read all fixtures when changing 
 
 ## Must-Follow Rules
 
+- Apply `.github/instructions/markdown.instructions.md` to Markdown changes.
 - Keep `SKILL.md` below 500 lines and keep direct references one level deep.
 - Keep frontmatter portable. Do not add `allowed-tools` or host-only fields.
 - Do not require code, a shell, an IDE, GitHub access, or write permissions.
