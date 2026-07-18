@@ -56,6 +56,29 @@ mutation is not its default. Repository and organization administration,
 destructive lifecycle changes, cross-repository writes, durable profiles, and
 public output require stronger checkpoints.
 
+### Evidence-Gated Growth
+
+The [roadmap](ROADMAP.md) separates repository deliverables from product
+evidence. Each phase requires both an outcome gate and a tracks gate covering
+architecture, security, evaluation, teaching, and governance. Public attention
+cannot compensate for a regression in those tracks.
+
+Roadmap phase numbers do not determine release versions. Versions describe
+runtime and package contract impact, while external adoption remains recorded
+in phase issues and evidence records.
+
+### Teaching Without Runtime Bloat
+
+The runtime explains why consequential least-privilege and reversible steps
+protect the user's work. Longer newcomer guidance stays in
+[the learning path](LEARNING.md) so ordinary skill context remains lean.
+
+### Portal Front Porch
+
+The skill may prepare reviewed, provenance-aware input for a service catalog or
+internal developer portal. It does not become a portal, manager, policy engine,
+or system of record. The receiving owner retains schema and refresh ownership.
+
 ## Runtime Structure
 
 ```text
@@ -66,19 +89,25 @@ skills/
         |-- agent-capability-adapters.md
         |-- context-calibration.md
         |-- inventory-and-coordination.md
+        |-- portal-interoperability.md
         |-- repository-archetypes.md
         |-- safety-and-approval.md
         `-- tool-fit.md
 
 tests/
+|-- evals/
+|   `-- cases.json
 `-- fixtures/
     |-- activation.md
+    |-- adversarial-scenarios.md
     `-- behavior-scenarios.md
 ```
 
-`SKILL.md` controls activation and the ten-stage workflow. References are direct
-and focused so agents load only the active branch. Fixtures define behavioral
-invariants for maintenance; they are not required during ordinary runtime use.
+`SKILL.md` controls activation and the ten-stage workflow. All seven references
+are direct and focused so agents load only the active branch. Fixtures define
+behavioral invariants for maintenance; the evaluation registry makes fixture
+coverage and required segments a deterministic CI contract. Tests and program
+documentation are not installed as runtime content.
 
 ## Runtime Sequence
 
@@ -131,3 +160,13 @@ agent judgment.
 Refresh `agent-capability-adapters.md` when hosts change skill paths, connector
 permissions, CLI publication, or access behavior. Revisit the core only when the
 goal, activation boundary, workflow, safety contract, or output contract changes.
+
+Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md),
+and [ADR 0001](decisions/0001-evidence-gated-roadmap.md) when a change affects
+growth gates, privileged tools, public output, portal handoff, recommendation
+independence, contribution quality, or release identity.
+
+Keep project scripts platform-neutral where Node.js provides the needed
+capability. Validation and checksum generation use Node standard libraries.
+ZIP creation prefers `zip`, then an archive-capable `tar`, then PowerShell Core,
+and uses Windows PowerShell only on Windows.

@@ -85,6 +85,10 @@ Verify current official documentation when availability, installation path,
 pricing, plan, limits, authentication, permissions, or integration behavior
 affects the recommendation. Date the finding and state what may change.
 
+Disclose any relevant commercial, maintainer, or contributor interest. Apply
+the same rubric to that option, competitors, the current system, and no change.
+Do not prefer an option because its adoption benefits the skill maintainer.
+
 ## Recommendation Contract
 
 Use concise prose unless structure improves the decision:

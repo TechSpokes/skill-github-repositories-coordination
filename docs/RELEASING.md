@@ -9,8 +9,10 @@ Changes reach `main` through a pull request:
 3. Run `npm run validate`.
 4. Run `npm run package -- vX.Y.Z` when packaging or release content changes.
 5. Inspect all generated archives for content and privacy boundaries.
-6. Push the branch and open a pull request.
-7. Wait for `Validate skill package`, resolve conversations, and squash-merge.
+6. Recompute ZIP checksums and compare them with `dist/assets/SHA256SUMS`.
+7. Review threat, evaluation, governance, and roadmap gate impact.
+8. Push the branch and open a pull request.
+9. Wait for `Validate skill package`, resolve conversations, and squash-merge.
 
 Do not push directly to `main`.
 
@@ -24,29 +26,37 @@ For version `X.Y.Z`:
 4. Update `docs/VERSION.md` and user-facing install examples.
 5. Run:
 
-```powershell
+```shell
 npm run validate
 npm run package -- vX.Y.Z
 ```
 
 6. Inspect the standalone, Codex plugin, and Claude plugin ZIP files.
-7. Confirm no intake, bootstrap, local path, secret, placeholder, development
+7. Compare each ZIP digest with `SHA256SUMS`.
+8. Confirm no intake, bootstrap, local path, secret, placeholder, development
    cache, or unrelated repository file is present.
-8. Land the release change through the pull request workflow.
+9. Record technical checks, forward-review evidence, open findings, correction
+   path, and the human decision to publish.
+10. Land the release change through the pull request workflow.
 
 ## Tag and Publish
 
 After the release commit is on `main`, create and push the matching annotated
 tag:
 
-```powershell
+```shell
 git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
 
 The release workflow validates the tag, builds the three ZIP assets, and creates
 or updates a draft GitHub release from `docs/releases/vX.Y.Z.md`. Review the
-title, notes, tag target, and assets, then publish the release.
+title, notes, tag target, ZIP contents, checksums, and GitHub artifact
+attestations, then publish the release.
+
+Technical releasability does not authorize publication. The release owner must
+confirm security, evaluation, privacy, support, rollback or correction, and
+roadmap gate status before publishing the draft.
 
 Do not mutate an existing published release. Correct it with a new version.
 
@@ -88,6 +98,10 @@ updates where the repository plan and organization policy support them.
 
 Run `gh skill publish --dry-run` before a release. Resolve skill validation
 errors and review its repository-hardening warnings before tagging.
+
+Verify a built ZIP after publication with `gh attestation verify <zip> -R
+TechSpokes/skill-github-repositories-coordination`. GitHub attestations establish
+source and workflow provenance; they do not replace package inspection.
 
 Verify live settings before changing them. Do not create a second ruleset when
 an existing `main protection` ruleset can be repaired in place.

@@ -2,23 +2,19 @@
 
 ## Maintenance Goal
 
-Maintain a portable skill that helps agents coordinate GitHub repositories
-across accounts, organizations, and work types without imposing a taxonomy,
-tool, or replacement workflow.
+Maintain a portable skill that helps agents coordinate GitHub repositories across accounts, organizations, and work types without imposing a taxonomy, tool, or replacement workflow.
 
 ## Core Principles and Decision Stance
 
 - Adapt to the person's outcome, work, existing system, and change tolerance.
-- Treat software, documentation, writing, research, data, operations, and mixed
-  repositories as first-class work.
+- Treat software, documentation, writing, research, data, operations, and mixed repositories as first-class work.
 - Keep the core useful with conversation alone and detect optional capabilities.
 - Compare the current system and no change with proposed alternatives.
 - Default to observation and require explicit authority for mutation.
 - Preserve privacy, local instructions, ownership, reversibility, and unknowns.
 - Prefer portable Agent Skills conventions over host-specific extensions.
 
-When rules conflict, protect user authority, private information, portability,
-and the established repository workflow before convenience.
+When rules conflict, protect user authority, private information, portability, and the established repository workflow before convenience.
 
 ## Canonical Files
 
@@ -30,48 +26,45 @@ and the established repository workflow before convenience.
 - `docs/RELEASING.md` defines the change and release process.
 - `packaging/` contains Codex and Claude wrapper manifests.
 
-Read only the references needed for the change. Read all fixtures when changing
-activation, workflow order, output behavior, safety, or portability.
+Read only the references needed for the change. Read all fixtures when changing activation, workflow order, output behavior, safety, or portability.
 
 ## Must-Follow Rules
 
 - Keep `SKILL.md` below 500 lines and keep direct references one level deep.
 - Keep frontmatter portable. Do not add `allowed-tools` or host-only fields.
 - Do not require code, a shell, an IDE, GitHub access, or write permissions.
-- Do not add a fixed taxonomy, persistent profile, connector, manager service,
-  credential workflow, or runtime script without evidence and explicit design
-  review.
-- Keep volatile host paths and product behavior dated in
-  `agent-capability-adapters.md` and verify them from primary sources.
-- Do not commit secrets, private repository maps, user profiles, local paths, or
-  raw intake.
+- Do not add a fixed taxonomy, persistent profile, connector, manager service, credential workflow, or runtime script without evidence and explicit design review.
+- Keep volatile host paths and product behavior dated in `agent-capability-adapters.md` and verify them from primary sources.
+- Do not commit secrets, private repository maps, user profiles, local paths, or raw intake.
 - Keep package versions synchronized with the changelog and release notes.
-- Exclude `.intake/`, `.idea/`, `.git/`, `dist/`, `tmp/`, and local feedback
-  artifacts from release packages.
+- Exclude `.intake/`, `.idea/`, `.git/`, `dist/`, `tmp/`, and local feedback artifacts from release packages.
 
 ## Required Checks
 
 Run after every product change:
 
-```powershell
+```bash
 npm run validate
-npm run package -- v1.0.1
+npm run package -- vX.Y.Z
 ```
 
-For a new version, use the intended tag instead of `v1.0.1`. Inspect all three
-ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake,
-local path, placeholder, or secret material.
+Use the intended tag instead of `vX.Y.Z`. Inspect all three ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake, local path, placeholder, or secret material.
 
-Review `tests/fixtures/activation.md` and
-`tests/fixtures/behavior-scenarios.md` manually when behavior changes. Record
-why any invariant changes.
+Review `tests/fixtures/activation.md` and `tests/fixtures/behavior-scenarios.md` manually when behavior changes. Record why any invariant changes.
+
+## Windows Sandbox and GitHub CLI
+
+On Windows, a sandboxed agent process may not receive the user's global environment or Windows keyring session. A sandboxed GitHub CLI authentication failure is not proof that the host session is unauthenticated. This fallback was verified in this repository's Windows sandbox on 2026-07-18: the sandboxed check reported an invalid token, while the elevated check loaded the keyring session.
+
+1. Run `gh auth status -h github.com` in the current sandbox.
+2. If it reports no login or an invalid token, retry the same read-only command once with elevated host permissions.
+3. If the elevated check succeeds, run authenticated `gh` commands with elevated permissions and scope each command to the intended repository and action.
+4. If the elevated check also fails, ask the user to run `gh auth login -h github.com` and verify the result before continuing.
+
+Elevation changes credential visibility, not user authorization. Keep write approval, target confirmation, least privilege, and recovery requirements unchanged. Never print, copy, or persist the token, and diagnose `git` authentication separately instead of assuming it shares the GitHub CLI result.
 
 ## Change Boundaries
 
-Use a branch and pull request. Do not push directly to `main`. Update the skill,
-affected references, fixtures, docs, manifests, changelog, and release notes as
-one coherent change.
+Use a branch and pull request. Do not push directly to `main`. Update the skill, affected references, fixtures, docs, manifests, changelog, and release notes as one coherent change.
 
-New source material may be staged privately for an update, but transform only
-the durable, publishable knowledge into the canonical skill and public docs.
-Remove private working material before publication.
+New source material may be staged privately for an update, but transform only the durable, publishable knowledge into the canonical skill and public docs. Remove private working material before publication.

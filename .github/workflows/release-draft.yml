@@ -13,6 +13,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   draft-release:
@@ -68,6 +70,11 @@ jobs:
       - name: Package release assets
         run: npm run package -- ${{ steps.meta.outputs.tag }}
 
+      - name: Attest release ZIP provenance
+        uses: actions/attest@v4
+        with:
+          subject-path: dist/assets/*.zip
+
       - name: Create or update draft release
         shell: bash
         env:
@@ -102,4 +109,4 @@ jobs:
           TAG_NAME: ${{ steps.meta.outputs.tag }}
         run: |
           set -euo pipefail
-          gh release upload "${TAG_NAME}" dist/assets/*.zip --clobber
+          gh release upload "${TAG_NAME}" dist/assets/*.zip dist/assets/SHA256SUMS --clobber

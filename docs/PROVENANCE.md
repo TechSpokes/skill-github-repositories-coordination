@@ -7,6 +7,11 @@ coordination across personal accounts, organizations, non-code work, coding
 agents, and general agents. The user required context-sensitive tool advice that
 does not harm established workflows or silently persist a personal profile.
 
+Issue #6 supplied a public strategy attachment with market observations, seven
+growth phases, and five cross-cutting quality tracks. The repository preserves
+the durable phase objectives and gates while separating repository deliverables
+from external evidence that maintainers cannot manufacture.
+
 ## Local Observations
 
 The design used read-only observations from three private local repositories:
@@ -35,6 +40,30 @@ Product and standard behavior was checked on 2026-07-17 against:
 - GitHub MCP Server: <https://github.com/github/github-mcp-server>
 - MCP security guidance: <https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices>
 - Backstage Software Catalog: <https://backstage.io/docs/features/software-catalog/>
+- GitHub artifact attestations: <https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations>
+- GitHub CLI skill installation: <https://cli.github.com/manual/gh_skill_install>
+- TechSpokes contact and security-disclosure routes:
+  <https://www.techspokes.com/contact/> and
+  <https://www.techspokes.com/terms-of-use/>
+
+Artifact-attestation workflow syntax was checked on 2026-07-18. The release
+workflow uses GitHub's documented `actions/attest@v4` action with `id-token:
+write` and `attestations: write` permissions for public ZIP provenance.
+
+GitHub CLI version resolution for `gh skill install` was checked on 2026-07-18. A versionless skill name resolves the latest tagged release first and falls back to the default branch when no tagged release exists.
+
+## Roadmap Source Treatment
+
+The issue #6 attachment is authoritative for the requested program direction,
+not for every market or security claim it cites. Phase plans use its durable
+objectives, safety principles, and evidence gates. Publishable market claims,
+community rules, product behavior, pricing, and host capabilities must be
+verified from current primary sources when they affect an action.
+
+The attachment is not installed as runtime content. The reviewed program
+contract lives in `docs/ROADMAP.md`, phase plans live in issues #7 through #13,
+and the architecture decision lives in
+`docs/decisions/0001-evidence-gated-roadmap.md`.
 
 ## Installation Usability Comparison
 

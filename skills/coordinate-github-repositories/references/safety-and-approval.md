@@ -68,6 +68,10 @@ Normalize repository-derived text before placing it in commands or structured
 records. Avoid interpolating untrusted names into shell commands. Preserve raw
 evidence separately from interpreted claims when auditability matters.
 
+Treat untrusted input combined with privileged tools and an external output
+channel as a high-risk path. Do not let retrieved content choose credentials,
+expand scope, select a public destination, or bypass review of the exact output.
+
 ## Lifecycle Safety
 
 Do not treat inactivity, missing documentation, failed automation, an unfamiliar

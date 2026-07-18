@@ -1,8 +1,17 @@
+/* global process */
+/**
+ * Builds the three installable skill archives and their checksum manifest.
+ * @since 1.0.0
+ * @why Release consumers need byte-identical runtime packages with verifiable artifact identity.
+ * @see ../docs/RELEASING.md
+ */
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
-const root = process.cwd();
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceSkillDir = path.join(root, "skills", "coordinate-github-repositories");
 const tag = process.argv[2];
 
@@ -25,15 +34,20 @@ stageStandalone(skill.name);
 stagePlugin("codex", skill.name, version);
 stagePlugin("claude", skill.name, version);
 
-zipDirectory(path.join(stage, skill.name), path.join(assets, `${skill.name}-${tag}.zip`));
+const standaloneAsset = path.join(assets, `${skill.name}-${tag}.zip`);
+const codexAsset = path.join(assets, `${skill.name}-codex-plugin-${tag}.zip`);
+const claudeAsset = path.join(assets, `${skill.name}-claude-plugin-${tag}.zip`);
+
+zipDirectory(path.join(stage, skill.name), standaloneAsset);
 zipDirectory(
   path.join(stage, `${skill.name}-codex-plugin`),
-  path.join(assets, `${skill.name}-codex-plugin-${tag}.zip`)
+  codexAsset
 );
 zipDirectory(
   path.join(stage, `${skill.name}-claude-plugin`),
-  path.join(assets, `${skill.name}-claude-plugin-${tag}.zip`)
+  claudeAsset
 );
+writeChecksums([standaloneAsset, codexAsset, claudeAsset], path.join(assets, "SHA256SUMS"));
 
 console.log(`Packaged release assets for ${skill.name} ${tag}.`);
 
@@ -51,8 +65,14 @@ function parseSkill() {
 }
 
 function resetDir(directory) {
-  fs.rmSync(directory, { recursive: true, force: true });
-  fs.mkdirSync(directory, { recursive: true });
+  const resolved = path.resolve(directory);
+  const relative = path.relative(root, resolved);
+  // @constraints Recursive cleanup is limited to this repository's generated dist directory.
+  if (relative !== "dist" || path.isAbsolute(relative)) {
+    throw new Error(`Refusing to reset unsafe release directory: ${resolved}`);
+  }
+  fs.rmSync(resolved, { recursive: true, force: true });
+  fs.mkdirSync(resolved, { recursive: true });
 }
 
 // @constraints Release copies drop placeholders, explicit maintenance entries, and directories emptied by those exclusions.
@@ -100,6 +120,15 @@ function stagePlugin(type, skillName, version) {
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
+/**
+ * Creates one ZIP with portable archivers and a final PowerShell fallback.
+ * @param {string} source Absolute directory path to archive.
+ * @param {string} destination Absolute ZIP path to create or replace.
+ * @returns {void}
+ * @throws {Error} When zip, archive-capable tar, and available PowerShell hosts all fail.
+ * @sideEffects Creates or replaces the destination archive and streams archiver output.
+ * @since 1.0.0
+ */
 function zipDirectory(source, destination) {
   const parent = path.dirname(source);
   const base = path.basename(source);
@@ -112,13 +141,49 @@ function zipDirectory(source, destination) {
     return;
   }
 
-  const powershell = spawnSync(
-    "powershell",
-    ["-NoProfile", "-Command", `Compress-Archive -Path '${source}' -DestinationPath '${destination}' -Force`],
-    { stdio: "inherit" }
-  );
+  const tar = spawnSync("tar", ["-a", "-c", "-f", destination, base], {
+    cwd: parent,
+    stdio: "inherit"
+  });
 
-  if (powershell.status !== 0) {
-    throw new Error(`Unable to create ZIP ${destination}.`);
+  if (tar.status === 0) {
+    return;
   }
+
+  const escapedSource = source.replaceAll("'", "''");
+  const escapedDestination = destination.replaceAll("'", "''");
+  const command = `Compress-Archive -LiteralPath '${escapedSource}' -DestinationPath '${escapedDestination}' -Force`;
+  const fallbackHosts = process.platform === "win32" ? ["pwsh", "powershell"] : ["pwsh"];
+
+  for (const host of fallbackHosts) {
+    const powershell = spawnSync(host, ["-NoProfile", "-NonInteractive", "-Command", command], {
+      stdio: "inherit"
+    });
+    if (powershell.status === 0) {
+      return;
+    }
+  }
+
+  throw new Error(`Unable to create ZIP ${destination}. Install zip, archive-capable tar, or PowerShell 7 and retry.`);
+}
+
+/**
+ * Writes a deterministic SHA-256 manifest for release assets.
+ * @param {string[]} files Absolute paths to the packaged release files.
+ * @param {string} destination Absolute path of the checksum manifest to overwrite.
+ * @returns {void}
+ * @throws {Error} When an asset cannot be read or the manifest cannot be written.
+ * @sideEffects Reads every asset and overwrites the destination file.
+ * @since 1.1.0
+ */
+function writeChecksums(files, destination) {
+  const lines = files
+    .map((file) => {
+      // @why PhpStorm's WEB_MODULE lacks the Node Hash overloads used by this dependency-free script.
+      // noinspection JSCheckFunctionSignatures
+      const digest = crypto.createHash("sha256").update(fs.readFileSync(file)).digest().toString("hex");
+      return `${digest}  ${path.basename(file)}`;
+    })
+    .sort();
+  fs.writeFileSync(destination, `${lines.join("\n")}\n`);
 }
