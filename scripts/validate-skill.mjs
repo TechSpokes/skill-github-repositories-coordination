@@ -311,13 +311,13 @@ function validateInstallationContract() {
   const skillName = "coordinate-github-repositories";
   const latestRelease = "releases/latest";
   const assetPattern = `${skillName}-vX.Y.Z.zip`;
-  const installPrompt = "Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.";
+  const installPrompt = "Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.";
   const readme = readText("README.md");
-  const install = readText("docs/INSTALL.md");
+  const install = readText("INSTALL.md");
   const quickstart = readText("docs/QUICKSTART.md");
   const evergreenDocs = [
     ["README.md", readme],
-    ["docs/INSTALL.md", install],
+    ["INSTALL.md", install],
     ["docs/QUICKSTART.md", quickstart],
   ];
 
@@ -325,7 +325,7 @@ function validateInstallationContract() {
     fail("README.md current version must match package.json.");
   }
   if (!/Source code \(zip\)|Source code ZIP/.test(install)) {
-    fail("docs/INSTALL.md must warn against GitHub's automatic Source code archive.");
+    fail("INSTALL.md must warn against GitHub's automatic Source code archive.");
   }
 
   for (const [file, text] of evergreenDocs) {
@@ -343,19 +343,25 @@ function validateInstallationContract() {
     }
   }
 
-  if (!install.includes("latest tagged release") || !install.includes("https://cli.github.com/manual/gh_skill_install")) {
-    fail("docs/INSTALL.md must explain and source GitHub CLI's versionless latest-release resolution.");
+  if (!install.includes("latest published release") || !install.includes("https://cli.github.com/manual/gh_skill_install")) {
+    fail("INSTALL.md must explain and source GitHub CLI's versionless latest-release resolution.");
+  }
+
+  for (const expected of ["gh skill --help", "gh skill update coordinate-github-repositories --dry-run", "GITHUB-CLI-DELIVERY.md"]) {
+    if (!install.includes(expected)) {
+      fail(`INSTALL.md is missing the GitHub CLI delivery contract: ${expected}.`);
+    }
   }
 
   for (const agent of ["codex", "github-copilot", "claude-code"]) {
     const expected = `${skillName} --agent ${agent} --scope user`;
     if (!install.includes(expected)) {
-      fail(`docs/INSTALL.md is missing the user-scope GitHub CLI example for ${agent}.`);
+      fail(`INSTALL.md is missing the user-scope GitHub CLI example for ${agent}.`);
     }
   }
 
   if (/gh skill install[^\n]*coordinate-github-repositories@v\d+\.\d+\.\d+/.test(install)) {
-    fail("docs/INSTALL.md evergreen GitHub CLI examples must not pin a release version.");
+    fail("INSTALL.md evergreen GitHub CLI examples must not pin a release version.");
   }
 
   for (const file of ["AGENTS.md", "README.md", "CONTRIBUTING.md", "docs/TESTING.md", "docs/RELEASING.md"]) {
@@ -391,6 +397,7 @@ function validateWorkflowMode() {
 function validateRepositoryContract() {
   const requiredFiles = [
     "README.md",
+    "INSTALL.md",
     "AGENTS.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
@@ -400,6 +407,8 @@ function validateRepositoryContract() {
     "docs/CASE-STUDY-FOUNDING-PORTFOLIO.md",
     "docs/FEEDBACK.md",
     "docs/GOVERNANCE.md",
+    "docs/GITHUB-CLI-DELIVERY.md",
+    "docs/GITHUB-CLI.md",
     "docs/INSTALL.md",
     "docs/LAUNCH.md",
     "docs/LEARNING.md",
@@ -417,6 +426,9 @@ function validateRepositoryContract() {
     "docs/VERSION.md",
     "docs/decisions/README.md",
     ".github/ISSUE_TEMPLATE/skill_run_feedback.yml",
+    ".github/workflows/gh-skill-install.yml",
+    "scripts/verify-gh-skill-install.mjs",
+    "skills/coordinate-github-repositories/references/install-and-update-this-skill.md",
     "tests/fixtures/activation.md",
     "tests/fixtures/adversarial-scenarios.md",
     "tests/fixtures/behavior-scenarios.md",
@@ -479,6 +491,25 @@ function validateRepositoryContract() {
     if (!releaseWorkflow.includes(expected)) {
       fail(`.github/workflows/release-draft.yml is missing release provenance contract: ${expected}.`);
     }
+  }
+
+  const ciWorkflow = readText(".github/workflows/ci.yml");
+  for (const [workflow, text] of [["CI", ciWorkflow], ["release", releaseWorkflow]]) {
+    if (!text.includes("gh skill publish --dry-run")) {
+      fail(`${workflow} workflow must validate the clean GitHub CLI skill source before packaging.`);
+    }
+  }
+
+  const installWorkflow = readText(".github/workflows/gh-skill-install.yml");
+  for (const expected of ["types:\n      - published", "permissions:\n  contents: read", "gh skill install", "scripts/verify-gh-skill-install.mjs", "npm run verify:gh-skill"]) {
+    if (!installWorkflow.includes(expected)) {
+      fail(`.github/workflows/gh-skill-install.yml is missing delivery contract: ${expected}.`);
+    }
+  }
+
+  const packageManifest = readJson("package.json");
+  if (packageManifest.scripts?.["verify:gh-skill"] !== "node scripts/verify-gh-skill-install.mjs") {
+    fail("package.json must expose the platform-neutral GitHub CLI install verifier.");
   }
 }
 

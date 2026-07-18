@@ -54,6 +54,10 @@ npm run package -- vX.Y.Z
 
 Use the intended tag instead of `vX.Y.Z`. Inspect all three ZIP files under `dist/assets/` and confirm they contain no bootstrap, intake, local path, placeholder, or secret material.
 
+Run `gh skill publish --dry-run` from a clean checkout before packaging when the installed GitHub CLI exposes the preview command. Do not use `gh skill publish --tag`; the repository release workflow owns tagging, curated notes, ZIP creation, checksums, attestations, draft review, and publication.
+
+Run public install tests only in a disposable operating system profile or ephemeral CI runner. A custom `--dir` contains the installed skill but does not contain the GitHub CLI lockfile written below the effective user home.
+
 Review `tests/fixtures/activation.md` and `tests/fixtures/behavior-scenarios.md` manually when behavior changes. Record why any invariant changes.
 
 ## Windows Sandbox and GitHub CLI

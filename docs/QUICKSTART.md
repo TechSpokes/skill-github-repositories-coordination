@@ -5,70 +5,51 @@
 The easiest path is to ask the agent to install the latest public release at user or personal scope:
 
 ```text
-Install the latest public release of Coordinate GitHub Repositories globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer your native skill installer; otherwise use the standalone skill ZIP under Assets, never a GitHub Source code or plugin ZIP. Ask before overwriting. Keep SKILL.md and references/ together. Verify the location and version, and say if a new session is needed.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.
 ```
 
-For a browser-only install, open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest), download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`, and copy the inner `coordinate-github-repositories` folder into a personal skills directory.
+For a browser installation, open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest), download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`, and copy its inner `coordinate-github-repositories` folder into the personal skills folder for your agent.
 
-The shared Agent Skills location used by Codex and GitHub Copilot is:
-
-```text
-$HOME/.agents/skills/coordinate-github-repositories/
-```
-
-On Windows, `$HOME` normally corresponds to `%USERPROFILE%`.
-
-Claude Code also supports:
-
-```text
-~/.claude/skills/coordinate-github-repositories/
-```
-
-Keep `SKILL.md` and `references/` together. See the [plain-language installation guide](INSTALL.md) for File Explorer and Finder steps, Claude Code, project-level installs, GitHub CLI, and plugin packages.
+Keep `SKILL.md` and `references/` together. Use the root [installation guide](../INSTALL.md) for complete commands, folders, verification, update, repair, and removal instructions.
 
 ## Start With an Outcome
 
-Ask the agent for a repository-centered decision, not an abstract demand to
-organize everything:
+Ask the agent for a repository decision that matters to you instead of asking it to organize everything without context:
 
 ```text
-I have repositories in my personal account and two organizations. Help me check
-what you can access, understand the kinds of work they contain, and recommend a
-proportionate way to coordinate them without replacing useful workflows.
+I have repositories in my personal account and two organizations. Help me check what you can access, understand the kinds of work they contain, and recommend a proportionate way to coordinate them without replacing useful workflows.
 ```
 
 Other useful starts:
 
 ```text
-Help me coordinate a research paper, its dataset, experiments, and publication
-site across repositories.
+Help me coordinate a research paper, its dataset, experiments, and publication site across repositories.
 ```
 
 ```text
-Compare our current GitHub Projects setup with a local inventory and an external
-catalog. Include the no-change option and the smallest reversible pilot.
+Compare our current GitHub Projects setup with a local inventory and an external catalog. Include the no-change option and the smallest reversible pilot.
 ```
 
 ## What to Expect
 
-The agent should:
+- The agent clarifies only facts that can change the decision.
 
-- Clarify only facts that can change the decision.
-- State which repositories and capabilities it can and cannot observe.
-- Recognize code and non-code work.
-- Preserve existing vocabulary and governance.
-- Compare the current system and no change with alternatives.
-- Explain why a consequential least-privilege or reversible step is safer.
-- Ask before writes, installations, access changes, administrative actions, or
-  public output.
-- Route concrete implementation back to the owning repository workflow.
+- The agent states which repositories and capabilities it can and cannot observe.
+
+- The agent recognizes code and non-code work.
+
+- The agent preserves existing vocabulary and governance.
+
+- The agent compares the current system and no change with alternatives.
+
+- The agent explains which specific harm a consequential permission or recovery boundary prevents.
+
+- The agent asks before writes, installations, access changes, administrative actions, or public output.
+
+- The agent routes concrete implementation back to the owning repository workflow.
 
 ## If the Agent Has No GitHub Access
 
-The skill still supports conversation-only analysis. The agent should state that
-it has not inspected repositories, build a small context model from your input,
-compare options, and provide a manual verification plan.
+The skill still supports conversation-only analysis. The agent should state that it has not inspected repositories, build a small context model from your input, compare options, and provide a manual verification plan.
 
-Use the [learning path](LEARNING.md) to understand least privilege, untrusted
-repository content, private and public boundaries, evidence, reversibility, and
-the no-change option without needing a terminal.
+Use the [learning path](LEARNING.md) to understand least privilege, untrusted repository content, private and public boundaries, evidence, reversibility, and the no-change option without needing a terminal.

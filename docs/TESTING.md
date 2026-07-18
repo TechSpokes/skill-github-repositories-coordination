@@ -65,6 +65,28 @@ The initial `v1.0.0` dry run passed skill validation and identified secret scann
 
 Record unavailable validators honestly. Do not replace a failed check with an unsupported claim.
 
+## GitHub CLI Delivery Review
+
+Run `gh skill publish --dry-run` from a clean checkout before packaging creates `dist/` and before ignored research or installed skill copies exist. The preview publisher scans the working directory instead of limiting validation to tracked files.
+
+The release event workflow performs the public versionless install on an ephemeral runner hosted by GitHub with read-only repository permission. It installs into the runner temporary directory, uses the runner's disposable user home for GitHub CLI tracking state, and never executes installed instructions or scripts.
+
+`scripts/verify-gh-skill-install.mjs` verifies an already installed copy. It checks the expected release ref, source repository, canonical skill path, tree SHA, unpinned state, file inventory, portable frontmatter fields, `SKILL.md` body, and byte identity of every other runtime file.
+
+The skill update fixture requires a source check and dry run before replacement, treats a pin as a separate decision, rejects automatic force on missing metadata, limits the target to this skill, and verifies the source and path without executing installed content.
+
+Do not run a remote install test against a maintainer's normal user profile merely because `--dir` points into a sandbox. GitHub CLI also records install state below the effective user home. Use a disposable operating system profile, container, virtual machine, or ephemeral CI runner.
+
+After publication, confirm the workflow result and run a read-only update check from the disposable installation when manual verification is needed:
+
+```shell
+gh skill update coordinate-github-repositories --dry-run --dir PATH_TO_DISPOSABLE_SKILLS
+```
+
+Treat `PATH_TO_DISPOSABLE_SKILLS` as an instruction placeholder, not a literal maintained path.
+
+Before release, test already-current, available-update, pinned, missing-metadata, existing-destination, and approved recovery paths in a disposable user profile. No case may write to the maintainer's normal skill folders or lockfile.
+
 ## Release Integrity
 
 `npm run package -- vX.Y.Z` creates the three ZIPs and `SHA256SUMS`. Recompute each SHA-256 digest during inspection and compare it with the manifest.
@@ -96,7 +118,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 `tests/fixtures/activation.md` contains positive and negative prompts. Review the frontmatter description for these boundaries:
 
-- Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, and feedback from a skill run.
+- Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, feedback from a skill run, and this skill's own installation or update.
 - Activate for software and non-code repository work.
 - Do not take over routine implementation inside one known repository.
 - Do not expand into general productivity, personnel, or psychology advice.
@@ -106,7 +128,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures additionally require low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, and the ability to leave an observation unprocessed until later.
+Current behavior fixtures additionally require low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, the ability to leave an observation unprocessed until later, and a self-update path that checks its source and does not force unresolved replacements.
 
 ## Adversarial Review
 

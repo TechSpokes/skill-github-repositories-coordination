@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [v1.3.0]
+
+- Adopt versionless `gh skill install` as the preferred source based CLI delivery path while retaining standalone and plugin ZIP fallbacks.
+- Document GitHub CLI discovery, release resolution, source metadata, update behavior, authentication, trust, containment, publishing conflicts, and rollback for this product.
+- Add clean checkout `gh skill publish --dry-run` validation to CI and release preparation without delegating release creation to the preview publisher.
+- Add a platform neutral installed tree verifier and an ephemeral release event workflow that checks the public versionless install without executing skill content or touching maintainer files.
+- Verify the existing v1.2.0 public install, overwrite refusal, pin behavior, update check, search result, source metadata, and Windows sandbox authentication fallback as the baseline for v1.3.0 delivery.
+- Add a root installation guide, a beginner guide to GitHub CLI, complete project scope commands, and a choice path for users and agents that begin without repository context.
+- Add a focused runtime reference for checking and updating this skill from its recorded source, including separate handling for pins, missing metadata, local changes, and recovery.
+
 ## [v1.2.0]
 
 - Complete the repository-controlled roadmap scope while keeping unobserved outside adoption, launch, retention, recommendation, contribution, and succession outcomes explicit.
