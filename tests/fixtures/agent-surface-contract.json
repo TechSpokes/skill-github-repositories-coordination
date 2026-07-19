@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "canonical_runtime_root": "skills/coordinate-github-repositories",
+  "runtime_map_document": "docs/ARCHITECTURE.md",
+  "runtime_map_start": "<!-- canonical-runtime-map:start -->",
+  "runtime_map_end": "<!-- canonical-runtime-map:end -->",
+  "required_agent_sections": [
+    "Summary",
+    "Read Depth",
+    "Product and Maintenance Goals",
+    "Hard Constraints",
+    "Quality Guidelines",
+    "Conflict Resolution",
+    "Must-Read Documents",
+    "Workspace and Authority",
+    "Canonical Files",
+    "Required Checks",
+    "Windows Sandbox and GitHub CLI",
+    "Change Boundaries"
+  ],
+  "required_agent_documents": [
+    "skills/coordinate-github-repositories/SKILL.md",
+    "skills/coordinate-github-repositories/references/goal-and-authority.md",
+    "skills/coordinate-github-repositories/references/safety-and-approval.md",
+    "tests/fixtures/",
+    "docs/ARCHITECTURE.md",
+    "docs/decisions/README.md",
+    "docs/FEEDBACK.md",
+    "docs/GOVERNANCE.md",
+    "docs/RELEASING.md",
+    "docs/TESTING.md",
+    "docs/THREAT-MODEL.md",
+    "docs/VERSION.md"
+  ],
+  "forbidden_claims": [
+    {
+      "id": "maintained-reference-count",
+      "documents": [
+        "README.md",
+        "docs/ARCHITECTURE.md",
+        "docs/MAINTENANCE.md",
+        "docs/TESTING.md"
+      ],
+      "pattern": "\\b(?:[0-9]+|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve) (?:direct |runtime )?references\\b"
+    },
+    {
+      "id": "maintained-release-version",
+      "documents": [
+        "docs/MAINTENANCE.md"
+      ],
+      "pattern": "\\bVersion `?v?[0-9]+\\.[0-9]+\\.[0-9]+`?"
+    },
+    {
+      "id": "legacy-archive-fallback",
+      "documents": [
+        "docs/ARCHITECTURE.md"
+      ],
+      "pattern": "ZIP creation prefers"
+    }
+  ],
+  "required_current_claims": [
+    {
+      "document": "docs/ARCHITECTURE.md",
+      "text": "dependency-free stored ZIP implementation"
+    },
+    {
+      "document": "docs/MAINTENANCE.md",
+      "text": "package manifest is the current release identity source"
+    }
+  ]
+}

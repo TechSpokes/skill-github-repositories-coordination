@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [v1.5.0]
+
+- Preserve the human's intended benefit, current task, purpose link, hard constraints, authority, workspace roles, evidence state, unknowns, completed verification, and next verification across changed plans, conflicts, summaries, and handoffs.
+- Define bounded coordination, goal hierarchy, conflict resolution, intelligent deviation, re-grounding triggers, and the boundary between active workspaces and read-only evidence sources.
+- Add a focused runtime reference for goal and authority decisions without turning the core skill into a persistent profile, fixed taxonomy, or cross-repository mandate.
+- Restructure maintainer instructions around product outcomes, hard constraints, decision-triggered reading, temporary artifact placement, GitHub CLI elevation on the verified Windows sandbox, and exact repository authority.
+- Add a deterministic agent-surface contract that derives the canonical runtime map, detects stale evergreen claims, and rejects incomplete maintainer instruction routing.
+- Expand the evaluation registry to 55 cases across 15 segments with explicit goal survival decision checks and failure conditions, plus new workspace, artifact placement, goal conflict, deviation, feedback, authority expansion, and false completion scenarios.
+- Align architecture, governance, interoperability, learning, quickstart, threat model, maintenance, testing, package manifests, and release guidance with the goal and authority contract.
+
 ## [v1.4.0]
 
 - Add a short first conversation for users who install the skill without knowing which repository decision to request.

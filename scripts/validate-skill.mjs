@@ -438,6 +438,8 @@ function validateRepositoryContract() {
     ".github/workflows/release-abandon.yml",
     "scripts/verify-gh-skill-install.mjs",
     "skills/coordinate-github-repositories/references/install-and-update-this-skill.md",
+    "skills/coordinate-github-repositories/references/goal-and-authority.md",
+    "tests/fixtures/agent-surface-contract.json",
     "tests/fixtures/activation.md",
     "tests/fixtures/adversarial-scenarios.md",
     "tests/fixtures/behavior-scenarios.md",
@@ -553,6 +555,95 @@ function validateRepositoryContract() {
   ]) {
     if (packageManifest.scripts?.[name] !== command) {
       fail(`package.json must expose ${name} as ${command}.`);
+    }
+  }
+}
+
+/**
+ * Derives the runtime map from canonical files and rejects stale evergreen maintenance claims.
+ * @returns {void}
+ * @sideEffects Reads the agent-surface fixture and appends contract violations.
+ * @why Issues #28 and #32 require partial agent instructions and public runtime maps to fail deterministically when they drift from the canonical tree.
+ * @since 1.5.0
+ */
+function validateAgentSurfaceContract() {
+  const fixturePath = "tests/fixtures/agent-surface-contract.json";
+  if (!exists(fixturePath)) {
+    fail(`Missing ${fixturePath}.`);
+    return;
+  }
+
+  let contract;
+  try {
+    contract = readJson(fixturePath);
+  } catch (error) {
+    fail(`${fixturePath} is not valid JSON: ${error.message}`);
+    return;
+  }
+
+  if (contract.schema_version !== 1) {
+    fail(`${fixturePath} must use schema_version 1.`);
+  }
+
+  const runtimeFiles = new Set(
+    walk(contract.canonical_runtime_root)
+      .filter((file) => file.endsWith(".md"))
+      .map((file) => file.replaceAll("\\", "/"))
+  );
+  const mapDocument = readText(contract.runtime_map_document);
+  const mapStart = mapDocument.indexOf(contract.runtime_map_start);
+  const mapEnd = mapDocument.indexOf(contract.runtime_map_end);
+
+  if (mapStart === -1 || mapEnd === -1 || mapEnd <= mapStart) {
+    fail(`${contract.runtime_map_document} must contain the canonical runtime map markers in source order.`);
+  } else {
+    const mappedBlock = mapDocument.slice(mapStart, mapEnd);
+    const mappedFiles = new Set(
+      [...mappedBlock.matchAll(/`(skills\/coordinate-github-repositories\/(?:SKILL\.md|references\/[a-z0-9-]+\.md))`/g)].map((match) => match[1])
+    );
+
+    for (const file of runtimeFiles) {
+      if (!mappedFiles.has(file)) {
+        fail(`${contract.runtime_map_document} runtime map is missing ${file}.`);
+      }
+    }
+    for (const file of mappedFiles) {
+      if (!runtimeFiles.has(file)) {
+        fail(`${contract.runtime_map_document} runtime map contains noncanonical file ${file}.`);
+      }
+    }
+  }
+
+  const agentInstructions = readText("AGENTS.md");
+  for (const section of contract.required_agent_sections) {
+    if (!new RegExp(`^## ${section.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "m").test(agentInstructions)) {
+      fail(`AGENTS.md is missing required section ${section}.`);
+    }
+  }
+  for (const document of contract.required_agent_documents) {
+    if (!agentInstructions.includes(document)) {
+      fail(`AGENTS.md must route the applicable decision to ${document}.`);
+    }
+  }
+
+  for (const claim of contract.forbidden_claims) {
+    let pattern;
+    try {
+      pattern = new RegExp(claim.pattern, "i");
+    } catch (error) {
+      fail(`${fixturePath} has invalid pattern ${claim.id}: ${error.message}`);
+      continue;
+    }
+    for (const document of claim.documents) {
+      if (pattern.test(readText(document))) {
+        fail(`${document} contains forbidden evergreen claim ${claim.id}.`);
+      }
+    }
+  }
+
+  for (const claim of contract.required_current_claims) {
+    if (!readText(claim.document).includes(claim.text)) {
+      fail(`${claim.document} is missing current implementation claim: ${claim.text}.`);
     }
   }
 }
@@ -698,6 +789,7 @@ validatePackagingBoundaries();
 validateInstallationContract();
 validateWorkflowMode();
 validateRepositoryContract();
+validateAgentSurfaceContract();
 validateFeedbackContract();
 validateDecisionRecords();
 validateMarkdownStructure();

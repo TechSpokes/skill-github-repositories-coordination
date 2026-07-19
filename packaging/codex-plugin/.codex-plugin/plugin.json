@@ -1,7 +1,7 @@
 {
   "name": "coordinate-github-repositories",
-  "version": "1.4.0",
-  "description": "Adaptive GitHub repository access, inventory, routing, coordination, and tool-fit guidance for code and non-code work.",
+  "version": "1.5.0",
+  "description": "Goal-aware GitHub repository access, inventory, routing, coordination, and tool-fit guidance for code and non-code work.",
   "author": {
     "name": "TechSpokes",
     "url": "https://github.com/TechSpokes"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Coordinate GitHub Repositories",
     "shortDescription": "Adapt repository coordination to the person and work.",
-    "longDescription": "Begin with a short first conversation, diagnose GitHub access, understand repositories progressively, route cross-repository work, and compare proportionate tools without imposing a code-only taxonomy or replacement workflow.",
+    "longDescription": "Begin with a short first conversation, preserve the intended benefit and authority across changed plans and handoffs, diagnose GitHub access, understand repositories progressively, and coordinate work without imposing a code-only taxonomy or replacement workflow.",
     "developerName": "TechSpokes",
     "category": "Productivity",
     "capabilities": [
@@ -30,7 +30,8 @@
     "defaultPrompt": [
       "I just installed this skill. What should we do first?",
       "Compare repository organization options for my work.",
-      "Diagnose which GitHub repositories my agent can access."
+      "Diagnose which GitHub repositories my agent can access.",
+      "Coordinate this task across repositories without losing my goal or expanding authority."
     ],
     "brandColor": "#2563EB"
   }

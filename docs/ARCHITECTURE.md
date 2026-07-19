@@ -32,6 +32,14 @@ When a person begins without a concrete outcome, the runtime uses one easy openi
 
 Later proactivity remains tied to the current outcome. The agent may update its ephemeral working hypothesis from explicit corrections and bounded authorized evidence, offer one related optional next step, and expand discovery only after relevance, evidence source, and authority are renewed.
 
+### Goal and Authority Survive Transport
+
+The runtime distinguishes the product goal, communication goal, current task, intended outcome, and hard constraints. Higher goals select among valid methods but cannot create authority, weaken privacy or evidence, bypass security, or overrule an owning repository.
+
+Re-grounding is event driven rather than ceremonial. A material plan change, context summary, handoff, new workspace, changed capability, conflict, mutation, or publication checkpoint renews the intended benefit, task, workspace roles, authority, evidence state, unknowns, and next verification.
+
+The active workspace owns current implementation. Other repositories may supply authorized read-only evidence without becoming mutation targets, and a combined plan never grants authority across every repository it mentions. Disposable material follows the active repository's designated temporary location instead of entering canonical product documentation.
+
 ### Purpose Is Broader Than Code
 
 The skill separates repository purpose, portfolio role, and lifecycle. It recognizes software, documentation, writing, publishing, research, data, operations, websites, presentations, archives, mirrors, mixed work, and unknown work. Existing user vocabulary is preserved.
@@ -76,43 +84,36 @@ GitHub Issues remain the public intake and task surface. Durable learning moves 
 
 ## Runtime Structure
 
-```text
-skills/
-`-- coordinate-github-repositories/
-    |-- SKILL.md
-    `-- references/
-        |-- agent-capability-adapters.md
-        |-- context-calibration.md
-        |-- feedback-and-improvement.md
-        |-- inventory-and-coordination.md
-        |-- portal-interoperability.md
-        |-- repository-archetypes.md
-        |-- safety-and-approval.md
-        `-- tool-fit.md
+The canonical runtime map is validated against the actual skill tree. Adding, removing, or renaming a runtime file requires this map and its direct `SKILL.md` routing to change together.
 
-tests/
-|-- evals/
-|   `-- cases.json
-`-- fixtures/
-    |-- activation.md
-    |-- adversarial-scenarios.md
-    `-- behavior-scenarios.md
-```
+<!-- canonical-runtime-map:start -->
+- `skills/coordinate-github-repositories/SKILL.md`
+- `skills/coordinate-github-repositories/references/agent-capability-adapters.md`
+- `skills/coordinate-github-repositories/references/context-calibration.md`
+- `skills/coordinate-github-repositories/references/feedback-and-improvement.md`
+- `skills/coordinate-github-repositories/references/goal-and-authority.md`
+- `skills/coordinate-github-repositories/references/install-and-update-this-skill.md`
+- `skills/coordinate-github-repositories/references/inventory-and-coordination.md`
+- `skills/coordinate-github-repositories/references/portal-interoperability.md`
+- `skills/coordinate-github-repositories/references/repository-archetypes.md`
+- `skills/coordinate-github-repositories/references/safety-and-approval.md`
+- `skills/coordinate-github-repositories/references/tool-fit.md`
+<!-- canonical-runtime-map:end -->
 
-`SKILL.md` controls activation and the ten-stage workflow. All nine references are direct and focused so agents load only the active branch, including a self-update reference that activates only for installation and update requests. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
+`SKILL.md` controls activation and the ten-stage workflow. Every focused reference is direct so agents load only the active branch. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
 
 ## Runtime Sequence
 
-1. Establish outcome, scope, authority, and governing instructions, using the short first conversation only when the outcome is unknown.
+1. Establish outcome, scope, authority, governing instructions, active workspace, and evidence-only sources, using the short first conversation only when the outcome is unknown.
 2. Calibrate the smallest useful work context as a tentative and correctable working hypothesis.
 3. Describe repository purposes.
 4. Detect agent capabilities and access gaps.
 5. Shape the coordination problem.
-6. Gather bounded evidence, preserve uncertainty, and update the working hypothesis only when the change affects the decision.
+6. Gather bounded evidence, preserve uncertainty, and update the working hypothesis only when the change affects the decision without turning an evidence source into an implementation target.
 7. Compare the current system, no change, and candidates.
 8. Recommend a reversible next step.
-9. Execute only within explicit authority.
-10. Verify, route repository-owned implementation, offer one related optional next step, and provide low-friction feedback when the run exposes reusable learning.
+9. Re-ground after a material change and execute only within exact target-specific authority.
+10. Verify, preserve the goal and authority through handoff, route repository-owned implementation, offer one related optional next step, and provide low-friction feedback when the run exposes reusable learning.
 
 ## Evidence Model
 
@@ -144,4 +145,4 @@ Refresh `agent-capability-adapters.md` when hosts change skill paths, connector 
 
 Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), and [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, contribution quality, roadmap claims, or release identity.
 
-Keep project scripts platform-neutral where Node.js provides the needed capability. Validation and checksum generation use Node standard libraries. ZIP creation prefers `zip`, then an archive-capable `tar`, then PowerShell Core, and uses Windows PowerShell only on Windows.
+Keep project scripts platform-neutral where Node.js provides the needed capability. Validation, checksum generation, and the dependency-free stored ZIP implementation use Node.js standard library APIs and do not depend on host archive commands or shell-specific path behavior.

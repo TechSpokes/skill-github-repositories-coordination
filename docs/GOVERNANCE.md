@@ -15,10 +15,12 @@ Classify durable decisions through the [decision record guide](decisions/README.
 A change is done only when all applicable conditions pass:
 
 - The observed problem and intended outcome are linked to an issue or evidence record.
+- The implemented task remains linked to the intended human benefit after plan changes, summaries, and handoffs.
 - Human intake remains proportionate: a factual observation may be recorded without requiring a diagnosis, implementation plan, or complete environment form.
 - The current system and no-change option received fair consideration.
 - Runtime changes preserve conversation-only usefulness and the no-taxonomy boundary.
 - Permission, privacy, untrusted-content, maintenance, reversibility, and recovery impacts are explicit.
+- The active workspace, evidence-only sources, artifact placement, and authority for every changed repository are explicit.
 - Activation, behavior, adversarial, and false-trigger fixtures are updated or confirmed.
 - Deterministic validation and the intended release package checks pass.
 - Every ZIP is inspected for runtime identity and excluded material.

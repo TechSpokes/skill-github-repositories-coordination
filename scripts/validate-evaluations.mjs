@@ -123,6 +123,14 @@ function validateRegistryShape(registry) {
       if (typeof item.heading !== "string" || !Array.isArray(item.baseline_risks) || item.baseline_risks.length === 0) {
         fail(`Scenario case ${item.id} must declare heading and baseline_risks.`);
       }
+      if (item.segment === "goal-survival") {
+        if (!Array.isArray(item.decision_checks) || item.decision_checks.length < 3) {
+          fail(`Goal survival case ${item.id} must declare at least three decision_checks.`);
+        }
+        if (!Array.isArray(item.failure_conditions) || item.failure_conditions.length === 0) {
+          fail(`Goal survival case ${item.id} must declare at least one failure_condition.`);
+        }
+      }
       continue;
     }
     fail(`Evaluation case ${item.id} has unsupported kind ${item.kind}.`);

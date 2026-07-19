@@ -16,6 +16,7 @@ This Agent Skill helps an agent diagnose access, understand a repository portfol
 - Choose the smallest reversible improvement that fits the user's work.
 - Capture useful observations from humans and agents without requiring a completed bug report or implementation plan.
 - Learn progressively from authorized work and offer one related optional next step without silently expanding scope.
+- Preserve the intended benefit, active workspace, authority, evidence state, and next verification through changed plans, summaries, conflicts, and handoffs.
 
 ## Install in One Minute
 
@@ -58,7 +59,7 @@ Do not download GitHub's automatically generated `Source code` archives. Those c
 
 The skill follows a goal-first sequence:
 
-1. Establish the outcome, scope, authority, and local instructions, using a short first conversation when the outcome is not yet known.
+1. Establish the outcome, scope, authority, active workspace, evidence-only sources, and local instructions, using a short first conversation when the outcome is not yet known.
 2. Build a tentative understanding from only the work context that changes the decision.
 3. Describe repository purposes without a code-only assumption.
 4. Detect agent capabilities and access gaps.
@@ -66,14 +67,14 @@ The skill follows a goal-first sequence:
 6. Gather bounded evidence, preserve uncertainty, and update the working understanding only when the evidence matters.
 7. Compare the current system, no change, and proportionate alternatives.
 8. Recommend a reversible next step.
-9. Execute only exact actions the user authorizes.
-10. Verify the result, route implementation to owning repositories, offer one related optional next step, and capture low-friction feedback when the run exposes reusable learning.
+9. Re-ground after material change and execute only exact target-specific actions the user authorizes.
+10. Verify the result, preserve the goal and authority through handoff, route implementation to owning repositories, offer one related optional next step, and capture low-friction feedback when the run exposes reusable learning.
 
 Detailed design: [Architecture](docs/ARCHITECTURE.md).
 
 ## Safety and Adaptation
 
-The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone. Administrative, destructive, cross-repository, and public actions require stronger checkpoints.
+The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone. Reading another repository as evidence does not make it an implementation target; administrative, destructive, cross-repository, and public actions require exact target authority and stronger checkpoints.
 
 Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository content, privileged tool, public output, privacy, and release boundaries. Read the [learning path](docs/LEARNING.md) for a no-terminal explanation of the safe practices the skill teaches while it works.
 
@@ -96,7 +97,7 @@ Each release contains:
 - A Claude plugin ZIP.
 - A `SHA256SUMS` manifest for the three ZIPs.
 
-`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill and the source used by `gh skill install`. All packages contain the same portable core and nine focused references, including the progressively disclosed update procedure. GitHub Actions also attests each release ZIP so consumers can verify its source and workflow provenance.
+`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill and the source used by `gh skill install`. All packages contain the same portable core and every directly linked focused reference, including the progressively disclosed update procedure. GitHub Actions also attests each release ZIP so consumers can verify its source and workflow provenance.
 
 ## Documentation
 
@@ -136,6 +137,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.4.0`.
+Current version: `1.5.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).
