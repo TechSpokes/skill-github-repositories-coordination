@@ -14,9 +14,9 @@ The maintainer coordinates 340 projects across a personal account and two organi
 - The cross-repository coordination tracker contributed shared outcomes, simple observation intake, agent enrichment, owner routing, and evidence-gated automation.
 - The partial repository manager contributed stable identity, least privilege, idempotency, untrusted-input handling, and lifecycle recovery while demonstrating the cost of assuming a persistent manager application.
 
-The current skill is the fourth attempt. It distills the useful parts of those implementations into portable agent reasoning and runs daily on the same portfolio it was built to support.
+The current skill is the fourth attempt. It distills the useful parts of those implementations into portable agent reasoning and runs daily on the same portfolio it was built to support. The [release knowledge reuse case study](CASE-STUDY-FOUNDING-PORTFOLIO.md) traces one complete result from portfolio discovery through implementation in this repository.
 
-This lineage is founding validation, not external adoption evidence. Only generic patterns were transformed into the public skill; private names, paths, account data, repository records, routing tables, credentials, and raw source content were excluded.
+This lineage explains the product's origin and operating context. The public documentation includes the practices and results needed to understand the skill while excluding private names, paths, account data, repository records, routing tables, credentials, and raw source content.
 
 ## Public Primary Sources
 

@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [v1.9.0]
+
+- Replace the generic founding-case landing copy with a concrete account of release knowledge reused from three repositories across two organizations.
+- Trace the real request from portfolio discovery through selected and rejected controls, pull request #25, the unpublished `v1.3.1` candidate, and the corrected `v1.3.2` process.
+- Connect the case directly to the release preflight, deterministic ZIP builder, asset verifier, immutable release-state guard, draft workflow, and install and update checks that still operate in this repository.
+- Remove internal evidence-management labels from the README, quickstart, and provenance path while stating plainly that the builder and maintainer produced the result through daily use.
+- Keep private repository names, local paths, credentials, raw inventory records, activation behavior, runtime guidance, safety controls, and package formats unchanged.
+
 ## [v1.8.0]
 
 - Reframe the README around the repository-sprawl problem, value preservation, and portfolio-level judgment before installation details.

@@ -14,7 +14,7 @@ The maintainer coordinates 340 projects across a personal account and two organi
 
 This skill is the fourth attempt. It distills the useful parts of the first three into portable agent reasoning and runs daily on the same 340-project portfolio it was built to support.
 
-This is confirmed founding validation from one large real portfolio, not evidence of external adoption or universal fit. The [founding portfolio case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md) records the approved result, participant relationship, privacy boundary, and remaining unknowns.
+One of its first complete jobs was to rebuild this repository's release automation from practices the maintainer already used in three repositories across two organizations. The [release knowledge reuse case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md) follows that work from the original request to the workflows and validation tools now running in this repository.
 
 ## What It Does
 
@@ -51,9 +51,11 @@ The skill can run an optional language quality pass on generated coordination fi
 
 ## See It Work
 
-The approved founding case records a real read-only result. An agent compared earlier inventory, routing, and relationship work, identified the missing value-preservation layer, kept an inferred technical relationship unconfirmed, and recommended a reversible next design step without changing source repositories. Read the [founding portfolio case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md) for the result and its limits.
+The maintainer asked an agent to improve this repository's release process using procedures already maintained elsewhere. From the 340-project portfolio index, the skill found three relevant repositories across two organizations: a package template, a production application with a release cutover, and a deployed service with an immutable-tag delivery process.
 
-A public conversational transcript is not available yet. The maintainer will add one only from a real session after sanitizing private details and approving the exact excerpt for publication; no dialogue is fabricated in its place.
+The agent inspected their release instructions, workflows, and validation tools. It kept the controls that fit an installable skill: one exact-tree preflight, deterministic ZIP files and checksums, immutable release tags, a reviewed draft before publication, and contained install and update checks. It left out production environments, provider credentials, application health gates, hotfix ancestry, and merge queues because this repository does not deploy a running service.
+
+[Pull request #25](https://github.com/TechSpokes/skill-github-repositories-coordination/pull/25) implemented the result in this repository. The work added the release preflight, dependency-free ZIP builder, archive verifier, release-state guard, and focused draft and installation workflows. When the first candidate exposed a real Windows-to-Linux line-ending difference, the next patch normalized package content and added a guarded abandonment path. Read the [complete case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md) for the source-to-result trace.
 
 ## Install and Start
 
@@ -148,6 +150,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.8.0`.
+Current version: `1.9.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).
