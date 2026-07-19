@@ -8,7 +8,7 @@ Use this skill as a reasoning and coordination layer. Do not present it as a por
 
 Consider a portal only when repeated organization-wide needs justify shared models, integrations, operating ownership, permissions, recovery, and maintenance. Keep the current system, no change, and a smaller native or local improvement in the comparison.
 
-## Front-Porch Workflow
+## Portal Handoff Workflow
 
 1. Identify the decision or coordination gap before selecting a portal.
 2. Determine which system owns the receiving schema and reviewed meaning.

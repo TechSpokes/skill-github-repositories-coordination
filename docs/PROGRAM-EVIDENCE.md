@@ -38,7 +38,7 @@ Always disclose the participant's relationship to the skill. Never classify foun
 
 ## Feedback Observation
 
-Initial feedback may contain only the factual observation. Add the other fields only when they are known and useful, and do not turn a low-friction observation into a required implementation plan.
+Initial feedback may contain only the factual observation. Add other fields only when they are known and useful. Do not require an implementation plan before recording an observation.
 
 ```yaml
 feedback_observation:

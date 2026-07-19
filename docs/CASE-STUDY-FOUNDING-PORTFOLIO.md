@@ -22,7 +22,7 @@ Explain why earlier repository coordination attempts did not preserve reusable p
 
 Do not begin a large portfolio problem by adding another manager. First identify which discovery, routing, relationship, and ownership capabilities already exist, then add the smallest reversible view that connects evidence to the user's current outcome.
 
-This prevents a new system from duplicating working sources, changing repository state, or turning an unconfirmed relationship into a fact.
+Starting with the existing capabilities avoids duplicating working sources, changing repository state, or presenting an unconfirmed relationship as fact.
 
 ## Evidence Boundary
 

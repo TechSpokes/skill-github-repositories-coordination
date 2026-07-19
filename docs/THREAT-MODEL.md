@@ -49,7 +49,7 @@ Treat the maintenance repository, generated staging tree, ZIP files, checksums, 
 
 ## Primary Abuse Path
 
-The highest-risk path is untrusted repository content influencing an agent that has privileged tools and an external output channel. A malicious file or issue may ask the agent to read secrets, widen access, mutate repositories, or publish private-derived data.
+The highest-risk path is untrusted repository content influencing an agent that has privileged tools and an external output channel. A malicious file or issue may ask the agent to read secrets, widen access, mutate repositories, or publish data derived from private sources.
 
 Contain this path by separating observation, recommendation, execution, and verification. Require an exact target for every action. Use stronger checkpoints for privilege changes, cross-repository writes, administrative work, destructive actions, durable profiles, and public output.
 
@@ -67,7 +67,7 @@ An inventory task may trigger organization administration access. Request the na
 
 Two tools may target different GitHub installations. Use fully qualified tool names and verify audience, target, and permission. Verify the control with the ambiguous-tool case.
 
-### Private-Data Exfiltration
+### Private Data Exfiltration
 
 A public portfolio may include private repository relationships. Separate review from publication and inspect the exact artifact. Verify the control with the public-map case and package audit.
 
@@ -89,7 +89,7 @@ An agent may mistake an evidence repository or advertised writable location for 
 
 ### Meaning Lost in Generated Prose
 
-Dense labels, hidden actors, formulaic safety claims, or repeated revision may obscure authority, evidence, and scope even when each statement appears plausible. Preserve those meanings before editing, use the smallest clear structure, and run the optional writing-quality pass when the user reports a defect or requests review of generated coordination files. Verify the control with the writing-quality corpus and behavior scenarios; do not treat a style pattern as proof of authorship.
+Generated prose can obscure authority, evidence, and scope through dense labels, hidden actors, formulaic safety claims, or repeated revision. Preserve those meanings before editing, use the smallest clear structure, and run the optional writing quality pass when the user reports a defect or requests review of generated coordination files. Verify the control with the writing corpus and behavior scenarios. Do not treat a style pattern as proof of authorship.
 
 ### Recommendation Conflict
 

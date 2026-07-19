@@ -62,7 +62,7 @@ repository:
 
 Extend it only for a concrete decision. Preserve the user's existing schema and vocabulary when present.
 
-## Safe Inventory Workflow
+## Contained Inventory Workflow
 
 1. Define intended scope and evidence sources.
 2. Discover candidates without mutation.

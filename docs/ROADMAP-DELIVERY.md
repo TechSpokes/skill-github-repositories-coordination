@@ -2,7 +2,7 @@
 
 ## Claim
 
-The repository-controlled work in roadmap issues #7 through #13 is complete. External adoption, launch attention, retention, portal recommendation, derivative work, outside contribution, and second-maintainer evidence remain unknown or unobserved and are not claimed.
+The work maintained in this repository for roadmap issues #7 through #13 is complete. External adoption, launch attention, retention, portal recommendation, derivative work, outside contribution, and second maintainer evidence remain unknown or unobserved and are not claimed.
 
 ## Phase 0: Foundation
 
@@ -10,19 +10,19 @@ Delivered the threat model, machine-checked evaluation registry, adversarial con
 
 ## Phase 1: Proof
 
-Delivered a sanitized case study, quickstart, installation guide, security and support routes, program evidence records, and low-friction human and agent feedback intake. Unsolicited outside signals remain future outcome observations.
+Delivered a sanitized case study, quickstart, installation guide, security and support routes, program evidence records, and simple feedback intake for humans and agents. Unsolicited outside signals remain future outcome observations.
 
 ## Phase 2: Secure Launch
 
-Delivered bounded launch messages, proof links, support routing, privacy and security checks, community-rule review, correction handling, and measurement boundaries in the [secure launch guide](LAUNCH.md). This record does not claim that an external coordinated launch occurred.
+Delivered bounded launch messages, proof links, support routing, privacy and security checks, community rules review, correction handling, and measurement boundaries in the [secure launch guide](LAUNCH.md). This record does not claim that an external coordinated launch occurred.
 
 ## Phase 3: Teaching
 
-Delivered no-terminal installation, quickstart, non-code guidance, learning explanations, accessibility criteria, beginner and non-code fixtures, and conversation-only fallback. Outside completion and return behavior remain future outcome observations.
+Delivered installation without a terminal, quickstart, non-code guidance, learning explanations, accessibility criteria, beginner and non-code fixtures, and conversation-only fallback. Outside completion and return behavior remain future outcome observations.
 
 ## Phase 4: Portal Interoperability
 
-Delivered honest portal positioning, bounded handoff, fully qualified tool routing, access-failure behavior, and provenance and ownership boundaries. This record does not claim that an engineering organization adopted or recommended the skill.
+Delivered honest portal positioning, bounded handoff, fully qualified tool routing, behavior for failed access, and provenance and ownership boundaries. This record does not claim that an engineering organization adopted or recommended the skill.
 
 ## Phase 5: Skill Constellation
 
@@ -30,11 +30,11 @@ Delivered contribution quality rules, classified decision records, recommendatio
 
 ## Phase 6: Sustainability
 
-Delivered a free MIT core, release checksums and attestations, immutable-release rules, health review, maintainer responsibilities, feedback routing, funding independence, and succession criteria. Current one-maintainer coverage remains a disclosed continuity risk.
+Delivered a free MIT core, release checksums and attestations, rules that preserve immutable releases, health review, maintainer responsibilities, feedback routing, funding independence, and succession criteria. Current coverage by one maintainer remains a disclosed continuity risk.
 
 ## Cross-Cutting Review
 
-Architecture remains portable with one canonical skill and direct one-level references. Security and privacy keep retrieved content untrusted, mutation authorized, feedback sanitized, and tests contained. Evaluation registers all affected scenarios. Teaching keeps human intake simple and delegates enrichment to agents. Governance keeps claims, evidence relationships, publication authority, and commercial interests explicit.
+Architecture remains portable with one canonical skill and references linked directly from `SKILL.md`. Security and privacy keep retrieved content untrusted, mutation authorized, feedback sanitized, and tests contained. Evaluation registers all affected scenarios. Teaching keeps human intake simple and delegates enrichment to agents. Governance keeps claims, evidence relationships, publication authority, and commercial interests explicit.
 
 ## Deferred Outcome Evidence
 

@@ -516,7 +516,7 @@
       "heading": "Repository Prompt Injection",
       "segment": "adversarial",
       "baseline_risks": [
-        "instruction-data confusion",
+        "retrieved instructions treated as authority",
         "credential exfiltration"
       ]
     },
@@ -527,7 +527,7 @@
       "heading": "Private Map Requested for Public Output",
       "segment": "adversarial",
       "baseline_risks": [
-        "private-derived publication",
+        "publication of private information",
         "missing artifact review"
       ]
     },
@@ -594,7 +594,7 @@
       "segment": "progressive-discovery",
       "baseline_risks": [
         "dismissal ignored",
-        "agent-generated backlog pressure"
+        "pressure to create an agent backlog"
       ]
     },
     {
@@ -624,7 +624,7 @@
       "segment": "platform",
       "baseline_risks": [
         "undisclosed conflict",
-        "maintainer-benefiting recommendation bias"
+        "recommendation bias that benefits the maintainer"
       ]
     },
     {

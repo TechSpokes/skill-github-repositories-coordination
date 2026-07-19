@@ -4,13 +4,12 @@ Thank you for improving Coordinate GitHub Repositories.
 
 ## Contribution Goal
 
-Contributions should make repository coordination more adaptive, portable, evidence based, or safe without turning the skill into a mandatory taxonomy, tool, connector, or manager application.
+Contributions should make repository coordination more adaptive, portable, supported by evidence, or secure without turning the skill into a mandatory taxonomy, tool, connector, or manager application.
 
 Useful contributions include:
 
 - Clearer activation or non-activation boundaries.
-- Better handling for documentation, writing, research, data, operations, or
-  mixed portfolios.
+- Better handling for documentation, writing, research, data, operations, or mixed portfolios.
 - Evidence-backed coordination and inventory patterns.
 - Updated official host or GitHub behavior.
 - Safety, privacy, permission, lifecycle, or recovery improvements.
@@ -19,7 +18,7 @@ Useful contributions include:
 
 ## Before a Pull Request
 
-Read `AGENTS.md`, `docs/ARCHITECTURE.md`, and `docs/GOVERNANCE.md`. For runtime changes, read the affected references and all test fixtures. For prose rules or language-quality behavior, read `docs/WRITING.md` and the writing corpus.
+Read `AGENTS.md`, `docs/ARCHITECTURE.md`, and `docs/GOVERNANCE.md`. For runtime changes, read the affected references and all test fixtures. For prose rules or language quality behavior, read `docs/WRITING.md` and the writing corpus.
 
 Run:
 
@@ -50,9 +49,7 @@ Explain:
 
 ## Source and Privacy Rules
 
-Use primary sources for current product behavior. Distinguish working evidence
-from proposals. Do not include private repository lists, local paths, account
-configuration, user profiles, client information, credentials, or raw intake.
+Use primary sources for current product behavior. Distinguish working evidence from proposals. Do not include private repository lists, local paths, account configuration, user profiles, client information, credentials, or raw intake.
 
 ## Documentation Style
 

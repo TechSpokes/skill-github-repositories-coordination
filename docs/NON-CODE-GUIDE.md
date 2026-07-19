@@ -11,7 +11,7 @@ Choose a decision that matters now. Examples include finding the source material
 Ask your agent:
 
 ```text
-Help me coordinate the repositories involved in this outcome without changing them. Preserve my vocabulary, state what you can actually see, keep private material private, and recommend the smallest reversible next step. Explain why that step is safe.
+Help me coordinate the repositories involved in this outcome without changing them. Preserve my vocabulary, state what you can actually see, keep private material private, and recommend the smallest reversible next step. Explain which specific risk the boundary reduces.
 ```
 
 ## Describe Purpose in Your Own Words

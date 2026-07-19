@@ -47,7 +47,7 @@ body:
     id: context
     attributes:
       label: Sanitized context
-      description: Optional. Add the skill version, relevant agent capabilities, kind of work, or safe reproduction details.
+      description: Optional. Add the skill version, relevant agent capabilities, kind of work, or sanitized reproduction details.
   - type: textarea
     id: evidence
     attributes:

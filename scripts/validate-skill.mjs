@@ -662,10 +662,10 @@ function validateFeedbackContract() {
 
   for (const expected of ["Missing external evidence limits adoption claims", "They are not hard dependencies", "Program Decision 0003"]) {
     if (!roadmap.includes(expected)) {
-      fail(`docs/ROADMAP.md is missing the evidence-aware delivery contract: ${expected}.`);
+      fail(`docs/ROADMAP.md is missing the evidence and claim boundary: ${expected}.`);
     }
   }
-  if (!delivery.includes("repository-controlled work") || !delivery.includes("are not claimed")) {
+  if (!delivery.includes("roadmap issues #7 through #13") || !delivery.includes("are not claimed")) {
     fail("docs/ROADMAP-DELIVERY.md must separate delivered repository work from unproven external outcomes.");
   }
 
@@ -676,7 +676,7 @@ function validateFeedbackContract() {
   }
   for (const expected of ["Only Observation requires text", "simple record", "Privacy review", "private security route"]) {
     if (!form.includes(expected)) {
-      fail(`The skill-run feedback form is missing the low-friction safety contract: ${expected}.`);
+      fail(`The feedback form is missing the simple intake or privacy contract: ${expected}.`);
     }
   }
 
@@ -726,7 +726,7 @@ function validateWritingContract() {
 
   for (const file of [instructionPath, guidePath, referencePath, corpusPath]) {
     if (!exists(file)) {
-      fail(`Missing writing-quality file ${file}.`);
+      fail(`Missing writing quality file ${file}.`);
       return;
     }
   }
@@ -739,14 +739,14 @@ function validateWritingContract() {
   }
 
   const skill = readText("skills/coordinate-github-repositories/SKILL.md");
-  if (!skill.includes("](references/writing-quality.md)") || !skill.includes("only when the user requests a language-quality pass")) {
-    fail("SKILL.md must route the optional writing-quality pass without loading it for every run.");
+  if (!skill.includes("](references/writing-quality.md)") || !skill.includes("only when the user requests a language quality pass")) {
+    fail("SKILL.md must route the optional writing quality pass without loading it for every run.");
   }
 
   const guide = readText(guidePath);
-  for (const expected of ["American English", "does not use style as an authorship detector", "adds no grammar dependency", "optional writing-quality pass"]) {
+  for (const expected of ["American English", "does not use style as an authorship detector", "adds no grammar dependency", "optional writing quality pass"]) {
     if (!guide.includes(expected)) {
-      fail(`${guidePath} is missing the writing-quality boundary: ${expected}.`);
+      fail(`${guidePath} is missing the writing quality boundary: ${expected}.`);
     }
   }
 

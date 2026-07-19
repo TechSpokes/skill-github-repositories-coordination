@@ -70,7 +70,7 @@ Pinned skills are skipped by normal updates. `--unpin` moves them back to the la
 
 Treat installed copies as generated artifacts. Change the canonical repository source and publish a new release instead of editing the installed copy.
 
-The safe self-update sequence is source identification, read-only update check, review, targeted update, and post-update verification. A pinned installation requires a separate decision to leave the pin, while missing source metadata requires origin and destination review instead of an automatic forced replacement.
+The update sequence is source identification, a read-only update check, review, a targeted update, and verification. A pinned installation requires a separate decision to leave the pin. Missing source metadata requires review of the origin and destination instead of an automatic forced replacement.
 
 The runtime skill needs one focused update reference because an agent may be asked to update the skill without repository documentation in context. Beginner education, complete host commands, browser installation, GitHub authentication, multiple accounts, connectors, troubleshooting, and maintainer release mechanics remain in repository documentation so they do not inflate every runtime activation.
 
@@ -80,7 +80,7 @@ The runtime skill needs one focused update reference because an agent may be ask
 
 The v2.92.0 and v2.96.0 search implementations do not filter results by repository topic, but `gh skill publish` describes `agent-skills` as the publisher discoverability topic. Keep the topic because it is the ecosystem signal and may become a future search condition.
 
-Current `gh skill list` implementations scan known project and user skill locations and can emit JSON with source, version, pin, scope, host, and path. Older preview versions do not have this command, so verification must have a file based fallback.
+Current `gh skill list` implementations scan known project and user skill locations and can emit JSON with source, version, pin, scope, host, and path. Older preview versions do not have this command, so verification must also be able to read the installed files.
 
 ## Authentication and Hosting
 
@@ -88,7 +88,7 @@ Public preview and install can work without a valid signed-in account, subject t
 
 GitHub.com and GitHub Enterprise Cloud data residency hosts are supported. GitHub Enterprise Server is not currently supported by this command family.
 
-On Windows, a sandbox may not see the host keyring. Follow the repository `AGENTS.md` rule: check in the sandbox first, repeat the same read-only authentication check with elevated host permissions if it reports no valid login, and preserve action level approval after credentials become visible.
+On Windows, a sandbox may not see the host keyring. Follow the repository `AGENTS.md` rule: check in the sandbox first, repeat the same read-only authentication check with elevated host permissions if it reports no valid login, and preserve approval for each action after credentials become visible.
 
 ## Trust and Containment
 
@@ -96,7 +96,7 @@ GitHub states that installed skills are not verified and may contain prompt inje
 
 Remote install writes the selected destination and also writes a lockfile below the effective user home, even when `--dir` selects a custom destination. A contained test must therefore use a disposable operating system profile or an ephemeral CI runner in addition to a disposable install directory.
 
-The verification workflow uses an ephemeral GitHub hosted runner, read-only repository permission, a runner temporary install directory, and the runner's disposable home. It reads and compares the installed files but never executes instructions or scripts from the installed skill.
+The verification workflow uses an ephemeral runner hosted by GitHub, read-only repository permission, a temporary install directory, and the runner's disposable home. It reads and compares the installed files but never executes instructions or scripts from the installed skill.
 
 Publisher validation scans the working directory rather than only tracked files and can discover ignored build or research copies. Run `gh skill publish --dry-run` only from a clean checkout before packaging creates `dist/`.
 
@@ -104,7 +104,7 @@ Publisher validation scans the working directory rather than only tracked files 
 
 GitHub CLI source delivery and release ZIP delivery share the same tagged canonical skill tree but serve different clients. GitHub CLI fetches the Git tree. Browser users and plugin hosts use the three release ZIPs, checksums, and attestations.
 
-The tag-triggered draft release workflow remains authoritative. It guards the remote annotated tag and main ancestry, packages three deterministic artifacts, verifies their inventory and checksums, installs the exact unpublished tag, attests each ZIP, applies curated release notes, and stops for publication review.
+The draft release workflow starts from an annotated tag and remains authoritative. It guards the remote tag and its ancestry from `main`, packages three deterministic artifacts, verifies their inventory and checksums, installs the exact unpublished tag, attests each ZIP, applies curated release notes, and stops for publication review.
 
 Do not run `gh skill publish --tag` for this repository. The preview command can automatically push the current branch and create an immediately published release with generated notes, but it does not build or attach this repository's packages, checksum manifest, or attestations and would race the draft release workflow.
 
@@ -116,7 +116,7 @@ Use `gh skill publish --dry-run` through the final-tree release preflight. Keep 
 - Root `INSTALL.md` is the complete beginner entry point, and `docs/GITHUB-CLI.md` explains authentication, accounts, repository targets, connector differences, security, and choice criteria without becoming runtime content.
 - The installed skill carries one focused direct reference for requests to install, locate, update, repair, reinstall, or verify this skill.
 - Clean checkout `gh skill publish --dry-run` runs in pull request CI and the final-tree release preflight before packaging.
-- Platform neutral Node tools create deterministic ZIP files, inspect their records without extraction, and verify installed runtime trees without executing content.
+- Node tools that work across supported platforms create deterministic ZIP files, inspect their records without extraction, and verify installed runtime trees without executing content.
 - The tag workflow guards immutable identity, verifies the exact-tag install, and remains responsible for three ZIP packages, checksums, attestations, curated release notes, and draft publication review.
 - The release event workflow performs a versionless public install and a contained previous-release update in ephemeral environments, then verifies the current tag, repository, source path, tree metadata, file inventory, and runtime content.
 
@@ -128,7 +128,7 @@ Use `gh skill publish --dry-run` through the final-tree release preflight. Keep 
 - `gh skill update coordinate-github-repositories --dry-run` reports the unpinned release as current after publication.
 - The installed runtime tells an agent asked to update this skill how to verify the canonical source, check without mutation, update only the selected skill, handle a pin separately, and stop on unresolved origin metadata.
 - A new user can choose an agent, GitHub CLI, native installer, browser, project, or contributor path from root `INSTALL.md` without editing an earlier command or knowing the repository documentation layout.
-- Repository level GitHub CLI education distinguishes terminal authentication from application connectors and explains bounded multi-repository use without making GitHub CLI a runtime dependency.
+- Repository documentation about GitHub CLI distinguishes terminal authentication from application connectors and explains bounded use across repositories without making GitHub CLI a runtime dependency.
 - `gh skill search coordinate --owner TechSpokes` returns the canonical source path after default branch indexing.
 - The standalone, Codex plugin, and Claude plugin ZIPs still contain the same runtime tree and pass checksum, privacy, placeholder, local path, and attestation checks.
 - The GitHub CLI validator runs before generated files can contaminate discovery.

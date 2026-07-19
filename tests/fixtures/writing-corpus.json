@@ -54,7 +54,7 @@
       "artifact": "overloaded-sentence",
       "before": "When a run exposes a reusable success, failure, confusing step, missing case, access fallback, or unsafe recommendation, offer to prepare sanitized maintainer feedback without interrupting the user's outcome. The user may provide only one factual observation; the agent should enrich known context, separate observation from hypothesis, remove private identities and machine paths, and require review of the exact public text before submission.",
       "after": "The user may provide only one factual observation. Enrich known context, separate observation from hypothesis, remove private identities and machine paths, and require review of the exact public text before submission.",
-      "preserves": ["low-friction intake", "observation and hypothesis separation", "privacy", "publication approval"]
+      "preserves": ["simple intake", "observation and hypothesis separation", "privacy", "publication approval"]
     },
     {
       "id": "runtime.completion-check",
@@ -197,8 +197,8 @@
       "source": ".github/ISSUE_TEMPLATE/skill_run_feedback.yml",
       "artifact": "abstract-label",
       "before": "Optional. Add the skill version, generalized agent capabilities, work shape, or safe reproduction details.",
-      "after": "Optional. Add the skill version, relevant agent capabilities, kind of work, or safe reproduction details.",
-      "preserves": ["optional context", "agent capabilities", "work context", "safe reproduction"]
+      "after": "Optional. Add the skill version, relevant agent capabilities, kind of work, or sanitized reproduction details.",
+      "preserves": ["optional context", "agent capabilities", "work context", "sanitized reproduction"]
     },
     {
       "id": "intake.pr-traceability",
@@ -208,6 +208,78 @@
       "before": "Link the parent issue, affected roadmap phase, evaluation cases, threat-model entries, architecture decision, and release note when applicable.",
       "after": "Link the parent issue. Add roadmap, evaluation, threat-model, decision, and release references only when they apply.",
       "preserves": ["parent issue", "conditional traceability", "all reference classes"]
+    },
+    {
+      "id": "runtime.maintainer-workspace",
+      "surface": "runtime",
+      "source": "AGENTS.md",
+      "artifact": "overloaded-sentence",
+      "before": "Treat this repository as the only implementation workspace unless the user separately authorizes an exact target and action elsewhere, and stop when the active workspace or authority cannot be established.",
+      "after": "Treat this repository as the only implementation workspace unless the user separately authorizes an exact target and action elsewhere. Stop when the active workspace or authority cannot be established.",
+      "preserves": ["active implementation workspace", "separate authorization", "exact target and action", "stop boundary"]
+    },
+    {
+      "id": "installation.github-cli-choice",
+      "surface": "installation",
+      "source": "docs/GITHUB-CLI.md",
+      "artifact": "dense-modifier-chain",
+      "before": "You do not need GitHub CLI to use Coordinate GitHub Repositories. Choose it when command based access reduces friction for your work, and keep the conversation, native installer, browser ZIP, connector, IDE, or MCP path when that better matches your capabilities and trust boundary.",
+      "after": "You do not need GitHub CLI to use Coordinate GitHub Repositories. Choose it when terminal commands reduce friction for your work, and keep the conversation, native installer, browser ZIP, connector, IDE, or MCP path when one of those options better matches your capabilities and trust boundary.",
+      "preserves": ["GitHub CLI is optional", "choice of channels", "capability fit", "trust boundary"]
+    },
+    {
+      "id": "installation.update-sequence",
+      "surface": "installation",
+      "source": "docs/GITHUB-CLI-DELIVERY.md",
+      "artifact": "coined-compound",
+      "before": "The safe self-update sequence is source identification, read-only update check, review, targeted update, and post-update verification. A pinned installation requires a separate decision to leave the pin, while missing source metadata requires origin and destination review instead of an automatic forced replacement.",
+      "after": "The update sequence is source identification, a read-only update check, review, a targeted update, and verification. A pinned installation requires a separate decision to leave the pin. Missing source metadata requires review of the origin and destination instead of an automatic forced replacement.",
+      "preserves": ["source verification", "read-only check", "targeted update", "pin decision", "missing metadata boundary"]
+    },
+    {
+      "id": "intake.feedback-research",
+      "surface": "intake",
+      "source": "docs/FEEDBACK.md",
+      "artifact": "abstract-label-chain",
+      "before": "The supplied cross-intelligence research treats feedback as the last stage of a communication fidelity chain and recommends goal-first, explicit, progressively disclosed messages that survive bounded human and agent attention. This design therefore keeps intake minimal while allowing later agent enrichment.",
+      "after": "The supplied research on communication across humans, agents, and tools treats feedback as the last stage of a chain that preserves meaning. It recommends explicit messages that begin with the goal and reveal detail as needed. The intake therefore starts with one observation and allows an agent or maintainer to add structure later.",
+      "preserves": ["research basis", "goal visibility", "progressive detail", "one observation", "later enrichment"]
+    },
+    {
+      "id": "security.learning-prompt",
+      "surface": "security",
+      "source": "docs/LEARNING.md",
+      "artifact": "vague-safety-claim",
+      "before": "Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain in one plain sentence why that step is safe.",
+      "after": "Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain which specific risk the boundary reduces.",
+      "preserves": ["read-only request", "capability honesty", "unknowns", "reversibility", "risk explanation"]
+    },
+    {
+      "id": "runtime.non-code-prompt",
+      "surface": "runtime",
+      "source": "docs/NON-CODE-GUIDE.md",
+      "artifact": "vague-safety-claim",
+      "before": "Help me coordinate the repositories involved in this outcome without changing them. Preserve my vocabulary, state what you can actually see, keep private material private, and recommend the smallest reversible next step. Explain why that step is safe.",
+      "after": "Help me coordinate the repositories involved in this outcome without changing them. Preserve my vocabulary, state what you can actually see, keep private material private, and recommend the smallest reversible next step. Explain which specific risk the boundary reduces.",
+      "preserves": ["non-code coordination", "user vocabulary", "capability honesty", "privacy", "reversibility", "risk explanation"]
+    },
+    {
+      "id": "release.optional-pass",
+      "surface": "release",
+      "source": "docs/releases/v1.6.0.md",
+      "artifact": "coined-compound-chain",
+      "before": "Version `1.6.0` adds a small, progressive writing-quality contract that closes issue #15 without turning repository coordination into a prose-analysis system.",
+      "after": "Version `1.6.0` adds a small, progressive writing quality contract that closes issue #15 without turning repository coordination into a prose analysis system.",
+      "preserves": ["release version", "progressive writing quality", "issue closure", "scope limit"]
+    },
+    {
+      "id": "release.roadmap-boundary",
+      "surface": "release",
+      "source": "docs/ROADMAP-DELIVERY.md",
+      "artifact": "abstract-compound",
+      "before": "The repository-controlled work in roadmap issues #7 through #13 is complete. External adoption, launch attention, retention, portal recommendation, derivative work, outside contribution, and second-maintainer evidence remain unknown or unobserved and are not claimed.",
+      "after": "The work maintained in this repository for roadmap issues #7 through #13 is complete. External adoption, launch attention, retention, portal recommendation, derivative work, outside contribution, and second maintainer evidence remain unknown or unobserved and are not claimed.",
+      "preserves": ["roadmap completion", "repository boundary", "unknown external outcomes", "claim limits"]
     }
   ],
   "protected": [
@@ -221,9 +293,9 @@
     {
       "id": "protected.cross-repository",
       "surface": "runtime",
-      "text": "Cross-repository writes require target-specific authority.",
+      "text": "Cross-repository writes require authority for each target and action.",
       "reason": "The compound is established project terminology and expresses scope precisely.",
-      "protected_literals": ["Cross-repository", "target-specific"]
+      "protected_literals": ["Cross-repository"]
     },
     {
       "id": "protected.least-privilege",
@@ -275,11 +347,11 @@
       "protected_literals": ["tests/evals/cases.json"]
     },
     {
-      "id": "protected.private-derived",
+      "id": "protected.passive-boundary",
       "surface": "security",
-      "text": "Require review before publishing private-derived information.",
-      "reason": "The compound names information transformed from private evidence and prevents a wider interpretation.",
-      "protected_literals": ["private-derived"]
+      "text": "The exact public text must be reviewed before publication.",
+      "reason": "The actor varies with authority, while the stable publication condition remains the focus.",
+      "protected_literals": ["must be reviewed"]
     }
   ]
 }

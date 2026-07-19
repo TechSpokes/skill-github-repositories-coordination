@@ -18,7 +18,11 @@ Link to the latest release rather than a maintained version number. State that t
 
 ## Channel Adaptation
 
-For a Show HN post, lead with the repository-sprawl problem, show the founding result and install path, explain what the skill does not replace, and invite concrete observations. For a relevant community, answer that community's specific problem and current posting rules instead of copying a generic launch message. For Product Hunt, LinkedIn, directories, or an awesome list, use a short factual description, link the latest release, disclose the founding evidence relationship, and follow the current submission or contribution rules.
+For a Show HN post, lead with the repository-sprawl problem, show the founding result and install path, explain what the skill does not replace, and invite concrete observations.
+
+For a relevant community, answer that community's specific problem and current posting rules instead of copying a generic launch message.
+
+For Product Hunt, LinkedIn, directories, or an awesome list, use a short factual description, link the latest release, disclose the founding evidence relationship, and follow the current submission or contribution rules.
 
 Prepare each message independently and review it at publication time. Do not create accounts, schedule posts, claim an endorsement, or publish through a personal or organization identity without explicit authority for that channel and exact text.
 

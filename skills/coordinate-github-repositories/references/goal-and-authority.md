@@ -46,7 +46,7 @@ A structural dependency is a technical or operational requirement between work i
 
 A benefit relationship is an evidence-supported connection showing how one work item, capability, practice, or body of knowledge may contribute to an outcome. A candidate relationship is an inference awaiting review; a confirmed relationship has been reviewed by an owner or other authorized person for the decision where it is used.
 
-These definitions prevent ambiguity without creating a benefit-relationship discovery workflow or persistent graph.
+These definitions clarify the relationships among the terms. They do not create a workflow for discovering benefit relationships or a persistent graph.
 
 ## Authority Terms
 
@@ -136,7 +136,7 @@ If no location has a clear owner and maintenance purpose, keep the information e
 
 A plan may coordinate several repositories without granting write authority to any of them. Record each repository's role as active workspace, evidence source, coordination surface, or potential implementation target.
 
-Treat authority as a target-action pair. Approval to complete a release in one repository does not authorize a template change, upstream issue, sibling repository edit, or public message elsewhere merely because the work appears in the same plan.
+Confirm authority separately for each target and action. Approval to complete a release in one repository does not authorize a template change, upstream issue, sibling repository edit, or public message elsewhere merely because the work appears in the same plan.
 
 When evidence from another repository reveals a useful change for the active workspace, extract the durable principle, preserve provenance and uncertainty, and implement only in the authorized owner. Request separate authority before changing the evidence source.
 

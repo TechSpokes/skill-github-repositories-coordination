@@ -12,7 +12,7 @@ This Agent Skill helps an agent diagnose access, understand a repository portfol
 - Understand repository purpose without assuming every repository is code.
 - Coordinate one outcome across several repository owners and workflows.
 - Review findability, routing, lifecycle, and governance problems.
-- Compare GitHub-native features, local records, knowledge systems, connectors, catalogs, automation, and the no-change option.
+- Compare native GitHub features, local records, knowledge systems, connectors, catalogs, automation, and the no-change option.
 - Choose the smallest reversible improvement that fits the user's work.
 - Capture useful observations from humans and agents without requiring a completed bug report or implementation plan.
 - Learn progressively from authorized work and offer one related optional next step without silently expanding scope.
@@ -38,7 +38,7 @@ When `gh skill --help` shows the Agent Skills preview, GitHub CLI can install th
 gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent codex --scope user
 ```
 
-The root [installation guide](INSTALL.md) has equivalent commands for GitHub Copilot and Claude Code plus safe update and overwrite guidance. [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains what the tool adds before you choose it.
+The root [installation guide](INSTALL.md) has equivalent commands for GitHub Copilot and Claude Code plus guidance for updates and overwrites. [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains what the tool adds before you choose it.
 
 ### Or Use Your Browser
 
@@ -57,7 +57,7 @@ Do not download GitHub's automatically generated `Source code` archives. Those c
 
 ## How It Works
 
-The skill follows a goal-first sequence:
+The skill follows a sequence that begins with the user's goal:
 
 1. Establish the outcome, scope, authority, active workspace, evidence-only sources, and local instructions, using a short first conversation when the outcome is not yet known.
 2. Build a tentative understanding from only the work context that changes the decision.
@@ -67,16 +67,18 @@ The skill follows a goal-first sequence:
 6. Gather bounded evidence, preserve uncertainty, and update the working understanding only when the evidence matters.
 7. Compare the current system, no change, and proportionate alternatives.
 8. Recommend a reversible next step.
-9. Re-ground after material change and execute only exact target-specific actions the user authorizes.
-10. Verify the result, preserve the goal and authority through handoff, route implementation to owning repositories, offer one related optional next step, and capture low-friction feedback when the run exposes reusable learning.
+9. Re-ground after material change and execute only the exact actions the user authorizes for each target.
+10. Verify the result, preserve the goal and authority through handoff, route implementation to owning repositories, offer one related optional next step, and capture simple feedback when the run exposes reusable learning.
 
 Detailed design: [Architecture](docs/ARCHITECTURE.md).
 
 ## Safety and Adaptation
 
-The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone. Reading another repository as evidence does not make it an implementation target; administrative, destructive, cross-repository, and public actions require exact target authority and stronger checkpoints.
+The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone.
 
-Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository content, privileged tool, public output, privacy, and release boundaries. Read the [learning path](docs/LEARNING.md) for a no-terminal explanation of the safe practices the skill teaches while it works.
+Reading another repository as evidence does not make it an implementation target. Administrative, destructive, cross-repository, and public actions require authority for each target and stronger checkpoints.
+
+Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository content, privileged tool, public output, privacy, and release boundaries. Read the [learning path](docs/LEARNING.md) for an explanation of the security practices the skill teaches without requiring a terminal.
 
 Local repository and organization instructions remain authoritative for their scope. The skill supplies portable reasoning, not a replacement governance system.
 
@@ -138,6 +140,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.6.0`.
+Current version: `1.6.1`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

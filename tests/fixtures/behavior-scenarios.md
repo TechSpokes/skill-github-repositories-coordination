@@ -309,7 +309,7 @@ Input: After an agent generates a cross-repository coordination plan, the user a
 
 Expected invariants:
 
-- Loads the optional writing-quality reference because the request targets generated coordination files.
+- Loads the optional writing quality reference because the request targets generated coordination files.
 - Reviews only the authorized files and does not turn the request into portfolio discovery, general writing work, or publication authority.
 - Records the actors, actions, evidence, authority, safety boundaries, user terms, and exact technical literals that must survive.
 - Removes the overloaded summary, stock sentence frame, and unsupported contrast without weakening the concrete safety reason.
