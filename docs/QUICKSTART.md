@@ -1,6 +1,6 @@
 # Quickstart
 
-The skill was built for and is used daily on the maintainer's 340-project portfolio across a personal account and two organizations. This is founding validation, not evidence of external adoption.
+The skill was built for and is used daily on the maintainer's 340-project portfolio across a personal account and two organizations. One of its first complete jobs was to rebuild this repository's release automation from practices found in three repositories across two organizations; the [case study](CASE-STUDY-FOUNDING-PORTFOLIO.md) shows the concrete result.
 
 ## Install Globally
 
