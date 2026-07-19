@@ -1,6 +1,6 @@
 # Inventory and Coordination
 
-Load this reference for access inventories, portfolio records, repository routing, cross-repository outcomes, knowledge reuse, or lifecycle reviews.
+Load this reference for access inventories, portfolio records, repository routing, cross-repository outcomes, practice reuse, or lifecycle reviews.
 
 ## Choose the Smallest Artifact
 

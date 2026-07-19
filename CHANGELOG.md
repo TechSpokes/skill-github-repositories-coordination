@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+## [v1.7.0]
+
+- Add a focused benefit relationship workflow for finding existing functionality or knowledge that may contribute to a current outcome.
+- Define benefit and reusable capability while keeping candidate inference separate from confirmation for one decision.
+- Require source evidence, a plausible contribution mechanism, provenance, observation time, visibility, confidence, unknowns, and per-hop review of indirect chains.
+- Compare reuse, adaptation, new work, and no change after checking application fit, rights, privacy, maintenance, and recovery.
+- Answer knowledge reconstruction questions without inferring value or lifecycle from repository activity, size, language, stars, or documentation quality.
+- Reuse an authorized inventory or coordination surface when available without requiring one or creating a skill-owned taxonomy, graph, profile, connector, portal, or manager.
+- Expand the evaluation contract to 68 cases across 17 segments with functionality, indirect-chain, local and remote, non-code, correction, conversation-only, no-supported-candidate, and private-public boundary coverage.
+- Record three synthetic fresh-agent comparisons and their proof limits, plus the static adversarial review required by the credentialed maintainer environment.
+
 ## [v1.6.3]
 
 - Correct post-publication verification when a documentation-only release leaves the installed runtime unchanged and GitHub CLI correctly reports that the skill is already current.

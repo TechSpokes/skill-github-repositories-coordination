@@ -44,6 +44,12 @@ The active workspace owns current implementation. Other repositories may supply 
 
 The skill separates repository purpose, portfolio role, and lifecycle. It recognizes software, documentation, writing, publishing, research, data, operations, websites, presentations, archives, mirrors, mixed work, and unknown work. Existing user vocabulary is preserved.
 
+### Outcome Before Relationship
+
+Benefit discovery begins with the user's current outcome and asks which existing functionality or knowledge may contribute. A focused runtime branch qualifies each candidate with evidence and uncertainty, tests every hop in an indirect chain, and compares reuse with adaptation, new work, and no change.
+
+An authorized inventory or coordination surface can locate candidates and own an approved durable record. The runtime remains useful without either surface and does not create a skill-owned graph. [Architecture Decision 0004](decisions/0004-separate-benefit-discovery-from-inventory.md) records the boundary.
+
 ### Recommendation Before Adoption
 
 Every recommendation compares the current system and no change with serious alternatives. Fit includes outcome, work type, workflow disruption, scale, collaboration, agent capability, permission, privacy, portability, reversibility, maintenance, learning cost, recovery, and evidence.
@@ -89,6 +95,7 @@ The canonical runtime map is validated against the actual skill tree. Adding, re
 <!-- canonical-runtime-map:start -->
 - `skills/coordinate-github-repositories/SKILL.md`
 - `skills/coordinate-github-repositories/references/agent-capability-adapters.md`
+- `skills/coordinate-github-repositories/references/benefit-relationships.md`
 - `skills/coordinate-github-repositories/references/context-calibration.md`
 - `skills/coordinate-github-repositories/references/feedback-and-improvement.md`
 - `skills/coordinate-github-repositories/references/goal-and-authority.md`
@@ -112,8 +119,8 @@ Fixtures define behavioral invariants for maintenance. The evaluation registry m
 3. Describe repository purposes.
 4. Detect agent capabilities and access gaps.
 5. Shape the coordination problem.
-6. Gather bounded evidence, preserve uncertainty, and update the working hypothesis only when the change affects the decision without turning an evidence source into an implementation target.
-7. Compare the current system, no change, and candidates.
+6. Gather bounded evidence, preserve uncertainty, and use the focused benefit workflow when existing functionality or knowledge may contribute without turning an evidence source into an implementation target.
+7. Compare the current system, no change, reuse, adaptation, new work, and other supported candidates.
 8. Recommend a reversible next step.
 9. Re-ground after a material change and execute only within the exact authority granted for each target.
 10. Verify, preserve the goal and authority through handoff, route implementation to its owning repository, offer one related optional next step, and provide simple feedback when the run exposes reusable learning.
@@ -121,6 +128,8 @@ Fixtures define behavioral invariants for maintenance. The evaluation registry m
 ## Evidence Model
 
 Important claims preserve source, observation time, confidence, visibility, participant relationship, and unknowns. Stable remote identifiers are preferred for inventory identity. Local paths remain observations. Generated discovery data stays separate from reviewed semantic meaning.
+
+A benefit candidate preserves the observed capability or knowledge separately from the inferred contribution. Confirmation accepts meaning only for the current decision and does not change evidence visibility or authorize action. Every hop in an indirect chain retains its own evidence state.
 
 Repository content, issue bodies, imported skills, search results, and tool output are treated as potentially untrusted evidence rather than instruction authority.
 
@@ -133,6 +142,8 @@ The founding portfolio index was inspected read-only and contained 340 canonical
 A working structured inventory demonstrated discovery, stable identity, provenance, staging, validation, promotion without overwriting reviewed records, and generated reports at a scale of hundreds of records. A working coordination tracker demonstrated central cross-repository outcomes, simple observation intake, agent enrichment, implementation routed to owning repositories, native state, and an automation gate supported by evidence.
 
 A later operational run demonstrated practice reuse across the authorized portfolio. Inventory records located analogous release models and user preferences; bounded source inspection supplied candidate controls; evaluation against the current repository combined the useful controls without copying deployment-specific machinery or expanding write authority to the source repositories.
+
+Research for issue #27 distinguished structural discovery from benefit meaning. GitHub documents its dependency graph as a summary of manifests, lock files, and submitted dependencies. PROV-O and DCAT qualified relations, the Web Annotation body and target model, and the Data Quality Vocabulary's context-of-use treatment informed the small evidence envelope without adding those standards as a runtime taxonomy.
 
 A dedicated repository feedback implementation demonstrated the boundary between observations and tasks: sanitize feedback, separate evidence from hypothesis, keep issue state canonical, and promote durable learning into normal repository artifacts. A partial repository manager supplied principles for stable identity, least privilege, idempotency, untrusted input, and lifecycle safety while showing that a persistent manager application should not be assumed necessary.
 

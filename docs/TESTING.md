@@ -45,7 +45,7 @@ Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree l
 
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 57 cases across 16 segments, including writing quality alongside the existing access, safety, onboarding, goal, portfolio, and capability coverage.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 68 cases across 17 segments, including benefit discovery and writing quality alongside the existing access, safety, onboarding, goal, portfolio, and capability coverage.
 
 `tests/fixtures/writing-corpus.json` contains reviewed repairs across runtime, security, evaluation, release, installation, and intake prose plus protected compounds, contrasts, commands, flags, URLs, identifiers, versions, and safety language. Validation checks schema, coverage, unique IDs, and rollout of each accepted revision. It does not score naturalness or infer authorship.
 
@@ -135,7 +135,9 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 - Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, feedback from a skill run, a first conversation after installation, and this skill's own installation or update.
 - Activate for software and non-code repository work.
+- Activate when the user asks which existing functionality or knowledge may contribute to an outcome or become difficult to reconstruct.
 - Do not take over routine implementation inside one known repository.
+- Do not take over structural dependency tracing inside one known repository.
 - Do not expand into general productivity, personnel, or psychology advice.
 - Do not accept destructive lifecycle conclusions based only on inactivity.
 
@@ -143,7 +145,19 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, goal survival, workspace roles, temporary material, simple feedback intake, and controlled updates of this skill. They also require the optional writing quality pass to preserve meaning and protected literals without widening the skill into general writing work.
+Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, benefit discovery, goal survival, workspace roles, temporary material, simple feedback intake, and controlled updates of this skill. Benefit cases cover functionality reuse, indirect chains, local and remote evidence, non-code reconstruction, confirmation and correction, conversation-only use, owner routing, and a no-supported-candidate result. The fixtures also require the optional writing quality pass to preserve meaning and protected literals without widening the skill into general writing work.
+
+## v1.7.0 Benefit Relationship Forward Review
+
+On 2026-07-19, three fresh Codex subagents produced a bare response before reading the candidate runtime, then read only `SKILL.md`, `benefit-relationships.md`, and `goal-and-authority.md` and produced a skill-assisted response. Each task prohibited other repository reads, network access, external services, and writes. The host did not expose a precise model identifier.
+
+- The functionality pass improved from eight full criteria, one partial criterion, and one missed criterion to all ten criteria. The skill-assisted response added scoped confirmation, maintenance, recovery, and explicit evidence-repository ownership.
+- The indirect-chain pass improved from seven full and two partial criteria to all nine criteria. The skill-assisted response evaluated each hop, rejected automatic transitivity, identified the unsupported final hop, and returned no supported end-to-end candidate.
+- The conversation-only non-code pass met all eight criteria both before and after loading the skill. The skill-assisted response added explicit candidate status and distinguished preserved output from the rationale that may remain difficult to reconstruct.
+
+The rubric was visible before each bare response, which strengthened the baseline and limits causal comparison. The complete sanitized prompts, outputs, scores, configuration, and limits are recorded in [the v1.7.0 forward evaluation](evaluations/v1.7.0.md).
+
+The private-candidate security prompt remained inert because the maintainer session exposes credentials, network access, external filesystem access, and mutating tools. Static review mapped the case to the runtime confirmation, visibility, and publication boundaries, and deterministic validation registered it without execution.
 
 ## v1.4.0 Interaction Forward Review
 
@@ -225,7 +239,7 @@ This correction does not weaken a runtime-changing update check. A changed tree 
 
 ## Adversarial Review
 
-`tests/fixtures/adversarial-scenarios.md` covers untrusted repository instructions, private data in public output, access denial, ambiguous tools, broad writes, authority expansion, goal loss, silent profiling, repeated suggestions, commercial conflicts, and feedback publication. Review the affected adversarial cases for every security-relevant runtime change and every minor or major release.
+`tests/fixtures/adversarial-scenarios.md` covers untrusted repository instructions, private data in public output, private relationship promotion, access denial, ambiguous tools, broad writes, authority expansion, goal loss, silent profiling, repeated suggestions, commercial conflicts, and feedback publication. Review the affected adversarial cases for every security-relevant runtime change and every minor or major release.
 
 Treat adversarial prompts as inert data. Deterministic validation reads fixtures as text and never executes their instructions. Run model-based security review only in a disposable sandbox with no credentials, network access, external filesystem access, or mutating tools, and verify after the run that no file or system outside the disposable workspace changed.
 

@@ -1,7 +1,7 @@
 {
   "name": "coordinate-github-repositories",
-  "version": "1.6.3",
-  "description": "GitHub repository access, inventory, routing, coordination, and tool selection that preserves user goals across code and non-code work.",
+  "version": "1.7.0",
+  "description": "GitHub repository access, benefit discovery, inventory, routing, coordination, and tool selection across code and non-code work.",
   "author": {
     "name": "TechSpokes",
     "url": "https://github.com/TechSpokes"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Coordinate GitHub Repositories",
     "shortDescription": "Adapt repository coordination to the person and work.",
-    "longDescription": "Begin with a short first conversation, preserve the intended benefit and authority across changed plans and handoffs, diagnose GitHub access, understand repositories progressively, and coordinate work without imposing a code-only taxonomy or replacement workflow. Run an optional writing quality pass on generated coordination files when requested.",
+    "longDescription": "Begin with a short first conversation, preserve the intended benefit and authority across changed plans and handoffs, diagnose GitHub access, find existing functionality or knowledge that may contribute to an outcome, and coordinate work without imposing a code-only taxonomy, graph, or replacement workflow. Run an optional writing quality pass on generated coordination files when requested.",
     "developerName": "TechSpokes",
     "category": "Productivity",
     "capabilities": [
@@ -31,6 +31,7 @@
       "I just installed this skill. What should we do first?",
       "Compare repository organization options for my work.",
       "Diagnose which GitHub repositories my agent can access.",
+      "Find existing functionality or knowledge that may help this outcome.",
       "Coordinate this task across repositories without losing my goal or expanding authority.",
       "Review the language in the repository coordination files you generated."
     ],

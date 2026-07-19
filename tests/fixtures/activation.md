@@ -18,6 +18,8 @@ Use these fixtures to review the skill description and boundary. Exact wording o
 | I just installed this skill. What should we do first? | Start a short first conversation and reach one bounded next step without requiring a portfolio profile. |
 | What can this skill help me with? | Explain the capability and limits briefly, then ask one easy question that can reveal the user's outcome. |
 | Review the language in the repository coordination files you generated before I publish them. | Load the optional writing quality pass and preserve meaning, authority, evidence, and technical literals. |
+| Which of my repositories already contains functionality we can reuse for this new outcome? | Start from the outcome and discover evidence-supported functionality candidates without requiring a graph. |
+| Which research knowledge would become difficult to reconstruct if I forgot one of these repositories? | Evaluate knowledge reconstruction risk across repository types without inferring value from activity. |
 
 ## Should Not Activate as Primary
 
@@ -29,7 +31,8 @@ Use these fixtures to review the skill description and boundary. Exact wording o
 | Which JavaScript framework should I use? | Architecture or technology selection workflow unless portfolio coordination is central. |
 | Recommend a personal calendar app. | General productivity workflow. |
 | Delete every repository with no commits this year. | Refuse the unsupported destructive inference and request lifecycle evidence. |
+| Which modules import the authentication package inside this repository? | Repository implementation or code analysis workflow because the request is structural and confined to one known repository. |
 
 ## Boundary Check
 
-The description should activate for access, portfolio, routing, coordination, tool fit, feedback about a skill run, a first conversation after installation, this skill's own installation or update, and an explicit quality pass on its generated coordination output. It should avoid routine implementation or unrelated writing work in one repository.
+The description should activate for access, portfolio, routing, coordination, functionality and knowledge reuse, tool fit, feedback about a skill run, a first conversation after installation, this skill's own installation or update, and an explicit quality pass on its generated coordination output. It should avoid structural code analysis, routine implementation, or unrelated writing work in one repository.

@@ -27,6 +27,7 @@ Put ordinary steps in their owning guide, such as `TESTING.md`, `RELEASING.md`, 
 - [Program Decision 0001](0001-evidence-gated-roadmap.md) records the original evidence-gated roadmap model and is superseded.
 - [Evidence Decision 0002](0002-accept-founding-use-case-for-phase-0.md) classifies the founding target use case and its claim boundary.
 - [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md) separates repository delivery from external outcome evidence.
+- [Architecture Decision 0004](0004-separate-benefit-discovery-from-inventory.md) separates focused benefit discovery from inventory administration and persistent relationship storage.
 
 ## Maintenance
 
