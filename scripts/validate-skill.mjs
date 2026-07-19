@@ -529,7 +529,7 @@ function validateRepositoryContract() {
   }
 
   const installWorkflow = readText(".github/workflows/gh-skill-install.yml");
-  for (const expected of ["types:\n      - published", "permissions:\n  contents: read", "gh skill install", "gh skill update", "scripts/verify-gh-skill-install.mjs", "npm run verify:gh-skill", "release-state-${{ github.event.release.tag_name }}"]) {
+  for (const expected of ["types:\n      - published", "permissions:\n  contents: read", "gh skill install", "gh skill update", "scripts/verify-gh-skill-install.mjs", "npm run verify:gh-skill", "Compare released runtime", "steps.runtime.outputs.changed", "Verify the unchanged runtime", "release-state-${{ github.event.release.tag_name }}"]) {
     if (!installWorkflow.includes(expected)) {
       fail(`.github/workflows/gh-skill-install.yml is missing delivery contract: ${expected}.`);
     }
