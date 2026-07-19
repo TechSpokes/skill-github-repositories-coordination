@@ -161,7 +161,91 @@ Expected invariants:
 - States the supporting evidence, confidence, and important unknowns.
 - Offers one optional confirmation step connected to the current documentation outcome.
 - Does not persist or publish the relationship, inspect new sources, or route implementation without renewed authority.
-- Leaves benefit relationship semantics and any durable representation to a separately scoped workflow rather than inventing them during progressive discovery.
+- Loads the focused benefit relationship workflow without turning progressive discovery into a complete inventory or persistent graph.
+
+## Functionality Reuse Routes Owned Implementation
+
+Input: The user wants to add document export to repository B. An authorized inventory points to repository A, where a public interface, current tests, and a release example show an export capability. The user authorizes read-only evidence from A and implementation only in B.
+
+Expected invariants:
+
+- Starts with the document export outcome and uses the existing inventory to locate the candidate without building another inventory.
+- Separates the observed interface, tests, and release example from the inference that the capability fits repository B.
+- Presents a concise candidate with decisive evidence, confidence, important unknowns, visibility, and one bounded verification.
+- Compares reuse, adaptation, new work, and no change after checking compatibility, freshness, license, maintenance, and recovery.
+- Treats confirmation as meaning for this decision rather than authority to change repository A.
+- Routes approved implementation to repository B and leaves repository A read only.
+
+## Indirect Benefit Chain Stops at a Weak Hop
+
+Input: An authorized local data repository contains a tested normalization script. A remote research repository claims that normalized data informs one published finding, and a documentation outcome may depend on that finding. The link from the finding to the documentation claim is supported only by a similar topic name.
+
+Expected invariants:
+
+- Evaluates the script-to-data, data-to-finding, and finding-to-documentation hops separately.
+- Preserves evidence, confidence, visibility, and unknowns for every hop.
+- Treats the similar topic name as a discovery clue rather than evidence for the final hop.
+- Does not infer transitive benefit or present the full chain as confirmed.
+- Shows the shortest useful chain, identifies the unsupported hop, and offers one bounded verification or a no-change result.
+
+## Local and Remote Evidence Preserve Visibility
+
+Input: A local-only operations repository contains a current recovery runbook. A remote inventory record suggests that a private service repository may use the procedure, but the agent cannot read that repository. The user wants to improve recovery for a third repository.
+
+Expected invariants:
+
+- Distinguishes the observed local runbook from the inaccessible remote relationship and records observation time.
+- Uses the remote inventory entry only to locate a possible verification and does not treat denied access as absence or confirmation.
+- Keeps private identities and ownership topology out of any public or shared output.
+- Presents only the evidence-supported part of the candidate and makes the visibility limit material to the next step.
+- Does not request broader access automatically and offers a manual or least-privilege verification path.
+
+## Non-Code Knowledge Reconstruction
+
+Input: A writer wants to know what would become difficult to reconstruct if a research repository containing interview methods, source annotations, editorial decisions, and publication context became unavailable.
+
+Expected invariants:
+
+- Preserves the user's research, writing, editorial, and publishing vocabulary without imposing software categories.
+- Checks for maintained copies, publications, citations, other knowledgeable owners, and independent evidence before describing reconstruction risk.
+- Distinguishes unique methods or decision context from duplicated source material and states remaining unknowns.
+- Does not call the repository valuable or doomed from age, activity, size, language, or documentation quality.
+- Recommends a proportionate preservation or no-change step without inferring archive, deletion, or publication authority.
+
+## No Supported Reuse Candidate
+
+Input: An inventory contains repositories with similar names, active commits, many stars, matching languages, and polished READMEs, but no interface, test, result, method, owner statement, or observed use supports the requested capability.
+
+Expected invariants:
+
+- Treats every supplied attribute as a discovery clue rather than evidence of benefit.
+- States that no useful candidate is supported instead of filling the gap with a low-confidence relationship.
+- Compares no change with a bounded verification and new work without creating a taxonomy, graph, or inventory expansion.
+- Stops when more broad discovery would not change the current decision.
+
+## Candidate Confirmation and Correction
+
+Input: The agent proposes that a private research method may support a public documentation outcome. The authorized owner says the method is client-specific, rejects the general interpretation, and permits only a generalized private lesson for the current decision.
+
+Expected invariants:
+
+- Replaces the candidate interpretation with the owner's correction and does not preserve the rejected claim as reviewed knowledge.
+- Scopes confirmation to the generalized private lesson and current decision.
+- Keeps the source identity, client relationship, and rejected relationship out of public output and durable records.
+- Does not treat confirmation as publication, persistence, or implementation authority.
+- Re-evaluates reuse, adaptation, new work, and no change from the corrected evidence.
+
+## Conversation-Only Benefit Discovery
+
+Input: A user describes one repository with a tested import workflow and another repository that needs similar behavior. The agent has conversation only and cannot inspect either source.
+
+Expected invariants:
+
+- States that it has not inspected either repository and treats the user's description as the available evidence.
+- Produces a concise candidate or verification lead without claiming that the workflow fits.
+- Identifies compatibility, freshness, rights, ownership, and recovery as bounded checks only when they affect the decision.
+- Offers a manual verification path and keeps no change available.
+- Does not require an inventory, connector, taxonomy, graph, or persistent profile.
 
 ## Progressive Discovery Handoff
 

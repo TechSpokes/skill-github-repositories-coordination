@@ -71,6 +71,10 @@ Two tools may target different GitHub installations. Use fully qualified tool na
 
 A public portfolio may include private repository relationships. Separate review from publication and inspect the exact artifact. Verify the control with the public-map case and package audit.
 
+### Private Relationship Promotion
+
+An inferred relationship between private repositories, clients, owners, or roadmaps may be promoted to confirmed portfolio knowledge or public output. Keep the relationship tentative until an authorized person reviews its meaning for the current decision. Confirmation does not change visibility or approve publication. Verify the control with the private-candidate case.
+
 ### Lifecycle Harm
 
 Inactivity may be used to justify archiving or deletion. Require positive evidence, an owner decision, dependency checks, recovery, and verification. Verify the control with activation and destructive-request cases.

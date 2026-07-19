@@ -40,6 +40,20 @@ Artifact-attestation workflow syntax was checked on 2026-07-18. The release work
 
 GitHub CLI version resolution for `gh skill install` was checked on 2026-07-18. A versionless skill name resolves the latest tagged release first and falls back to the default branch when no tagged release exists.
 
+## Benefit Relationship Sources
+
+Benefit relationship research was checked on 2026-07-19 against these primary sources:
+
+- GitHub dependency graph: <https://docs.github.com/en/code-security/concepts/supply-chain-security/dependency-graph>
+- PROV-O: <https://www.w3.org/TR/prov-o/>
+- DCAT 3: <https://www.w3.org/TR/vocab-dcat-3/>
+- Web Annotation Data Model: <https://www.w3.org/TR/annotation-model/>
+- Data Quality Vocabulary: <https://www.w3.org/TR/vocab-dqv/>
+
+GitHub's dependency graph defines structural evidence from manifests, lock files, and submitted dependencies. The W3C sources provide precedents for qualifying a relationship with source, time, role, context, and quality information without requiring one storage or transport system.
+
+The runtime adopts the smaller design conclusion: preserve only the evidence and uncertainty needed for the current decision. It does not implement the external vocabularies, claim standards conformance, impose a relationship taxonomy, or require a graph.
+
 ## Writing Quality Sources
 
 The writing quality decision was reviewed on 2026-07-19 against the repository corpus, issue #15 maintainer feedback, professional edit research, empirical studies of generated prose and model preference, and authoritative technical style guidance. The public source hierarchy and limits are recorded in [Writing Quality](WRITING.md).

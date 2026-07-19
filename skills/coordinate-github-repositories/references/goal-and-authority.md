@@ -44,15 +44,17 @@ Repository purpose describes the outcome a repository supports. Portfolio role d
 
 A structural dependency is a technical or operational requirement between work items. Practice reuse applies a proven way of working after evaluating its fit. Functionality reuse applies an existing capability to a new outcome. Knowledge reuse applies research, reasoning, documentation, or experience to a new outcome.
 
+A benefit is an improvement or preserved outcome that matters to the user. A reusable capability is something existing work can do, enable, explain, or help decide in a new context. Neither term assigns intrinsic value to a repository.
+
 A benefit relationship is an evidence-supported connection showing how one work item, capability, practice, or body of knowledge may contribute to an outcome. A candidate relationship is an inference awaiting review; a confirmed relationship has been reviewed by an owner or other authorized person for the decision where it is used.
 
-These definitions clarify the relationships among the terms. They do not create a workflow for discovering benefit relationships or a persistent graph.
+These definitions clarify the relationships among the terms. The [benefit relationships](benefit-relationships.md) workflow applies them without creating a persistent graph.
 
 ## Authority Terms
 
 Scope identifies the accounts, organizations, repositories, folders, workstreams, evidence sources, actions, and outputs included in the current task. Exclusion from scope remains explicit rather than being treated as missing data.
 
-A capability is what the active agent or tool can technically do. Authentication establishes an identity or session. Permission is a platform control that allows an operation. None of these grants user authority to perform the operation.
+An agent capability is what the active agent or tool can technically do. Authentication establishes an identity or session. Permission is a platform control that allows an operation. None of these grants user authority to perform the operation.
 
 Authority is the user's or owning decision maker's approval for an exact target, action, visibility, and effect. Repository ownership identifies who maintains meaning, implementation, policy, and recovery for that repository. Publication approval is separate authority for the exact artifact and audience.
 
