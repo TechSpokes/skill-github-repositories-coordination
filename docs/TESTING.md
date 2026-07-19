@@ -45,7 +45,7 @@ Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree l
 
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 34 cases across 12 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, platform, research, solo, and write capable.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 46 cases across 14 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, onboarding, platform, progressive discovery, research, solo, and write capable.
 
 The deterministic check proves fixture registration and structural coverage. It does not prove that a model follows the skill.
 
@@ -127,7 +127,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 `tests/fixtures/activation.md` contains positive and negative prompts. Review the frontmatter description for these boundaries:
 
-- Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, feedback from a skill run, and this skill's own installation or update.
+- Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, feedback from a skill run, a first conversation after installation, and this skill's own installation or update.
 - Activate for software and non-code repository work.
 - Do not take over routine implementation inside one known repository.
 - Do not expand into general productivity, personnel, or psychology advice.
@@ -137,11 +137,27 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures additionally require low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, the ability to leave an observation unprocessed until later, and a self-update path that checks its source and does not force unresolved replacements.
+Current behavior fixtures additionally require a short first conversation, a small initial question burden, correction of a tentative working hypothesis, generic onboarding bypass for concrete requests, graceful handling of declined or unavailable answers, progressive discovery, context preserving handoff, low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, and a self-update path that checks its source and does not force unresolved replacements.
+
+## v1.4.0 Interaction Forward Review
+
+On 2026-07-19, four fresh Codex subagent passes read only the candidate runtime skill and directly applicable reference, with no network calls, repository inspection, or writes. The host did not expose a model identifier, so the results apply only to this observed configuration.
+
+- The blank start pass explained the capability and limits in one sentence and asked one easy opening question without beginning repository discovery.
+
+- The concrete request pass skipped generic onboarding, compared the stated options from supplied context, preserved unknowns, and recommended no change pending evidence.
+
+- The progressive discovery pass preserved the user's ownership correction, offered one optional read-only comparison, and did not widen scope or create work.
+
+- The handoff pass preserved the outcome, corrected ownership, tentative connection, evidence boundary, unknowns, and next approval without restarting onboarding or granting new authority.
+
+The normal maintainer session cannot prove the containment required for model-based adversarial execution, so silent profiling and repeated dismissal fixtures remained inert and were checked only through deterministic registration and static review. This prevents a security evaluation from gaining access to credentials, networks, or unrelated files.
+
+These passes show that the candidate instructions can produce the intended interaction in the observed host. They do not prove user comfort, question burden, time to first value, or behavior across other models and hosts; those outcomes require consented participant observation.
 
 ## Adversarial Review
 
-`tests/fixtures/adversarial-scenarios.md` covers repository prompt injection, private-derived public output, access denial, ambiguous tool surfaces, broad cross-repository mutation, maintainer commercial conflict, and feedback publication boundaries. A security-relevant runtime change or minor or major release requires review of the affected adversarial cases.
+`tests/fixtures/adversarial-scenarios.md` covers repository prompt injection, private-derived public output, access denial, ambiguous tool surfaces, broad cross-repository mutation, silent portfolio profiling, repeated suggestions after dismissal, maintainer commercial conflict, and feedback publication boundaries. A security-relevant runtime change or minor or major release requires review of the affected adversarial cases.
 
 Treat adversarial prompts as inert data. Deterministic validation reads fixtures as text and never executes their instructions. Run model-based security review only in a disposable sandbox with no credentials, network access, external filesystem access, or mutating tools, and verify after the run that no file or system outside the disposable workspace changed.
 

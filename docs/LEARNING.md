@@ -6,13 +6,23 @@ Complete one useful repository-coordination decision while learning why the safe
 
 ## First Run
 
-Ask your agent:
+If you do not yet know what to ask, start with:
+
+```text
+I just installed this skill. What should we do first?
+```
+
+The agent should ask one easy opening question, use no more than two initial follow-up questions by default, and reflect a tentative understanding that you can correct. You do not need to describe every repository, provide a job title, connect GitHub, or agree to a portfolio scan.
+
+If you already have a real outcome, ask directly:
 
 ```text
 Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain in one plain sentence why that step is safe.
 ```
 
 Start with a real outcome such as finding a manuscript and its research, seeing which organization repositories the agent can access, or routing one change across policy and documentation repositories.
+
+The agent may notice one useful related practice or connection while working. Treat that as an optional next step, not permission to inspect more repositories or create a permanent profile.
 
 ## Six Ideas to Keep
 

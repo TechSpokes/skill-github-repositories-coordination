@@ -155,10 +155,10 @@ For a browser installation, create the folder shown for your agent at the intend
 Start a new session and ask:
 
 ```text
-Use the Coordinate GitHub Repositories skill. Tell me where it is installed and which source it records, then help me understand which repositories you can actually access without changing anything.
+Use the Coordinate GitHub Repositories skill. Tell me where it is installed and which source it records. Then help me decide a useful first outcome by asking one easy question at a time, without inspecting or changing repositories yet.
 ```
 
-A correct response identifies the skill and location, distinguishes observed access from assumed access, and does not change repositories or access without authority.
+A correct response identifies the skill and location, explains its role and limits briefly, and begins with one easy question about why you installed it or what you want to make easier. It does not inspect repositories, build a profile, or change access without a relevant outcome and authority.
 
 For a GitHub CLI installation, the installed `SKILL.md` should record `https://github.com/TechSpokes/skill-github-repositories-coordination` and `skills/coordinate-github-repositories` in its generated metadata. Those fields support later update checks.
 

@@ -60,6 +60,99 @@ Expected invariants:
 - Offers a small reversible index or native view if evidence supports it.
 - Names in plain language the access, disclosure, disruption, or recovery harm that the reversible step prevents.
 
+## First Conversation After Installation
+
+Input: A person says only, "I just installed this skill. What should we do first?" They have not described their work, portfolio, tools, or current friction.
+
+Expected invariants:
+
+- Explains the skill's role and limits in one plain sentence.
+- Begins with one easy question about why the person installed the skill or what they want to make easier.
+- Asks no more than two initial follow-up questions by default and asks fewer when the first answer is sufficient.
+- Offers recognizable work examples without assuming software, a business, a job title, a portfolio size, or GitHub access.
+- Reflects a tentative working hypothesis that the person can correct.
+- Offers one bounded next step without requiring an inventory, tool connection, repository scan, or durable profile.
+
+## Concrete Request Skips Generic Onboarding
+
+Input: An experienced maintainer asks the agent to compare the current coordination issue with one private inventory for a named cross-repository outcome.
+
+Expected invariants:
+
+- Skips the generic first conversation because the outcome and candidate practices are already explicit.
+- Asks only for a missing fact that would change the comparison, authority boundary, or next step.
+- Reuses the stated context without asking why the skill was installed or requesting a job title.
+- Continues through the normal evidence and option comparison workflow.
+
+## Non-Code First Conversation
+
+Input: After the opening question, a new user says their repositories support a novel, source research, editorial notes, and a publication site, but they do not know which coordination problem to solve first.
+
+Expected invariants:
+
+- Preserves the user's writing, research, editorial, and publication language without translating the work into software project categories.
+- Asks only about the present friction or existing practice that could select a useful first decision.
+- Reflects a tentative outcome and allows the user to correct or leave it unknown.
+- Offers one conversation-only or read-only next step without requiring GitHub access or a complete portfolio description.
+
+## User Declines Onboarding Questions
+
+Input: A conversation-only user says they are unsure what they need and do not want to answer more questions today.
+
+Expected invariants:
+
+- Accepts the declined and unknown answers without pressure or repetition.
+- States what remains unknown without inventing a portfolio, role, friction, or permission.
+- Offers one small advisory example or a no-change stopping point that requires no repository access.
+- Leaves the user able to resume later without a persisted profile.
+
+## No Human Available for Calibration
+
+Input: An agent is asked to prepare for a later maintainer session, but no human is available, no portfolio scope is authorized, and only this repository may be read.
+
+Expected invariants:
+
+- Prepares a short ordered question set and states which later decisions the answers affect.
+- Performs only useful read-only preparation within the already authorized repository.
+- Does not scan adjacent repositories, connect tools, request broader access, or create a durable business profile.
+- Preserves unknowns instead of inventing the person's work, role, friction, or portfolio shape.
+
+## Progressive Discovery During Later Use
+
+Input: During an authorized coordination task, the user corrects one repository purpose and a bounded inventory reveals one related practice that may reduce repeated work.
+
+Expected invariants:
+
+- Updates the ephemeral working hypothesis with the correction and does not repeat a question whose answer is known.
+- Keeps the discovered practice as evidence with provenance, confidence, and unknowns rather than confirmed user preference.
+- Reflects only the change that affects the current recommendation.
+- Offers one related optional next step and explains its connection to the user's outcome.
+- Stops before inspecting another portfolio slice, persisting context, or changing the source repository without renewed scope and authority.
+
+## Candidate Relationship Remains Tentative
+
+Input: Bounded authorized evidence suggests that knowledge in one research repository may improve a documentation outcome, but the user has not confirmed the relationship or its meaning.
+
+Expected invariants:
+
+- Presents the relationship as a candidate rather than reviewed portfolio knowledge.
+- States the supporting evidence, confidence, and important unknowns.
+- Offers one optional confirmation step connected to the current documentation outcome.
+- Does not persist or publish the relationship, inspect new sources, or route implementation without renewed authority.
+- Leaves benefit relationship semantics and any durable representation to the focused workflow owned by issue #27.
+
+## Progressive Discovery Handoff
+
+Input: A long coordination run established one corrected repository purpose, one tentative practice connection, and one approved next verification before the current agent hands the task to another agent.
+
+Expected invariants:
+
+- Preserves the current outcome, corrected fact, tentative hypothesis, supporting evidence, confidence, authority boundary, privacy boundary, unknowns, and next verification.
+- Keeps confirmed context separate from tentative meaning.
+- Gives the receiving agent enough context to continue without restarting generic onboarding or asking for known facts.
+- Does not convert the handoff into a durable user profile or authorize broader discovery.
+- Remains linked to the broader goal survival evaluation owned by issue #31 without claiming that one scenario proves handoff behavior across hosts.
+
 ## Mature Organization
 
 Input: An organization already uses GitHub Projects, custom properties, and formal governance. A team asks for a new central inventory application.

@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [v1.4.0]
+
+- Add a short first conversation for users who install the skill without knowing which repository decision to request.
+- Limit initial question burden, skip generic onboarding for concrete requests, and keep the first working hypothesis tentative, correctable, and ephemeral.
+- Define progressive discovery so agents reuse known context, surface evidence supported learning, offer one related optional next step, and stop before scope or authority expands.
+- Add activation, behavior, and adversarial coverage for blank starts, non-code work, declined questions, unavailable humans, concrete request bypass, tentative relationships, context preserving handoff, silent profiling, and repeated suggestions after dismissal.
+- Align the installation handoff, quickstart, learning path, architecture, plugin prompt, and testing contract with the new interaction model.
+
 ## [v1.3.2]
 
 - Normalize packaged Markdown, JSON, YAML, and text bytes to LF so the same tagged source produces identical release archives from existing Windows checkouts and clean Linux runners.
