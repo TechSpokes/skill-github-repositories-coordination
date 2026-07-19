@@ -82,7 +82,7 @@ Do not delete an unmerged branch, a branch with unresolved work, `main`, or any 
 
 The repository retains squash-only pull requests and a linear protected `main` because they produce one reviewable commit per change with low maintenance cost. A merge queue would add coordination machinery without reducing current contention.
 
-The process combines controls learned from authorized portfolio examples but does not copy any one procedure. Exact-tree preflight and consumed tags fit immutable package delivery; machine-readable state and narrow publication checks remove repeated work; contained migration verification fits the GitHub CLI channel; the cross-host `v1.3.1` failure supplied concrete evidence for guarded candidate abandonment. Production environments, hotfix ancestry, provider credentials, merge queues, and application health gates remain outside this repository because it does not deploy a running service.
+The process combines controls learned from authorized portfolio examples without copying one procedure. Exact-tree preflight and consumed tags protect immutable package delivery. Machine-readable state and narrow publication checks remove repeated work, while contained migration verification covers the GitHub CLI channel. The cross-host `v1.3.1` failure supplied the evidence for guarded candidate abandonment. Production environments, hotfix ancestry, provider credentials, merge queues, and application health gates remain outside this repository because it does not deploy a running service.
 
 ## Repository Protections
 

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [v1.6.0]
+
+- Add evidence-based American English guidance for repository prose while protecting technical terms, genuine contrasts, identifiers, commands, URLs, versions, quotations, and necessary safety language.
+- Add an optional runtime writing-quality pass for explicit review of generated coordination files without changing the general writing activation boundary or loading the reference during ordinary runs.
+- Replace the mandatory `This prevents ...` sentence template with a meaning-based requirement to explain concrete risk when it helps the decision.
+- Add 22 applied repair cases and 10 protected examples across runtime, security, evaluation, release, installation, and intake prose, plus deterministic schema and rollout validation that does not score grammar or authorship.
+- Repair the reported v1.1.0 evaluation sentence and other accepted corpus findings without changing historical outputs, release identity, security boundaries, or verified results.
+- Document the source hierarchy, mechanism confidence, automation limits, progressive disclosure, and measured token and maintenance budget for writing quality.
+
 ## [v1.5.0]
 
 - Preserve the human's intended benefit, current task, purpose link, hard constraints, authority, workspace roles, evidence state, unknowns, completed verification, and next verification across changed plans, conflicts, summaries, and handoffs.

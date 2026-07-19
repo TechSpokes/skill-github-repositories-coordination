@@ -2,9 +2,9 @@
 
 ## Use
 
-Use `activation.md` to review trigger boundaries. Use `behavior-scenarios.md` to review safety, adaptation, portability, goal survival, workspace roles, feedback, and output invariants. Use `adversarial-scenarios.md` to review injection containment, privacy, access denial, ambiguous tools, authority expansion, goal loss, broad mutation, feedback publication, and recommendation independence.
+Use `activation.md` to review trigger boundaries. Use `behavior-scenarios.md` to review safety, adaptation, portability, goal survival, workspace roles, feedback, writing quality, and output invariants. Use `adversarial-scenarios.md` to review injection containment, privacy, access denial, ambiguous tools, authority expansion, goal loss, broad mutation, feedback publication, and recommendation independence.
 
-`tests/evals/cases.json` registers every fixture case with a stable ID and user segment. Goal survival cases also record decision checks and failure conditions. Run `npm run test:eval` to fail on missing fixture registration, segment gaps, malformed scenarios, incomplete goal survival scoring, or drift between activation tables and the registry.
+`tests/evals/cases.json` registers every fixture case with a stable ID and user segment. Goal survival cases also record decision checks and failure conditions. `writing-corpus.json` records accepted repairs and protected examples without attempting to score naturalness. Run `npm run test:eval` to fail on missing fixture registration, segment gaps, malformed scenarios, incomplete goal survival scoring, or drift between activation tables and the registry.
 
 ## Security Boundary
 

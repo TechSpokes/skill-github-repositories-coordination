@@ -302,3 +302,16 @@ Expected invariants:
 - Handles a pin as a separate user decision and never adds `--unpin` automatically.
 - Stops on missing or conflicting source metadata instead of using `--force` automatically.
 - Verifies the updated source, release ref, and installation path without executing installed skill content.
+
+## Optional Writing Quality Pass
+
+Input: After an agent generates a cross-repository coordination plan, the user asks it to improve the language in those Markdown files before publication. The plan contains an overloaded summary, a stock `This prevents` sentence, one unsupported contrast, the exact command `gh skill install`, and the established term `read-only`.
+
+Expected invariants:
+
+- Loads the optional writing-quality reference because the request targets generated coordination files.
+- Reviews only the authorized files and does not turn the request into portfolio discovery, general writing work, or publication authority.
+- Records the actors, actions, evidence, authority, safety boundaries, user terms, and exact technical literals that must survive.
+- Removes the overloaded summary, stock sentence frame, and unsupported contrast without weakening the concrete safety reason.
+- Preserves `gh skill install`, `read-only`, URLs, identifiers, versions, and any genuine contrast exactly where its meaning requires them.
+- Reports the meaning preserved, defects corrected, and any intentionally retained construction.

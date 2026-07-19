@@ -4,9 +4,7 @@ Thank you for improving Coordinate GitHub Repositories.
 
 ## Contribution Goal
 
-Contributions should make repository coordination more adaptive, portable,
-evidence-based, or safe without turning the skill into a mandatory taxonomy,
-tool, connector, or manager application.
+Contributions should make repository coordination more adaptive, portable, evidence based, or safe without turning the skill into a mandatory taxonomy, tool, connector, or manager application.
 
 Useful contributions include:
 
@@ -21,8 +19,7 @@ Useful contributions include:
 
 ## Before a Pull Request
 
-Read `AGENTS.md`, `docs/ARCHITECTURE.md`, and `docs/GOVERNANCE.md`. For runtime
-changes, read the affected references and all test fixtures.
+Read `AGENTS.md`, `docs/ARCHITECTURE.md`, and `docs/GOVERNANCE.md`. For runtime changes, read the affected references and all test fixtures. For prose rules or language-quality behavior, read `docs/WRITING.md` and the writing corpus.
 
 Run:
 
@@ -31,19 +28,13 @@ npm run validate
 npm run package -- vX.Y.Z
 ```
 
-Use the intended version when preparing a release. Inspect all generated ZIP
-files and compare their digests with `dist/assets/SHA256SUMS`.
+Use the intended version when preparing a release. Inspect all generated ZIP files and compare their digests with `dist/assets/SHA256SUMS`.
 
 ## Definition of Done
 
-Use the complete definition of done and five-track review rubric in
-[Governance](docs/GOVERNANCE.md). Every change must preserve applicable
-architecture, security, evaluation, teaching, governance, privacy, portability,
-and release contracts.
+Use the complete definition of done and five-track review rubric in [Governance](docs/GOVERNANCE.md). Every change must preserve applicable architecture, security, evaluation, teaching, governance, privacy, portability, and release contracts.
 
-Register new activation, behavior, or adversarial cases in
-`tests/evals/cases.json`. Run `npm run test:eval` when fixture or runtime
-behavior changes.
+Register new activation, behavior, or adversarial cases in `tests/evals/cases.json`. Run `npm run test:eval` when fixture or runtime behavior changes.
 
 ## Pull Request Content
 
@@ -65,7 +56,4 @@ configuration, user profiles, client information, credentials, or raw intake.
 
 ## Documentation Style
 
-Use one H1, real heading levels, short paragraphs, flat atomic lists, ASCII
-technical punctuation, and language-tagged code fences. Explain rationale where
-future maintainers need judgment rather than copying long research into runtime
-files.
+Apply `.github/instructions/markdown.instructions.md` and `.github/instructions/writing.instructions.md`. Preserve meaning before style, use the smallest clear structure, and explain rationale where future maintainers need judgment. Keep detailed research in `docs/WRITING.md` or private intake instead of copying it into runtime files.

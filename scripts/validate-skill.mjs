@@ -311,7 +311,7 @@ function validateInstallationContract() {
   const skillName = "coordinate-github-repositories";
   const latestRelease = "releases/latest";
   const assetPattern = `${skillName}-vX.Y.Z.zip`;
-  const installPrompt = "Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.";
+  const installPrompt = "Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location.";
   const readme = readText("README.md");
   const install = readText("INSTALL.md");
   const quickstart = readText("docs/QUICKSTART.md");
@@ -432,6 +432,7 @@ function validateRepositoryContract() {
     "docs/TESTING.md",
     "docs/THREAT-MODEL.md",
     "docs/VERSION.md",
+    "docs/WRITING.md",
     "docs/decisions/README.md",
     ".github/ISSUE_TEMPLATE/skill_run_feedback.yml",
     ".github/workflows/gh-skill-install.yml",
@@ -439,10 +440,12 @@ function validateRepositoryContract() {
     "scripts/verify-gh-skill-install.mjs",
     "skills/coordinate-github-repositories/references/install-and-update-this-skill.md",
     "skills/coordinate-github-repositories/references/goal-and-authority.md",
+    "skills/coordinate-github-repositories/references/writing-quality.md",
     "tests/fixtures/agent-surface-contract.json",
     "tests/fixtures/activation.md",
     "tests/fixtures/adversarial-scenarios.md",
     "tests/fixtures/behavior-scenarios.md",
+    "tests/fixtures/writing-corpus.json",
     "tests/evals/cases.json"
   ];
 
@@ -671,7 +674,7 @@ function validateFeedbackContract() {
   if (requiredFields.length !== 2 || !form.includes("id: observation") || !form.includes("id: privacy_review")) {
     fail("The skill-run feedback form must require one written observation and one privacy confirmation.");
   }
-  for (const expected of ["Only Observation asks for a written response", "simple record", "Privacy review", "private security route"]) {
+  for (const expected of ["Only Observation requires text", "simple record", "Privacy review", "private security route"]) {
     if (!form.includes(expected)) {
       fail(`The skill-run feedback form is missing the low-friction safety contract: ${expected}.`);
     }
@@ -704,6 +707,113 @@ function validateDecisionRecords() {
     }
     if (!index.includes(`(${path.basename(file)})`)) {
       fail(`${file} must be linked from docs/decisions/README.md.`);
+    }
+  }
+}
+
+/**
+ * Validates the routed writing guidance and the reviewed repair and protection corpus.
+ * @returns {void}
+ * @sideEffects Reads local writing-control files and appends contract violations.
+ * @constraints This check validates structure and applied revisions only; it never scores grammar, naturalness, or authorship.
+ * @since 1.6.0
+ */
+function validateWritingContract() {
+  const instructionPath = ".github/instructions/writing.instructions.md";
+  const guidePath = "docs/WRITING.md";
+  const referencePath = "skills/coordinate-github-repositories/references/writing-quality.md";
+  const corpusPath = "tests/fixtures/writing-corpus.json";
+
+  for (const file of [instructionPath, guidePath, referencePath, corpusPath]) {
+    if (!exists(file)) {
+      fail(`Missing writing-quality file ${file}.`);
+      return;
+    }
+  }
+
+  const agentInstructions = readText("AGENTS.md");
+  for (const file of [instructionPath, guidePath]) {
+    if (!agentInstructions.includes(file)) {
+      fail(`AGENTS.md must route prose maintenance to ${file}.`);
+    }
+  }
+
+  const skill = readText("skills/coordinate-github-repositories/SKILL.md");
+  if (!skill.includes("](references/writing-quality.md)") || !skill.includes("only when the user requests a language-quality pass")) {
+    fail("SKILL.md must route the optional writing-quality pass without loading it for every run.");
+  }
+
+  const guide = readText(guidePath);
+  for (const expected of ["American English", "does not use style as an authorship detector", "adds no grammar dependency", "optional writing-quality pass"]) {
+    if (!guide.includes(expected)) {
+      fail(`${guidePath} is missing the writing-quality boundary: ${expected}.`);
+    }
+  }
+
+  let corpus;
+  try {
+    corpus = readJson(corpusPath);
+  } catch (error) {
+    fail(`${corpusPath} is not valid JSON: ${error.message}`);
+    return;
+  }
+
+  if (corpus.schema_version !== 1) {
+    fail(`${corpusPath} must use schema_version 1.`);
+  }
+  if (!Array.isArray(corpus.repairs) || corpus.repairs.length < 20) {
+    fail(`${corpusPath} must contain at least 20 reviewed repair cases.`);
+  }
+  if (!Array.isArray(corpus.protected) || corpus.protected.length < 8) {
+    fail(`${corpusPath} must contain at least eight protected examples.`);
+  }
+
+  const requiredSurfaces = new Set(corpus.required_surfaces ?? []);
+  const coveredSurfaces = new Set((corpus.repairs ?? []).map((item) => item.surface));
+  for (const surface of requiredSurfaces) {
+    if (!coveredSurfaces.has(surface)) {
+      fail(`${corpusPath} has no repair for required surface ${surface}.`);
+    }
+  }
+
+  const ids = new Set();
+  for (const item of [...(corpus.repairs ?? []), ...(corpus.protected ?? [])]) {
+    if (typeof item.id !== "string" || item.id.trim() === "") {
+      fail(`${corpusPath} contains a case without an id.`);
+      continue;
+    }
+    if (ids.has(item.id)) {
+      fail(`${corpusPath} contains duplicate id ${item.id}.`);
+    }
+    ids.add(item.id);
+  }
+
+  for (const item of corpus.repairs ?? []) {
+    for (const field of ["surface", "source", "artifact", "before", "after"]) {
+      if (typeof item[field] !== "string" || item[field].trim() === "") {
+        fail(`${corpusPath} repair ${item.id} is missing ${field}.`);
+      }
+    }
+    if (!Array.isArray(item.preserves) || item.preserves.length === 0) {
+      fail(`${corpusPath} repair ${item.id} must declare preserved meaning.`);
+    }
+    if (item.before === item.after) {
+      fail(`${corpusPath} repair ${item.id} does not change the text.`);
+    }
+    if (typeof item.source === "string" && exists(item.source) && typeof item.after === "string" && !readText(item.source).includes(item.after)) {
+      fail(`${corpusPath} repair ${item.id} is not applied in ${item.source}.`);
+    }
+  }
+
+  for (const item of corpus.protected ?? []) {
+    if (typeof item.text !== "string" || typeof item.reason !== "string" || !Array.isArray(item.protected_literals) || item.protected_literals.length === 0) {
+      fail(`${corpusPath} protected case ${item.id} is incomplete.`);
+      continue;
+    }
+    for (const literal of item.protected_literals) {
+      if (!item.text.includes(literal)) {
+        fail(`${corpusPath} protected case ${item.id} does not contain literal ${literal}.`);
+      }
     }
   }
 }
@@ -792,6 +902,7 @@ validateRepositoryContract();
 validateAgentSurfaceContract();
 validateFeedbackContract();
 validateDecisionRecords();
+validateWritingContract();
 validateMarkdownStructure();
 validateReleaseMarkdownWrapping();
 

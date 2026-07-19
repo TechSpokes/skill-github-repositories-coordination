@@ -17,6 +17,7 @@ Use these fixtures to review the skill description and boundary. Exact wording o
 | Could you update this skill? | Identify the installed source, check for an update without mutation, and replace only the selected skill after review. |
 | I just installed this skill. What should we do first? | Start a short first conversation and reach one bounded next step without requiring a portfolio profile. |
 | What can this skill help me with? | Explain the capability and limits briefly, then ask one easy question that can reveal the user's outcome. |
+| Review the language in the repository coordination files you generated before I publish them. | Load the optional writing-quality pass and preserve meaning, authority, evidence, and technical literals. |
 
 ## Should Not Activate as Primary
 
@@ -31,4 +32,4 @@ Use these fixtures to review the skill description and boundary. Exact wording o
 
 ## Boundary Check
 
-The description should activate for access, portfolio, routing, coordination, tool fit, feedback about a skill run, a first conversation after installation, and this skill's own installation or update while avoiding routine implementation in one repository.
+The description should activate for access, portfolio, routing, coordination, tool fit, feedback about a skill run, a first conversation after installation, this skill's own installation or update, and an explicit quality pass on its generated coordination output. It should avoid routine implementation or unrelated writing work in one repository.

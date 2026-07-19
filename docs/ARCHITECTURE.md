@@ -98,9 +98,10 @@ The canonical runtime map is validated against the actual skill tree. Adding, re
 - `skills/coordinate-github-repositories/references/repository-archetypes.md`
 - `skills/coordinate-github-repositories/references/safety-and-approval.md`
 - `skills/coordinate-github-repositories/references/tool-fit.md`
+- `skills/coordinate-github-repositories/references/writing-quality.md`
 <!-- canonical-runtime-map:end -->
 
-`SKILL.md` controls activation and the ten-stage workflow. Every focused reference is direct so agents load only the active branch. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
+`SKILL.md` controls activation and the ten-stage workflow. Every focused reference is direct so agents load only the active branch. The writing-quality reference is optional and loads only after an explicit language-quality request, a concrete clarity defect, or a requested final review of generated coordination files. Fixtures define behavioral invariants for maintenance; the evaluation registry makes fixture coverage and required segments a deterministic CI contract. Tests and program documentation are not installed as runtime content.
 
 ## Runtime Sequence
 

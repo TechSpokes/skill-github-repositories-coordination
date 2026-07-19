@@ -40,6 +40,14 @@ Artifact-attestation workflow syntax was checked on 2026-07-18. The release work
 
 GitHub CLI version resolution for `gh skill install` was checked on 2026-07-18. A versionless skill name resolves the latest tagged release first and falls back to the default branch when no tagged release exists.
 
+## Writing Quality Sources
+
+The writing-quality decision was reviewed on 2026-07-19 against the repository corpus, issue #15 maintainer feedback, professional edit research, empirical studies of generated prose and model preference, and authoritative technical style guidance. The public source hierarchy and limits are recorded in [Writing Quality](WRITING.md).
+
+The research supports controls for observable reading costs such as overloaded sentences, dense labels, hidden actors, formulaic repetition, unsupported contrast, vague claims, unnecessary structure, and revision drift. It does not support inferring authorship from style, banning ordinary English constructions, reconstructing hidden model reasoning, or using a generic model judge as the sole quality gate.
+
+The complete research notes, confidence records, contradictions, and source extracts remain in ignored private intake for later reuse. Release packages contain only the optional runtime quality pass and omit the research archive, public maintainer guide, and regression corpus.
+
 ## Roadmap Source Treatment
 
 The issue #6 attachment is authoritative for the requested program direction, not for every market or security claim it cites. Phase plans use its durable objectives, safety principles, and evidence controls. Publishable market claims, community rules, product behavior, pricing, and host capabilities must be verified from current primary sources when they affect an action.

@@ -41,6 +41,7 @@ The maintenance goal is to keep that runtime portable, understandable, secure, t
 - Keep human work focused on intent, judgment, privacy review, risk acceptance, and authority while agents handle bounded discovery, structuring, routing, and verification.
 - Prefer platform-neutral Node.js scripts and standard library APIs when deterministic automation is justified.
 - Apply `.github/instructions/markdown.instructions.md` to every Markdown change.
+- Apply `.github/instructions/writing.instructions.md` to repository prose and use `docs/WRITING.md` when a rule, disputed edit, corpus case, or review method needs the detailed rationale.
 
 ## Conflict Resolution
 
@@ -56,6 +57,7 @@ Do not use the product goal, a combined plan, issue order, tool success, or proc
 - Read `skills/coordinate-github-repositories/references/goal-and-authority.md` before changing goal hierarchy, workspace roles, artifact placement, cross-repository plans, conflict handling, or handoff.
 - Read `skills/coordinate-github-repositories/references/safety-and-approval.md` and `docs/THREAT-MODEL.md` before changing access, mutation, automation, private-derived output, publication, or security controls.
 - Read `docs/FEEDBACK.md` before changing feedback intake, issue enrichment, duplicate routing, privacy review, or publication approval.
+- Read `docs/WRITING.md` before changing writing rules, natural-language output behavior, the writing regression corpus, or writing-quality validation.
 - Read `docs/VERSION.md`, `docs/RELEASING.md`, `docs/TESTING.md`, `docs/THREAT-MODEL.md`, `docs/GOVERNANCE.md`, and the intended release notes before cutting or publishing a release.
 
 ## Workspace and Authority
@@ -79,6 +81,7 @@ Do not place temporary plans, upstream follow-up, or unrelated repository work i
 - `docs/ARCHITECTURE.md` records durable design and source boundaries.
 - `docs/decisions/README.md` distinguishes architecture, program, evidence, governance, and procedural records.
 - `docs/FEEDBACK.md` defines low-friction human and agent feedback intake.
+- `docs/WRITING.md` defines the source hierarchy, writing diagnostics, exceptions, review method, and maintenance budget.
 - `docs/TESTING.md` records validation layers and forward-review evidence.
 - `docs/RELEASING.md` defines the change and release process.
 - `packaging/` contains Codex and Claude wrapper manifests around the canonical runtime.
