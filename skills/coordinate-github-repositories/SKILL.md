@@ -1,6 +1,6 @@
 ---
 name: coordinate-github-repositories
-description: Coordinate GitHub repositories across personal accounts and organizations by diagnosing agent access, inventory, findability, portfolio state, routing, cross-repository work, and tool fit. Use for repository-centered coordination across documentation, writing, research, data, operations, software, or mixed work; for adaptive inventory or organization; for comparing native features, local catalogs, connectors, MCP, external catalogs, and automation; and when asked to install, update, locate, repair, or verify this skill. Do not use as the primary workflow for routine implementation confined to one known repository or for executing blanket destructive requests inferred only from inactivity; refuse the unsupported inference and require lifecycle evidence.
+description: Coordinate GitHub repositories across personal accounts and organizations by diagnosing agent access, inventory, findability, portfolio state, routing, cross-repository work, and tool fit. Use for repository-centered coordination across documentation, writing, research, data, operations, software, or mixed work; for adaptive inventory or organization; for comparing native features, local catalogs, connectors, MCP, external catalogs, and automation; for a first conversation after installation when the user does not yet know what to ask; and when asked to install, update, locate, repair, or verify this skill. Do not use as the primary workflow for routine implementation confined to one known repository or for executing blanket destructive requests inferred only from inactivity; refuse the unsupported inference and require lifecycle evidence.
 license: MIT
 ---
 
@@ -28,10 +28,12 @@ Read the Goal and Must-Follow Rules for every run. Follow the workflow for repos
 ## Agent Guidelines
 
 - Start with the person's outcome, work, and existing organization.
+- Skip generic onboarding when the user already states a concrete outcome.
 - Treat repositories as containers for code, documents, writing, research, data, operations, publishing, or mixed work.
 - Compare the current system and no change with proposed alternatives.
 - Prefer the smallest reversible intervention supported by evidence.
 - Reduce human friction and administration. Ask people for intent, judgment, privacy review, and authority while agents handle discovery, structuring, enrichment, routing, and verification when capable.
+- Keep a tentative understanding easy to correct, reuse known context, and offer one related optional next step when new evidence makes it useful.
 - Explain in one plain sentence which concrete harm a consequential least-privilege or reversible step prevents. Do not call a step safe without naming the avoided access, disclosure, disruption, or recovery risk.
 
 ## Workflow
@@ -40,13 +42,15 @@ Read the Goal and Must-Follow Rules for every run. Follow the workflow for repos
 
 Restate the smallest repository-centered outcome. Define intended accounts, organizations, repositories, local folders, or workstreams only as far as the task requires.
 
+When the user asks what to do after installation but provides no concrete outcome, explain the skill's role and limits in one sentence, then ask what made them install it or what they want to make easier. Load [context calibration](references/context-calibration.md) and follow its first conversation branch before proposing portfolio discovery.
+
 Identify governing instructions, current visibility, allowed evidence sources, and the difference between read, write, repository administration, and organization administration. Do not interpret a broad aspiration as blanket mutation authority.
 
 Load [safety and approval](references/safety-and-approval.md) before access changes, writes, administrative work, automation, lifecycle actions, or public output.
 
 ### 2. Calibrate Work Context
 
-Collect only context that could change the recommendation. Prefer explicit user statements and existing artifacts over questions. Record relevant work types, scale, collaboration, existing systems, friction, constraints, change tolerance, capabilities, and unknowns.
+Collect only context that could change the recommendation. Prefer explicit user statements and existing artifacts over questions. Record relevant work types, scale, collaboration, existing systems, friction, constraints, change tolerance, capabilities, and unknowns in a tentative working hypothesis that remains easy to correct.
 
 Load [context calibration](references/context-calibration.md) when work style, existing organization, or persistence needs are unclear.
 
@@ -89,6 +93,8 @@ If the request is routine work inside one known repository, follow that reposito
 
 Inspect only evidence needed for the decision. Preserve provenance, observation time, confidence, visibility, and unknowns. Distinguish generated snapshots from reviewed meaning and architectural proposals from working implementations.
 
+After meaningful evidence changes the working hypothesis, reflect only the change that affects the recommendation, authority boundary, or next step. Offer one related optional next step by default, expand discovery only within renewed relevant scope, and stop when further evidence would not change the current decision.
+
 When an authorized portfolio inventory exists, use it to locate relevant user preferences, analogous repositories, and proven practices before proposing a new approach. Treat those practices as candidates to evaluate and combine, not templates to copy.
 
 For inventories, routing, cross-repository work contracts, or lifecycle review, load [inventory and coordination](references/inventory-and-coordination.md).
@@ -130,11 +136,13 @@ Load [feedback and improvement](references/feedback-and-improvement.md) when fee
 Use concise prose by default. Include the parts needed for the decision:
 
 - Interpreted outcome and relevant context.
+- Tentative working hypothesis and correction point when the user begins without a concrete outcome.
 - Evidence, assumptions, unknowns, and access limitations.
 - Coordination problem and repository purposes.
 - Ranked options with fit, burden, permissions, privacy, maintenance, and reversibility.
 - Preferred option and no-change rationale.
 - Smallest next step or pilot.
+- One related optional next step when progressive discovery reveals useful evidence beyond the completed task.
 - Required plain-language rationale that names the specific access, disclosure, disruption, or recovery harm the recommendation prevents.
 - Required approvals and verification.
 - A sanitized feedback draft only when the user requests it or the run exposes reusable learning and the user wants to report it.
@@ -143,4 +151,8 @@ Use structured YAML only when the user needs a reusable artifact. Do not expose 
 
 ## Completion Check
 
-Finish only when the user can tell what problem was diagnosed, what evidence and unknowns remain, why the recommendation fits their work, what authority is needed, which harm a consequential safe boundary prevents, how to reverse or recover, where repository-owned work should go, and how to capture a useful observation without unnecessary administrative work.
+Finish a first conversation when the user can correct the tentative working hypothesis and choose one bounded next step without completing a portfolio profile.
+
+Finish ordinary work only when the user can tell what problem was diagnosed, what evidence and unknowns remain, why the recommendation fits their work, what authority is needed, which harm a consequential safe boundary prevents, how to reverse or recover, where repository-owned work should go, and how to capture a useful observation without unnecessary administrative work.
+
+Finish progressive discovery when the suggested next step remains optional, any expanded scope is explicit, and the agent has stopped before new access, persistence, mutation, publication, or unrelated implementation.

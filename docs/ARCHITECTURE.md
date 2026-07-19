@@ -26,6 +26,12 @@ This dual path reduces installation friction without making GitHub CLI, a shell,
 
 Tool selection begins only after the agent understands the current outcome, work types, scale, ownership, existing system, friction, constraints, and change tolerance. Context is ephemeral by default. This prevents a useful calibration step from becoming an unreviewed personal dossier.
 
+### Conversation Before Coverage
+
+When a person begins without a concrete outcome, the runtime uses one easy opening question and no more than two initial follow-up questions by default before reflecting a tentative working hypothesis and offering one bounded step. A stated outcome skips this branch, and first value does not require repository access, an inventory, or a durable profile.
+
+Later proactivity remains tied to the current outcome. The agent may update its ephemeral working hypothesis from explicit corrections and bounded authorized evidence, offer one related optional next step, and expand discovery only after relevance, evidence source, and authority are renewed.
+
 ### Purpose Is Broader Than Code
 
 The skill separates repository purpose, portfolio role, and lifecycle. It recognizes software, documentation, writing, publishing, research, data, operations, websites, presentations, archives, mirrors, mixed work, and unknown work. Existing user vocabulary is preserved.
@@ -97,16 +103,16 @@ tests/
 
 ## Runtime Sequence
 
-1. Establish outcome, scope, authority, and governing instructions.
-2. Calibrate the smallest useful work context.
+1. Establish outcome, scope, authority, and governing instructions, using the short first conversation only when the outcome is unknown.
+2. Calibrate the smallest useful work context as a tentative and correctable working hypothesis.
 3. Describe repository purposes.
 4. Detect agent capabilities and access gaps.
 5. Shape the coordination problem.
-6. Gather bounded evidence and preserve uncertainty.
+6. Gather bounded evidence, preserve uncertainty, and update the working hypothesis only when the change affects the decision.
 7. Compare the current system, no change, and candidates.
 8. Recommend a reversible next step.
 9. Execute only within explicit authority.
-10. Verify, route repository-owned implementation, and offer low-friction feedback when the run exposes reusable learning.
+10. Verify, route repository-owned implementation, offer one related optional next step, and provide low-friction feedback when the run exposes reusable learning.
 
 ## Evidence Model
 

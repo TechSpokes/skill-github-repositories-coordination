@@ -7,6 +7,7 @@ This Agent Skill helps an agent diagnose access, understand a repository portfol
 ## What It Helps With
 
 - Diagnose which personal and organization repositories an agent can see.
+- Start with a short guided conversation when the user does not yet know which repository decision to request.
 - Build a lightweight index or a structured inventory at the scale needed.
 - Understand repository purpose without assuming every repository is code.
 - Coordinate one outcome across several repository owners and workflows.
@@ -14,6 +15,7 @@ This Agent Skill helps an agent diagnose access, understand a repository portfol
 - Compare GitHub-native features, local records, knowledge systems, connectors, catalogs, automation, and the no-change option.
 - Choose the smallest reversible improvement that fits the user's work.
 - Capture useful observations from humans and agents without requiring a completed bug report or implementation plan.
+- Learn progressively from authorized work and offer one related optional next step without silently expanding scope.
 
 ## Install in One Minute
 
@@ -45,7 +47,7 @@ The root [installation guide](INSTALL.md) has equivalent commands for GitHub Cop
 4. Start a new agent session, then ask:
 
 ```text
-Help me understand which repositories my agent can access across my personal account and organizations, then suggest the smallest useful way to coordinate them.
+I just installed this skill. Help me decide what would be useful by asking one easy question at a time, without inspecting or changing repositories yet.
 ```
 
 The [plain-language installation guide](INSTALL.md) shows exactly where to put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code, GitHub Copilot, project-only installs, and plugin packages.
@@ -56,22 +58,22 @@ Do not download GitHub's automatically generated `Source code` archives. Those c
 
 The skill follows a goal-first sequence:
 
-1. Establish the outcome, scope, authority, and local instructions.
-2. Understand only the work context that changes the decision.
+1. Establish the outcome, scope, authority, and local instructions, using a short first conversation when the outcome is not yet known.
+2. Build a tentative understanding from only the work context that changes the decision.
 3. Describe repository purposes without a code-only assumption.
 4. Detect agent capabilities and access gaps.
 5. Shape the coordination problem.
-6. Gather bounded evidence and preserve uncertainty.
+6. Gather bounded evidence, preserve uncertainty, and update the working understanding only when the evidence matters.
 7. Compare the current system, no change, and proportionate alternatives.
 8. Recommend a reversible next step.
 9. Execute only exact actions the user authorizes.
-10. Verify the result, route implementation to owning repositories, and offer low-friction feedback when the run exposes reusable learning.
+10. Verify the result, route implementation to owning repositories, offer one related optional next step, and capture low-friction feedback when the run exposes reusable learning.
 
 Detailed design: [Architecture](docs/ARCHITECTURE.md).
 
 ## Safety and Adaptation
 
-The skill does not silently persist a user profile, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone. Administrative, destructive, cross-repository, and public actions require stronger checkpoints.
+The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone. Administrative, destructive, cross-repository, and public actions require stronger checkpoints.
 
 Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository content, privileged tool, public output, privacy, and release boundaries. Read the [learning path](docs/LEARNING.md) for a no-terminal explanation of the safe practices the skill teaches while it works.
 
@@ -134,6 +136,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.3.2`.
+Current version: `1.4.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

@@ -12,9 +12,17 @@ For a browser installation, open the [latest release](https://github.com/TechSpo
 
 Keep `SKILL.md` and `references/` together. Use the root [installation guide](../INSTALL.md) for complete commands, folders, verification, update, repair, and removal instructions.
 
-## Start With an Outcome
+## Start a Useful Conversation
 
-Ask the agent for a repository decision that matters to you instead of asking it to organize everything without context:
+If you do not yet know which repository decision matters, ask:
+
+```text
+I just installed this skill. What should we do first?
+```
+
+The agent should explain the skill's role and limits in one sentence, then ask what made you install it or what you want to make easier. It may ask up to two relevant follow-up questions before reflecting a tentative understanding that you can correct and offering one bounded next step.
+
+If you already know the outcome, state it directly so the agent skips generic onboarding:
 
 ```text
 I have repositories in my personal account and two organizations. Help me check what you can access, understand the kinds of work they contain, and recommend a proportionate way to coordinate them without replacing useful workflows.
@@ -34,6 +42,8 @@ Compare our current GitHub Projects setup with a local inventory and an external
 
 - The agent clarifies only facts that can change the decision.
 
+- The agent skips generic onboarding when your concrete outcome is already clear.
+
 - The agent states which repositories and capabilities it can and cannot observe.
 
 - The agent recognizes code and non-code work.
@@ -47,6 +57,8 @@ Compare our current GitHub Projects setup with a local inventory and an external
 - The agent asks before writes, installations, access changes, administrative actions, or public output.
 
 - The agent routes concrete implementation back to the owning repository workflow.
+
+- The agent may offer one related optional next step after new evidence, but it stops before broader discovery, persistence, or action without renewed scope and authority.
 
 ## If the Agent Has No GitHub Access
 
