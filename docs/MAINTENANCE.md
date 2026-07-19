@@ -6,11 +6,11 @@ Keep the runtime, evidence, security, releases, and maintainer responsibilities 
 
 ## Current Health
 
-Version `1.2.0` keeps one portable runtime, eight direct references, conversation-only usefulness, Node.js validation, three installable packages, SHA-256 checksums, and GitHub artifact attestations.
+The package manifest is the current release identity source, with synchronized plugin manifests, changelog, version policy, and release notes. The canonical portable runtime remains useful with conversation alone, every focused reference is linked directly from `SKILL.md`, and deterministic Node.js validation checks the maintained agent surface against the actual runtime tree.
 
-The evaluation registry covers activation, behavior, feedback, access denial, write capability, platform fit, non-code work, and adversarial containment. The threat model covers untrusted repository content, privileged tools, private context, public output, and release artifacts.
+The evaluation registry covers activation, behavior, goal survival, feedback, access denial, write capability, platform fit, non-code work, and adversarial containment. The threat model covers untrusted repository content, privileged tools, workspace and authority drift, private context, public output, and release artifacts.
 
-Volatile host behavior remains isolated in the dated capability adapter. Release identity remains synchronized across package manifests, the changelog, version policy, release notes, and package names.
+Volatile host behavior remains isolated in the dated capability adapter. Release packages remain deterministic, carry SHA-256 checksums, and receive GitHub artifact attestations.
 
 ## Human Coverage
 
@@ -20,7 +20,7 @@ The missing second maintainer is a continuity risk, not a reason to withhold doc
 
 ## Review Cadence
 
-Review maintenance after a runtime release, security report, evaluation regression, host capability change, stale public source, package mismatch, repeated feedback pattern, maintainer change, or failed release handoff.
+Review maintenance after a runtime release, security report, evaluation regression, goal or authority drift, host capability change, stale public source, package mismatch, repeated feedback pattern, maintainer change, or failed release handoff.
 
 ## Fast Health Check
 

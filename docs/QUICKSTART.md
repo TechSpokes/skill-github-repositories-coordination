@@ -46,6 +46,8 @@ Compare our current GitHub Projects setup with a local inventory and an external
 
 - The agent states which repositories and capabilities it can and cannot observe.
 
+- The agent distinguishes the active implementation workspace from repositories or inventories used only as evidence.
+
 - The agent recognizes code and non-code work.
 
 - The agent preserves existing vocabulary and governance.
@@ -57,6 +59,8 @@ Compare our current GitHub Projects setup with a local inventory and an external
 - The agent asks before writes, installations, access changes, administrative actions, or public output.
 
 - The agent routes concrete implementation back to the owning repository workflow.
+
+- The agent rechecks the intended benefit, authority, evidence state, and next verification after a material plan change, summary, conflict, or handoff without asking you to repeat known context.
 
 - The agent may offer one related optional next step after new evidence, but it stops before broader discovery, persistence, or action without renewed scope and authority.
 

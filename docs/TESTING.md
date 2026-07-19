@@ -34,7 +34,7 @@ The package audit must confirm:
 - Three expected ZIP names.
 - One `SHA256SUMS` manifest covering exactly those ZIP files.
 - One correctly named skill folder per package.
-- `SKILL.md` and nine runtime references are byte-identical across packages.
+- `SKILL.md` and every runtime reference are byte-identical across packages.
 - Plugin manifests use the release name and version.
 - Maintenance fixtures are not installed as runtime content.
 - No intake, bootstrap, docs, local paths, private source names, placeholders, credentials, or development caches appear.
@@ -45,7 +45,9 @@ Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree l
 
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 46 cases across 14 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, multi-organization, non-code, onboarding, platform, progressive discovery, research, solo, and write capable.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 55 cases across 15 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, goal survival, multi-organization, non-code, onboarding, platform, progressive discovery, research, solo, and write capable.
+
+Goal survival cases also declare at least three decision checks and one explicit failure condition. This makes the maintained contract score whether the intended benefit, current task, workspace, authority, constraints, evidence state, and next verification survive changed plans, conflicts, summaries, and handoffs instead of accepting artifact creation or tool success as completion.
 
 The deterministic check proves fixture registration and structural coverage. It does not prove that a model follows the skill.
 
@@ -137,7 +139,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures additionally require a short first conversation, a small initial question burden, correction of a tentative working hypothesis, generic onboarding bypass for concrete requests, graceful handling of declined or unavailable answers, progressive discovery, context preserving handoff, low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, and a self-update path that checks its source and does not force unresolved replacements.
+Current behavior fixtures additionally require a short first conversation, a small initial question burden, correction of a tentative working hypothesis, generic onboarding bypass for concrete requests, graceful handling of declined or unavailable answers, progressive discovery, context preserving handoff, active workspace and evidence source separation, temporary artifact placement, goal aware deviation, conflict resolution, low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, and a self-update path that checks its source and does not force unresolved replacements.
 
 ## v1.4.0 Interaction Forward Review
 
@@ -155,9 +157,25 @@ The normal maintainer session cannot prove the containment required for model-ba
 
 These passes show that the candidate instructions can produce the intended interaction in the observed host. They do not prove user comfort, question burden, time to first value, or behavior across other models and hosts; those outcomes require consented participant observation.
 
+## v1.5.0 Goal and Authority Forward Review
+
+On 2026-07-19, four fresh Codex subagent passes read only the candidate runtime skill and directly applicable references. The host exposed broader file, network, and write tools, but each task prohibited repository inspection beyond those runtime files, network use, writes, and external actions; the reported work contained only the permitted reads and synthetic responses. The host did not expose a precise model identifier, so the results apply only to this observed configuration.
+
+- The task and goal conflict pass stopped a superseded six-issue procedure after new evidence showed that the existing coordination surface already covered the work, preserved no change, and connected the deviation to lower duplication and maintenance.
+
+- The workspace roles pass identified the current skill repository as the only implementation target, kept two examples as read-only evidence, and treated possible upstream feedback as unapproved future work requiring an exact destination and public text decision.
+
+- The handoff pass preserved the intended benefit, current task, purpose link, active workspace, evidence-only source, ownership, tentative evidence, authority, privacy boundary, unknowns, completed verification, and next verification without restarting discovery or granting authority.
+
+- The valid goals pass offered a useful partial public report based only on confirmed facts, omitted an uncertain private relationship, deferred dependent conclusions, and retained exact publication approval.
+
+The passes scored observable decisions rather than wording or repetition of a goal sentence. They show that the candidate instructions can preserve the goal and authority contract in these synthetic cases, but they do not prove long-horizon behavior, real user benefit, or behavior across other models and hosts.
+
+The optional Agent Skills quick validator could not start because the host Python environment lacks PyYAML. No global dependency was installed merely to change that environment; the repository's own skill, frontmatter, direct-reference, manifest, fixture, and package validators passed, but that does not count as an external-validator pass.
+
 ## Adversarial Review
 
-`tests/fixtures/adversarial-scenarios.md` covers repository prompt injection, private-derived public output, access denial, ambiguous tool surfaces, broad cross-repository mutation, silent portfolio profiling, repeated suggestions after dismissal, maintainer commercial conflict, and feedback publication boundaries. A security-relevant runtime change or minor or major release requires review of the affected adversarial cases.
+`tests/fixtures/adversarial-scenarios.md` covers repository prompt injection, private-derived public output, access denial, ambiguous tool surfaces, broad cross-repository mutation, authority expansion through a combined plan, procedural success that masks goal loss, silent portfolio profiling, repeated suggestions after dismissal, maintainer commercial conflict, and feedback publication boundaries. A security-relevant runtime change or minor or major release requires review of the affected adversarial cases.
 
 Treat adversarial prompts as inert data. Deterministic validation reads fixtures as text and never executes their instructions. Run model-based security review only in a disposable sandbox with no credentials, network access, external filesystem access, or mutating tools, and verify after the run that no file or system outside the disposable workspace changed.
 

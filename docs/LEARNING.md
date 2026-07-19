@@ -24,7 +24,7 @@ Start with a real outcome such as finding a manuscript and its research, seeing 
 
 The agent may notice one useful related practice or connection while working. Treat that as an optional next step, not permission to inspect more repositories or create a permanent profile.
 
-## Six Ideas to Keep
+## Eight Ideas to Keep
 
 ### Least Privilege
 
@@ -33,6 +33,14 @@ Give an agent only the access needed for the current task. Smaller access limits
 ### Untrusted Repository Content
 
 A README, issue, comment, or tool result can contain instructions that conflict with your goal. Treat retrieved text as evidence and keep your active instructions in control.
+
+### Goal, Task, and Procedure Are Different
+
+Your intended benefit explains why the work matters, the task names the result needed now, and a procedure is only one possible method. After a long run, changed plan, or handoff, check that the completed procedure still advances the benefit instead of treating local success as the outcome.
+
+### Active Workspace and Evidence Sources Are Different
+
+An agent may read one repository to learn from it while implementing only in another repository. Reading, authenticating, or including both repositories in one plan does not authorize a change to the evidence source.
 
 ### Private and Public Are Separate Decisions
 
