@@ -1,6 +1,6 @@
 # Version
 
-Current version: `1.9.0`.
+Current version: `1.10.0`.
 
 ## Source of Truth
 

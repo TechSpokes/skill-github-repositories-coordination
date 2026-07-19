@@ -25,7 +25,7 @@ npm run package -- vX.Y.Z
 npm run release:verify-assets -- vX.Y.Z
 ```
 
-The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, feedback, decisions, writing-corpus structure, and the 500-line core limit. It also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
+The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, feedback, decisions, writing-corpus structure, and the 500-line core limit. Decision validation derives canonical types and index coverage from marked blocks in `docs/decisions/README.md`, discovers records dynamically, and checks stable filenames, unique identifiers, matching titles, common sections, exact index membership, and stale links without hard-coding historical record names. The validator also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
 
 For a release cut, `npm run release:preflight -- vX.Y.Z` snapshots every tracked and nonignored untracked candidate file, runs the complete final-tree gate, builds the assets twice, requires stable checksums, and verifies that the gate does not change the candidate tree.
 

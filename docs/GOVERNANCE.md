@@ -8,7 +8,7 @@ Protect the skill's portability, safety, evidence discipline, teaching value, fr
 
 The repository maintainers may accept reversible implementation and documentation decisions that preserve the published contracts. Require an accountable human review for activation or safety contract changes, public release, security acceptance, organization access, paid conflicts, major interoperability commitments, and decision supersession.
 
-Classify durable decisions through the [decision record guide](decisions/README.md). Reserve architecture decisions for system structure and runtime boundaries, use program decisions for roadmap or governance rules, use evidence decisions for claim classification, and keep ordinary procedures in their owning guides. Preserve superseded records.
+Classify durable decisions through the [decision record guide](decisions/README.md). Reserve architecture decisions for product structure and runtime contracts, use program decisions for bounded roadmap and delivery coordination, use evidence decisions for evidence acceptance and permitted claims, and use governance decisions for durable authority or repository-wide policy. Keep ordinary procedures in their owning guides and preserve superseded records.
 
 ## Definition of Done
 

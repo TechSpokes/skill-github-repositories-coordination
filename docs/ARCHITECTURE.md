@@ -161,4 +161,6 @@ Refresh `agent-capability-adapters.md` when hosts change skill paths, connector 
 
 Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), and [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, contribution quality, roadmap claims, or release identity.
 
+Decision records use one shared directory and identifier sequence with explicit Architecture, Program governance, Evidence classification, and Governance types. Current runtime, policy, evidence, and procedure documents remain the operational sources of truth; [Governance Decision 0005](decisions/0005-use-one-typed-decision-registry.md) records the taxonomy, history-preserving migration, and validation boundary.
+
 Keep project scripts platform-neutral where Node.js provides the needed capability. Validation, checksum generation, and the dependency-free stored ZIP implementation use Node.js standard library APIs and do not depend on host archive commands or shell-specific path behavior.
