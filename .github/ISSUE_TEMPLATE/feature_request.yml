@@ -1,5 +1,5 @@
 name: Improvement proposal
-description: Propose an evidence-backed skill or maintenance improvement
+description: Propose a skill or maintenance improvement supported by evidence
 labels: [enhancement]
 body:
   - type: textarea

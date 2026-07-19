@@ -15,7 +15,7 @@ body:
     id: pattern
     attributes:
       label: Pattern or tool choice
-      description: Explain the current system, chosen change, and why it fit.
+      description: Explain the current system, chosen change, and why it fits.
     validations:
       required: true
   - type: textarea

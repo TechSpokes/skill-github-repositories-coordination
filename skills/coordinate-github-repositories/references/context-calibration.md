@@ -28,7 +28,7 @@ Build the smallest working context model needed for the current repository coord
 
 A working hypothesis is the agent's temporary and correctable understanding of the current outcome, useful existing practice, observed friction, relevant boundary, and important unknowns. It is not a durable user or organization profile.
 
-Proactivity means an evidence supported suggestion or bounded discovery step within the user's current outcome. It does not grant authority for monitoring, persistence, broader access, mutation, publication, or unrelated work.
+Proactivity means a suggestion supported by evidence or a bounded discovery step within the user's current outcome. It does not grant authority for monitoring, persistence, broader access, mutation, publication, or unrelated work.
 
 ## Evidence Order
 
@@ -50,7 +50,7 @@ Do not infer competence, motivation, reliability, or personal worth from activit
 
 Use this branch only when the user asks what to do after installation or asks what the skill can help with without stating a concrete outcome. Skip it when the user already provides enough context for the normal workflow.
 
-Explain in one sentence that the skill can help understand and coordinate repository centered work, can begin with conversation alone, and will not inspect or change anything without the applicable access and authority.
+Explain in one sentence that the skill can help understand and coordinate work across repositories, can begin with conversation alone, and will not inspect or change anything without the applicable access and authority.
 
 Ask one opening question: "What made you install this skill today, or what would you like to be easier?"
 
@@ -227,7 +227,7 @@ Stop or ask before continuing when:
 
 - The agent would repeat a dismissed suggestion or ask for context that is already explicit and current.
 
-Do not infer competence, motivation, confidential business relationships, lifecycle state, value, or authority from repository activity or naming. Do not make the user manage an agent generated backlog merely because more work was noticed.
+Do not infer competence, motivation, confidential business relationships, lifecycle state, value, or authority from repository activity or naming. Do not make the user manage a backlog merely because the agent noticed more work.
 
 When summarizing or handing off the work, preserve the current outcome, confirmed context, tentative hypotheses, user corrections, authority and privacy boundaries, important unknowns, and next verification. Do not restart generic onboarding, promote an inference to fact, or create a durable profile merely to transport context.
 

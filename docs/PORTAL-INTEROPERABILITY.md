@@ -17,7 +17,7 @@ Compare four serious candidates:
 
 Evaluate each option with the same outcome, workflow, scale, permission, privacy, portability, reversibility, maintenance, learning, recovery, and evidence criteria.
 
-## Front-Porch Handoff
+## Portal Handoff
 
 The skill may prepare reviewed input for a portal without becoming its source of truth. A handoff should contain only the fields needed for the receiving decision:
 

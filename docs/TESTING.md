@@ -141,7 +141,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, goal survival, workspace roles, temporary material, low-friction feedback, and safe self-update. They also require the optional writing-quality pass to preserve meaning and protected literals without widening the skill into general writing work.
+Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, goal survival, workspace roles, temporary material, simple feedback intake, and controlled updates of this skill. They also require the optional writing quality pass to preserve meaning and protected literals without widening the skill into general writing work.
 
 ## v1.4.0 Interaction Forward Review
 
@@ -155,7 +155,7 @@ On 2026-07-19, four fresh Codex subagent passes read only the candidate runtime 
 
 - The handoff pass preserved the outcome, corrected ownership, tentative connection, evidence boundary, unknowns, and next approval without restarting onboarding or granting new authority.
 
-The normal maintainer session cannot prove the containment required for model-based adversarial execution, so silent profiling and repeated dismissal fixtures remained inert and were checked only through deterministic registration and static review. This prevents a security evaluation from gaining access to credentials, networks, or unrelated files.
+The normal maintainer session cannot prove the containment required for model-based adversarial execution, so silent profiling and repeated dismissal fixtures remained inert and were checked only through deterministic registration and static review. Keeping those prompts inert protects credentials, networks, and unrelated files from the security evaluation itself.
 
 These passes show that the candidate instructions can produce the intended interaction in the observed host. They do not prove user comfort, question burden, time to first value, or behavior across other models and hosts; those outcomes require consented participant observation.
 
@@ -177,14 +177,25 @@ The optional Agent Skills quick validator could not start because the host Pytho
 
 ## v1.6.0 Writing Quality Forward Review
 
-On 2026-07-19, four fresh Codex subagent passes read only the candidate `SKILL.md` and, when applicable, the optional writing-quality reference. The tasks prohibited all other repository reads, network use, external tools, and writes. The host did not expose a precise model identifier, so the results apply only to this observed configuration.
+On 2026-07-19, four fresh Codex subagent passes read only the candidate `SKILL.md` and, when applicable, the optional writing quality reference. The tasks prohibited all other repository reads, network use, external tools, and writes. The host did not expose a precise model identifier, so the results apply only to this observed configuration.
 
 - The activation pass loaded the optional reference for a requested review of generated coordination files and handed an unrelated novel paragraph to a general writing workflow without loading the reference.
-- The protected-language pass retained the genuine evidence-versus-authority contrast, the exact command and flag `gh skill install --scope user`, the `read-only` compound, and the approved-source boundary while splitting the sentence.
+- The protected language pass retained the genuine contrast between evidence and authority, the exact command and flag `gh skill install --scope user`, the `read-only` compound, and the approved source boundary while splitting the sentence.
 - The first quality pass preserved all safety results and replaced the vague harm claim, but it coined the unnecessary compound `repository-instruction injection`. The runtime and maintainer rules were tightened to prefer an ordinary verb phrase over a newly coined compound label.
 - A fresh retry replaced every dense test label with ordinary verb phrases, preserved all five scenario types and safety results, bounded the claims to the tested scenarios, and introduced no new compound label.
 
 These passes show that the optional route and repair sequence can work in the observed synthetic cases. They do not prove comprehension for every reader, quality across other models or hosts, or authorship from style. The reviewed corpus and maintainer criteria remain the release ground truth; model output is supplementary evidence.
+
+## v1.6.1 Repository Review Forward Checks
+
+On 2026-07-19, three fresh Codex subagent checks read only the candidate `SKILL.md` and the direct references required by each task. The checks prohibited all other repository reads, network access, external repositories, credentials, and mutating tools. The host did not expose a precise model identifier, so the results apply only to this observed configuration.
+
+- The activation check loaded the optional writing reference for a requested final review of generated coordination files, handed unrelated novel editing to a general writing workflow, and left the reference unloaded during ordinary coordination across three repositories.
+- The protected language check preserved `gh skill install --scope user`, `repository-derived`, `cross-repository`, and `read-only`. It rejected retrieved instructions as authority, required separate authority for each target, and replaced a vague safety claim with the risk of changing repository content outside the approved scope.
+- The behavior check kept documentation edits limited to repository A, treated repositories B and C as evidence only, inferred no mutation, and required separate publication approval for the exact artifact and audience.
+- The first behavior check used the old dense phrase `target-specific authority` in its explanatory note. A focused retry replaced that phrase with ordinary language and confirmed that the defect affected the prose, not the preserved behavior contract.
+
+These checks support the optional activation boundary, preservation rules, and editorial equivalence in the observed synthetic cases. They do not measure comprehension, task completion time, user trust, or behavior across other models and hosts. The deterministic corpus and repository validation remain the primary release evidence.
 
 ## Adversarial Review
 

@@ -2,13 +2,13 @@
 
 ## Program Goal
 
-Make Coordinate GitHub Repositories a trusted, useful, free, and maintainable default for repository coordination across code and non-code work. Growth is valid only when the runtime, security posture, evaluation evidence, teaching value, and governance remain healthy.
+Make Coordinate GitHub Repositories a trusted, useful, free, and maintainable option for repository coordination across code and non-code work. Growth is valid only when the runtime, security posture, evaluation evidence, teaching value, and governance remain healthy.
 
-This roadmap implements [issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6). It transforms the attached strategy into an evidence-aware delivery program that fits the current portable architecture and release process.
+This roadmap implements [issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6). It transforms the attached strategy into a delivery program guided by evidence that fits the current portable architecture and release process.
 
 ## Scope Boundary
 
-The repository can supply runtime behavior, tests, documentation, release controls, and evidence formats. It cannot manufacture volunteer insight, unsolicited adoption, third-party recommendations, outside contributions, or additional maintainers. Missing external evidence limits adoption claims and identifies future learning work, but it does not freeze unrelated repository work that is safe and ready.
+The repository can supply runtime behavior, tests, documentation, release controls, and evidence formats. It cannot manufacture volunteer insight, unsolicited adoption, third-party recommendations, outside contributions, or additional maintainers. Missing external evidence limits adoption claims and identifies future learning work, but it does not freeze unrelated repository work that is authorized, sourced, contained, and testable.
 
 Use the founding portfolio and its roughly 340 repository observations as deep product evidence while preserving its disclosed builder and maintainer relationship. Do not relabel recruited or founding evidence as unsolicited.
 
@@ -16,7 +16,7 @@ Use the founding portfolio and its roughly 340 repository observations as deep p
 
 ### Execution Readiness
 
-Start any roadmap workstream when its authority, source, privacy, security, dependency, and validation needs are satisfied. Do not require a star, issue, testimonial, recommendation, outside contribution, or second maintainer before beginning safe repository work that does not depend on that person.
+Start any roadmap workstream when its authority, source, privacy, security, dependency, and validation needs are satisfied. Do not require a star, issue, testimonial, recommendation, outside contribution, or second maintainer before beginning authorized repository work that does not depend on that person.
 
 ### Outcome Evidence
 
@@ -28,8 +28,8 @@ Review all five cross-cutting tracks for every affected release or public action
 
 - Architecture and maintainability.
 - Security and privacy.
-- Agentic quality and evaluation.
-- Teaching and human uplift.
+- Agent behavior and evaluation.
+- Teaching and user learning.
 - Governance, contribution quality, and sustainability.
 
 A red security, privacy, evaluation, release-integrity, or values result blocks the affected release or public action until corrected or accepted by an accountable reviewer. An unknown adoption result does not compensate for a quality regression, and a quality result does not prove adoption.
@@ -44,7 +44,7 @@ The phase numbers preserve the strategy's learning sequence. They are not hard d
 
 ### Phase 0: Foundation
 
-[Issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7) establishes trust, evaluation, and undeniable outcomes. The founding builder used the skill through an agent on the real portfolio that motivated the repository and confirmed a previously unnoticed insight. Phase 0 is complete with the participant relationship and limitations recorded.
+[Issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7) establishes trust, evaluation, and evidence from the founding outcome. The founding builder used the skill through an agent on the real portfolio that motivated the repository and confirmed a previously unnoticed insight. Phase 0 is complete with the participant relationship and limitations recorded.
 
 ### Phase 1: Proof
 
@@ -60,7 +60,7 @@ The phase numbers preserve the strategy's learning sequence. They are not hard d
 
 ### Phase 4: Portal Interoperability
 
-[Issue #11](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/11) defines honest portal positioning, bounded handoff, fully qualified tool routing, and graceful access failure. Engineering-organization adoption remains an outcome observation rather than an implementation dependency.
+[Issue #11](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/11) defines honest portal positioning, bounded handoff, fully qualified tool routing, and graceful access failure. Adoption by an engineering organization remains an outcome observation rather than an implementation dependency.
 
 ### Phase 5: Skill Constellation
 
@@ -68,13 +68,13 @@ The phase numbers preserve the strategy's learning sequence. They are not hard d
 
 ### Phase 6: Sustainability
 
-[Issue #13](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/13) establishes free-core protection, recommendation independence, release provenance, health review, succession responsibilities, and continuous maintenance. Current maintainer coverage remains a disclosed continuity risk rather than a reason to withhold the controls that reduce it.
+[Issue #13](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/13) protects the free core and establishes recommendation independence, release provenance, health review, succession responsibilities, and continuous maintenance. Current maintainer coverage remains a disclosed continuity risk, but the documented controls still reduce that risk.
 
 ## Work Scheduling
 
 Prioritize by user value, risk, dependency, and reversibility. Threat modeling, evaluations, teaching, contribution review, release provenance, governance, proof presentation, launch preparation, and interoperability may proceed in parallel when their sources and authority are ready.
 
-Public actions still require their own safety, consent, target, community-rule, and correction checks. Completing a repository artifact never proves that an external audience adopted or recommended the skill.
+Public actions still require their own safety, consent, target, community rules, and correction checks. Completing a repository artifact never proves that an external audience adopted or recommended the skill.
 
 ## Evidence Records
 
@@ -91,16 +91,16 @@ Do not assign one version per phase automatically. Use semantic versioning accor
 - Use a major release for an activation, required-input, safety, workflow, or output-contract break.
 - Use no release for outreach or evidence collection when the installable runtime is unchanged.
 
-Version `1.1.0` establishes the cross-phase foundations: executable evaluation coverage, adversarial cases, threat modeling, teaching guidance, portal handoff, governance rules, checksums, and release provenance.
+Version `1.1.0` establishes foundations shared across the phases: executable evaluation coverage, adversarial cases, threat modeling, teaching guidance, portal handoff, governance rules, checksums, and release provenance.
 
 ## Current State
 
-All seven roadmap workstreams are complete for the repository-controlled scope documented in [Roadmap Delivery](ROADMAP-DELIVERY.md). Phase 0 has founding product evidence from the real multi-organization portfolio. Later external adoption, attention, retention, recommendation, contribution, and maintainer observations remain open evidence opportunities rather than delivery blockers.
+All seven roadmap workstreams are complete for the scope maintained in this repository and documented in [Roadmap Delivery](ROADMAP-DELIVERY.md). Phase 0 has founding product evidence from the real multi-organization portfolio. Later external adoption, attention, retention, recommendation, contribution, and maintainer observations remain open evidence opportunities rather than delivery blockers.
 
 This status does not claim that outside adoption, a coordinated external launch, portal recommendation, derivative work, or succession resilience has occurred. The repository records those unknowns explicitly and will update them when evidence appears.
 
 ## Review Triggers
 
-Review this roadmap after a completion decision, serious security report, evaluation regression, material host change, maintainer change, recommendation-conflict incident, contradictory external evidence, or evidence that a workstream objective no longer fits users.
+Review this roadmap after a completion decision, serious security report, evaluation regression, material host change, maintainer change, conflict in a recommendation, contradictory external evidence, or evidence that a workstream objective no longer fits users.
 
 Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected program, evidence, governance, or architecture decision in the same change. [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) records why adoption evidence now limits claims instead of blocking repository delivery.

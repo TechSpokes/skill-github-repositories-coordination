@@ -2,11 +2,17 @@
 
 ## Summary
 
-Preserve and reuse repository-centered value with less human administration while maintaining a portable skill that respects user authority, privacy, evidence integrity, ownership, and existing workflows. Read this Summary, Hard Constraints, Workspace and Authority, and Change Boundaries for every task; load the conditional documents named below before behavior, architecture, safety, cross-repository, or release decisions. Treat this repository as the only implementation workspace unless the user separately authorizes an exact target and action elsewhere, and stop when the active workspace or authority cannot be established.
+Preserve and reuse repository-centered value with less human administration while maintaining a portable skill that respects user authority, privacy, evidence integrity, ownership, and existing workflows.
+
+Read this Summary, Hard Constraints, Workspace and Authority, and Change Boundaries for every task. Load the conditional documents named below before behavior, architecture, safety, cross-repository, or release decisions.
+
+Treat this repository as the only implementation workspace unless the user separately authorizes an exact target and action elsewhere. Stop when the active workspace or authority cannot be established.
 
 ## Read Depth
 
-Use the smallest instruction set that supports a correct decision. Read routine owning files and their local instructions for narrow changes; read the complete runtime, applicable references, and all fixtures for behavior changes; read architecture and decision guidance for durable design changes; read safety and publication guidance before privileged, private-derived, or public actions; and read the complete release set before preparing or publishing a version.
+Use the smallest instruction set that supports a correct decision. Read the owning files and their local instructions for narrow changes. Read the complete runtime, applicable references, and all fixtures for behavior changes.
+
+Read architecture and decision guidance for durable design changes. Read safety and publication guidance before privileged actions, work derived from private sources, or public actions. Read the complete release set before preparing or publishing a version.
 
 Do not load historical records merely because they exist. Load one when the current decision depends on its rationale, evidence boundary, or supersession state.
 
@@ -14,7 +20,7 @@ Do not load historical records merely because they exist. Load one when the curr
 
 The product goal is to help people and agents preserve and reuse repository-centered value across accounts, organizations, and work types without imposing a taxonomy, tool, or replacement workflow.
 
-The maintenance goal is to keep that runtime portable, understandable, secure, testable, releasable, and progressively disclosed. Maintenance procedure serves the product goal; procedure completion is not success when the resulting behavior loses the user's intended benefit.
+The maintenance goal is to keep that runtime portable, understandable, secure, testable, releasable, and progressively disclosed. Maintenance procedures serve the product goal. Completing a procedure does not count as success when the resulting behavior loses the user's intended benefit.
 
 ## Hard Constraints
 
@@ -55,9 +61,9 @@ Do not use the product goal, a combined plan, issue order, tool success, or proc
 - Read all files under `tests/fixtures/` and `docs/TESTING.md` before changing activation, workflow order, output behavior, safety, handoff, portability, or progressive disclosure.
 - Read `docs/ARCHITECTURE.md` and `docs/decisions/README.md` before changing runtime structure, source boundaries, quality attributes, or a durable design decision.
 - Read `skills/coordinate-github-repositories/references/goal-and-authority.md` before changing goal hierarchy, workspace roles, artifact placement, cross-repository plans, conflict handling, or handoff.
-- Read `skills/coordinate-github-repositories/references/safety-and-approval.md` and `docs/THREAT-MODEL.md` before changing access, mutation, automation, private-derived output, publication, or security controls.
+- Read `skills/coordinate-github-repositories/references/safety-and-approval.md` and `docs/THREAT-MODEL.md` before changing access, mutation, automation, output derived from private sources, publication, or security controls.
 - Read `docs/FEEDBACK.md` before changing feedback intake, issue enrichment, duplicate routing, privacy review, or publication approval.
-- Read `docs/WRITING.md` before changing writing rules, natural-language output behavior, the writing regression corpus, or writing-quality validation.
+- Read `docs/WRITING.md` before changing writing rules, natural-language output behavior, the writing regression corpus, or writing quality validation.
 - Read `docs/VERSION.md`, `docs/RELEASING.md`, `docs/TESTING.md`, `docs/THREAT-MODEL.md`, `docs/GOVERNANCE.md`, and the intended release notes before cutting or publishing a release.
 
 ## Workspace and Authority
@@ -80,7 +86,7 @@ Do not place temporary plans, upstream follow-up, or unrelated repository work i
 - `tests/evals/cases.json` is the machine-checked evaluation registry.
 - `docs/ARCHITECTURE.md` records durable design and source boundaries.
 - `docs/decisions/README.md` distinguishes architecture, program, evidence, governance, and procedural records.
-- `docs/FEEDBACK.md` defines low-friction human and agent feedback intake.
+- `docs/FEEDBACK.md` defines simple feedback intake for humans and agents.
 - `docs/WRITING.md` defines the source hierarchy, writing diagnostics, exceptions, review method, and maintenance budget.
 - `docs/TESTING.md` records validation layers and forward-review evidence.
 - `docs/RELEASING.md` defines the change and release process.

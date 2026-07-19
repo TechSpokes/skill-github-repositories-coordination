@@ -53,7 +53,7 @@ Optional: what would have helped.
 
 ## Sanitized Context and Evidence
 
-Optional: version, generalized capabilities, safe reproduction, evidence, uncertainty, and related links.
+Optional: version, relevant capabilities, sanitized reproduction details, evidence, uncertainty, and related links.
 ```
 
 ## Maintainer Loop
@@ -66,7 +66,7 @@ For accepted feedback, define the goal and completion evidence, route implementa
 
 Read-only research across the founding portfolio's 340 canonical project records found dedicated feedback, instruction, and issue-intake concerns. The strongest existing portfolio pattern requires only a factual observation at intake, separates observation from hypothesis, keeps issues as the task surface, and promotes repeated learning into durable repository artifacts.
 
-The supplied cross-intelligence research treats feedback as the last stage of a communication fidelity chain and recommends goal-first, explicit, progressively disclosed messages that survive bounded human and agent attention. This design therefore keeps intake minimal while allowing later agent enrichment.
+The supplied research on communication across humans, agents, and tools treats feedback as the last stage of a chain that preserves meaning. It recommends explicit messages that begin with the goal and reveal detail as needed. The intake therefore starts with one observation and allows an agent or maintainer to add structure later.
 
 GitHub's [issue-form syntax](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms), reviewed on 2026-07-18, supports typed fields with selective validation. GitHub's [agent-task guidance](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results#making-sure-your-issues-are-well-scoped), reviewed on 2026-07-18, supports adding clear scope, acceptance criteria, relevant files, and tests when an observation becomes executable work rather than demanding those details at initial intake.
 

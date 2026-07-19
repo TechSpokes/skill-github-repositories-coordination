@@ -2,10 +2,19 @@
 
 ## [Unreleased]
 
+## [v1.6.1]
+
+- Apply the optional writing quality process to every tracked Markdown, YAML, and JSON surface across the source repository and packaged skill.
+- Rewrite dense labels, overloaded sentences, vague safety claims, stock rationale frames, and unnecessary contrasts while preserving meaning, evidence status, authority, privacy, commands, identifiers, quotations, historical outputs, and release facts.
+- Align historical release notes and maintainer guidance with the repository Markdown and writing rules without hard wrapping or changing verified release identity.
+- Expand the reviewed regression corpus from 22 to 30 applied repairs while retaining 10 protected examples and the existing deterministic validation budget.
+- Keep the deeper review explicitly callable through the writing quality reference and unloaded during ordinary coordination runs.
+- Update the validator wording so the optional activation contract no longer depends on the rejected hyphenated phrase.
+
 ## [v1.6.0]
 
 - Add evidence-based American English guidance for repository prose while protecting technical terms, genuine contrasts, identifiers, commands, URLs, versions, quotations, and necessary safety language.
-- Add an optional runtime writing-quality pass for explicit review of generated coordination files without changing the general writing activation boundary or loading the reference during ordinary runs.
+- Add an optional runtime writing quality pass for explicit review of generated coordination files without changing the general writing activation boundary or loading the reference during ordinary runs.
 - Replace the mandatory `This prevents ...` sentence template with a meaning-based requirement to explain concrete risk when it helps the decision.
 - Add 22 applied repair cases and 10 protected examples across runtime, security, evaluation, release, installation, and intake prose, plus deterministic schema and rollout validation that does not score grammar or authorship.
 - Repair the reported v1.1.0 evaluation sentence and other accepted corpus findings without changing historical outputs, release identity, security boundaries, or verified results.
@@ -16,7 +25,7 @@
 - Preserve the human's intended benefit, current task, purpose link, hard constraints, authority, workspace roles, evidence state, unknowns, completed verification, and next verification across changed plans, conflicts, summaries, and handoffs.
 - Define bounded coordination, goal hierarchy, conflict resolution, intelligent deviation, re-grounding triggers, and the boundary between active workspaces and read-only evidence sources.
 - Add a focused runtime reference for goal and authority decisions without turning the core skill into a persistent profile, fixed taxonomy, or cross-repository mandate.
-- Restructure maintainer instructions around product outcomes, hard constraints, decision-triggered reading, temporary artifact placement, GitHub CLI elevation on the verified Windows sandbox, and exact repository authority.
+- Restructure maintainer instructions around product outcomes, hard constraints, reading triggered by the current decision, temporary artifact placement, GitHub CLI elevation on the verified Windows sandbox, and exact repository authority.
 - Add a deterministic agent-surface contract that derives the canonical runtime map, detects stale evergreen claims, and rejects incomplete maintainer instruction routing.
 - Expand the evaluation registry to 55 cases across 15 segments with explicit goal survival decision checks and failure conditions, plus new workspace, artifact placement, goal conflict, deviation, feedback, authority expansion, and false completion scenarios.
 - Align architecture, governance, interoperability, learning, quickstart, threat model, maintenance, testing, package manifests, and release guidance with the goal and authority contract.
@@ -26,7 +35,7 @@
 - Add a short first conversation for users who install the skill without knowing which repository decision to request.
 - Limit initial question burden, skip generic onboarding for concrete requests, and keep the first working hypothesis tentative, correctable, and ephemeral.
 - Define progressive discovery so agents reuse known context, surface evidence supported learning, offer one related optional next step, and stop before scope or authority expands.
-- Add activation, behavior, and adversarial coverage for blank starts, non-code work, declined questions, unavailable humans, concrete request bypass, tentative relationships, context preserving handoff, silent profiling, and repeated suggestions after dismissal.
+- Add activation, behavior, and adversarial coverage for blank starts, non-code work, declined questions, unavailable humans, concrete request bypass, tentative relationships, handoffs that preserve context, silent profiling, and repeated suggestions after dismissal.
 - Align the installation handoff, quickstart, learning path, architecture, plugin prompt, and testing contract with the new interaction model.
 
 ## [v1.3.2]
@@ -54,18 +63,18 @@
 - Adopt versionless `gh skill install` as the preferred source based CLI delivery path while retaining standalone and plugin ZIP fallbacks.
 - Document GitHub CLI discovery, release resolution, source metadata, update behavior, authentication, trust, containment, publishing conflicts, and rollback for this product.
 - Add clean checkout `gh skill publish --dry-run` validation to CI and release preparation without delegating release creation to the preview publisher.
-- Add a platform neutral installed tree verifier and an ephemeral release event workflow that checks the public versionless install without executing skill content or touching maintainer files.
+- Add an installed tree verifier that works across supported platforms and an ephemeral release event workflow that checks the public versionless install without executing skill content or touching maintainer files.
 - Verify the existing v1.2.0 public install, overwrite refusal, pin behavior, update check, search result, source metadata, and Windows sandbox authentication fallback as the baseline for v1.3.0 delivery.
 - Add a root installation guide, a beginner guide to GitHub CLI, complete project scope commands, and a choice path for users and agents that begin without repository context.
 - Add a focused runtime reference for checking and updating this skill from its recorded source, including separate handling for pins, missing metadata, local changes, and recovery.
 
 ## [v1.2.0]
 
-- Complete the repository-controlled roadmap scope while keeping unobserved outside adoption, launch, retention, recommendation, contribution, and succession outcomes explicit.
-- Separate delivery completion from outcome evidence so missing unsolicited signals limit claims without freezing safe product work.
+- Complete the roadmap work maintained in this repository while keeping unobserved outside adoption, launch, retention, recommendation, contribution, and succession outcomes explicit.
+- Separate delivery completion from outcome evidence so missing unsolicited signals limit claims without freezing authorized product work.
 - Publish the consented founding portfolio case, secure launch guide, minimal skill handoff contract, maintenance health record, and roadmap delivery audit.
-- Add low-friction skill-run feedback with one required observation, optional agent enrichment, exact human publication approval, private security routing, and durable-learning promotion.
-- Add feedback behavior and adversarial evaluation coverage plus deterministic receiving-surface and no-auto-submit validation.
+- Add simple skill run feedback with one required observation, optional agent enrichment, exact human publication approval, private security routing, and promotion of durable learning.
+- Add feedback behavior and adversarial evaluation coverage plus deterministic validation of receiving surfaces and the rule against automatic submission.
 - Correct the v1.0.1 copyable installer so it resolves the latest release without a maintained version pin.
 - Preserve the founding target portfolio as Phase 0 evidence with an explicit participant relationship and recorded limitations.
 
@@ -76,14 +85,14 @@
 - Add a threat model for untrusted repository input, privileged tools, public output, privacy, and release identity.
 - Teach the reason for consequential least-privilege and reversible steps.
 - Add portable portal handoff guidance with fully qualified tool routing and graceful access fallbacks.
-- Add newcomer learning, program evidence, governance, contribution review, recommendation-independence, and maintainer-succession contracts.
+- Add newcomer learning, program evidence, governance, contribution review, controls that keep recommendations independent, and a maintainer succession contract.
 - Generate SHA-256 checksums for all release ZIPs and attest release provenance through GitHub Actions.
-- Document the Windows sandbox retry path that lets authenticated GitHub CLI commands load the host keyring without weakening action-level approval.
+- Document the Windows sandbox retry path that lets authenticated GitHub CLI commands load the host keyring without weakening approval for each action.
 - Make evergreen installation prompts, release links, and GitHub CLI examples resolve the latest tagged release without a maintained version pin.
 
 ## [v1.0.1]
 
-- Put a no-terminal installation path above the technical setup details.
+- Put an installation path that does not require a terminal above the technical setup details.
 - Add a copyable prompt that lets a capable agent install the skill globally while preserving overwrite approval and verification.
 - Add a direct recommended download, plain-language package chooser, Windows File Explorer and macOS Finder guidance, and final-folder checks.
 - Add explicit warnings against GitHub's maintenance-oriented Source code archives.

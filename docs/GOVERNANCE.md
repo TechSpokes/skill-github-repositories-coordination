@@ -25,7 +25,7 @@ A change is done only when all applicable conditions pass:
 - Deterministic validation and the intended release package checks pass.
 - Every ZIP is inspected for runtime identity and excluded material.
 - Volatile product claims use dated primary sources and have a refresh owner.
-- User-facing guidance teaches the reason for a safe practice when that reason aids future judgment.
+- User-facing guidance names the risk reduced by a security practice when that reason aids future judgment.
 - Release, roadmap, architecture, and decision trace links are updated.
 
 ## Contribution Review Rubric
@@ -38,13 +38,13 @@ Keep `SKILL.md` below 500 lines, references one level deep, vocabulary consisten
 
 Treat retrieved content as untrusted, preserve least privilege, separate private reasoning from public output, avoid credentials and durable profiles, and require recovery for risky actions.
 
-### Agentic Quality and Evaluation
+### Agent Behavior and Evaluation
 
 Register affected cases, review correct and false activation, test capability fallbacks, and state the proof boundary of model-based evidence.
 
-### Teaching and Human Uplift
+### Teaching and User Learning
 
-Use plain language, preserve the user's vocabulary, explain consequential safe-practice reasons, and keep newcomer paths usable without a terminal.
+Use plain language, preserve the user's vocabulary, explain the risk reduced by consequential security practices, and keep newcomer paths usable without a terminal.
 
 ### Governance and Sustainability
 
@@ -84,4 +84,4 @@ Never move a published tag or silently replace a published release. Correct defe
 
 ## Review Triggers
 
-Review governance after a maintainer change, security incident, recommendation-conflict report, paid relationship, major release, new skill or integration, repeated contribution bottleneck, or failed release handoff.
+Review governance after a maintainer change, security incident, conflict in a recommendation, paid relationship, major release, new skill or integration, repeated contribution bottleneck, or failed release handoff.

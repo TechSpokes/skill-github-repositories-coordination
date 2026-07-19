@@ -28,11 +28,11 @@ Close a phase issue when its feasible repository deliverables are complete, defe
 
 Classify evidence as founding, recruited, unsolicited, operational, or mixed. Never relabel builder, maintainer, contributor, or recruited evidence as unsolicited.
 
-Use low-friction feedback to close the learning loop. A person may submit one factual observation; an agent may enrich and sanitize a draft, but public submission still requires the user's review and explicit authority.
+Use simple feedback to close the learning loop. A person may submit one factual observation. An agent may enrich and sanitize a draft, but public submission still requires the user's review and explicit authority.
 
 ## Rationale
 
-Delivery and adoption answer different questions and rely on different evidence. Keeping them separate allows safe, testable improvements to ship while preserving honest limits on claims that require outside behavior.
+Delivery and adoption answer different questions and rely on different evidence. Keeping them separate allows authorized, testable improvements to ship while preserving honest limits on claims that require outside behavior.
 
 ## Consequences
 

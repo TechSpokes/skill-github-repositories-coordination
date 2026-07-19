@@ -79,7 +79,15 @@ Remove repetition, empty framing, obsolete alternatives, redundant status labels
 
 Read the revision for first-pass meaning and compare it with the preservation checklist. Report any intentional compound, contrast, technical term, or long sentence that a broad style rule might otherwise damage.
 
-The portable skill exposes the same process through an optional writing-quality pass in its [writing quality reference](../skills/coordinate-github-repositories/references/writing-quality.md). It loads only when a user requests a language-quality pass, reports a concrete clarity defect, or asks to review generated coordination files before handoff or publication.
+The portable skill exposes the same process through an optional writing quality pass in its [writing quality reference](../skills/coordinate-github-repositories/references/writing-quality.md). It loads only when a user requests a language quality pass, reports a concrete clarity defect, or asks to review generated coordination files before handoff or publication.
+
+## Repository-Wide Application
+
+Version `1.6.1` applies this review process to every tracked prose surface in Markdown, YAML, and JSON across the source repository and packaged skill. The review includes user guidance, maintainer instructions, runtime references, templates, manifests, fixture descriptions, release history, and authored evaluation commentary.
+
+Approved quotations, commands, flags, URLs, identifiers, version facts, raw historical model outputs, and inert adversarial prompts remain exact unless the surrounding explanation needs repair. A reviewed file may remain unchanged when the pass finds no material defect.
+
+The repository-wide pass is a user-authorized application of the optional capability, not a new requirement for every patch. Future reviews should stay proportional to the reported defect, changed behavior, and affected documents.
 
 ## Evidence and Limits
 
@@ -99,6 +107,8 @@ The committed regression corpus contains reviewed repairs and protected examples
 
 The project adds no grammar dependency, network request, AI detector, runtime writing script, or mandatory model judge. In v1.6.0, the always-loaded `SKILL.md` is one word smaller than v1.5.0. The optional reference contains 433 words in 51 lines and remains unloaded during ordinary runs, while the focused maintainer instruction contains 28 lines.
 
-Review the corpus when a writing rule changes or a material new failure is reported. Routine patches do not need a complete style audit, and this release does not authorize an unrelated repository-wide rewrite.
+For v1.6.1, the always-loaded `SKILL.md` remains 178 lines. The optional reference contains 419 words in 51 lines, and the corpus contains 30 applied repairs plus 10 protected examples. Validation still uses the existing Node.js process and standard library.
+
+Review the corpus when a writing rule changes or a material new failure is reported. Routine patches do not require a complete style audit.
 
 The complete research archive, source notes, mechanism confidence review, contradictions, and candidate corpus remain in ignored private intake for later reuse. They are not packaged with the skill.

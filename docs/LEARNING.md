@@ -17,7 +17,7 @@ The agent should ask one easy opening question, use no more than two initial fol
 If you already have a real outcome, ask directly:
 
 ```text
-Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain in one plain sentence why that step is safe.
+Help me understand a small set of repositories without changing anything. Tell me what you can actually see, what remains unknown, and the smallest reversible improvement that would help. Explain which specific risk the boundary reduces.
 ```
 
 Start with a real outcome such as finding a manuscript and its research, seeing which organization repositories the agent can access, or routing one change across policy and documentation repositories.

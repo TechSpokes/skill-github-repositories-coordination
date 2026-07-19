@@ -25,8 +25,8 @@ Describe the observed problem, the change, and why it improves the skill.
 
 - [ ] Architecture and maintainability remain healthy
 - [ ] Security and privacy remain healthy
-- [ ] Agentic quality and evaluation remain healthy
-- [ ] Teaching and human uplift remain healthy
+- [ ] Agent behavior and evaluation remain healthy
+- [ ] Teaching and user learning remain healthy
 - [ ] Governance and sustainability remain healthy
 
 ## Traceability

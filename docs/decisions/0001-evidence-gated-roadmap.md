@@ -45,7 +45,7 @@ Phase status requires more review discipline. Some repository foundations may sh
 
 ## Review Trigger
 
-The blocking condition occurred when missing unsolicited adoption prevented safe repository work that did not depend on outside participants. Program Decision 0003 records the replacement model.
+The blocking condition occurred when missing unsolicited adoption prevented authorized repository work that did not depend on outside participants. Program Decision 0003 records the replacement model.
 
 ## Supersession
 

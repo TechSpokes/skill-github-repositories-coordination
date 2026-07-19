@@ -2,7 +2,7 @@
 
 GitHub CLI is GitHub's open source `gh` command for working with GitHub from a terminal. It can help a person or agent inspect repositories, issues, pull requests, releases, authentication, and Agent Skills without repeatedly moving between browser pages.
 
-You do not need GitHub CLI to use Coordinate GitHub Repositories. Choose it when command based access reduces friction for your work, and keep the conversation, native installer, browser ZIP, connector, IDE, or MCP path when that better matches your capabilities and trust boundary.
+You do not need GitHub CLI to use Coordinate GitHub Repositories. Choose it when terminal commands reduce friction for your work, and keep the conversation, native installer, browser ZIP, connector, IDE, or MCP path when one of those options better matches your capabilities and trust boundary.
 
 ## Decide Whether It Helps
 
@@ -187,7 +187,7 @@ The maintainer rule for this repository is to run `gh auth status -h github.com`
 
 Elevation changes credential visibility, not user authorization. It does not authorize a write, broader repository scope, publication, or administrative action, and the agent must never expose the token.
 
-## Safe Agent Use
+## Scoped Agent Use
 
 An agent should identify the exact account, host, repository, command, expected effect, and requested authority before any mutation. It should begin with bounded read operations, report partial visibility, and avoid inferring lifecycle or ownership facts from absence alone.
 

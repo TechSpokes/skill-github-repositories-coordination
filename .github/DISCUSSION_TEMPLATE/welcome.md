@@ -8,7 +8,7 @@ Before posting, remove private repository names, account details, organization c
 
 ## Start in Two Lines
 
-Install the skill with the [no-terminal quickstart](../../docs/QUICKSTART.md). Ask it to inspect nothing first, state what it can actually see, and recommend the smallest reversible improvement with one plain sentence explaining why it is safe.
+Install the skill with the [quickstart that requires no terminal](../../docs/QUICKSTART.md). Ask it to begin without inspecting anything, state what it can actually see, and recommend the smallest reversible improvement with one plain sentence explaining which risk the boundary reduces.
 
 ## Links
 

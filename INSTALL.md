@@ -1,6 +1,6 @@
 # Install Coordinate GitHub Repositories
 
-This guide is for people who have never installed an Agent Skill as well as agents that need an exact, verifiable installation path. You can install the skill without cloning this repository, changing your repositories, or granting organization administration access.
+This guide helps people who have never installed an Agent Skill and agents that need an exact, verifiable installation path. You can install the skill without cloning this repository, changing your repositories, or granting organization administration access.
 
 ## Choose the Path That Fits You
 
@@ -229,7 +229,7 @@ If update reports missing GitHub metadata, the copy was probably installed manua
 
 ## Learn More
 
-- [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains installation, authentication, accounts, repositories, skills, and safe command use.
+- [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains installation, authentication, accounts, repositories, skills, and scoped command use.
 
 - [Quickstart](docs/QUICKSTART.md) moves from installation to a first useful repository coordination request.
 

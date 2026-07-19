@@ -42,9 +42,11 @@ GitHub CLI version resolution for `gh skill install` was checked on 2026-07-18. 
 
 ## Writing Quality Sources
 
-The writing-quality decision was reviewed on 2026-07-19 against the repository corpus, issue #15 maintainer feedback, professional edit research, empirical studies of generated prose and model preference, and authoritative technical style guidance. The public source hierarchy and limits are recorded in [Writing Quality](WRITING.md).
+The writing quality decision was reviewed on 2026-07-19 against the repository corpus, issue #15 maintainer feedback, professional edit research, empirical studies of generated prose and model preference, and authoritative technical style guidance. The public source hierarchy and limits are recorded in [Writing Quality](WRITING.md).
 
 The research supports controls for observable reading costs such as overloaded sentences, dense labels, hidden actors, formulaic repetition, unsupported contrast, vague claims, unnecessary structure, and revision drift. It does not support inferring authorship from style, banning ordinary English constructions, reconstructing hidden model reasoning, or using a generic model judge as the sole quality gate.
+
+For v1.6.1, the maintainer explicitly authorized a one-time application of the optional process across the public repository and packaged skill. That authorization changes the scope of this review, not the default maintenance cost for later patches.
 
 The complete research notes, confidence records, contradictions, and source extracts remain in ignored private intake for later reuse. Release packages contain only the optional runtime quality pass and omit the research archive, public maintainer guide, and regression corpus.
 
@@ -66,7 +68,7 @@ Version v1.0.1 adopts those patterns and lowers the remaining barrier by adding 
 
 ## Source Policy
 
-User requirements are authoritative for intent. Local repositories are evidence only for observed behavior. Product behavior relies on official sources and is time-bound. Design conclusions such as the context-first sequence, no-change option, and adoption ladder are maintained product judgments rather than claims that one external source mandates them.
+User requirements are authoritative for intent. Local repositories are evidence only for observed behavior. Product behavior relies on official sources and is time-bound. Design conclusions such as the sequence that begins with context, the option to make no change, and the adoption ladder are maintained product judgments rather than claims that one external source mandates them.
 
 ## Template Lineage
 

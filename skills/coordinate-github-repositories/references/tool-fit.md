@@ -1,7 +1,6 @@
 # Tool Fit
 
-Load this reference when the user asks what tool, practice, connector, catalog,
-inventory, project surface, or automation would fit their situation.
+Load this reference when the user asks what tool, practice, connector, catalog, inventory, project surface, or automation would fit their situation.
 
 ## Start With the Problem
 
@@ -18,9 +17,7 @@ Name the smallest repository-centered problem before naming products:
 - Governance.
 - Tool overload.
 
-If the actual problem is unrelated to repository coordination, explain the
-boundary and hand off rather than expanding the skill into general productivity
-advice.
+If the actual problem is unrelated to repository coordination, explain the boundary and hand it to a suitable workflow instead of expanding this skill into general productivity advice.
 
 ## Candidate Categories
 
@@ -30,7 +27,7 @@ Generate candidates by capability before selecting a named product.
 |---|---|---|
 | Current manual practice | Rare or judgment-heavy work | Low setup, recurring attention |
 | Documentation improvement | Shared conventions or a missing index | Low |
-| GitHub-native feature | Issues, views, properties, discussion, or policy | Low to medium |
+| Native GitHub feature | Issues, views, properties, discussion, or policy | Low to medium |
 | Local structured inventory | Private cross-account discovery and review | Medium |
 | Shared coordination surface | Routing and multi-repository outcomes | Medium |
 | Knowledge or publishing system | Documentation, writing, research, and discovery | Medium |
@@ -62,8 +59,7 @@ Evaluate each serious candidate against the same criteria:
 | Recovery | Are errors observable and recoverable? |
 | Evidence | Is the need observed or hypothetical? |
 
-Do not hide a critical misfit inside an aggregate score. Explain decisive
-tradeoffs in plain language.
+Do not hide a critical misfit inside an aggregate score. Explain decisive tradeoffs in plain language.
 
 ## Adoption Ladder
 
@@ -76,18 +72,13 @@ Prefer the lowest level that solves the problem:
 5. Establish a coordination issue or project pattern.
 6. Pilot repository-local automation.
 7. Evaluate a connector, external catalog, or shared automation.
-8. Build or adopt a manager application only with sustained evidence and an
-   operating owner.
+8. Build or adopt a manager application only with sustained evidence and an operating owner.
 
 ## Named Product Rule
 
-Verify current official documentation when availability, installation path,
-pricing, plan, limits, authentication, permissions, or integration behavior
-affects the recommendation. Date the finding and state what may change.
+Verify current official documentation when availability, installation path, pricing, plan, limits, authentication, permissions, or integration behavior affects the recommendation. Date the finding and state what may change.
 
-Disclose any relevant commercial, maintainer, or contributor interest. Apply
-the same rubric to that option, competitors, the current system, and no change.
-Do not prefer an option because its adoption benefits the skill maintainer.
+Disclose any relevant commercial, maintainer, or contributor interest. Apply the same rubric to that option, competitors, the current system, and no change. Do not prefer an option because its adoption benefits the skill maintainer.
 
 ## Recommendation Contract
 
@@ -114,5 +105,4 @@ recommendation:
   refresh_triggers: []
 ```
 
-Recommend a bounded pilot with success, stop, and recovery criteria when change
-is justified.
+Recommend a bounded pilot with success, stop, and recovery criteria when change is justified.
