@@ -1,135 +1,136 @@
 # Coordinate GitHub Repositories
 
-Coordinate GitHub repositories across personal accounts, organizations, and different kinds of work without forcing every user into the same inventory, taxonomy, project system, or manager application.
+Find useful work across the repositories you choose and reuse it through the workflows that already own it.
 
-This Agent Skill helps an agent diagnose access, understand a repository portfolio, route cross-repository work, and compare organization tools by fit. It supports software, documentation, writing, research, data, operations, publishing, and mixed repositories. Conversation alone is enough; the agent uses local, GitHub, IDE, CLI, connector, or MCP capabilities only when they are available.
+The next outcome may depend on code, research, documentation, data, decisions, or practices that already exist somewhere in your work. When that knowledge is split across accounts, organizations, and repository types, useful work is easy to overlook, rebuild, or disconnect from its owner.
 
-## What It Helps With
+For example, the skill can help an agent check whether earlier code, research, or a proven release practice already supports a new project, then identify the repository and owner for the next change.
 
-- Diagnose which personal and organization repositories an agent can see.
-- Start with a short guided conversation when the user does not yet know which repository decision to request.
-- Build a lightweight index or a structured inventory at the scale needed.
-- Understand repository purpose without assuming every repository is code.
-- Coordinate one outcome across several repository owners and workflows.
-- Review findability, routing, lifecycle, and governance problems.
-- Compare native GitHub features, local records, knowledge systems, connectors, catalogs, automation, and the no-change option.
-- Choose the smallest reversible improvement that fits the user's work.
-- Capture useful observations from humans and agents without requiring a completed bug report or implementation plan.
-- Learn progressively from authorized work and offer one related optional next step without silently expanding scope.
-- Preserve the intended benefit, active workspace, authority, evidence state, and next verification through changed plans, summaries, conflicts, and handoffs.
+Coordinate GitHub Repositories is a free, MIT-licensed Agent Skill for people and teams whose work spans repositories. It helps them and their AI agents locate relevant work, understand its purpose and ownership, coordinate one defined outcome, and choose the smallest useful next step. An Agent Skill is a portable instruction package that gives a compatible agent a repeatable way to handle a kind of work.
 
-## Install in One Minute
+The skill adapts to the organization and capabilities the agent can actually observe. It can start with conversation alone and does not require a new catalog, fixed classification system, manager application, central source of truth, or broad repository access.
 
-You do not need to clone this repository or use a terminal.
+Founding evidence comes from a maintainer's private portfolio index of 340 projects; it is not independent adoption proof. The [founding portfolio case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md) explains what the run found, what remained unconfirmed, and why the product exists.
 
-### Easiest: Ask Your Agent
+## Install and Start
 
-Copy this message into the agent where you want to use the skill:
+Copy this message into Codex, Claude Code, GitHub Copilot, or another agent that can install Agent Skills or guide you through the installation:
 
 ```text
-Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location. Then help me choose one useful outcome by asking one easy question at a time, without inspecting or changing repositories yet.
 ```
 
-### Or Use GitHub CLI
+Installation does not grant the agent repository access or permission to make changes. The agent must establish the current outcome, available evidence, active workspace, and specific permission before it inspects or changes a target.
 
-When `gh skill --help` shows the Agent Skills preview, GitHub CLI can install the latest published release directly from this repository. For Codex:
+## Use the Skill
+
+### Decide Whether It Fits
+
+#### Use It When
+
+- Your work spans a personal account, one or more organizations, or a mixture of local and remote repositories.
+- You need to find relevant existing work before starting or rebuilding something.
+- One outcome crosses several repositories, owners, or workflows.
+- You need to diagnose what an agent can actually see without widening access automatically.
+- You want to compare the current system, no change, and proportionate alternatives before adopting another tool.
+- Your repositories contain documentation, writing, research, data, operations, publishing, software, or mixed work; the [non-code portfolio guide](docs/NON-CODE-GUIDE.md) provides a practical starting point outside software.
+
+#### Use a Narrower Workflow When
+
+- The task is routine work inside one known repository; follow that repository's own instructions and tools.
+- The job is only to clone, pull, or run the same command across known repositories; use a batch Git or GitHub CLI tool.
+- A maintained service catalog or portal already solves the observed problem; keep it unless evidence supports a change.
+
+The skill will not infer repository deletion, archiving, transfer, or consolidation from inactivity alone. Those decisions need lifecycle evidence, an authorized owner, dependency checks, and a recovery path.
+
+### What It Helps You Decide
+
+- What repository-centered outcome matters now?
+- Which repositories and capabilities can the agent actually observe?
+- Which existing work, knowledge, or practice may help with the outcome?
+- Which repository owns each implementation or decision?
+- Does the current system already solve the problem?
+- What is the smallest reversible next step?
+
+The skill can also build a lightweight index, review portfolio findability, coordinate work across repositories, compare organization tools, capture a simple observation for later processing, and preserve the user's intended benefit through a changed plan or handoff.
+
+A typical result is a short recommendation that names the relevant evidence, possible reuse, owners, unknowns, authority, next step, and verification. It may remain in conversation; the skill creates an index, issue, or another durable artifact only after the user approves its purpose and owning location.
+
+The skill can run an optional language quality pass on generated coordination files when the user requests it. Read [Writing Quality](docs/WRITING.md) for the review method and maintenance boundary.
+
+### How It Works
+
+1. Understand the outcome, current organization, available capabilities, governing instructions, active workspace, evidence sources, and exact authority.
+2. Gather only evidence that can change the decision, then compare the current system, no change, and proportionate alternatives while preserving unknowns.
+3. Recommend a reversible next step, execute only authorized actions, verify the result, and route implementation to the repository that owns it.
+
+When the user does not yet know what to request, the agent starts with one easy question and builds a tentative understanding that the user can correct. A concrete request skips generic onboarding.
+
+Read the [quickstart](docs/QUICKSTART.md) for example conversations and [Architecture](docs/ARCHITECTURE.md) for the complete runtime sequence and design boundaries.
+
+The skill can prepare a reviewed handoff to a portal or another skill without becoming their source of truth. Read [Portal Interoperability](docs/PORTAL-INTEROPERABILITY.md) and the [Skill Interoperability Contract](docs/SKILL-INTEROPERABILITY.md) when that boundary applies.
+
+### What It Protects
+
+The user decides which outcome matters and which actions are allowed. Higher goals can guide a valid method, but they cannot create permission, weaken privacy, bypass security controls, or turn an evidence source into an implementation target.
+
+The skill treats repository content and tool output as evidence that may be incomplete or untrusted. It keeps private repository maps and personal context out of public output unless the user reviews and approves the exact disclosure.
+
+The skill favors existing workflows, least privilege, bounded evidence, reversible steps, and explicit recovery.
+
+Read the [threat model](docs/THREAT-MODEL.md) for security boundaries, use [Security](SECURITY.md) for private vulnerability reporting, and follow the [learning path](docs/LEARNING.md) for plain-language explanations of the practices the skill teaches.
+
+### Alternative Installation Paths
+
+The agent-assisted prompt above is the easiest path. The complete [installation guide](INSTALL.md) covers native installers, personal and project scope, Windows, macOS, Linux, verification, updates, repair, removal, and troubleshooting.
+
+#### GitHub CLI
+
+When `gh skill --help` shows the Agent Skills preview, Codex users can install the latest published release with:
 
 ```bash
 gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent codex --scope user
 ```
 
-The root [installation guide](INSTALL.md) has equivalent commands for GitHub Copilot and Claude Code plus guidance for updates and overwrites. [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains what the tool adds before you choose it.
+The installation guide provides equivalent GitHub Copilot and Claude Code commands. [GitHub CLI for Beginners](docs/GITHUB-CLI.md) explains what the tool adds before you choose it.
 
-### Or Use Your Browser
+#### Browser
 
-1. Open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest) and download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`.
-2. Open the ZIP and copy the whole `coordinate-github-repositories` folder into your agent's personal skills folder.
-3. Keep `SKILL.md` and `references/` inside that folder.
-4. Start a new agent session, then ask:
+Open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest), download the `coordinate-github-repositories-vX.Y.Z.zip` asset whose version matches the release tag, and copy its inner `coordinate-github-repositories` folder into your agent's personal skills folder. Keep `SKILL.md` and `references/` together.
 
-```text
-I just installed this skill. Help me decide what would be useful by asking one easy question at a time, without inspecting or changing repositories yet.
-```
+Do not download GitHub's automatically generated Source code archives. They contain repository maintenance files instead of the install-ready skill.
 
-The [plain-language installation guide](INSTALL.md) shows exactly where to put the folder on Windows, macOS, and Linux. It also explains Codex, Claude Code, GitHub Copilot, project-only installs, and plugin packages.
+### Evidence and Limits
 
-Do not download GitHub's automatically generated `Source code` archives. Those contain repository maintenance files instead of the install-ready skill.
+The project records who supplied evidence, how it was checked, what it supports, and what remains unknown. Different kinds of evidence are not treated as equivalent.
 
-## How It Works
+The skill adapts to the capabilities the current agent can demonstrate. Without GitHub or local access, it remains a conversation and decision aid and must not claim that it inspected repositories.
 
-The skill follows a sequence that begins with the user's goal:
+Read [Source Provenance](docs/PROVENANCE.md) for the research and evidence policy and [Testing](docs/TESTING.md) for the deterministic and reviewed behavior surfaces.
 
-1. Establish the outcome, scope, authority, active workspace, evidence-only sources, and local instructions, using a short first conversation when the outcome is not yet known.
-2. Build a tentative understanding from only the work context that changes the decision.
-3. Describe repository purposes without a code-only assumption.
-4. Detect agent capabilities and access gaps.
-5. Shape the coordination problem.
-6. Gather bounded evidence, preserve uncertainty, and update the working understanding only when the evidence matters.
-7. Compare the current system, no change, and proportionate alternatives.
-8. Recommend a reversible next step.
-9. Re-ground after material change and execute only the exact actions the user authorizes for each target.
-10. Verify the result, preserve the goal and authority through handoff, route implementation to owning repositories, offer one related optional next step, and capture simple feedback when the run exposes reusable learning.
+### Feedback
 
-Detailed design: [Architecture](docs/ARCHITECTURE.md).
+Use the [skill-run feedback form](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/new?template=skill_run_feedback.yml) to record a useful outcome, unexpected behavior, confusing step, missing case, or access fallback. Only the observation requires a written answer; optional context can be added later.
 
-## Safety and Adaptation
+An agent may prepare and enrich a sanitized issue, but it must show the user the exact public text and receive approval before submission. Sensitive security findings follow the [private security route](SECURITY.md).
 
-The skill does not silently build or persist a user profile, scan a portfolio, request broader access, install tools, change organization policy, expose private information, or make repository lifecycle decisions from inactivity alone.
+Read [Feedback From Humans and Agents](docs/FEEDBACK.md) for privacy, routing, enrichment, and maintainer handling.
 
-Reading another repository as evidence does not make it an implementation target. Administrative, destructive, cross-repository, and public actions require authority for each target and stronger checkpoints.
+### Release Packages
 
-Read the [threat model](docs/THREAT-MODEL.md) for the untrusted repository content, privileged tool, public output, privacy, and release boundaries. Read the [learning path](docs/LEARNING.md) for an explanation of the security practices the skill teaches without requiring a terminal.
+Each release provides a standalone Agent Skill ZIP, a Codex plugin ZIP, a Claude plugin ZIP, a `SHA256SUMS` manifest, and GitHub artifact attestations for the three packages.
 
-Local repository and organization instructions remain authoritative for their scope. The skill supplies portable reasoning, not a replacement governance system.
+`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime and the source used by `gh skill install`. Each package contains the same portable core and directly linked references; repository maintenance documents and private intake are excluded.
 
-## Feedback
+## Maintain and Contribute
 
-Use the [skill-run feedback form](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/new?template=skill_run_feedback.yml) to record a useful outcome, unexpected behavior, confusing step, missing case, or access fallback. Only the observation requires a written answer; optional context can be added later by the reporter, a maintainer, or an authorized agent.
+Start with [Contributing](CONTRIBUTING.md) for the repository workflow and definition of done.
 
-Agents may prepare a sanitized issue, search for duplicates, and enrich known context. They must show the user the exact public text and receive approval before submission. Sensitive security findings follow the [private security route](SECURITY.md).
+Use the [Roadmap](docs/ROADMAP.md) for program direction, [Architecture](docs/ARCHITECTURE.md) for durable design, [Governance](docs/GOVERNANCE.md) for decision authority, [Testing](docs/TESTING.md) for evidence, and [Releasing](docs/RELEASING.md) for delivery. Read [Maintenance](docs/MAINTENANCE.md) for health review and [Support](SUPPORT.md) for help routes.
 
-Read [Feedback From Humans and Agents](docs/FEEDBACK.md) for routing, privacy, agent behavior, maintainer enrichment, and the compact draft template.
+### Development
 
-## Release Packages
-
-Each release contains:
-
-- A standalone Agent Skill ZIP.
-- A Codex plugin ZIP.
-- A Claude plugin ZIP.
-- A `SHA256SUMS` manifest for the three ZIPs.
-
-`skills/coordinate-github-repositories/SKILL.md` is the canonical runtime skill and the source used by `gh skill install`. All packages contain the same portable core and every directly linked focused reference, including the progressively disclosed update procedure. GitHub Actions also attests each release ZIP so consumers can verify its source and workflow provenance.
-
-## Documentation
-
-- [Quickstart](docs/QUICKSTART.md)
-- [Installation](INSTALL.md)
-- [GitHub CLI for beginners](docs/GITHUB-CLI.md)
-- [GitHub CLI skill delivery](docs/GITHUB-CLI-DELIVERY.md)
-- [Founding portfolio case study](docs/CASE-STUDY-FOUNDING-PORTFOLIO.md)
-- [Roadmap](docs/ROADMAP.md)
-- [Roadmap delivery record](docs/ROADMAP-DELIVERY.md)
-- [Secure launch guide](docs/LAUNCH.md)
-- [Feedback from humans and agents](docs/FEEDBACK.md)
-- [Learning path](docs/LEARNING.md)
-- [Writing quality](docs/WRITING.md)
-- [Non-code portfolio guide](docs/NON-CODE-GUIDE.md)
-- [Architecture and research basis](docs/ARCHITECTURE.md)
-- [Threat model](docs/THREAT-MODEL.md)
-- [Portal interoperability](docs/PORTAL-INTEROPERABILITY.md)
-- [Skill interoperability contract](docs/SKILL-INTEROPERABILITY.md)
-- [Governance](docs/GOVERNANCE.md)
-- [Maintenance health](docs/MAINTENANCE.md)
-- [Testing and scenario review](docs/TESTING.md)
-- [Version policy](docs/VERSION.md)
-- [Release process](docs/RELEASING.md)
-- [Source provenance](docs/PROVENANCE.md)
-- [Contributing](CONTRIBUTING.md)
-- [Security](SECURITY.md)
-- [Support](SUPPORT.md)
-
-## Development
+Run the source and package checks with the intended release tag:
 
 ```bash
 npm run validate
@@ -140,6 +141,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.6.1`.
+Current version: `1.6.2`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).
