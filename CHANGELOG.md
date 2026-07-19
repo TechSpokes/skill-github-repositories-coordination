@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [v1.6.2]
+
+- Rebuild the repository README as a compact conversion layer followed by a product home and navigation layer for progressive discovery.
+- Lead with the problem, intended outcome, audience, differentiation, evidence boundary, trust contract, and one agent-assisted install and start action.
+- Add explicit fit and misfit guidance, a concrete result contract, and the rule that the skill is not a manager application or system of record.
+- Keep detailed installation, runtime, security, evidence, and maintenance guidance in their owning documents while the README provides concise routes.
+- Preserve the activation boundary, runtime workflow, package formats, security controls, and conversation-only fallback.
+
 ## [v1.6.1]
 
 - Apply the optional writing quality process to every tracked Markdown, YAML, and JSON surface across the source repository and packaged skill.
