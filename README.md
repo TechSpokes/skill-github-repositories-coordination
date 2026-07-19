@@ -2,7 +2,7 @@
 
 Coordinate GitHub repositories across personal accounts, organizations, and different kinds of work without forcing every user into the same inventory, taxonomy, project system, or manager application.
 
-This Agent Skill helps an agent diagnose access, understand a repository portfolio, route cross-repository work, and compare organization tools by fit. It supports software, documentation, writing, research, data, operations, publishing, and mixed repositories. It remains useful in a conversation-only agent and uses local, GitHub, IDE, CLI, connector, or MCP capabilities when they are actually available.
+This Agent Skill helps an agent diagnose access, understand a repository portfolio, route cross-repository work, and compare organization tools by fit. It supports software, documentation, writing, research, data, operations, publishing, and mixed repositories. Conversation alone is enough; the agent uses local, GitHub, IDE, CLI, connector, or MCP capabilities only when they are available.
 
 ## What It Helps With
 
@@ -27,7 +27,7 @@ You do not need to clone this repository or use a terminal.
 Copy this message into the agent where you want to use the skill:
 
 ```text
-Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location.
 ```
 
 ### Or Use GitHub CLI
@@ -111,6 +111,7 @@ Each release contains:
 - [Secure launch guide](docs/LAUNCH.md)
 - [Feedback from humans and agents](docs/FEEDBACK.md)
 - [Learning path](docs/LEARNING.md)
+- [Writing quality](docs/WRITING.md)
 - [Non-code portfolio guide](docs/NON-CODE-GUIDE.md)
 - [Architecture and research basis](docs/ARCHITECTURE.md)
 - [Threat model](docs/THREAT-MODEL.md)
@@ -137,6 +138,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.5.0`.
+Current version: `1.6.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

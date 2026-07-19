@@ -20,7 +20,7 @@ GitHub CLI is convenient, but it is not required. Read [GitHub CLI for Beginners
 Copy this single instruction into Codex, Claude Code, GitHub Copilot, or another agent that can install skills:
 
 ```text
-Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location.
 ```
 
 The agent should detect its available installation method, choose personal or user scope, preserve the complete skill folder, and report the source, release, and final path. If an existing copy would be replaced, the agent should show you what it found and ask first.

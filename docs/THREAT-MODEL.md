@@ -51,7 +51,7 @@ Treat the maintenance repository, generated staging tree, ZIP files, checksums, 
 
 The highest-risk path is untrusted repository content influencing an agent that has privileged tools and an external output channel. A malicious file or issue may ask the agent to read secrets, widen access, mutate repositories, or publish private-derived data.
 
-Contain this path by separating observation, recommendation, execution, and verification. Require exact targets and stronger checkpoints for privilege changes, cross-repository writes, administrative work, destructive actions, durable profiles, and public output.
+Contain this path by separating observation, recommendation, execution, and verification. Require an exact target for every action. Use stronger checkpoints for privilege changes, cross-repository writes, administrative work, destructive actions, durable profiles, and public output.
 
 ## Threats and Controls
 
@@ -85,7 +85,11 @@ A long run, summary, handoff, tool reward, or successful procedure may replace t
 
 ### Workspace and Authority Drift
 
-An agent may treat an evidence repository or advertised writable location as the active implementation workspace, place temporary planning in canonical documentation, or infer authority for another repository from a combined plan. Identify workspace roles, prefer the repository-designated temporary location, and require authority for each target-action pair. Verify the control with workspace and cross-repository authority scenarios.
+An agent may mistake an evidence repository or advertised writable location for the active implementation workspace. It may also place temporary planning in canonical documentation or infer authority for another repository from a combined plan. Identify each workspace role, prefer the repository-designated temporary location, and require authority for every target and action. Verify these controls with the workspace and cross-repository authority scenarios.
+
+### Meaning Lost in Generated Prose
+
+Dense labels, hidden actors, formulaic safety claims, or repeated revision may obscure authority, evidence, and scope even when each statement appears plausible. Preserve those meanings before editing, use the smallest clear structure, and run the optional writing-quality pass when the user reports a defect or requests review of generated coordination files. Verify the control with the writing-quality corpus and behavior scenarios; do not treat a style pattern as proof of authorship.
 
 ### Recommendation Conflict
 
@@ -109,7 +113,7 @@ Do not commit active exploit payloads containing real credentials, private repos
 
 ## Residual Risk
 
-Prompt injection is not solved at the model layer. Host behavior, connector scope, model compliance, user approval quality, and external platform controls can still fail. The skill reduces risk through containment and explicit checkpoints but cannot guarantee that every host or model will obey them.
+Prompt injection is not solved at the model layer. Host behavior, connector scope, model compliance, user approval quality, and external platform controls can still fail. Containment and explicit checkpoints reduce the risk, but no skill can guarantee that every host or model will follow them.
 
 Artifact attestations prove origin and build context, not that an artifact is safe. Consumers and maintainers must still inspect contents, evaluate policy, and verify the release decision.
 

@@ -30,7 +30,9 @@
     "docs/RELEASING.md",
     "docs/TESTING.md",
     "docs/THREAT-MODEL.md",
-    "docs/VERSION.md"
+    "docs/VERSION.md",
+    "docs/WRITING.md",
+    ".github/instructions/writing.instructions.md"
   ],
   "forbidden_claims": [
     {

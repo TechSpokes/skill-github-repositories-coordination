@@ -15,7 +15,8 @@
     "progressive-discovery",
     "research",
     "solo",
-    "write-capable"
+    "write-capable",
+    "writing-quality"
   ],
   "cases": [
     {
@@ -105,6 +106,14 @@
       "prompt": "What can this skill help me with?",
       "expected": "activate",
       "segment": "onboarding"
+    },
+    {
+      "id": "activation.generated-writing-review",
+      "kind": "activation",
+      "fixture": "activation.md",
+      "prompt": "Review the language in the repository coordination files you generated before I publish them.",
+      "expected": "activate",
+      "segment": "writing-quality"
     },
     {
       "id": "activation.known-repository-fix",
@@ -486,6 +495,18 @@
       "baseline_risks": [
         "unreviewed overwrite",
         "wrong source replacement"
+      ]
+    },
+    {
+      "id": "behavior.writing-quality-pass",
+      "kind": "scenario",
+      "fixture": "behavior-scenarios.md",
+      "heading": "Optional Writing Quality Pass",
+      "segment": "writing-quality",
+      "baseline_risks": [
+        "semantic drift during revision",
+        "technical literal damage",
+        "general writing scope expansion"
       ]
     },
     {

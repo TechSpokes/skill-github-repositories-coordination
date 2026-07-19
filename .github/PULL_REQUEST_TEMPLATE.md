@@ -31,7 +31,7 @@ Describe the observed problem, the change, and why it improves the skill.
 
 ## Traceability
 
-Link the parent issue, affected roadmap phase, evaluation cases, threat-model entries, architecture decision, and release note when applicable.
+Link the parent issue. Add roadmap, evaluation, threat-model, decision, and release references only when they apply.
 
 ## Decisions and Follow-Up
 

@@ -25,7 +25,7 @@ npm run package -- vX.Y.Z
 npm run release:verify-assets -- vX.Y.Z
 ```
 
-The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, feedback and decision contracts, and the 500-line core limit. It also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
+The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, feedback, decisions, writing-corpus structure, and the 500-line core limit. It also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
 
 For a release cut, `npm run release:preflight -- vX.Y.Z` snapshots every tracked and nonignored untracked candidate file, runs the complete final-tree gate, builds the assets twice, requires stable checksums, and verifies that the gate does not change the candidate tree.
 
@@ -45,7 +45,9 @@ Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree l
 
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 55 cases across 15 segments: access denied, adversarial, beginner, conversation only, feedback, general boundary, goal survival, multi-organization, non-code, onboarding, platform, progressive discovery, research, solo, and write capable.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 57 cases across 16 segments, including writing quality alongside the existing access, safety, onboarding, goal, portfolio, and capability coverage.
+
+`tests/fixtures/writing-corpus.json` contains reviewed repairs across runtime, security, evaluation, release, installation, and intake prose plus protected compounds, contrasts, commands, flags, URLs, identifiers, versions, and safety language. Validation checks schema, coverage, unique IDs, and rollout of each accepted revision. It does not score naturalness or infer authorship.
 
 Goal survival cases also declare at least three decision checks and one explicit failure condition. This makes the maintained contract score whether the intended benefit, current task, workspace, authority, constraints, evidence state, and next verification survive changed plans, conflicts, summaries, and handoffs instead of accepting artifact creation or tool success as completion.
 
@@ -139,7 +141,7 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures additionally require a short first conversation, a small initial question burden, correction of a tentative working hypothesis, generic onboarding bypass for concrete requests, graceful handling of declined or unavailable answers, progressive discovery, context preserving handoff, active workspace and evidence source separation, temporary artifact placement, goal aware deviation, conflict resolution, low-friction feedback intake, observation versus hypothesis, safe enrichment, duplicate search, exact public approval, and a self-update path that checks its source and does not force unresolved replacements.
+Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, goal survival, workspace roles, temporary material, low-friction feedback, and safe self-update. They also require the optional writing-quality pass to preserve meaning and protected literals without widening the skill into general writing work.
 
 ## v1.4.0 Interaction Forward Review
 
@@ -173,9 +175,20 @@ The passes scored observable decisions rather than wording or repetition of a go
 
 The optional Agent Skills quick validator could not start because the host Python environment lacks PyYAML. No global dependency was installed merely to change that environment; the repository's own skill, frontmatter, direct-reference, manifest, fixture, and package validators passed, but that does not count as an external-validator pass.
 
+## v1.6.0 Writing Quality Forward Review
+
+On 2026-07-19, four fresh Codex subagent passes read only the candidate `SKILL.md` and, when applicable, the optional writing-quality reference. The tasks prohibited all other repository reads, network use, external tools, and writes. The host did not expose a precise model identifier, so the results apply only to this observed configuration.
+
+- The activation pass loaded the optional reference for a requested review of generated coordination files and handed an unrelated novel paragraph to a general writing workflow without loading the reference.
+- The protected-language pass retained the genuine evidence-versus-authority contrast, the exact command and flag `gh skill install --scope user`, the `read-only` compound, and the approved-source boundary while splitting the sentence.
+- The first quality pass preserved all safety results and replaced the vague harm claim, but it coined the unnecessary compound `repository-instruction injection`. The runtime and maintainer rules were tightened to prefer an ordinary verb phrase over a newly coined compound label.
+- A fresh retry replaced every dense test label with ordinary verb phrases, preserved all five scenario types and safety results, bounded the claims to the tested scenarios, and introduced no new compound label.
+
+These passes show that the optional route and repair sequence can work in the observed synthetic cases. They do not prove comprehension for every reader, quality across other models or hosts, or authorship from style. The reviewed corpus and maintainer criteria remain the release ground truth; model output is supplementary evidence.
+
 ## Adversarial Review
 
-`tests/fixtures/adversarial-scenarios.md` covers repository prompt injection, private-derived public output, access denial, ambiguous tool surfaces, broad cross-repository mutation, authority expansion through a combined plan, procedural success that masks goal loss, silent portfolio profiling, repeated suggestions after dismissal, maintainer commercial conflict, and feedback publication boundaries. A security-relevant runtime change or minor or major release requires review of the affected adversarial cases.
+`tests/fixtures/adversarial-scenarios.md` covers untrusted repository instructions, private data in public output, access denial, ambiguous tools, broad writes, authority expansion, goal loss, silent profiling, repeated suggestions, commercial conflicts, and feedback publication. Review the affected adversarial cases for every security-relevant runtime change and every minor or major release.
 
 Treat adversarial prompts as inert data. Deterministic validation reads fixtures as text and never executes their instructions. Run model-based security review only in a disposable sandbox with no credentials, network access, external filesystem access, or mutating tools, and verify after the run that no file or system outside the disposable workspace changed.
 

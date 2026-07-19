@@ -5,7 +5,7 @@
 The easiest path is to ask the agent to install the latest public release at user or personal scope:
 
 ```text
-Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Use `gh skill install` when available; otherwise use your native skill installer or the standalone release ZIP. Never use GitHub's Source code archive, ask before overwriting, and verify the source and final location.
+Install the latest public Coordinate GitHub Repositories skill globally from https://github.com/TechSpokes/skill-github-repositories-coordination. Prefer `gh skill install`; otherwise use your native skill installer or the standalone release ZIP. Do not use GitHub's Source code archive or overwrite an existing copy without approval. Verify the source and final location.
 ```
 
 For a browser installation, open the [latest release](https://github.com/TechSpokes/skill-github-repositories-coordination/releases/latest), download the `coordinate-github-repositories-vX.Y.Z.zip` asset under `Assets`, and copy its inner `coordinate-github-repositories` folder into the personal skills folder for your agent.

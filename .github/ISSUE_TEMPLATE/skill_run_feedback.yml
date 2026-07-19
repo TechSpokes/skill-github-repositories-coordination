@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Share what the skill helped you notice, what did not work as expected, or what was difficult to understand. The observation may remain a simple record until later evidence or priority justifies processing. Only Observation asks for a written response; every other written field is optional.
+        Share what the skill helped you notice, what did not work as expected, or what was difficult to understand. Only Observation requires text; every other written field is optional. The report may remain a simple record until evidence or priority justifies processing.
   - type: textarea
     id: observation
     attributes:
@@ -47,7 +47,7 @@ body:
     id: context
     attributes:
       label: Sanitized context
-      description: Optional. Add the skill version, generalized agent capabilities, work shape, or safe reproduction details.
+      description: Optional. Add the skill version, relevant agent capabilities, kind of work, or safe reproduction details.
   - type: textarea
     id: evidence
     attributes:
