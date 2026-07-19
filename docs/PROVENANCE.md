@@ -56,6 +56,14 @@ GitHub's dependency graph defines structural evidence from manifests, lock files
 
 The runtime adopts the smaller design conclusion: preserve only the evidence and uncertainty needed for the current decision. It does not implement the external vocabularies, claim standards conformance, impose a relationship taxonomy, or require a graph.
 
+## Decision Record Sources
+
+Decision-record research for issue #19 was checked on 2026-07-19 against the current repository records, procedure and governance guides, validator, Git history, and related roadmap issues. Public primary sources included [Michael Nygard's original ADR description](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions), [MADR 4.0](https://adr.github.io/madr/), the [UK Government ADR Framework](https://www.gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework), the [ISO/IEC/IEEE 42010 conceptual model](http://www.iso-architecture.org/42010/cm), [Python PEP 1](https://peps.python.org/pep-0001/), the [Open Decision Framework](https://github.com/open-organization/open-decision-framework/blob/master/ODF-community.md), and the [GRADE Working Group](https://www.gradeworkinggroup.org/).
+
+The sources support a narrow architecture category, short records with explicit status and rationale, preserved supersession history, a shared typed registry, a threshold that excludes ordinary fixes, transparent governance context, and separation of evidence certainty from the resulting decision. [Governance Decision 0005](decisions/0005-use-one-typed-decision-registry.md) applies those precedents to this repository without claiming conformance to an external format.
+
+No exact private portfolio inventory or additional portfolio repository was named as an authorized evidence source for this implementation. Existing public portfolio summaries support concern separation, but the release does not claim that the complete portfolio uses the same taxonomy.
+
 ## Writing Quality Sources
 
 The writing quality decision was reviewed on 2026-07-19 against the repository corpus, issue #15 maintainer feedback, professional edit research, empirical studies of generated prose and model preference, and authoritative technical style guidance. The public source hierarchy and limits are recorded in [Writing Quality](WRITING.md).

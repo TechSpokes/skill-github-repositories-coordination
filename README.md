@@ -135,7 +135,7 @@ Each release provides a standalone Agent Skill ZIP, a Codex plugin ZIP, a Claude
 
 Start with [Contributing](CONTRIBUTING.md) for the repository workflow and definition of done.
 
-Use the [Roadmap](docs/ROADMAP.md) for program direction, [Architecture](docs/ARCHITECTURE.md) for durable design, [Governance](docs/GOVERNANCE.md) for decision authority, [Testing](docs/TESTING.md) for evidence, and [Releasing](docs/RELEASING.md) for delivery. Read [Maintenance](docs/MAINTENANCE.md) for health review and [Support](SUPPORT.md) for help routes.
+Use the [Roadmap](docs/ROADMAP.md) for program direction, [Architecture](docs/ARCHITECTURE.md) for durable design, [Governance](docs/GOVERNANCE.md) for decision authority, [Decision Records](docs/decisions/README.md) for durable rationale, [Testing](docs/TESTING.md) for evidence, and [Releasing](docs/RELEASING.md) for delivery. Read [Maintenance](docs/MAINTENANCE.md) for health review and [Support](SUPPORT.md) for help routes.
 
 ### Development
 
@@ -150,6 +150,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.9.0`.
+Current version: `1.10.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

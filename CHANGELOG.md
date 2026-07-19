@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [v1.10.0]
+
+- Define Architecture, Program governance, Evidence classification, and Governance decision types with a creation test that leaves ordinary maintenance in its owning guide.
+- Add Governance Decision 0005 for the shared directory and identifier sequence, policy boundary, common record shape, supersession rules, and history-preserving migration.
+- Expand the decision index with examples, counterexamples, maintainer workflow, research rationale, and the boundary between historical rationale and current operational truth.
+- Derive canonical types and index coverage from the maintained guide, then validate discovered record filenames, identifiers, titles, common sections, exact index membership, duplicate numbers, and stale links without hard-coding historical records.
+- Preserve records 0001 through 0004, every published filename and link, the runtime skill, activation and output behavior, safety contract, fixtures, and package formats.
+- Record the primary research sources and the limit that no unnamed private portfolio inventory or unrelated repository was inspected for this implementation.
+
 ## [v1.9.0]
 
 - Replace the generic founding-case landing copy with a concrete account of release knowledge reused from three repositories across two organizations.

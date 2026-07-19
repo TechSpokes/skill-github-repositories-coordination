@@ -694,19 +694,79 @@ function validateFeedbackContract() {
 }
 
 function validateDecisionRecords() {
-  // @constraints Historical records are indexed by decision type instead of being hard-coded as current repository dependencies.
+  // @constraints Issue #19 requires validation to discover historical records instead of hard-coding the files from one release.
   const index = readText("docs/decisions/README.md");
-  const allowedTypes = new Set(["Architecture", "Program governance", "Evidence classification", "Governance"]);
+  const markedBlock = (startMarker, endMarker, label) => {
+    const start = index.indexOf(startMarker);
+    const end = index.indexOf(endMarker);
+    if (start === -1 || end === -1 || end <= start) {
+      fail(`docs/decisions/README.md must contain the ${label} markers in source order.`);
+      return null;
+    }
+    return index.slice(start + startMarker.length, end);
+  };
+
+  const typeBlock = markedBlock("<!-- decision-types:start -->", "<!-- decision-types:end -->", "decision type registry");
+  const recordIndexBlock = markedBlock("<!-- decision-index:start -->", "<!-- decision-index:end -->", "decision index");
+  if (typeBlock === null || recordIndexBlock === null) {
+    return;
+  }
+
+  const declaredTypes = [...typeBlock.matchAll(/^- `([^`\n]+)`:/gm)].map((match) => match[1]);
+  const allowedTypes = new Set(declaredTypes);
+  if (declaredTypes.length === 0 || allowedTypes.size !== declaredTypes.length) {
+    fail("docs/decisions/README.md must declare unique canonical decision types inside the type registry markers.");
+  }
+
   const records = walk("docs/decisions").filter((file) => file.endsWith(".md") && path.basename(file) !== "README.md");
+  const recordNames = new Set(records.map((file) => path.basename(file)));
+  const indexedNames = [...recordIndexBlock.matchAll(/\]\((\d{4}-[a-z0-9]+(?:-[a-z0-9]+)*\.md)\)/g)].map((match) => match[1]);
+  const numberOwners = new Map();
 
   for (const file of records) {
     const text = readText(file);
+    const filename = path.basename(file);
+    const filenameMatch = filename.match(/^(\d{4})-[a-z0-9]+(?:-[a-z0-9]+)*\.md$/);
+    if (!filenameMatch) {
+      fail(`${file} must use the stable NNNN-lowercase-dashed-title.md filename format.`);
+      continue;
+    }
+
+    const identifier = filenameMatch[1];
+    if (numberOwners.has(identifier)) {
+      fail(`${file} reuses decision identifier ${identifier} already owned by ${numberOwners.get(identifier)}.`);
+    } else {
+      numberOwners.set(identifier, file);
+    }
+
     const type = text.match(/^Decision type:\s*([^\n.]+)\.?$/m)?.[1];
     if (!type || !allowedTypes.has(type)) {
       fail(`${file} must declare a recognized Decision type.`);
+    } else {
+      const displayType = type.split(/\s+/)[0];
+      if (!text.startsWith(`# ${displayType} Decision ${identifier}: `)) {
+        fail(`${file} title must match its Decision type and identifier.`);
+      }
     }
-    if (!index.includes(`(${path.basename(file)})`)) {
-      fail(`${file} must be linked from docs/decisions/README.md.`);
+
+    for (const section of ["Status", "Context", "Decision", "Consequences", "Links"]) {
+      if (!new RegExp(`^## ${section}$`, "m").test(text)) {
+        fail(`${file} must contain a ${section} section.`);
+      }
+    }
+    if (!/^## Review Triggers?$/m.test(text)) {
+      fail(`${file} must contain a Review Trigger or Review Triggers section.`);
+    }
+
+    const indexEntryCount = indexedNames.filter((name) => name === filename).length;
+    if (indexEntryCount !== 1) {
+      fail(`${file} must appear exactly once inside the decision index markers.`);
+    }
+  }
+
+  for (const filename of indexedNames) {
+    if (!recordNames.has(filename)) {
+      fail(`docs/decisions/README.md indexes missing decision record ${filename}.`);
     }
   }
 }
