@@ -118,14 +118,14 @@ Use `gh skill publish --dry-run` through the final-tree release preflight. Keep 
 - Clean checkout `gh skill publish --dry-run` runs in pull request CI and the final-tree release preflight before packaging.
 - Node tools that work across supported platforms create deterministic ZIP files, inspect their records without extraction, and verify installed runtime trees without executing content.
 - The tag workflow guards immutable identity, verifies the exact-tag install, and remains responsible for three ZIP packages, checksums, attestations, curated release notes, and draft publication review.
-- The release event workflow performs a versionless public install and a contained previous-release update in ephemeral environments, then verifies the current tag, repository, source path, tree metadata, file inventory, and runtime content.
+- The release event workflow performs a versionless public install in one ephemeral environment. In another, it compares the previous and current skill directory Git tree IDs, updates only when they differ, and verifies either the current installation or the unchanged equivalent runtime.
 
 ## Verification Contract
 
 - `gh skill install TechSpokes/skill-github-repositories-coordination coordinate-github-repositories --agent <supported-host> --scope user` resolves the latest usable published release without a maintained version in the command.
 - The installed tree contains the canonical runtime files, adds source tracking only to installed frontmatter, and passes the repository verifier.
 - A second install refuses to overwrite unless the user explicitly authorizes replacement.
-- `gh skill update coordinate-github-repositories --dry-run` reports the unpinned release as current after publication.
+- `gh skill update coordinate-github-repositories --dry-run` reports the unpinned runtime as current after publication. A documentation-only release may retain the previous tag metadata because no installed file changed; the workflow confirms this from equal Git tree IDs before skipping the update.
 - The installed runtime tells an agent asked to update this skill how to verify the canonical source, check without mutation, update only the selected skill, handle a pin separately, and stop on unresolved origin metadata.
 - A new user can choose an agent, GitHub CLI, native installer, browser, project, or contributor path from root `INSTALL.md` without editing an earlier command or knowing the repository documentation layout.
 - Repository documentation about GitHub CLI distinguishes terminal authentication from application connectors and explains bounded use across repositories without making GitHub CLI a runtime dependency.

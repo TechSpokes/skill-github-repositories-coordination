@@ -86,6 +86,8 @@ The abandonment workflow requires an annotated same-commit marker before deletin
 
 `scripts/verify-gh-skill-install.mjs` verifies an already installed copy. It accepts the explicit-tag and resolved-release metadata forms for the same expected tag, then checks the source repository, canonical skill path, tree SHA, unpinned state, file inventory, portable frontmatter fields, `SKILL.md` body, and byte identity of every other runtime file.
 
+The contained update job compares the previous and current skill directory Git tree IDs. A matching tree skips GitHub CLI update and runs the existing strict verifier against the current source while expecting the previous tag metadata. A different tree runs the update and requires current tag metadata and current runtime content.
+
 The skill update fixture requires a source check and dry run before replacement, treats a pin as a separate decision, rejects automatic force on missing metadata, limits the target to this skill, and verifies the source and path without executing installed content.
 
 Do not run a remote install test against a maintainer's normal user profile merely because `--dir` points into a sandbox. GitHub CLI also records install state below the effective user home. Use a disposable operating system profile, container, virtual machine, or ephemeral CI runner.
@@ -98,7 +100,7 @@ gh skill update coordinate-github-repositories --dry-run --dir PATH_TO_DISPOSABL
 
 Treat `PATH_TO_DISPOSABLE_SKILLS` as an instruction placeholder, not a literal maintained path.
 
-Before release, test already-current, available-update, pinned, missing-metadata, existing-destination, and approved recovery paths in a disposable user profile. No case may write to the maintainer's normal skill folders or lockfile.
+Before release, test already-current, documentation-only equivalent, available-update, pinned, missing-metadata, existing-destination, and approved recovery paths in a disposable user profile. No case may write to the maintainer's normal skill folders or lockfile.
 
 ## Release Integrity
 
@@ -212,6 +214,14 @@ The revision stated that the skill is not a central source of truth, defined the
 Two fresh checks reviewed the revised document, followed by one exact-tree check after the final audience and evidence edit. The final check passed the complete landing, fit, navigation, persistence, compatibility, evidence, scanning, authority, and source-of-truth criteria with no blocking or material finding.
 
 These checks support first-pass comprehension and navigation in the observed host. They do not measure conversion rate, installation completion, user trust, independent adoption, or behavior across every reader and agent; those outcomes require live user evidence.
+
+## v1.6.3 Documentation-Only Update Correction
+
+The published v1.6.2 versionless install passed, while its contained update job reported `All skills are up to date` and retained the v1.6.1 metadata. The Git trees for `skills/coordinate-github-repositories/` were identical in v1.6.1 and v1.6.2, so the unchanged installation was correct and the final metadata expectation was not.
+
+The v1.6.3 workflow compares the two skill directory Git tree IDs before updating. Local checks confirmed that v1.6.1 and v1.6.2 share one tree ID, while v1.6.0 and v1.6.1 have different tree IDs.
+
+This correction does not weaken a runtime-changing update check. A changed tree still runs GitHub CLI update, requires current tag metadata, and compares installed content with the current source.
 
 ## Adversarial Review
 

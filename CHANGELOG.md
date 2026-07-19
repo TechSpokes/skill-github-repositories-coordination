@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [v1.6.3]
+
+- Correct post-publication verification when a documentation-only release leaves the installed runtime unchanged and GitHub CLI correctly reports that the skill is already current.
+- Compare the previous and current skill directory Git tree IDs, skip a content-free update when they match, and verify the unchanged installation against the current source.
+- Keep runtime-changing updates strict by running GitHub CLI update and requiring current release metadata whenever the tree IDs differ.
+- Preserve the v1.6.2 README product page, activation boundary, runtime workflow, package formats, and conversation-only fallback.
+
 ## [v1.6.2]
 
 - Rebuild the repository README as a compact conversion layer followed by a product home and navigation layer for progressive discovery.
