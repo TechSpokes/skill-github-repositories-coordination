@@ -8,9 +8,9 @@ This roadmap implements [issue #6](https://github.com/TechSpokes/skill-github-re
 
 ## Scope Boundary
 
-The repository can supply runtime behavior, tests, documentation, release controls, and evidence formats. It cannot manufacture volunteer insight, unsolicited adoption, third-party recommendations, outside contributions, or additional maintainers. Missing external evidence limits adoption claims and identifies future learning work, but it does not freeze unrelated repository work that is authorized, sourced, contained, and testable.
+The repository can supply runtime behavior, tests, documentation, release controls, and evidence formats. It cannot manufacture volunteer insight, unsolicited adoption, third-party recommendations, outside contributions, or additional maintainers. Missing external adoption evidence limits claims and identifies future learning work, but it does not freeze unrelated repository work that is authorized, sourced, contained, and testable.
 
-Use the founding portfolio and its roughly 340 repository observations as deep product evidence while preserving its disclosed builder and maintainer relationship. Do not relabel recruited or founding evidence as unsolicited.
+Use the founding portfolio and its roughly 340 repository observations as deep product evidence while preserving its disclosed builder and maintainer relationship. This founding validation is documented in [Architecture](ARCHITECTURE.md#evidence-that-shaped-the-design). Do not relabel recruited or founding evidence as unsolicited.
 
 ## Operating Model
 
@@ -103,4 +103,4 @@ This status does not claim that outside adoption, a coordinated external launch,
 
 Review this roadmap after a completion decision, serious security report, evaluation regression, material host change, maintainer change, conflict in a recommendation, contradictory external evidence, or evidence that a workstream objective no longer fits users.
 
-Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected program, evidence, governance, or architecture decision in the same change. [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) records why adoption evidence now limits claims instead of blocking repository delivery.
+Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected program, evidence, governance, or architecture decision in the same change. [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) records why external adoption evidence now limits claims instead of blocking repository delivery.

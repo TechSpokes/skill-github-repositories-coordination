@@ -1,5 +1,7 @@
 # Quickstart
 
+The skill was built for and is used daily on the maintainer's 340-project portfolio across a personal account and two organizations. This is founding validation, not evidence of external adoption.
+
 ## Install Globally
 
 The easiest path is to ask the agent to install the latest public release at user or personal scope:

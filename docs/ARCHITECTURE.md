@@ -68,7 +68,7 @@ The skill can execute user-authorized changes through available tools, but mutat
 
 ### Delivery and Evidence
 
-The [roadmap](ROADMAP.md) separates repository delivery from outcome evidence. Missing adoption evidence limits claims and identifies future learning without freezing unrelated work whose authority, sources, safety boundary, dependencies, and validation are ready.
+The [roadmap](ROADMAP.md) separates repository delivery from outcome evidence. Founding validation is documented in [Evidence That Shaped the Design](#evidence-that-shaped-the-design). Missing external adoption evidence limits claims and identifies future learning without freezing unrelated work whose authority, sources, safety boundary, dependencies, and validation are ready.
 
 Architecture, security, privacy, evaluation, teaching, governance, and release integrity remain quality controls. A red affected control blocks the release or public action; an unknown outside outcome does not compensate for that regression and is not itself a quality failure.
 
@@ -137,15 +137,17 @@ Founding, recruited, unsolicited, operational, and mixed evidence remain distinc
 
 ## Evidence That Shaped the Design
 
-The founding portfolio index was inspected read-only and contained 340 canonical project records. It demonstrated that inventory, routing, structural relationships, agent instructions, issue intake, and feedback are related but distinct capabilities.
+The maintainer coordinates 340 canonical project records across a personal account and two organizations and uses this skill in daily production on that portfolio. The portfolio demonstrated that inventory, routing, structural relationships, agent instructions, issue intake, and feedback are related but distinct capabilities.
 
-A working structured inventory demonstrated discovery, stable identity, provenance, staging, validation, promotion without overwriting reviewed records, and generated reports at a scale of hundreds of records. A working coordination tracker demonstrated central cross-repository outcomes, simple observation intake, agent enrichment, implementation routed to owning repositories, native state, and an automation gate supported by evidence.
+Before this skill, the maintainer built three implementations for that portfolio. A structured inventory demonstrated discovery, stable identity, provenance, staging, validation, promotion without overwriting reviewed records, and generated reports at a scale of hundreds of records. A cross-repository coordination tracker demonstrated central outcomes, simple observation intake, agent enrichment, implementation routed to owning repositories, native state, and an automation gate supported by evidence.
+
+The third implementation was a partial repository manager. It supplied principles for stable identity, least privilege, idempotency, untrusted input, and lifecycle safety while showing that a persistent manager application should not be assumed necessary. This skill is the fourth attempt and distills the useful parts of all three into portable agent reasoning.
 
 A later operational run demonstrated practice reuse across the authorized portfolio. Inventory records located analogous release models and user preferences; bounded source inspection supplied candidate controls; evaluation against the current repository combined the useful controls without copying deployment-specific machinery or expanding write authority to the source repositories.
 
 Research for issue #27 distinguished structural discovery from benefit meaning. GitHub documents its dependency graph as a summary of manifests, lock files, and submitted dependencies. PROV-O and DCAT qualified relations, the Web Annotation body and target model, and the Data Quality Vocabulary's context-of-use treatment informed the small evidence envelope without adding those standards as a runtime taxonomy.
 
-A dedicated repository feedback implementation demonstrated the boundary between observations and tasks: sanitize feedback, separate evidence from hypothesis, keep issue state canonical, and promote durable learning into normal repository artifacts. A partial repository manager supplied principles for stable identity, least privilege, idempotency, untrusted input, and lifecycle safety while showing that a persistent manager application should not be assumed necessary.
+A dedicated repository feedback implementation demonstrated the boundary between observations and tasks: sanitize feedback, separate evidence from hypothesis, keep issue state canonical, and promote durable learning into normal repository artifacts.
 
 The supplied research on communication among humans, agents, and tools explains why the pattern works. Communication across those boundaries can lose goals, context, and meaning through limited attention and transport. Feedback should therefore preserve the goal, factual observation, uncertainty, actor boundary, and verification while using progressive disclosure.
 

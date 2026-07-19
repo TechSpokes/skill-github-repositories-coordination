@@ -6,15 +6,17 @@ The skill was designed from user requirements for adaptive repository coordinati
 
 Issue #6 supplied a public strategy attachment with market observations, seven growth phases, and five cross-cutting quality tracks. The repository preserves the durable phase objectives and quality controls while separating repository deliverables from external evidence that maintainers cannot manufacture.
 
-## Local Observations
+## Founding Lineage
 
-The design used read-only observations from three private local repositories:
+The maintainer coordinates 340 projects across a personal account and two organizations. Before this skill, three private implementations addressed parts of that portfolio:
 
-- A structured project inventory.
-- A general cross-repository issue tracker.
-- A partially implemented repository manager and its architecture research.
+- The structured inventory contributed discovery, stable identity, provenance, staged review, and reporting at portfolio scale.
+- The cross-repository coordination tracker contributed shared outcomes, simple observation intake, agent enrichment, owner routing, and evidence-gated automation.
+- The partial repository manager contributed stable identity, least privilege, idempotency, untrusted-input handling, and lifecycle recovery while demonstrating the cost of assuming a persistent manager application.
 
-Only generic patterns were transformed into the public skill. Private names, paths, account data, repository records, routing tables, credentials, and raw source content were excluded.
+The current skill is the fourth attempt. It distills the useful parts of those implementations into portable agent reasoning and runs daily on the same portfolio it was built to support.
+
+This lineage is founding validation, not external adoption evidence. Only generic patterns were transformed into the public skill; private names, paths, account data, repository records, routing tables, credentials, and raw source content were excluded.
 
 ## Public Primary Sources
 

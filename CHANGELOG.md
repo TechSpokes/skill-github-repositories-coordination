@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [v1.8.0]
+
+- Reframe the README around the repository-sprawl problem, value preservation, and portfolio-level judgment before installation details.
+- Document the confirmed 340-project founding use case, the three earlier implementations, and daily production use while keeping external adoption explicitly unproven.
+- Add a bounded demonstration route through the approved founding case and defer conversational excerpts until a real sanitized session has exact publication approval.
+- Record the founding lineage in architecture and provenance, distinguish external adoption evidence in roadmap guidance, and add the bounded trust signal to the quickstart.
+- Preserve the runtime skill, focused references, activation boundary, behavior contract, package formats, and private-source exclusion.
+
 ## [v1.7.0]
 
 - Add a focused benefit relationship workflow for finding existing functionality or knowledge that may contribute to a current outcome.
