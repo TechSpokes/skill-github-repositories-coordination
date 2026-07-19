@@ -652,7 +652,7 @@ function validateAgentSurfaceContract() {
 }
 
 function validateFeedbackContract() {
-  // @constraints Program Decision 0003 keeps missing adoption evidence from freezing safe repository delivery.
+  // @constraints Program Decision 0003 keeps missing external adoption evidence from freezing safe repository delivery.
   const roadmap = readText("docs/ROADMAP.md");
   const delivery = readText("docs/ROADMAP-DELIVERY.md");
   const feedback = readText("docs/FEEDBACK.md");
@@ -660,7 +660,7 @@ function validateFeedbackContract() {
   const reference = readText("skills/coordinate-github-repositories/references/feedback-and-improvement.md");
   const form = readText(".github/ISSUE_TEMPLATE/skill_run_feedback.yml");
 
-  for (const expected of ["Missing external evidence limits adoption claims", "They are not hard dependencies", "Program Decision 0003"]) {
+  for (const expected of ["Missing external adoption evidence limits claims", "They are not hard dependencies", "Program Decision 0003"]) {
     if (!roadmap.includes(expected)) {
       fail(`docs/ROADMAP.md is missing the evidence and claim boundary: ${expected}.`);
     }
