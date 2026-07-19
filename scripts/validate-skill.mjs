@@ -651,23 +651,56 @@ function validateAgentSurfaceContract() {
   }
 }
 
-function validateFeedbackContract() {
-  // @constraints Program Decision 0003 keeps missing external adoption evidence from freezing safe repository delivery.
+/**
+ * Validates current roadmap ownership without turning historical phase state into a second backlog.
+ * @returns {void}
+ * @sideEffects Reads roadmap and evidence files and appends contract violations.
+ * @why Issue #46 and Program Decision 0006 replace the completed phase list as current direction while preserving its delivery record.
+ * @since 1.11.0
+ */
+function validateRoadmapContract() {
   const roadmap = readText("docs/ROADMAP.md");
   const delivery = readText("docs/ROADMAP-DELIVERY.md");
+  const evidence = readText("docs/PROGRAM-EVIDENCE.md");
+
+  for (const expected of [
+    "GitHub issues and pull requests are the canonical delivery state",
+    "## Current Outcome Priorities",
+    "## Work Selection",
+    "## Evidence and Claim Boundary",
+    "## Historical Program",
+    "## Review and Recovery",
+    "An observation is not automatically an accepted task",
+    "Missing external adoption evidence limits claims",
+    "Program Decision 0006",
+    "issues?q=is%3Aissue%20state%3Aopen"
+  ]) {
+    if (!roadmap.includes(expected)) {
+      fail(`docs/ROADMAP.md is missing the living roadmap contract: ${expected}.`);
+    }
+  }
+
+  if (!/^Last reviewed: `\d{4}-\d{2}-\d{2}`\.$/m.test(roadmap)) {
+    fail("docs/ROADMAP.md must record its review date in YYYY-MM-DD form.");
+  }
+  if (roadmap.includes("All seven roadmap workstreams are complete") || /^### Phase \d+:/m.test(roadmap)) {
+    fail("docs/ROADMAP.md must not present the completed founding phases as current work.");
+  }
+  if (!delivery.startsWith("# Founding Roadmap Delivery Record") || !delivery.includes("roadmap issues #7 through #13") || !delivery.includes("are not claimed")) {
+    fail("docs/ROADMAP-DELIVERY.md must preserve the completed founding program and its unproven external outcomes.");
+  }
+  for (const expected of ["inform product claims and roadmap priorities", "does not become accepted work automatically"]) {
+    if (!evidence.includes(expected)) {
+      fail(`docs/PROGRAM-EVIDENCE.md is missing the evidence-to-roadmap boundary: ${expected}.`);
+    }
+  }
+}
+
+function validateFeedbackContract() {
   const feedback = readText("docs/FEEDBACK.md");
   const skill = readText("skills/coordinate-github-repositories/SKILL.md");
   const reference = readText("skills/coordinate-github-repositories/references/feedback-and-improvement.md");
   const form = readText(".github/ISSUE_TEMPLATE/skill_run_feedback.yml");
-
-  for (const expected of ["Missing external adoption evidence limits claims", "They are not hard dependencies", "Program Decision 0003"]) {
-    if (!roadmap.includes(expected)) {
-      fail(`docs/ROADMAP.md is missing the evidence and claim boundary: ${expected}.`);
-    }
-  }
-  if (!delivery.includes("roadmap issues #7 through #13") || !delivery.includes("are not claimed")) {
-    fail("docs/ROADMAP-DELIVERY.md must separate delivered repository work from unproven external outcomes.");
-  }
 
   // @constraints Feedback intake stays useful when a person knows only the observation; enrichment is agent or maintainer work.
   const requiredFields = form.match(/required:\s*true/g) ?? [];
@@ -960,6 +993,7 @@ validateInstallationContract();
 validateWorkflowMode();
 validateRepositoryContract();
 validateAgentSurfaceContract();
+validateRoadmapContract();
 validateFeedbackContract();
 validateDecisionRecords();
 validateWritingContract();

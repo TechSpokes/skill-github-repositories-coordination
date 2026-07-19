@@ -28,6 +28,12 @@ A change is done only when all applicable conditions pass:
 - User-facing guidance names the risk reduced by a security practice when that reason aids future judgment.
 - Release, roadmap, architecture, and decision trace links are updated.
 
+## Roadmap Governance
+
+The [Roadmap](ROADMAP.md) owns current product outcomes, selection rules, evidence boundaries, review ownership, and refresh triggers. GitHub issues and pull requests own exact delivery state, [Program Evidence](PROGRAM-EVIDENCE.md) owns publishable outcome observations, and the [Founding Roadmap Delivery Record](ROADMAP-DELIVERY.md) owns completed phase history.
+
+Do not copy an issue backlog into the roadmap or promote feedback into accepted work automatically. A maintainer accepts a candidate only after its benefit, evidence, target, authority, risk, completion evidence, and owner are clear enough for the proposed change.
+
 ## Contribution Review Rubric
 
 ### Architecture and Maintainability
@@ -52,7 +58,7 @@ Name the owner, maintenance burden, release impact, review trigger, and conflict
 
 ## Maintainer Model
 
-Maintainers are responsible for issue enrichment, feedback routing, security handling, classified decision records, fixture review, release validation, package inspection, and source refreshes. Agents should perform routine discovery, structuring, duplicate checks, routing, and verification when authorized so human attention stays focused on judgment and authority. Add a maintainer only after repeated, reviewable contributions demonstrate judgment across these responsibilities.
+Maintainers are responsible for roadmap review, issue enrichment, feedback routing, security handling, classified decision records, fixture review, release validation, package inspection, and source refreshes. Agents should perform routine discovery, structuring, duplicate checks, routing, and verification when authorized so human attention stays focused on judgment and authority. Add a maintainer only after repeated, reviewable contributions demonstrate judgment across these responsibilities.
 
 At least two authorized maintainers should be able to perform the release process before the project claims succession resilience. Record who may approve releases, handle private vulnerability reports, change repository settings, and supersede durable decisions without publishing personal schedules or credentials.
 

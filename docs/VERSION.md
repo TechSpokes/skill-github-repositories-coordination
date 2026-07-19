@@ -1,6 +1,6 @@
 # Version
 
-Current version: `1.10.0`.
+Current version: `1.11.0`.
 
 ## Source of Truth
 
@@ -20,4 +20,4 @@ The tag, `package.json`, both plugin manifests, the `CHANGELOG.md` heading, and 
 
 Host paths and preview features may change between skill releases. Their checked date belongs in `skills/coordinate-github-repositories/references/agent-capability-adapters.md`.
 
-Roadmap phases do not determine versions. Outreach and evidence collection may need no release, while a phase that changes the backward-compatible runtime contract may justify a minor release.
+Roadmap priorities and founding phase numbers do not determine versions. Outreach and evidence collection may need no release, while a backward-compatible runtime or maintainer workflow may justify a minor release.

@@ -1,6 +1,8 @@
-# Roadmap Delivery Record
+# Founding Roadmap Delivery Record
 
-## Claim
+## Historical Scope
+
+This record preserves the repository delivery completed under issue #6 and roadmap issues #7 through #13. Use the [Roadmap](ROADMAP.md) for current product direction and GitHub issues for active delivery state.
 
 The work maintained in this repository for roadmap issues #7 through #13 is complete. External adoption, launch attention, retention, portal recommendation, derivative work, outside contribution, and second maintainer evidence remain unknown or unobserved and are not claimed.
 
@@ -34,7 +36,7 @@ Delivered a free MIT core, release checksums and attestations, rules that preser
 
 ## Cross-Cutting Review
 
-Architecture remains portable with one canonical skill and references linked directly from `SKILL.md`. Security and privacy keep retrieved content untrusted, mutation authorized, feedback sanitized, and tests contained. Evaluation registers all affected scenarios. Teaching keeps human intake simple and delegates enrichment to agents. Governance keeps claims, evidence relationships, publication authority, and commercial interests explicit.
+Architecture remained portable with one canonical skill and references linked directly from `SKILL.md`. Security and privacy kept retrieved content untrusted, mutation authorized, feedback sanitized, and tests contained. Evaluation registered every affected scenario. Teaching kept human intake simple and delegated enrichment to agents. Governance kept claims, evidence relationships, publication authority, and commercial interests explicit.
 
 ## Deferred Outcome Evidence
 
@@ -42,4 +44,6 @@ Future observations may establish outside usefulness, attention, retention, reco
 
 ## Decision Basis
 
-[Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) separates repository delivery from outcome evidence. [Roadmap issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6) and the phase issues retain the complete public history.
+[Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) separated repository delivery from outcome evidence. [Program Decision 0006](decisions/0006-maintain-a-living-outcome-led-roadmap.md) preserved this record as history when the active roadmap moved to ongoing outcome-led maintenance.
+
+[Roadmap issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6) and the phase issues retain the complete public delivery history.

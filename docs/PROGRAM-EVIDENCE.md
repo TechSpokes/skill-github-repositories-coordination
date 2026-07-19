@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use these records to run the roadmap without turning attention, recruited praise, or maintainer judgment into false product evidence. Store only sanitized, consented, publishable information in the public repository.
+Use these records to inform product claims and roadmap priorities without turning attention, recruited praise, or maintainer judgment into false product evidence. Store only sanitized, consented, publishable information in the public repository.
 
 Keep raw volunteer repository maps, account topology, local paths, private issue content, credentials, and contact details outside this repository. Do not create a durable participant profile unless the participant approves its fields, location, visibility, owner, and retention.
 
@@ -172,6 +172,12 @@ phase_review:
 Unknown outcome evidence is valid and limits the claim rather than blocking unrelated delivery. A red quality result blocks the affected release or public action. Record accepted risk only with an accountable approver, reason, expiry or review trigger, and affected downstream work.
 
 Historical `phase_gate` records remain valid evidence of the decision model used at the time. Do not rewrite them; use `phase_review` for new decisions.
+
+## Roadmap Use
+
+Outcome evidence may change a claim, reveal a product gap, or change the order of roadmap priorities. It does not become accepted work automatically.
+
+When evidence justifies implementation, enrich one canonical GitHub issue with the intended benefit, scope, owner, authority, risks, completion evidence, and verification. Keep observation records here, current product direction in the [Roadmap](ROADMAP.md), exact delivery state in GitHub, and completed founding program history in the [Founding Roadmap Delivery Record](ROADMAP-DELIVERY.md).
 
 ## Baseline and Skill-Assisted Review
 

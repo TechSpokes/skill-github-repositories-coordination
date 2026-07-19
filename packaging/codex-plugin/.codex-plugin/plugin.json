@@ -1,6 +1,6 @@
 {
   "name": "coordinate-github-repositories",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "description": "GitHub repository access, benefit discovery, inventory, routing, coordination, and tool selection across code and non-code work.",
   "author": {
     "name": "TechSpokes",

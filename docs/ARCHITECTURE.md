@@ -68,11 +68,13 @@ The skill can execute user-authorized changes through available tools, but mutat
 
 ### Delivery and Evidence
 
-The [roadmap](ROADMAP.md) separates repository delivery from outcome evidence. Founding validation is documented in [Evidence That Shaped the Design](#evidence-that-shaped-the-design). Missing external adoption evidence limits claims and identifies future learning without freezing unrelated work whose authority, sources, safety boundary, dependencies, and validation are ready.
+The [roadmap](ROADMAP.md) maintains current outcome priorities and work-selection rules. GitHub issues and pull requests own active delivery state, while the [founding delivery record](ROADMAP-DELIVERY.md) preserves the completed phase program without presenting it as current work.
+
+Repository delivery remains separate from outcome evidence. Founding validation is documented in [Evidence That Shaped the Design](#evidence-that-shaped-the-design). Missing external adoption evidence limits claims and identifies future learning without freezing unrelated work whose authority, sources, safety boundary, dependencies, and validation are ready.
 
 Architecture, security, privacy, evaluation, teaching, governance, and release integrity remain quality controls. A red affected control blocks the release or public action; an unknown outside outcome does not compensate for that regression and is not itself a quality failure.
 
-Roadmap phase numbers do not determine release versions. Versions describe runtime and package contract impact, while adoption and other outcomes remain recorded in issues and evidence records.
+Founding roadmap phase numbers do not determine release versions. Versions describe runtime, maintainer workflow, and package contract impact, while adoption and other outcomes remain recorded in issues and evidence records.
 
 ### Teaching Without Runtime Bloat
 
@@ -159,7 +161,7 @@ Keep the main skill under 500 lines and direct references one level deep. Add a 
 
 Refresh `agent-capability-adapters.md` when hosts change skill paths, connector permissions, CLI publication, or access behavior. Revisit the core only when the goal, activation boundary, workflow, safety contract, feedback contract, or output contract changes.
 
-Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), and [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, contribution quality, roadmap claims, or release identity.
+Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md), and [Program Decision 0006](decisions/0006-maintain-a-living-outcome-led-roadmap.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, contribution quality, roadmap direction, or release identity.
 
 Decision records use one shared directory and identifier sequence with explicit Architecture, Program governance, Evidence classification, and Governance types. Current runtime, policy, evidence, and procedure documents remain the operational sources of truth; [Governance Decision 0005](decisions/0005-use-one-typed-decision-registry.md) records the taxonomy, history-preserving migration, and validation boundary.
 
