@@ -25,7 +25,7 @@ npm run package -- vX.Y.Z
 npm run release:verify-assets -- vX.Y.Z
 ```
 
-The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, the living roadmap and historical delivery boundary, feedback, decisions, writing-corpus structure, and the 500-line core limit. Decision validation derives canonical types and index coverage from marked blocks in `docs/decisions/README.md`, discovers records dynamically, and checks stable filenames, unique identifiers, matching titles, common sections, exact index membership, and stale links without hard-coding historical record names. The validator also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
+The validator checks metadata, direct links, required maintenance files, versions, manifests, release notes, workflow mode, Markdown structure, runtime path leakage, placeholders, installation-version synchronization, the living roadmap and historical delivery boundary, feedback, decisions, writing-corpus structure, and the 500-line core limit. Feedback validation requires the canonical label query in the README and maintainer guide and requires the operational evidence-to-fixture mapping in the guide and runtime reference; it does not inspect or prove remote issue labels or content. Decision validation derives canonical types and index coverage from marked blocks in `docs/decisions/README.md`, discovers records dynamically, and checks stable filenames, unique identifiers, matching titles, common sections, exact index membership, and stale links without hard-coding historical record names. The validator also runs `scripts/validate-evaluations.mjs`, which requires every activation row and scenario heading to have a stable registry entry and every required segment to retain coverage.
 
 For a release cut, `npm run release:preflight -- vX.Y.Z` snapshots every tracked and nonignored untracked candidate file, runs the complete final-tree gate, builds the assets twice, requires stable checksums, and verifies that the gate does not change the candidate tree.
 
@@ -45,7 +45,7 @@ Packaged Markdown, JSON, YAML, and text use LF regardless of host working-tree l
 
 ## Evaluation Contract
 
-`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 68 cases across 17 segments, including benefit discovery and writing quality alongside the existing access, safety, onboarding, goal, portfolio, and capability coverage.
+`tests/evals/cases.json` registers activation, behavior, and adversarial cases with stable IDs, segments, fixture coordinates, and baseline risks. The current registry checks 75 cases across 18 segments, including findability conventions, benefit discovery, and writing quality alongside the existing access, safety, onboarding, goal, portfolio, and capability coverage.
 
 `tests/fixtures/writing-corpus.json` contains reviewed repairs across runtime, security, evaluation, release, installation, and intake prose plus protected compounds, contrasts, commands, flags, URLs, identifiers, versions, and safety language. Validation checks schema, coverage, unique IDs, and rollout of each accepted revision. It does not score naturalness or infer authorship.
 
@@ -136,8 +136,10 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 - Activate for access, portfolio inventory, findability, routing, cross-repository coordination, lifecycle evidence, tool fit, feedback from a skill run, a first conversation after installation, and this skill's own installation or update.
 - Activate for software and non-code repository work.
 - Activate when the user asks which existing functionality or knowledge may contribute to an outcome or become difficult to reconstruct.
+- Activate when observed repository artifact naming, placement, or entry points prevent humans, agents, or tools from finding shared work.
 - Do not take over routine implementation inside one known repository.
 - Do not take over structural dependency tracing inside one known repository.
+- Do not take over local code naming, formatting, private-method, or API conventions inside one known repository.
 - Do not expand into general productivity, personnel, or psychology advice.
 - Do not accept destructive lifecycle conclusions based only on inactivity.
 
@@ -145,7 +147,20 @@ Version v1.0.1 was reviewed against the latest prior TechSpokes skill release an
 
 A static forward review on 2026-07-17 mapped each fixture to explicit runtime instructions. A fresh-agent comparison on 2026-07-18 exercised access denial, ambiguous portal tools, and beginner non-code teaching. See [the v1.1.0 forward evaluation](evaluations/v1.1.0.md) for sanitized historical outputs, iteration history, and proof boundaries.
 
-Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, benefit discovery, goal survival, workspace roles, temporary material, simple feedback intake, and controlled updates of this skill. Benefit cases cover functionality reuse, indirect chains, local and remote evidence, non-code reconstruction, confirmation and correction, conversation-only use, owner routing, and a no-supported-candidate result. The fixtures also require the optional writing quality pass to preserve meaning and protected literals without widening the skill into general writing work.
+Current behavior fixtures cover short onboarding, correction of tentative context, progressive discovery, findability convention proposals, benefit discovery, goal survival, workspace roles, temporary material, simple feedback intake, and controlled updates of this skill. Convention cases cover human discussion before adoption, exact pilot authority, consumer verification, portfolio promotion through reviewed snapshots, per-target revalidation, non-code evidence, and a no-change result. Benefit cases cover functionality reuse, indirect chains, local and remote evidence, non-code reconstruction, confirmation and correction, conversation-only use, owner routing, and a no-supported-candidate result. The fixtures also require the optional writing quality pass to preserve meaning and protected literals without widening the skill into general writing work.
+
+## v1.12.0 Findability Convention Forward Review
+
+On 2026-07-20, four fresh Codex subagents produced bare responses before reading the candidate runtime, then read only `SKILL.md` and the direct references required by their synthetic case. The tasks prohibited network access, credentials, external services, external repositories, unrelated file reads, and writes. The host did not expose a precise model identifier.
+
+- The proposal pass improved from four full and one partial invariant to all five invariants by making meaning, scope, exclusions, and the exact human decision explicit.
+- The exact pilot pass improved from two full and two partial invariants to all four invariants by separating convention acceptance from write authority and preserving missing target and consumer details as prerequisites.
+- The portfolio promotion pass met all five invariants, but its review exposed that local instructions were named after acceptance rather than before the proposal. The candidate reference was revised, and the same reviewer confirmed the sequencing repair.
+- The non-code no-change pass met all four invariants before and after loading the skill. The assisted response made the no-change threshold and the distinction between a retrieval path and supporting evidence explicit.
+
+The blanket-convention security prompt remained inert because the maintainer session exposes credentials, network access, external filesystem access, and mutating tools. Static review mapped the case to the human acceptance, target snapshot, per-target revalidation, local instruction, and exact write authority controls.
+
+The complete sanitized prompts, outputs, scores, configuration, repair, and limits are recorded in [the v1.12.0 forward evaluation](evaluations/v1.12.0.md). These passes show the candidate can produce the intended decisions in this observed configuration; they do not prove actual retrieval, user comprehension, portfolio fit, or behavior across other models and hosts.
 
 ## v1.7.0 Benefit Relationship Forward Review
 
@@ -239,7 +254,7 @@ This correction does not weaken a runtime-changing update check. A changed tree 
 
 ## Adversarial Review
 
-`tests/fixtures/adversarial-scenarios.md` covers untrusted repository instructions, private data in public output, private relationship promotion, access denial, ambiguous tools, broad writes, authority expansion, goal loss, silent profiling, repeated suggestions, commercial conflicts, and feedback publication. Review the affected adversarial cases for every security-relevant runtime change and every minor or major release.
+`tests/fixtures/adversarial-scenarios.md` covers untrusted repository instructions, private data in public output, private relationship promotion, access denial, ambiguous tools, broad writes, authority expansion, blanket convention adoption, goal loss, silent profiling, repeated suggestions, commercial conflicts, and feedback publication. Review the affected adversarial cases for every security-relevant runtime change and every minor or major release.
 
 Treat adversarial prompts as inert data. Deterministic validation reads fixtures as text and never executes their instructions. Run model-based security review only in a disposable sandbox with no credentials, network access, external filesystem access, or mutating tools, and verify after the run that no file or system outside the disposable workspace changed.
 

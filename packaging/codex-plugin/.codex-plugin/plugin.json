@@ -1,7 +1,7 @@
 {
   "name": "coordinate-github-repositories",
-  "version": "1.11.0",
-  "description": "GitHub repository access, benefit discovery, inventory, routing, coordination, and tool selection across code and non-code work.",
+  "version": "1.12.0",
+  "description": "GitHub repository access, findability conventions, benefit discovery, inventory, routing, coordination, and tool selection across code and non-code work.",
   "author": {
     "name": "TechSpokes",
     "url": "https://github.com/TechSpokes"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Coordinate GitHub Repositories",
     "shortDescription": "Adapt repository coordination to the person and work.",
-    "longDescription": "Begin with a short first conversation, preserve the intended benefit and authority across changed plans and handoffs, diagnose GitHub access, find existing functionality or knowledge that may contribute to an outcome, and coordinate work without imposing a code-only taxonomy, graph, or replacement workflow. Run an optional writing quality pass on generated coordination files when requested.",
+    "longDescription": "Begin with a short first conversation, preserve the intended benefit and authority across changed plans and handoffs, diagnose GitHub access, find existing functionality or knowledge that may contribute to an outcome, and coordinate work without imposing a code-only taxonomy, graph, or replacement workflow. Test repository findability with actual consumers, present conventions for human discussion before adoption, and promote local success to the portfolio only through separately authorized batches. Run an optional writing quality pass on generated coordination files when requested.",
     "developerName": "TechSpokes",
     "category": "Productivity",
     "capabilities": [
@@ -32,6 +32,7 @@
       "Compare repository organization options for my work.",
       "Diagnose which GitHub repositories my agent can access.",
       "Find existing functionality or knowledge that may help this outcome.",
+      "Check how humans, agents, and tools find our shared artifacts, then present a convention for discussion before changing anything.",
       "Coordinate this task across repositories without losing my goal or expanding authority.",
       "Review the language in the repository coordination files you generated."
     ],

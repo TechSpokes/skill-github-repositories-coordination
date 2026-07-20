@@ -18,6 +18,14 @@ Follow the active agent's system and user instructions, applicable organization 
 
 Host approval prompts do not replace the user's substantive authorization.
 
+## Convention Adoption
+
+Present a new or revised convention to a human who is authorized for its proposed scope before adoption. Discussion and acceptance do not authorize a write unless the review also names exact targets, actions, visibility, validation, and recovery.
+
+Treat bulk renaming, organization policy, shared templates, custom properties, automation, legacy migration, and writes across repositories as separate actions unless the approved contract includes them explicitly. Default to forward adoption and preserve legacy paths or aliases when compatibility requires them.
+
+For portfolio batches, bind authority to an explicit target list or stable reviewed snapshot. Before each mutation, revalidate stable identity, snapshot membership, visibility, local instructions, owner, consumers, and relevant current state. Skip and report a target whose conditions changed materially instead of expanding or replaying approval.
+
 ## Pre-Action Contract
 
 Before a mutation, state or verify:

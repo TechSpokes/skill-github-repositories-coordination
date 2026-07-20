@@ -33,6 +33,10 @@ I have repositories in my personal account and two organizations. Help me check 
 Other useful starts:
 
 ```text
+Our planning artifacts use different names and locations, so humans and agents miss them. Check how the actual consumers retrieve them, compare no change with a scoped convention, and present any proposed rule for my approval before changing files.
+```
+
+```text
 Help me coordinate a research paper, its dataset, experiments, and publication site across repositories.
 ```
 

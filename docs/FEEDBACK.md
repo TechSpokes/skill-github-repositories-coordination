@@ -4,6 +4,8 @@
 
 Open the [skill-run feedback form](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/new?template=skill_run_feedback.yml) and state what happened. That is the only required answer.
 
+Browse [all feedback issues](https://github.com/TechSpokes/skill-github-repositories-coordination/issues?q=is%3Aissue%20label%3Afeedback%20sort%3Aupdated-desc) through the canonical label view. GitHub Issues remain the intake, discussion, decision, and task surface.
+
 Useful feedback may describe a successful outcome, unexpected behavior, confusing guidance, a missing case, an access fallback, or a repeated friction point. You do not need to diagnose the cause, design the fix, reproduce a one-time observation, or complete an environment inventory before submitting it.
 
 ## Choose the Right Route
@@ -60,7 +62,9 @@ Optional: version, relevant capabilities, sanitized reproduction details, eviden
 
 Treat feedback as intake and learning evidence, not automatically as a bug, task, accepted solution, or product endorsement. Preserve participant relationship and consent, distinguish founding, recruited, unsolicited, and operational evidence, and avoid counting the same observation twice.
 
-For accepted feedback, define the goal and completion evidence, route implementation to the owning artifact, add or update a fixture when behavior should persist, and promote the durable lesson into the skill, documentation, validation, or code. Close the loop on the issue with what changed, what remains unknown, and the release or review trigger.
+For accepted feedback, define the goal and completion evidence, route implementation to the owning artifact, add or update a fixture when behavior should persist, and promote the durable lesson into the skill, documentation, validation, or code. An accepted operational report that validates or extends runtime behavior must link an existing fixture or propose a new fixture case. Maintainers own this mapping; reporters still need to provide only the factual observation.
+
+Close the loop on the issue with what changed, what remains unknown, and the release or review trigger. Do not create a feedback-artifact directory or duplicate issue state in documentation. Revisit a separate artifact collection only when several sanitized artifacts have a distinct owner, audience, retention rule, or lifecycle that GitHub Issues and the owning product files cannot support.
 
 ## Research Basis
 

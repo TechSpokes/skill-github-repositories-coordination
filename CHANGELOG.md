@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [v1.12.0]
+
+- Add a focused runtime workflow for repository findability and coordination conventions while keeping local code naming and formatting in narrower repository workflows.
+- Require human discussion before convention adoption, separate convention acceptance from exact write authority, and compare the current system and no change with scoped adaptation and a new rule.
+- Test named human, agent, and tool consumers when available, distinguish current, historical, generated, copied, and duplicate evidence, and keep content equivalence checks optional.
+- Promote successful local conventions only through a new portfolio-scoped proposal, reviewed target snapshot, per-target revalidation, explicit batches, and target-owned recovery.
+- Add Architecture Decision 0007, threat controls for authority drift and stale snapshots, and a seven-case findability evaluation segment for 75 cases across 18 segments.
+- Keep GitHub Issues as the feedback surface, add a canonical feedback label view, and require accepted operational runtime evidence to map to an existing or proposed fixture without burdening reporters.
+- Preserve conversation-only usefulness, existing conventions, forward adoption, local instructions, private topology, owner-maintained sources of truth, and the automation design gate.
+
 ## [v1.11.0]
 
 - Replace the completed seven-phase roadmap as current direction with an ordered, outcome-led roadmap for transferability, value reuse, host and release trust, and maintenance continuity.

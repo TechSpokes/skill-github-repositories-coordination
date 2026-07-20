@@ -30,7 +30,11 @@ GitHub access does not grant publication authority. Never submit feedback automa
 
 The initial issue is an observation, not an accepted task or diagnosis. Maintainers or explicitly delegated agents enrich accepted feedback with the smallest scope, completion evidence, affected fixtures, risk, and verification needed for implementation.
 
+An accepted operational report that validates or extends runtime behavior must link an existing fixture or propose a new fixture case. This mapping is maintainer enrichment and does not add a required field for the reporter.
+
 Promote durable learning into the runtime skill, a focused reference, documentation, validation, fixtures, or code. Keep issue status and decisions in GitHub rather than creating a second skill-owned backlog.
+
+Use the source repository's canonical `feedback` label query to browse reports. Do not add a feedback-artifact directory unless several sanitized artifacts develop a distinct owner, audience, retention rule, or lifecycle that GitHub Issues and the owning product files cannot support.
 
 ## Evidence Classification
 
