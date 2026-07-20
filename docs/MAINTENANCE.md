@@ -10,7 +10,7 @@ The package manifest is the current release identity source, with synchronized p
 
 The living roadmap owns current outcome priorities and work-selection rules. GitHub issues and pull requests own delivery state, while the founding delivery record preserves completed phase history.
 
-The evaluation registry covers activation, behavior, goal survival, feedback, access denial, write capability, platform fit, non-code work, writing quality, and adversarial containment. The writing corpus protects accepted repairs and legitimate technical language without adding grammar scoring. The threat model covers untrusted repository content, privileged tools, workspace and authority drift, private context, public output, and release artifacts.
+The evaluation registry covers activation, behavior, goal survival, feedback, findability conventions, access denial, write capability, platform fit, non-code work, writing quality, and adversarial containment. The writing corpus protects accepted repairs and legitimate technical language without adding grammar scoring. The threat model covers untrusted repository content, privileged tools, workspace and convention authority drift, stale snapshots, private context, public output, and release artifacts.
 
 Volatile host behavior remains isolated in the dated capability adapter. Release packages remain deterministic, carry SHA-256 checksums, and receive GitHub artifact attestations.
 

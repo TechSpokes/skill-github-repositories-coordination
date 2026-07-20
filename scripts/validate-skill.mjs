@@ -698,6 +698,7 @@ function validateRoadmapContract() {
 
 function validateFeedbackContract() {
   const feedback = readText("docs/FEEDBACK.md");
+  const readme = readText("README.md");
   const skill = readText("skills/coordinate-github-repositories/SKILL.md");
   const reference = readText("skills/coordinate-github-repositories/references/feedback-and-improvement.md");
   const form = readText(".github/ISSUE_TEMPLATE/skill_run_feedback.yml");
@@ -721,6 +722,21 @@ function validateFeedbackContract() {
     for (const expected of ["observation", "hypothesis", "exact public", "never submit feedback automatically"]) {
       if (!text.toLowerCase().includes(expected.toLowerCase())) {
         fail(`${file} is missing the human-agent feedback contract: ${expected}.`);
+      }
+    }
+  }
+
+  // @constraints Issue #48 keeps GitHub Issues canonical while making feedback discoverable and mapping accepted runtime evidence to fixtures.
+  const feedbackQuery = "issues?q=is%3Aissue%20label%3Afeedback%20sort%3Aupdated-desc";
+  for (const [file, text] of [["README.md", readme], ["docs/FEEDBACK.md", feedback]]) {
+    if (!text.includes(feedbackQuery)) {
+      fail(`${file} must link the canonical feedback label query.`);
+    }
+  }
+  for (const [file, text] of [["docs/FEEDBACK.md", feedback], ["skills/coordinate-github-repositories/references/feedback-and-improvement.md", reference]]) {
+    for (const expected of ["accepted operational report", "link an existing fixture", "propose a new fixture case"]) {
+      if (!text.toLowerCase().includes(expected.toLowerCase())) {
+        fail(`${file} is missing the operational feedback-to-fixture mapping: ${expected}.`);
       }
     }
   }

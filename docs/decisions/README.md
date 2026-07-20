@@ -72,6 +72,7 @@ The index is the discovery surface for every record. Validation discovers record
 - [Architecture Decision 0004](0004-separate-benefit-discovery-from-inventory.md) separates focused benefit discovery from inventory administration and persistent relationship storage.
 - [Governance Decision 0005](0005-use-one-typed-decision-registry.md) defines the shared taxonomy, procedure boundary, identifier policy, index, and validation contract.
 - [Program Decision 0006](0006-maintain-a-living-outcome-led-roadmap.md) replaces the completed phase list as current direction with a living outcome-led roadmap while GitHub retains delivery state.
+- [Architecture Decision 0007](0007-focus-findability-and-convention-adoption.md) adds a focused human-reviewed workflow for repository findability conventions and staged portfolio adoption.
 <!-- decision-index:end -->
 
 ## Maintainer Workflow
@@ -89,7 +90,9 @@ The v1.10.0 migration is additive. Records 0001 through 0004 retain their filena
 
 Version 1.11.0 adds Program Decision 0006 through the same registry without changing the taxonomy or historical records.
 
-Separate directories or per-type sequences would add navigation and collision rules without improving the current six-record collection. Revisit categorization only when the index becomes difficult to maintain or one type develops a distinct owner, audience, access boundary, or lifecycle.
+Version 1.12.0 adds Architecture Decision 0007 for focused convention adoption without changing the taxonomy or historical records.
+
+Separate directories or per-type sequences would add navigation and collision rules without improving the current seven-record collection. Revisit categorization only when the index becomes difficult to maintain or one type develops a distinct owner, audience, access boundary, or lifecycle.
 
 ## Research Basis
 

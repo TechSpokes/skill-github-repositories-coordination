@@ -121,6 +121,8 @@ Read [Source Provenance](docs/PROVENANCE.md) for the research and evidence polic
 
 Use the [skill-run feedback form](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/new?template=skill_run_feedback.yml) to record a useful outcome, unexpected behavior, confusing step, missing case, or access fallback. Only the observation requires a written answer; optional context can be added later.
 
+Browse [all feedback issues](https://github.com/TechSpokes/skill-github-repositories-coordination/issues?q=is%3Aissue%20label%3Afeedback%20sort%3Aupdated-desc) through the canonical GitHub label view. Issues remain the feedback and task surface; accepted lessons move into their owning runtime, documentation, fixture, validation, or code artifact.
+
 An agent may prepare and enrich a sanitized issue, but it must show the user the exact public text and receive approval before submission. Sensitive security findings follow the [private security route](SECURITY.md).
 
 Read [Feedback From Humans and Agents](docs/FEEDBACK.md) for privacy, routing, enrichment, and maintainer handling.
@@ -150,6 +152,6 @@ Generated ZIP files are written to `dist/assets/`.
 
 ## Status and License
 
-Current version: `1.11.0`.
+Current version: `1.12.0`.
 
 The repository is maintained by TechSpokes and licensed under [MIT](LICENSE).

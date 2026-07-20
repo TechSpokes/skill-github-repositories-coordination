@@ -91,6 +91,22 @@ A long run, summary, handoff, tool reward, or successful procedure may replace t
 
 An agent may mistake an evidence repository or advertised writable location for the active implementation workspace. It may also place temporary planning in canonical documentation or infer authority for another repository from a combined plan. Identify each workspace role, prefer the repository-designated temporary location, and require authority for every target and action. Verify these controls with the workspace and cross-repository authority scenarios.
 
+### Convention Authority Drift
+
+A useful local convention or positive human comment may be treated as authority to change every visible repository. Require a portfolio-scoped proposal, bind write authority to an explicit target list or stable reviewed snapshot, and revalidate each target before mutation. Verify the control with the convention proposal, portfolio promotion, and blanket adoption cases.
+
+### Stale Portfolio Snapshot
+
+Repository identity, visibility, ownership, instructions, consumers, or lifecycle may change after approval. Revalidate these conditions before each target mutation, skip materially changed targets, and require renewed review before expanding or retrying the affected scope.
+
+### Hidden Convention Authority
+
+Generated or local copies may silently replace the owner-maintained source, while bulk migration may break legacy consumers. Mark generated copies, record provenance and refresh ownership for necessary local copies, default to forward adoption, and approve migration separately with compatibility and recovery.
+
+### Private Rollout Topology
+
+A portfolio applicability report may combine public and private repository identities, owners, or exceptions into a public artifact. Keep target details on visibility-appropriate surfaces and review the exact report before publication.
+
 ### Meaning Lost in Generated Prose
 
 Generated prose can obscure authority, evidence, and scope through dense labels, hidden actors, formulaic safety claims, or repeated revision. Preserve those meanings before editing, use the smallest clear structure, and run the optional writing quality pass when the user reports a defect or requests review of generated coordination files. Verify the control with the writing corpus and behavior scenarios. Do not treat a style pattern as proof of authorship.

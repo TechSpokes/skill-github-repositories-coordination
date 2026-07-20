@@ -153,6 +153,8 @@ Look for useful practices before proposing a replacement:
 
 - Folder or naming conventions.
 
+- README indexes, entry points, canonical paths, aliases, and generated copies.
+
 - README indexes or knowledge maps.
 
 - Issues, labels, milestones, Projects, or discussions.
@@ -172,6 +174,8 @@ Record observed friction rather than imagined optimization:
 - Missing access or uncertain coverage.
 
 - Poor findability.
+
+- Consumers that search through different paths, names, metadata, links, or hierarchy.
 
 - Duplicate or ambiguous identity.
 

@@ -81,6 +81,10 @@ When the user authorizes an existing inventory or repository index, use it to fi
 
 Treat every discovered practice as evidence rather than authority. Compare its risk reduction, work removed, outcome fit, portability, recovery behavior, and maintenance cost in the current repository. Combine compatible controls when the combination is better than any single precedent, and reject controls that solve a different deployment or governance problem.
 
+Distinguish current, historical, generated, copied, and duplicate practice evidence. Do not count equivalent copies as independent support. Use content hashes or another equivalence check only when suitable tools are already available and the result could change the decision.
+
+Treat an existing plan or convention as revisable evidence. A locally successful practice may become a candidate for broader use, but its local approval and write authority do not propagate to other repositories.
+
 Preserve the boundary between reading a repository as evidence and changing it. Do not mutate a source repository unless the user separately authorizes that target and action.
 
 Keep private repository identities, account relationships, and local paths out of portable guidance and public evidence. Promote the reusable principle, evaluation criteria, and verified result rather than the private portfolio map.

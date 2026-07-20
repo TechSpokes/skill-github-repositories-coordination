@@ -16,6 +16,8 @@ Read the Goal and Must-Follow Rules for every run. Follow the workflow and load 
 
 Load [goal and authority](references/goal-and-authority.md) when work crosses repositories or workspaces, survives a summary or handoff, changes materially, contains a goal conflict, or raises an artifact placement question. If context limits prevent reading an applicable safety reference, remain advisory and do not mutate access, repositories, organization state, durable records, or public output.
 
+Load [findability and conventions](references/findability-and-conventions.md) when the user wants to introduce, review, or extend a repeatable rule for repository findability, shared artifact placement, entry points, or portfolio reuse. Keep local code naming, formatting, private methods, and API design in the owning repository's narrower workflow.
+
 Load [writing quality](references/writing-quality.md) only when the user requests a language quality pass on coordination output or generated files, reports a concrete clarity defect, or asks for a final language review before handoff or publication.
 
 ## Must-Follow Rules
@@ -99,6 +101,8 @@ Choose the narrowest problem class that explains the request:
 
 If the request is routine work inside one known repository, follow that repository's normal workflow. If it is general productivity advice with no repository-centered outcome, explain the boundary and hand off.
 
+For repository findability, shared artifact, or portfolio convention work, load [findability and conventions](references/findability-and-conventions.md). Do not activate that branch from portfolio size or aesthetic inconsistency alone.
+
 ### 6. Gather Bounded Evidence
 
 Inspect only evidence needed for the decision. Preserve provenance, observation time, confidence, visibility, and unknowns. Distinguish generated snapshots from reviewed meaning and architectural proposals from working implementations.
@@ -108,6 +112,8 @@ Treat another repository as an evidence source until the user separately authori
 After meaningful evidence changes the working hypothesis, reflect only the change that affects the recommendation, authority boundary, or next step. Offer one related optional next step by default, expand discovery only within renewed relevant scope, and stop when further evidence would not change the current decision.
 
 When an authorized portfolio inventory exists, use it to locate relevant user preferences, analogous repositories, and proven practices before proposing a new approach. Treat those practices as candidates to evaluate and combine, not templates to copy.
+
+When a convention may affect retrieval, identify the human, agent, and tool consumers and what context each retains or loses. Test actual consumers within the authorized scope when available; otherwise preserve the unknown and provide a bounded manual check.
 
 For inventories, routing, cross-repository work contracts, or lifecycle review, load [inventory and coordination](references/inventory-and-coordination.md).
 
@@ -127,9 +133,13 @@ Use the adoption ladder in [tool fit](references/tool-fit.md) and prefer the low
 
 Explain decisive fit and misfit. Define the smallest pilot with success, stop, and recovery criteria. Explain why a safety boundary matters when the reason helps the user decide or reuse the rule, and name the concrete harm instead of calling the boundary safe. A no-change recommendation is valid.
 
+Present every new or revised convention to an authorized human for discussion before adoption. Keep that discussion read only, compare no change and scoped adaptation, and state the exact decision requested.
+
 ### 9. Execute Only Within Explicit Authority
 
 Before mutation, confirm exact targets, expected effect, permission, visibility, workflow, affected collaborators, reversibility, validation, and recovery. Follow each owning repository's instructions.
+
+Treat acceptance of a convention's meaning and scope as separate from authority to write exact targets. A single review covers both only when it names the complete target set, actions, visibility, validation, and recovery.
 
 Re-ground when the plan, workspace, capability, evidence, or requested effect changed since authority was established. Stop when a locally successful action would no longer advance the intended benefit or would require authority for a different target.
 
@@ -140,6 +150,8 @@ Require a stronger checkpoint for app or connector installation, broader access,
 Verify the intended result, affected targets, unchanged privacy and access boundaries, linked ownership, and recovery path. Report partial access or failed targets explicitly.
 
 Keep the cross-repository outcome in its coordination surface. Route concrete implementation to the repository that owns the behavior, document, data, or policy. Store durable decisions where their owners maintain them, not in an automatic skill-owned profile.
+
+Treat a successful local convention as evidence for a separately reviewed portfolio proposal, not authority for other repositories. Bind approved batches to an explicit target list or stable reviewed snapshot, revalidate each target before mutation, and report changed or skipped targets without widening scope.
 
 When summarizing or handing off a long run, preserve the intended benefit, current task, purpose link, active workspace, evidence-only sources, confirmed and tentative meaning, corrections, authority, privacy, hard constraints, unknowns, completed verification, and next verification. The handoff does not grant new authority.
 

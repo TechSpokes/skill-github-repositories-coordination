@@ -56,6 +56,14 @@ Every recommendation compares the current system and no change with serious alte
 
 The adoption ladder starts with documentation and native practices. Shared automation or a manager application requires stable repeated need, ownership, limited permissions, observable failure, recovery, and a bounded pilot.
 
+### Conventions Before Implementation
+
+Repository findability and coordination conventions use a focused workflow instead of scattered naming advice. The workflow activates from observed retrieval ambiguity, inconsistent entry points, duplicated authority, incompatible consumers, or maintenance burden, not from portfolio size or aesthetic inconsistency alone.
+
+An authorized human reviews the proposed meaning and scope before adoption. Convention acceptance remains separate from authority to write exact targets. A successful local practice becomes evidence for a separately reviewed portfolio candidate, and approved portfolio batches bind to an explicit target list or stable reviewed snapshot with per-target revalidation.
+
+The workflow defaults to prose, forward adoption, actual consumer checks, existing owner-maintained sources of truth, and a manual pilot. [Architecture Decision 0007](decisions/0007-focus-findability-and-convention-adoption.md) records why the runtime uses a focused reference without adding a registry or automation interface.
+
 ### Human Judgment, Agent Administration
 
 Keep human work focused on intent, judgment, privacy review, risk acceptance, and authority. Let capable agents discover evidence, structure observations, enrich tasks, search duplicates, route owned work, and verify results.
@@ -90,6 +98,8 @@ The runtime may offer to prepare a sanitized observation after a useful or confu
 
 GitHub Issues remain the public intake and task surface. Durable learning moves into the runtime, references, documentation, fixtures, validation, or code instead of becoming a second skill-owned backlog.
 
+Accepted operational feedback that validates or extends runtime behavior links an existing fixture or proposes a new fixture case. Maintainers own that enrichment so the initial observation remains low friction.
+
 ## Runtime Structure
 
 The canonical runtime map is validated against the actual skill tree. Adding, removing, or renaming a runtime file requires this map and its direct `SKILL.md` routing to change together.
@@ -100,6 +110,7 @@ The canonical runtime map is validated against the actual skill tree. Adding, re
 - `skills/coordinate-github-repositories/references/benefit-relationships.md`
 - `skills/coordinate-github-repositories/references/context-calibration.md`
 - `skills/coordinate-github-repositories/references/feedback-and-improvement.md`
+- `skills/coordinate-github-repositories/references/findability-and-conventions.md`
 - `skills/coordinate-github-repositories/references/goal-and-authority.md`
 - `skills/coordinate-github-repositories/references/install-and-update-this-skill.md`
 - `skills/coordinate-github-repositories/references/inventory-and-coordination.md`
@@ -120,16 +131,18 @@ Fixtures define behavioral invariants for maintenance. The evaluation registry m
 2. Calibrate the smallest useful work context as a tentative and correctable working hypothesis.
 3. Describe repository purposes.
 4. Detect agent capabilities and access gaps.
-5. Shape the coordination problem.
-6. Gather bounded evidence, preserve uncertainty, and use the focused benefit workflow when existing functionality or knowledge may contribute without turning an evidence source into an implementation target.
+5. Shape the coordination problem and load the focused convention workflow when repository findability or shared artifact rules require review.
+6. Gather bounded evidence, preserve uncertainty, identify relevant consumers, and use the focused benefit workflow when existing functionality or knowledge may contribute without turning an evidence source into an implementation target.
 7. Compare the current system, no change, reuse, adaptation, new work, and other supported candidates.
-8. Recommend a reversible next step.
-9. Re-ground after a material change and execute only within the exact authority granted for each target.
-10. Verify, preserve the goal and authority through handoff, route implementation to its owning repository, offer one related optional next step, and provide simple feedback when the run exposes reusable learning.
+8. Recommend a reversible next step and present any new or revised convention for human discussion before adoption.
+9. Re-ground after a material change, separate convention acceptance from write authority, and execute only within the exact authority granted for each target.
+10. Verify consumers and target results, preserve the goal and authority through handoff, route implementation to its owning repository, promote local success only through a new portfolio proposal, offer one related optional next step, and provide simple feedback when the run exposes reusable learning.
 
 ## Evidence Model
 
 Important claims preserve source, observation time, confidence, visibility, participant relationship, and unknowns. Stable remote identifiers are preferred for inventory identity. Local paths remain observations. Generated discovery data stays separate from reviewed semantic meaning.
+
+Convention evidence distinguishes current, historical, generated, copied, and duplicate material. Equivalent copies do not become independent evidence, and consumer checks record which path, name, links, metadata, hierarchy, history, and visibility each consumer can actually use.
 
 A benefit candidate preserves the observed capability or knowledge separately from the inferred contribution. Confirmation accepts meaning only for the current decision and does not change evidence visibility or authorize action. Every hop in an indirect chain retains its own evidence state.
 
@@ -151,6 +164,8 @@ Research for issue #27 distinguished structural discovery from benefit meaning. 
 
 A dedicated repository feedback implementation demonstrated the boundary between observations and tasks: sanitize feedback, separate evidence from hypothesis, keep issue state canonical, and promote durable learning into normal repository artifacts.
 
+Issue #48 supplied operational evidence about a retrieval-aware planning convention. The human requested an IDE and terminal retrieval test, and the agent adapted the plan from those results. The agent independently deduplicated equivalent material, separated current from historical authority, treated an existing plan as revisable evidence, and ordered pilots before schemas. This release generalizes those observed behaviors while adding human proposal and portfolio adoption mechanics that were not claimed as observed initiative.
+
 The supplied research on communication among humans, agents, and tools explains why the pattern works. Communication across those boundaries can lose goals, context, and meaning through limited attention and transport. Feedback should therefore preserve the goal, factual observation, uncertainty, actor boundary, and verification while using progressive disclosure.
 
 No private repository list, local path, account configuration, organization identity, raw record, or intake document is part of the public skill.
@@ -161,7 +176,7 @@ Keep the main skill under 500 lines and direct references one level deep. Add a 
 
 Refresh `agent-capability-adapters.md` when hosts change skill paths, connector permissions, CLI publication, or access behavior. Revisit the core only when the goal, activation boundary, workflow, safety contract, feedback contract, or output contract changes.
 
-Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md), and [Program Decision 0006](decisions/0006-maintain-a-living-outcome-led-roadmap.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, contribution quality, roadmap direction, or release identity.
+Use the [threat model](THREAT-MODEL.md), [governance contract](GOVERNANCE.md), [maintenance health](MAINTENANCE.md), [decision classification](decisions/README.md), [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md), [Program Decision 0006](decisions/0006-maintain-a-living-outcome-led-roadmap.md), and [Architecture Decision 0007](decisions/0007-focus-findability-and-convention-adoption.md) when a change affects privileged tools, public output, feedback, portal handoff, recommendation independence, convention adoption, contribution quality, roadmap direction, or release identity.
 
 Decision records use one shared directory and identifier sequence with explicit Architecture, Program governance, Evidence classification, and Governance types. Current runtime, policy, evidence, and procedure documents remain the operational sources of truth; [Governance Decision 0005](decisions/0005-use-one-typed-decision-registry.md) records the taxonomy, history-preserving migration, and validation boundary.
 
