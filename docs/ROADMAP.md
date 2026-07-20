@@ -1,106 +1,65 @@
 # Roadmap
 
-## Program Goal
+## Purpose
 
-Make Coordinate GitHub Repositories a trusted, useful, free, and maintainable option for repository coordination across code and non-code work. Growth is valid only when the runtime, security posture, evaluation evidence, teaching value, and governance remain healthy.
+This living roadmap states the current product outcomes and the rules used to select work after the founding phase program finished. GitHub issues and pull requests are the canonical delivery state; this document does not copy their task status.
 
-This roadmap implements [issue #6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6). It transforms the attached strategy into a delivery program guided by evidence that fits the current portable architecture and release process.
+Last reviewed: `2026-07-19`.
 
-## Scope Boundary
+Owner: repository maintainers.
 
-The repository can supply runtime behavior, tests, documentation, release controls, and evidence formats. It cannot manufacture volunteer insight, unsolicited adoption, third-party recommendations, outside contributions, or additional maintainers. Missing external adoption evidence limits claims and identifies future learning work, but it does not freeze unrelated repository work that is authorized, sourced, contained, and testable.
+## Product Goal
 
-Use the founding portfolio and its roughly 340 repository observations as deep product evidence while preserving its disclosed builder and maintainer relationship. This founding validation is documented in [Architecture](ARCHITECTURE.md#evidence-that-shaped-the-design). Do not relabel recruited or founding evidence as unsolicited.
+Help people and agents preserve and reuse repository-centered value with less human administration while maintaining a portable, trustworthy, free, and maintainable skill that respects authority, privacy, evidence integrity, ownership, and existing workflows.
 
-## Operating Model
+## Current Outcome Priorities
 
-### Execution Readiness
+The priorities are ordered. A lower priority may move first when it addresses an urgent quality risk or when the higher priority lacks evidence, authority, or an implementation owner.
 
-Start any roadmap workstream when its authority, source, privacy, security, dependency, and validation needs are satisfied. Do not require a star, issue, testimonial, recommendation, outside contribution, or second maintainer before beginning authorized repository work that does not depend on that person.
+### 1. Establish Transferability Through Real Use
 
-### Outcome Evidence
+Learn whether people beyond the founding maintainer can reach useful outcomes across software, documentation, writing, research, data, operations, and mixed work. Prefer observations from real runs, preserve participant relationships, and improve the product without presenting recruited or founding evidence as unsolicited adoption.
 
-Classify outcome evidence as founding, recruited, unsolicited, operational, or mixed. Record the source, observation window, participant relationship, limitations, owner, privacy review, and release identity. Outcome evidence changes claim strength and learning priorities; it does not determine whether unrelated implementation may proceed.
+### 2. Improve Value Preservation and Reuse
 
-### Quality Review
+Reduce the effort required to find, understand, apply, and preserve useful functionality, knowledge, practices, and relationships across repositories. Prioritize observed gaps that the portable reasoning layer can solve without imposing a taxonomy, persistent profile, graph, connector, portal, or manager application.
 
-Review all five cross-cutting tracks for every affected release or public action:
+### 3. Maintain Trust Across Hosts and Releases
 
-- Architecture and maintainability.
-- Security and privacy.
-- Agent behavior and evaluation.
-- Teaching and user learning.
-- Governance, contribution quality, and sustainability.
+Keep conversation-only usefulness, least privilege, privacy, untrusted-content handling, evaluation coverage, package identity, installation paths, and recovery healthy as agent hosts and GitHub capabilities change. Treat a red security, privacy, evaluation, release-integrity, or values result as a blocker for the affected release or public action.
 
-A red security, privacy, evaluation, release-integrity, or values result blocks the affected release or public action until corrected or accepted by an accountable reviewer. An unknown adoption result does not compensate for a quality regression, and a quality result does not prove adoption.
+### 4. Reduce Maintenance and Continuity Risk
 
-### Completion Rule
+Keep decisions, tests, documentation, release controls, support routes, and ownership understandable enough for another qualified maintainer to review and operate. Simplify recurring work before adding automation, and do not claim succession resilience until at least two authorized maintainers can perform the release process.
 
-Close a phase issue when its feasible repository deliverables are complete, any deferred work has a recorded reason and trigger, affected checks pass, and the public claim matches the available evidence. Continue collecting outcome observations through evidence records without reopening completed implementation by default.
+## Work Selection
 
-## Roadmap Workstreams
+Candidate work may come from a real run, a sanitized feedback observation, a security report, an evaluation failure, a host change, a release failure, a maintainer review, or outcome evidence. An observation is not automatically an accepted task.
 
-The phase numbers preserve the strategy's learning sequence. They are not hard dependencies between repository workstreams.
+Compare each candidate with the current system and no change. Rank it by expected user benefit, evidence quality, affected risk, frequency, reach across work types, urgency, reversibility, maintenance burden, dependency readiness, and available ownership.
 
-### Phase 0: Foundation
+Accept work only when the target, authority, source, privacy boundary, security impact, dependencies, completion evidence, and owner are clear enough for the proposed change. Record accepted work in a GitHub issue and route implementation through a pull request.
 
-[Issue #7](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/7) establishes trust, evaluation, and evidence from the founding outcome. The founding builder used the skill through an agent on the real portfolio that motivated the repository and confirmed a previously unnoticed insight. Phase 0 is complete with the participant relationship and limitations recorded.
+Use the repository's [open issues](https://github.com/TechSpokes/skill-github-repositories-coordination/issues?q=is%3Aissue%20state%3Aopen) for current work. An empty issue list may mean that no candidate is ready; it does not justify inventing work or weakening evidence.
 
-### Phase 1: Proof
+## Evidence and Claim Boundary
 
-[Issue #8](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/8) makes the founding result transferable through a reviewed case study, discoverable security guidance, newcomer entry points, and honest evidence records. Unsolicited signals remain useful later observations and do not block delivery.
+Repository delivery and outcome evidence remain separate under [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md). Missing external adoption evidence limits claims. It does not block unrelated repository work whose authority, inputs, safety boundary, dependencies, and validation are ready.
 
-### Phase 2: Secure Launch
+Classify outcome evidence as founding, recruited, unsolicited, operational, or mixed. Record publishable observations through [Program Evidence](PROGRAM-EVIDENCE.md), and use [Feedback From Humans and Agents](FEEDBACK.md) for low-friction intake. Neither surface grants publication authority or promotes an observation into accepted work.
 
-[Issue #9](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/9) prepares a secure coordinated launch with bounded messages, verified proof links, support ownership, correction paths, and measurement records. A red security or evaluation board blocks the launch action; missing attention does not block preparation or later product work.
+Quality evidence and outcome evidence cannot substitute for each other. A passing validator does not prove user benefit, and an adoption signal does not excuse a security, privacy, evaluation, or release-integrity regression.
 
-### Phase 3: Teaching
+## Historical Program
 
-[Issue #10](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/10) teaches beginners and non-code users through installation, first run, security concepts, work habits, accessibility criteria, and comprehension evaluations. Outside completion and return behavior remain ongoing learning evidence.
+Issue [#6](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/6) and phase issues #7 through #13 delivered the founding seven-phase program. The [Founding Roadmap Delivery Record](ROADMAP-DELIVERY.md) preserves what the repository delivered and which external outcomes remained unproven.
 
-### Phase 4: Portal Interoperability
+The completed phase program is evidence and history, not the active backlog. [Program Decision 0006](decisions/0006-maintain-a-living-outcome-led-roadmap.md) records the transition to this living outcome-led model.
 
-[Issue #11](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/11) defines honest portal positioning, bounded handoff, fully qualified tool routing, and graceful access failure. Adoption by an engineering organization remains an outcome observation rather than an implementation dependency.
+## Review and Recovery
 
-### Phase 5: Skill Constellation
+Review this roadmap when evidence changes a priority, accepted work does not map to an outcome, open issues repeatedly drift from the stated direction, a serious quality finding appears, a material host or maintainer change occurs, or the selection model creates unnecessary administration.
 
-[Issue #12](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/12) defines contribution quality, decision records, and a minimal cross-skill handoff contract. Complementary skills are created only when a distinct repeated job has enough evidence; the absence of a justified new skill is a valid no-change result.
+Review the roadmap during every minor or major release that changes product direction or the maintainer workflow. Change the review date only after reassessing the priorities, selection rules, evidence boundary, ownership, and historical links.
 
-### Phase 6: Sustainability
-
-[Issue #13](https://github.com/TechSpokes/skill-github-repositories-coordination/issues/13) protects the free core and establishes recommendation independence, release provenance, health review, succession responsibilities, and continuous maintenance. Current maintainer coverage remains a disclosed continuity risk, but the documented controls still reduce that risk.
-
-## Work Scheduling
-
-Prioritize by user value, risk, dependency, and reversibility. Threat modeling, evaluations, teaching, contribution review, release provenance, governance, proof presentation, launch preparation, and interoperability may proceed in parallel when their sources and authority are ready.
-
-Public actions still require their own safety, consent, target, community rules, and correction checks. Completing a repository artifact never proves that an external audience adopted or recommended the skill.
-
-## Evidence Records
-
-Use [Program Evidence](PROGRAM-EVIDENCE.md) for volunteer trials, case studies, launch observations, phase reviews, and accepted risks. Keep founding, recruited, unsolicited, and operational evidence distinct, and keep generated snapshots separate from reviewed meaning.
-
-Every active workstream needs a named owner. Every completion or claim decision needs a reviewer, evidence, status, date, limitations, downstream action, and review trigger.
-
-## Release Strategy
-
-Do not assign one version per phase automatically. Use semantic versioning according to behavior impact:
-
-- Use a patch release for corrections, refreshed volatile guidance, documentation fixes, or packaging fixes that do not intentionally change the runtime contract.
-- Use a minor release for a backward-compatible workflow, reference, evaluation behavior, or optional interoperability capability.
-- Use a major release for an activation, required-input, safety, workflow, or output-contract break.
-- Use no release for outreach or evidence collection when the installable runtime is unchanged.
-
-Version `1.1.0` establishes foundations shared across the phases: executable evaluation coverage, adversarial cases, threat modeling, teaching guidance, portal handoff, governance rules, checksums, and release provenance.
-
-## Current State
-
-All seven roadmap workstreams are complete for the scope maintained in this repository and documented in [Roadmap Delivery](ROADMAP-DELIVERY.md). Phase 0 has founding product evidence from the real multi-organization portfolio. Later external adoption, attention, retention, recommendation, contribution, and maintainer observations remain open evidence opportunities rather than delivery blockers.
-
-This status does not claim that outside adoption, a coordinated external launch, portal recommendation, derivative work, or succession resilience has occurred. The repository records those unknowns explicitly and will update them when evidence appears.
-
-## Review Triggers
-
-Review this roadmap after a completion decision, serious security report, evaluation regression, material host change, maintainer change, conflict in a recommendation, contradictory external evidence, or evidence that a workstream objective no longer fits users.
-
-Preserve prior issue and decision history when the roadmap changes. Update the phase issue, this file, and any affected program, evidence, governance, or architecture decision in the same change. [Program Decision 0003](decisions/0003-separate-delivery-from-outcome-evidence.md) records why external adoption evidence now limits claims instead of blocking repository delivery.
+Preserve issue, decision, and release history when direction changes. Use a new decision record when the selection model or evidence boundary changes materially; use an ordinary roadmap edit when evidence changes priority without changing the durable model. Git history and the founding delivery record provide recovery if a revision loses necessary context.

@@ -2,11 +2,13 @@
 
 ## Purpose
 
-Keep the runtime, evidence, security, releases, and maintainer responsibilities reviewable without turning maintenance into ceremony.
+Keep the roadmap, runtime, evidence, security, releases, and maintainer responsibilities reviewable without turning maintenance into ceremony.
 
 ## Current Health
 
 The package manifest is the current release identity source, with synchronized plugin manifests, changelog, version policy, and release notes. The canonical portable runtime remains useful with conversation alone, every focused reference is linked directly from `SKILL.md`, and deterministic Node.js validation checks the maintained agent surface against the actual runtime tree.
+
+The living roadmap owns current outcome priorities and work-selection rules. GitHub issues and pull requests own delivery state, while the founding delivery record preserves completed phase history.
 
 The evaluation registry covers activation, behavior, goal survival, feedback, access denial, write capability, platform fit, non-code work, writing quality, and adversarial containment. The writing corpus protects accepted repairs and legitimate technical language without adding grammar scoring. The threat model covers untrusted repository content, privileged tools, workspace and authority drift, private context, public output, and release artifacts.
 
@@ -20,7 +22,7 @@ The missing second maintainer is a continuity risk, not a reason to withhold doc
 
 ## Review Cadence
 
-Review maintenance after a runtime release, security report, evaluation regression, material writing defect, goal or authority drift, host capability change, stale public source, package mismatch, repeated feedback pattern, maintainer change, or failed release handoff.
+Review maintenance after a product-direction change, runtime release, security report, evaluation regression, material writing defect, goal or authority drift, host capability change, stale public source, package mismatch, repeated feedback pattern, maintainer change, or failed release handoff.
 
 ## Fast Health Check
 
@@ -28,4 +30,4 @@ Run `npm run validate`, package the intended tag, inspect all three ZIPs and `SH
 
 ## Ownership
 
-Maintainers own issue enrichment, feedback routing, security handling, decision records, fixture review, release approval, package inspection, and correction. Agents may prepare and verify this work within explicit authority, leaving humans to make publication, privacy, security-acceptance, and governance decisions.
+Maintainers own roadmap review, issue enrichment, feedback routing, security handling, decision records, fixture review, release approval, package inspection, and correction. Agents may prepare and verify this work within explicit authority, leaving humans to make publication, privacy, security-acceptance, and governance decisions.

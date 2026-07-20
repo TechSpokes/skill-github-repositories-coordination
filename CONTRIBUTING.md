@@ -45,7 +45,7 @@ Explain:
 - Which fixtures changed or still pass.
 - Commands and manual checks used for validation.
 - Product facts that need a source date or future refresh.
-- Affected roadmap phase, threat, evaluation case, decision, and release links.
+- Affected roadmap direction, threat, evaluation case, decision, and release links.
 
 ## Source and Privacy Rules
 

@@ -71,6 +71,7 @@ The index is the discovery surface for every record. Validation discovers record
 - [Program Decision 0003](0003-separate-delivery-from-outcome-evidence.md) separates repository delivery from external outcome evidence.
 - [Architecture Decision 0004](0004-separate-benefit-discovery-from-inventory.md) separates focused benefit discovery from inventory administration and persistent relationship storage.
 - [Governance Decision 0005](0005-use-one-typed-decision-registry.md) defines the shared taxonomy, procedure boundary, identifier policy, index, and validation contract.
+- [Program Decision 0006](0006-maintain-a-living-outcome-led-roadmap.md) replaces the completed phase list as current direction with a living outcome-led roadmap while GitHub retains delivery state.
 <!-- decision-index:end -->
 
 ## Maintainer Workflow
@@ -86,7 +87,9 @@ The index is the discovery surface for every record. Validation discovers record
 
 The v1.10.0 migration is additive. Records 0001 through 0004 retain their filenames, identifiers, type labels, links, and history. Record 0005 adds the previously documented but unused `Governance` type and formalizes the shared registry.
 
-Separate directories or per-type sequences would add navigation and collision rules without improving the current five-record collection. Revisit categorization only when the index becomes difficult to maintain or one type develops a distinct owner, audience, access boundary, or lifecycle.
+Version 1.11.0 adds Program Decision 0006 through the same registry without changing the taxonomy or historical records.
+
+Separate directories or per-type sequences would add navigation and collision rules without improving the current six-record collection. Revisit categorization only when the index becomes difficult to maintain or one type develops a distinct owner, audience, access boundary, or lifecycle.
 
 ## Research Basis
 

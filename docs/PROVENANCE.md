@@ -4,7 +4,7 @@
 
 The skill was designed from user requirements for adaptive repository coordination across personal accounts, organizations, non-code work, coding agents, and general agents. The user required context-sensitive tool advice that does not harm established workflows or silently persist a personal profile.
 
-Issue #6 supplied a public strategy attachment with market observations, seven growth phases, and five cross-cutting quality tracks. The repository preserves the durable phase objectives and quality controls while separating repository deliverables from external evidence that maintainers cannot manufacture.
+Issue #6 supplied a public strategy attachment with market observations, seven growth phases, and five cross-cutting quality tracks. The repository preserves the completed program, durable outcome priorities, and quality controls while separating repository deliverables from external evidence that maintainers cannot manufacture.
 
 ## Founding Lineage
 
@@ -76,9 +76,11 @@ The complete research notes, confidence records, contradictions, and source extr
 
 ## Roadmap Source Treatment
 
-The issue #6 attachment is authoritative for the requested program direction, not for every market or security claim it cites. Phase plans use its durable objectives, safety principles, and evidence controls. Publishable market claims, community rules, product behavior, pricing, and host capabilities must be verified from current primary sources when they affect an action.
+The issue #6 attachment was authoritative for the requested founding program direction, not for every market or security claim it cited. The completed phase plans preserved its durable objectives, safety principles, and evidence controls. Publishable market claims, community rules, product behavior, pricing, and host capabilities still require current primary sources when they affect an action.
 
-The attachment is not installed as runtime content. The reviewed program contract lives in `docs/ROADMAP.md`, phase plans live in issues #7 through #13, and the classified program decisions live in `docs/decisions/`.
+The attachment is not installed as runtime content. The completed phase plans remain in issues #7 through #13, the delivery result remains in `docs/ROADMAP-DELIVERY.md`, and the classified program decisions remain in `docs/decisions/`.
+
+Issue #46 and Program Decision 0006 moved `docs/ROADMAP.md` to a living outcome-led maintenance model on 2026-07-19. This repository audit used public files, issues, pull requests, tags, and release history; it did not inspect an unnamed private portfolio inventory or another repository.
 
 ## Installation Usability Comparison
 

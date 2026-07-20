@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [v1.11.0]
+
+- Replace the completed seven-phase roadmap as current direction with an ordered, outcome-led roadmap for transferability, value reuse, host and release trust, and maintenance continuity.
+- Keep exact delivery state in GitHub issues and pull requests, preserve the founding phase program in its historical delivery record, and avoid a duplicated Markdown backlog.
+- Define how observations, outcome evidence, quality findings, and maintainer reviews become candidates without promoting them into accepted work automatically.
+- Add Program Decision 0006 for the living roadmap, canonical delivery state, evidence boundary, ownership, review triggers, and recovery path.
+- Validate current roadmap structure, review metadata, open-issue routing, historical phase separation, and the evidence-to-priority boundary instead of requiring stale completion phrases.
+- Preserve runtime activation, user-facing coordination behavior, safety and permission boundaries, fixtures, package formats, and conversation-only usefulness.
+
 ## [v1.10.0]
 
 - Define Architecture, Program governance, Evidence classification, and Governance decision types with a creation test that leaves ordinary maintenance in its owning guide.
